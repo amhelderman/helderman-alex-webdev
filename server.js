@@ -8,4 +8,7 @@ app.use(express.static(__dirname + '/public'));
 
 // require("./test/app");
 
-app.listen(3000);
+// from piazza thread 641
+port = process.env.PORT || 3000;
+app.listen(port);
+
