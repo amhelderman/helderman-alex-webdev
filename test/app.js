@@ -1,9 +1,12 @@
 var app = require('../express');
 var q = require('q');
 
-app.get("/api/test", findAllMessages);
-app.post("/api/test", createMessage);
-app.delete("/api/test/:id", deleteMessage);
+// app.get("/api/test", findAllMessages);
+// app.post("/api/test", createMessage);
+// app.delete("/api/test/:id", deleteMessage);
+app.get("/public/test", findAllMessages);
+app.post("/public/test", createMessage);
+app.delete("/public/test/:id", deleteMessage);
 
 var connectionString = 'mongodb://127.0.0.1:27017/test'; // for local
 if(process.env.MLAB_USERNAME_WEBDEV) { // check if running remotely
