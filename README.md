@@ -18,11 +18,11 @@ https://helderman-alex-webdev.herokuapp.com/
 
 ## The project website can be found here:
 
-<Not available yet>
+Not available yet
 
 ## The assignments can be found here:
 
-<Not available yet>
+Not available yet
 
 
 # web-dev-template
