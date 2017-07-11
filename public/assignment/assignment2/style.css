@@ -5,8 +5,27 @@ ul{
 
 }
 
+
+button.Login{
+    background-color: green;
+}
+
+*{
+    padding: 10px;
+}
 li{
     float:left;
     padding: 10px 10px;
 }
 
+header{
+    background-color: powderblue;
+}
+footer{
+    background-color: powderblue;
+}
+
+form{
+    display: inline;
+    text-align: center;
+}

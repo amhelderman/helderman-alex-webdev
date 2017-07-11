@@ -1,34 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
     <link href="style.css" rel="stylesheet" />
 
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <body>
-
-<h1>Login</h1>
-
-
-<!--- Navigation Bar --->
-<ul>
+<header>
+    <h1>Login</h1>
+</header>
 
 
+<div class="controller-fluid">
+    <form>
+
+        <label>Username:</label>
+            <input type="text" name="username" class="form-control" id="username">
+
+        <label>Password:</label>
+            <input type="password" name="password" class="form-control" id="password">
 
 
-    <li>
-        <a href="profile.html">profile</a>
-    </li>
-    <li>
-        <a href="register.html">register</a>
-    </li>
+        <a class="btn btn-default btn-block"
+           name="Login"
+           href="profile.html"
+           role="button">Login</a>
 
+        <a class="btn btn-default btn-block"
+           name="Register"
+           href="register.html"
+           role="button">Register</a>
 
-</ul>
-
-
+    </form>
+</div>
 
 </body>
 </html>
