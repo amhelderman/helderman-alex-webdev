@@ -2,30 +2,100 @@
 <html lang="en">
 <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-
+    <link href="css/styles.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <title>New Website</title>
 </head>
 <body>
 
-<h1>New Website</h1>
+
+    <!-- Nav Bar -->
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    New Website
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!--<div class="amh-sidebar-nav">-->
+<div class="row">
+    <div class="col-xs-6">
 
 
-<!--- Navigation Bar --->
-<ul>
+        <div class="container-fluid amh-padded">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#">
+                        Blogging App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Address Book App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Script Testing App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Blogger
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-xs-6">
+
+        <div class="container-fluid amh-padded">
 
 
-    <li>
-        <a href="profile.html">profile</a>
-    </li>
 
+            <form class="form-signin">
+                <label for="name">Name</label>
+                <input type="text"
+                       name="name"
+                       id="name"
+                       class="form-control"
+                       placeholder="BlogSite">
 
-    <li>
-        <a href="website-list.html">website-list</a>
-    </li>
+                <label for="description">Description</label>
+                <textarea type="text"
+                       name="description"
+                       id="description"
+                       class="form-control"
+                          placeholder="Lorem ipsum..."></textarea>
 
+            </form>
+        </div>
 
-</ul>
+    </div>
+
+</div>
+    <!--</div>-->
+
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">
+                    <a href="profile.html">Insert picture of man here</a>
+                </a>
+            </div>
+        </div>
+    </nav>
+
 
 
 
