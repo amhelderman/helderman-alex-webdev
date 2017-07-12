@@ -3,43 +3,56 @@
 <head>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="style.css" rel="stylesheet" />
-
-
-
     <meta charset="UTF-8">
     <title>Profile</title>
 </head>
 <body>
 
-<header>
-    <h1>Profile</h1>
-</header>
+<!-- Nav Bar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Profile
+            </a>
+        </div>
+    </div>
+</nav>
 
+<!-- Form -->
+<div class="container-fluid">
+    <form>
 
-<!--- Navigation Bar --->
-<ul>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username">
 
+        <label for="password">Email</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Password">
 
+        <label for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Alice">
 
+        <label for="lastName">Last Name</label>
+        <input type="text" name="firstName" id="lastName" class="form-control" placeholder="Smith">
 
-    <li>
-        <a href="login.html">login</a>
-    </li>
-    <li>
-        <a href="register.html">register</a>
-    </li>
+        <a class="btn btn-default btn-block"
+           id="websites"
+           name="Websites"
+           href="website-list.html"
+           role="button">Websites</a>
 
+        <a class="btn btn-default btn-block"
+           id="Logout"
+           name="Logout"
+           href="login.html"
+           role="button">Log out</a>
+    </form>
+</div>
 
-    <li>
-        <a href="website-list.html">website-list</a>
-    </li>
+<div class="navbar navbar-fixed-bottom">
+    <a href="profile.html">Insert picture of man here</a>
+</div>
 
-
-</ul>
-
-<footer>
-    <a href="register.html">register</a>
-</footer>
 
 </body>
 </html>

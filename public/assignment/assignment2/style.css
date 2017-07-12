@@ -2,27 +2,27 @@ ul{
     list-style-type: none;
     margin:0;
     overflow:hidden;
-
 }
 
-
-button.Login{
-    background-color: green;
+a.btn#websites{
+    background-color: lawngreen;
+}
+a.btn#Logout{
+    background-color: red;
 }
 
-*{
-    padding: 10px;
+body {
+    padding-top: 65px;
+    padding-bottom: 65px;
 }
 li{
     float:left;
     padding: 10px 10px;
 }
 
-header{
-    background-color: powderblue;
-}
-footer{
-    background-color: powderblue;
+.navbar{
+    text-color = white;
+    background-color: dodgerblue;
 }
 
 form{

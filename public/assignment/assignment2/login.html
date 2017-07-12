@@ -9,19 +9,21 @@
     <title>Login</title>
 </head>
 <body>
-<header>
-    <h1>Login</h1>
-</header>
+
+<!--<div class="controller-fluid">-->
+
+<div class="container-fluid">
 
 
-<div class="controller-fluid">
-    <form>
 
-        <label>Username:</label>
-            <input type="text" name="username" class="form-control" id="username">
+    <form class="form-signin">
 
-        <label>Password:</label>
-            <input type="password" name="password" class="form-control" id="password">
+        <h1 class="form-signin-heading">Login</h1>
+        <label for="username" class="sr-only">Username</label>
+            <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+
+        <label for="password" class="sr-only">Password</label>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
 
 
         <a class="btn btn-default btn-block"
