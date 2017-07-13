@@ -4,29 +4,156 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet" />
     <meta charset="UTF-8">
-    <title>Edit Website</title>
+    <title>Website Edit</title>
 </head>
 <body>
 
-<h1>Edit Website</h1>
+
+<!-- TEMPORARY NAV BAR -->
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded ">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav amh-white">
 
 
-<!--- Navigation Bar --->
-<ul>
+            <li class="nav-item active">
+                <a class="nav-link amh-white" href="page-edit.html">page-edit</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="page-list.html">page-list</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="page-new.html">page-new</a>
+            </li>
 
 
-    <li>
-        <a href="profile.html">profile</a>
-    </li>
+
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="login.html">login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="profile.html">profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="register.html">register</a>
+            </li>
 
 
-    <li>
-        <a href="website-list.html">website-list</a>
-    </li>
 
-</ul>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="website-edit.html">website-edit</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="website-list.html">website-list</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="website-new.html">website-new</a>
+            </li>
 
 
+
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="widget-choose.html">widget-choose</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="widget-heading.html">widget-heading</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="widget-image.html">widget-image</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="widget-list.html">widget-list</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link amh-white" href="widget-youtube.html">widget-youtube</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Nav Bar -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+
+                <span class=" glyphicon glyphicon-chevron-left pull-left"></span>
+                Website Edit
+                <span class="glyphicon glyphicon-ok pull-right"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!--<div class="amh-sidebar-nav">-->
+<div class="row">
+    <div class="col-sm-6 hidden-xs">
+
+
+        <div class="container-fluid amh-padded">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#">
+                        Blogging App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Address Book App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Script Testing App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Blogger
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+
+        <div class="container-fluid amh-padded">
+
+
+
+            <form class="form-signin">
+                <label for="name">Name</label>
+                <input type="text"
+                       name="name"
+                       id="name"
+                       class="form-control"
+                       placeholder="Page Name">
+
+                <label for="title">Title</label>
+                <textarea type="text"
+                          name="title"
+                          id="title"
+                          class="form-control"
+                          placeholder="Page Title"></textarea>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+<!--</div>-->
 
 <!-- Nav Bar -->
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -38,6 +165,9 @@
         </div>
     </div>
 </nav>
+
+
+
 
 </body>
 </html>

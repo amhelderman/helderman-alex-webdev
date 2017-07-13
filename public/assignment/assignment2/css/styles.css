@@ -4,7 +4,7 @@ ul{
     overflow:hidden;
 }
 
-a.btn#websites{
+a.btn#register{
     color: white;
     background-color: forestgreen;
 }
@@ -13,6 +13,26 @@ a.btn#Logout{
     background-color: orangered;
 }
 
+a.btn#websites{
+    color: white;
+    background-color: forestgreen;
+}
+a.btn#Cancel{
+    color: white;
+    background-color: orangered;
+}
+
+.bg-faded{
+    padding-top: 65px;
+}
+.amh-white{
+    color: white;
+    padding: 10px;
+}
+
+.amh-margins{
+    margin-top 65px;
+}
 .amh-padded{
     padding-top: 65px;
     padding-bottom: 65px;
