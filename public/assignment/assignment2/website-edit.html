@@ -8,25 +8,89 @@
 </head>
 <body>
 
-<h1>Edit Website</h1>
+
+<!-- Nav Bar -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">
+                Edit Website
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!--<div class="amh-sidebar-nav">-->
+<div class="row">
+    <div class="col-sm-6 hidden-xs">
 
 
-<!--- Navigation Bar --->
-<ul>
+        <div class="container-fluid amh-padded">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#">
+                        Blogging App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Address Book App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Script Testing App
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Blogger
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+
+        <div class="container-fluid amh-padded">
 
 
-    <li>
-        <a href="profile.html">profile</a>
-    </li>
+
+            <form class="form-signin">
+                <label for="name">Website Name</label>
+                <input type="text"
+                       name="name"
+                       id="name"
+                       class="form-control"
+                       placeholder="BlogSite">
+
+                <label for="description">Website Description</label>
+                <textarea type="text"
+                          name="description"
+                          id="description"
+                          class="form-control"
+                          placeholder="Lorem ipsum..."></textarea>
 
 
-    <li>
-        <a href="website-list.html">website-list</a>
-    </li>
+                <a class="btn btn-default btn-block"
+                   id="delete-website"
+                   name="delete-website"
+                   href="login.html"
+                   role="button">Delete</a>
 
-</ul>
+            </form>
+        </div>
 
+    </div>
 
+</div>
+<!--</div>-->
 
 <!-- Nav Bar -->
 <nav class="navbar navbar-default navbar-fixed-bottom">
@@ -38,6 +102,9 @@
         </div>
     </div>
 </nav>
+
+
+
 
 </body>
 </html>

@@ -4,11 +4,17 @@ ul{
     overflow:hidden;
 }
 
+/* Button Colors */
 a.btn#websites{
     color: white;
     background-color: forestgreen;
 }
 a.btn#Logout{
+    color: white;
+    background-color: orangered;
+}
+
+a.btn#delete-website{
     color: white;
     background-color: orangered;
 }
@@ -25,16 +31,6 @@ a.btn#Logout{
 
 
 
-/*li{*/
-    /*float:left;*/
-    /*padding: 10px 10px;*/
-/*}*/
-
-
-/*.sidebar-brand{*/
-    /*float: left;*/
-    /*width: 100px;*/
-/*}*/
 .amh-center-container{
     margin:auto;
     width: 600px;
@@ -54,6 +50,20 @@ li.amh-sidebar-nav{
     list-style: none;
 }
 
+.amh-scrollable{
+    position: absolute;
+    top: 60px;
+    bottom: 0px;
+    z-index: 1;
+    overflow-y: scroll;
+}
+.amh-nonscrolling-but-aware{
+    position: absolute;
+    width: 100%;
+    right: 0;
+
+}
+
 .navbar{
     color = white;
     background-color: royalblue;
@@ -62,8 +72,10 @@ li.amh-sidebar-nav{
     color = white;
     background-color: royalblue;
 }
-
-
 .navbar-default .navbar-brand {
     color: white;
+}
+.navbar.pages{
+    color = black;
+    background-color: lightgray;
 }
