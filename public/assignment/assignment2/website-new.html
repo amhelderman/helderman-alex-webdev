@@ -8,118 +8,71 @@
 </head>
 <body>
 
-<!-- TEMPORARY NAV BAR -->
+<!-- Nav Bar -->
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded ">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Navbar</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav amh-white">
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid amh-white">
+        <div class="navbar-header navbar-brand">
 
+            <a href="website-list.html">
+                <span class=" glyphicon glyphicon-chevron-left amh-white"></span>
+            </a>
 
-            <li class="nav-item active">
-                <a class="nav-link amh-white" href="page-edit.html">page-edit</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="page-list.html">page-list</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="page-new.html">page-new</a>
-            </li>
+            <span class="amh-white">New Website</span>
 
+            <a href="website-list.html">
+                <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
+            </a>
 
-
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="login.html">login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="profile.html">profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="register.html">register</a>
-            </li>
-
-
-
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="website-edit.html">website-edit</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="website-list.html">website-list</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="website-new.html">website-new</a>
-            </li>
-
-
-
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-choose.html">widget-choose</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-heading.html">widget-heading</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-image.html">widget-image</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-list.html">widget-list</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-youtube.html">widget-youtube</a>
-            </li>
-        </ul>
+        </div>
     </div>
 </nav>
 
 
-    <!-- Nav Bar -->
-
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    New Website
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!--<div class="amh-sidebar-nav">-->
+<!-- Two column Content -->
 <div class="row">
+
+    <!-- Column One - List of created websites -->
+
     <div class="col-sm-6 hidden-xs">
 
+        <!-- List of websites -->
 
         <div class="container-fluid amh-padded">
-            <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="#">
-                        Blogging App
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#">
-                        Address Book App
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#">
-                        Script Testing App
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#">
-                        Blogger
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </li>
-            </ul>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="page-list.html">
+                            Address Book App
+                        </a>
+                        <a href="website-edit.html">
+                            <span class="glyphicon glyphicon-cog pull-right"></span>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="page-list.html">
+                            Blogger
+                        </a>
+                        <a href="website-edit.html">
+                            <span class="glyphicon glyphicon-cog pull-right"></span>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="page-list.html">
+                            Blogging App
+                        </a>
+                        <a href="website-edit.html">
+                            <span class="glyphicon glyphicon-cog pull-right"></span>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="page-list.html">
+                            Script Testing App
+                        </a>
+                        <a href="website-edit.html">
+                            <span class="glyphicon glyphicon-cog pull-right"></span>
+                        </a>
+                    </li>
+                </ul>
         </div>
 
     </div>
@@ -152,17 +105,20 @@
 </div>
     <!--</div>-->
 
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">
-                    <a href="profile.html">Insert picture of man here</a>
-                </a>
-            </div>
-        </div>
-    </nav>
 
+<!-- Footer Bar -->
+<nav class="navbar navbar-default navbar-fixed-bottom" >
+    <div class="container-fluid">
+
+        <!-- Profile Button -->
+        <a class="navbar-brand" href="#">
+            <a href="profile.html">
+                <span class="glyphicon glyphicon-user pull-right amh-white amh-pull-right"></span>
+            </a>
+        </a>
+
+    </div>
+</nav>
 
 
 
