@@ -1,81 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link href="../../vendor/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
-    <link href="../../vendor/bootstrap/dist/css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet" />
-
-    <title>Assignment 2 Homepage</title>
+    <meta charset="UTF-8">
+    <title>Website List</title>
 </head>
 <body>
 
-<h1>Assignment 2 Homepage</h1>
 
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded ">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="#">Navbar</a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav amh-white">
+<!-- Nav Bar -->
 
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid amh-white">
+        <div class="navbar-header navbar-brand">
 
-            <li class="nav-item active">
-                <a class="nav-link amh-white" href="page-edit.html">page-edit</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="page-list.html">page-list</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="page-new.html">page-new</a>
-            </li>
+            <span class="amh-white">Assignment 2</span>
 
 
-
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="login.html">login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="profile.html">profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="register.html">register</a>
-            </li>
-
-
-
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="website-edit.html">website-edit</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="website-list.html">website-list</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="website-new.html">website-new</a>
-            </li>
-
-
-
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-choose.html">widget-choose</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-heading.html">widget-heading</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-image.html">widget-image</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-list.html">widget-list</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link amh-white" href="widget-youtube.html">widget-youtube</a>
-            </li>
-        </ul>
+        </div>
     </div>
 </nav>
+
+
+<!-- List of Entries -->
+
+<div class="container-fluid amh-padded">
+    <ul class="list-group">
+
+        <!--User Accounts-->
+        <li class="list-group-item">
+            <a href="login.html">
+                Login
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="profile.html">
+                Profile
+            </a>
+        </li>
+
+        <!--Website-->
+        <li class="list-group-item">
+            <a href="website-list.html">
+                List Website
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="website-new.html">
+                New Website
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="website-edit.html">
+                Edit Website
+            </a>
+        </li>
+
+        <!--Pages-->
+        <li class="list-group-item">
+            <a href="page-list.html">
+                List Pages
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="page-new.html">
+                New Page
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="page-edit.html">
+                Edit Page
+            </a>
+        </li>
+
+        <!--Widgets-->
+        <li class="list-group-item">
+            <a href="widget-list.html">
+                List Widgets
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="widget-chooser.html">
+                Choose Widget
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="widget-heading.html">
+                Heading Widget
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="widget-image.html">
+                Image Widget
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="widget-youtube.html">
+                YouTube Widget
+            </a>
+        </li>
+    </ul>
+</div>
 
 
 
@@ -92,6 +118,8 @@
 
     </div>
 </nav>
+
+
 
 
 </body>

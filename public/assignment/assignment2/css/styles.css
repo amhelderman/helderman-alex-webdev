@@ -18,6 +18,10 @@ a.btn#Cancel{
     color: white;
     background-color: orangered;
 }
+a.btn#delete{
+    color: white;
+    background-color: orangered;
+}
 
 /* AMH custom CSS */
 

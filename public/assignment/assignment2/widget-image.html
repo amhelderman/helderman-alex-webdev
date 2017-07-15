@@ -4,7 +4,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/styles.css" rel="stylesheet" />
     <meta charset="UTF-8">
-    <title>Widget Image</title>
+    <title>Image Widget</title>
 </head>
 <body>
 
@@ -18,7 +18,7 @@
                 <span class=" glyphicon glyphicon-chevron-left amh-white"></span>
             </a>
 
-            <span class="amh-white">Widget Image</span>
+            <span class="amh-white">Image Widget</span>
 
             <a href="#">
                 <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
@@ -30,13 +30,46 @@
 
 
 
-<!--- Navigation Bar --->
-<ul>
+<div class="container-fluid amh-padded">
 
-    <li>
-        <a href="widget-list.html">widget-list</a>
-    </li>
-</ul>
+
+
+    <form class="form-signin">
+        <label for="name">Name</label>
+        <input type="text"
+               name="name"
+               id="name"
+               class="form-control"
+               placeholder="Page Name">
+
+        <label for="youtubeText">Text</label>
+        <textarea type="text"
+                  name="youtubeText"
+                  id="youtubeText"
+                  class="form-control"
+                  placeholder=""></textarea>
+
+        <label for="youtubeURL">URL</label>
+        <textarea type="text"
+                  name="youtubeURL"
+                  id="youtubeURL"
+                  class="form-control"
+                  placeholder="https://www.youtube.com/..."></textarea>
+
+        <label for="youtubeWidth">Width</label>
+        <textarea type="text"
+                  name="youtubeWidth"
+                  id="youtubeWidth"
+                  class="form-control"
+                  placeholder="100%"></textarea>
+
+        <a class="btn btn-default btn-block"
+           id="delete"
+           name="delete"
+           href="widget-list.html"
+           role="button">Delete</a>
+    </form>
+</div>
 
 
 
