@@ -8,23 +8,67 @@
 </head>
 <body>
 
-<h1>New Page</h1>
+<!-- Nav Bar -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid amh-white">
+        <div class="navbar-header navbar-brand">
+
+            <!--Back Button-->
+            <a href="page-list.html">
+                <span class=" glyphicon glyphicon-chevron-left amh-white"></span>
+            </a>
+
+            <!-- Page Header -->
+            <span class="amh-white">New Page</span>
+
+            <!-- Top-Right Button -->
+            <a href="page-list.html">
+                <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
+            </a>
+
+        </div>
+    </div>
+</nav>
 
 
-<!--- Navigation Bar --->
-<ul>
+<div class="container-fluid amh-padded">
+    <form class="form-signin">
+        <label for="name">Name</label>
+        <input type="text"
+               name="name"
+               id="name"
+               class="form-control"
+               placeholder="Page Name">
+
+        <label for="title">Title</label>
+        <textarea type="text"
+                  name="title"
+                  id="title"
+                  class="form-control"
+                  placeholder="Page Title"></textarea>
+
+    </form>
+</div>
 
 
-    <li>
-        <a href="page-list.html">page-list</a>
-    </li>
 
 
 
-    <li>
-        <a href="profile.html">profile</a>
-    </li>
-</ul>
+<!-- Footer Bar -->
+<nav class="navbar navbar-default navbar-fixed-bottom" >
+    <div class="container-fluid">
+
+        <!-- Profile Button -->
+        <a class="navbar-brand" href="#">
+            <a href="profile.html">
+                <span class="glyphicon glyphicon-user pull-right amh-white amh-pull-right"></span>
+            </a>
+        </a>
+
+    </div>
+</nav>
+
 
 
 

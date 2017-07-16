@@ -1,11 +1,7 @@
-ul{
-    list-style-type: none;
-    margin:0;
-    overflow:hidden;
-}
 
 /* Button Colors */
-a.btn#websites{
+
+a.btn#register{
     color: white;
     background-color: forestgreen;
 }
@@ -14,22 +10,42 @@ a.btn#Logout{
     background-color: orangered;
 }
 
-a.btn#delete-website{
+a.btn#websites{
+    color: white;
+    background-color: lightseagreen;
+}
+a.btn#Cancel{
+    color: white;
+    background-color: orangered;
+}
+a.btn#delete{
     color: white;
     background-color: orangered;
 }
 
+/* AMH custom CSS */
+
+/* Colors */
+
+.amh-white{
+    color: white;
+    padding: 10px;
+}
+
+/* Positions */
+.amh-margins{
+    margin-top: 65px;
+}
 .amh-padded{
-    padding-top: 65px;
+    padding-top: 90px;
     padding-bottom: 65px;
-
 }
 
-.list-group-item{
-    border: none;
+.amh-pull-right{
+    position: absolute;
+    right: 0px;
+    padding: 20px;
 }
-
-
 
 .amh-center-container{
     margin:auto;
@@ -50,32 +66,21 @@ li.amh-sidebar-nav{
     list-style: none;
 }
 
-.amh-scrollable{
-    position: absolute;
-    top: 60px;
-    bottom: 0px;
-    z-index: 1;
-    overflow-y: scroll;
-}
-.amh-nonscrolling-but-aware{
-    position: absolute;
-    width: 100%;
-    right: 0;
 
-}
+
+/* Overwriting Bootstrap classes */
+/* TODO: change these to amh- classes. */
 
 .navbar{
     color = white;
     background-color: royalblue;
+    text-color: white;
 }
-.navbar.brand {
-    color = white;
-    background-color: royalblue;
+
+.list-group-item{
+    border: none;
 }
-.navbar-default .navbar-brand {
-    color: white;
-}
-.navbar.pages{
-    color = black;
-    background-color: lightgray;
+
+span.glyphicon {
+    font-size: 1em;
 }
