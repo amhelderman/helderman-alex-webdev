@@ -7,7 +7,7 @@ a.btn#register{
 }
 a.btn#Logout{
     color: white;
-    background-color: orangered;
+    background-color: indianred;
 }
 
 a.btn#websites{
@@ -16,11 +16,15 @@ a.btn#websites{
 }
 a.btn#Cancel{
     color: white;
-    background-color: orangered;
+    background-color: indianred;
 }
 a.btn#delete{
     color: white;
-    background-color: orangered;
+    background-color: indianred;
+}
+a.btn#uploadImage{
+    color: white;
+    background-color: cornflowerblue;
 }
 
 /* AMH custom CSS */
@@ -83,4 +87,9 @@ li.amh-sidebar-nav{
 
 span.glyphicon {
     font-size: 1em;
+}
+
+
+span.glyphicon-cog{
+    font-size: 2em;
 }

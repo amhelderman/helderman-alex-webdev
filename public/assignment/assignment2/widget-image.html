@@ -20,7 +20,7 @@
 
             <span class="amh-white">Image Widget</span>
 
-            <a href="#">
+            <a href="widget-list.html">
                 <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
             </a>
 
@@ -42,26 +42,39 @@
                class="form-control"
                placeholder="Page Name">
 
-        <label for="youtubeText">Text</label>
+        <label for="imageText">Text</label>
         <textarea type="text"
-                  name="youtubeText"
-                  id="youtubeText"
+                  name="imageText"
+                  id="imageText"
                   class="form-control"
                   placeholder=""></textarea>
 
-        <label for="youtubeURL">URL</label>
+        <label for="imageURL">URL</label>
         <textarea type="text"
-                  name="youtubeURL"
-                  id="youtubeURL"
+                  name="imageURL"
+                  id="imageURL"
                   class="form-control"
-                  placeholder="https://www.youtube.com/..."></textarea>
+                  placeholder="http://..."></textarea>
 
-        <label for="youtubeWidth">Width</label>
+        <label for="imageWidth">Width</label>
         <textarea type="text"
-                  name="youtubeWidth"
-                  id="youtubeWidth"
+                  name="imageWidth"
+                  id="imageWidth"
                   class="form-control"
                   placeholder="100%"></textarea>
+
+        <label for="uploadSelect">Upload</label>
+        <input type="file"
+               name="uploadSelect"
+               id="uploadSelect"
+               class="form-control">
+
+        <a class="btn btn-default btn-block"
+           id="uploadImage"
+           name="uploadImage"
+           href="widget-list.html"
+           role="button">Upload Image</a>
+
 
         <a class="btn btn-default btn-block"
            id="delete"
