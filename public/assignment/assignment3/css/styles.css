@@ -1,0 +1,95 @@
+
+/* Button Colors */
+
+a.btn#register{
+    color: white;
+    background-color: forestgreen;
+}
+a.btn#Logout{
+    color: white;
+    background-color: indianred;
+}
+
+a.btn#websites{
+    color: white;
+    background-color: lightseagreen;
+}
+a.btn#Cancel{
+    color: white;
+    background-color: indianred;
+}
+a.btn#delete{
+    color: white;
+    background-color: indianred;
+}
+a.btn#uploadImage{
+    color: white;
+    background-color: cornflowerblue;
+}
+
+/* AMH custom CSS */
+
+/* Colors */
+
+.amh-white{
+    color: white;
+    padding: 10px;
+}
+
+/* Positions */
+.amh-margins{
+    margin-top: 65px;
+}
+.amh-padded{
+    padding-top: 90px;
+    padding-bottom: 65px;
+}
+
+.amh-pull-right{
+    position: absolute;
+    right: 0px;
+    padding: 20px;
+}
+
+.amh-center-container{
+    margin:auto;
+    width: 600px;
+}
+
+.amh-sidebar-nav{
+    float: none;
+    left: 0;
+    margin: 0;
+    list-style: none;
+}
+
+li.amh-sidebar-nav{
+    float: none;
+    left: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
+
+/* Overwriting Bootstrap classes */
+/* TODO: change these to amh- classes. */
+
+.navbar{
+    color = white;
+    background-color: royalblue;
+    text-color: white;
+}
+
+.list-group-item{
+    border: none;
+}
+
+span.glyphicon {
+    font-size: 1em;
+}
+
+
+span.glyphicon-cog{
+    font-size: 2em;
+}
