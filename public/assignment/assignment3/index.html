@@ -1,0 +1,43 @@
+<html lang="en"><head>
+
+
+    <!--Angular Requisites-->
+    <script src="../../vendor/angular/angular.js"></script>
+    <script src="../../vendor/angular/angular-route.js"></script>
+    <script src="app.js"></script>
+
+
+    <title>Theme Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!--&lt;!&ndash; IE10 viewport hack for Surface/desktop Windows 8 bug &ndash;&gt;-->
+    <!--<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+
+
+    <!--&lt;!&ndash; Custom styles for this template &ndash;&gt;-->
+    <!--<link href="theme.css" rel="stylesheet">-->
+
+</head>
+
+<body>
+
+<!--ng-app="WamApp"-->
+
+
+<div ng-show="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+.........
+
+<div ng-view ng-class="ng-scope">
+
+
+</div>
+
+
+</body>
+
+</html>

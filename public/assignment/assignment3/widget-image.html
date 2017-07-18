@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>Image Widget</title>
+</head>
+<body>
+
+<!-- Nav Bar -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid amh-white">
+        <div class="navbar-header navbar-brand">
+
+            <a href="widget-list.html">
+                <span class=" glyphicon glyphicon-chevron-left amh-white"></span>
+            </a>
+
+            <span class="amh-white">Image Widget</span>
+
+            <a href="widget-list.html">
+                <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container-fluid amh-padded">
+
+
+
+    <form class="form-signin">
+        <label for="name">Name</label>
+        <input type="text"
+               name="name"
+               id="name"
+               class="form-control"
+               placeholder="Page Name">
+
+        <label for="imageText">Text</label>
+        <textarea type="text"
+                  name="imageText"
+                  id="imageText"
+                  class="form-control"
+                  placeholder=""></textarea>
+
+        <label for="imageURL">URL</label>
+        <textarea type="text"
+                  name="imageURL"
+                  id="imageURL"
+                  class="form-control"
+                  placeholder="http://..."></textarea>
+
+        <label for="imageWidth">Width</label>
+        <textarea type="text"
+                  name="imageWidth"
+                  id="imageWidth"
+                  class="form-control"
+                  placeholder="100%"></textarea>
+
+        <label for="uploadSelect">Upload</label>
+        <input type="file"
+               name="uploadSelect"
+               id="uploadSelect"
+               class="form-control">
+
+        <a class="btn btn-default btn-block"
+           id="uploadImage"
+           name="uploadImage"
+           href="widget-list.html"
+           role="button">Upload Image</a>
+
+
+        <a class="btn btn-default btn-block"
+           id="delete"
+           name="delete"
+           href="widget-list.html"
+           role="button">Delete</a>
+    </form>
+</div>
+
+
+
+
+<!-- Footer Bar -->
+<nav class="navbar navbar-default navbar-fixed-bottom" >
+    <div class="container-fluid">
+
+        <!-- Profile Button -->
+        <a class="navbar-brand" href="#">
+            <a href="profile.html">
+                <span class="glyphicon glyphicon-user pull-right amh-white amh-pull-right"></span>
+            </a>
+        </a>
+
+    </div>
+</nav>
+
+
+</body>
+</html>

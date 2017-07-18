@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<!--Partial HTML Document-->
+
+<div class="container-fluid">
+
+    <!--View I am Handling-->
+    <div ng-controller="loginController">
+
+
+        <form class="form-signin">
+
+            <h1 class="navbar-header">Login</h1>
+            <div ng-show="welcomeUser">
+                    Welcome user.
+            </div>
+            <label for="username" class="sr-only">Username</label>
+                <input type="text"
+                       name="username"
+                       id="username"
+                       ng-model="user.username"
+                       class="form-control"
+                       placeholder="Alice">
+
+            <label for="password" class="sr-only">Password</label>
+                <input type="password"
+                       name="password"
+                       ng-model="user.password"
+                       class="form-control"
+                       id="password"
+                       placeholder="Roast68SaltTable">
+
+
+            <a class="btn btn-default btn-block amh-margins"
+               name="Login"
+               role="button"
+               ng-click="login(user)">Login</a>
+
+            <a class="btn btn-default btn-block"
+               name="Register"
+               href="register.html"
+               role="button">Register</a>
+
+        </form>
+
+    </div>
+
+</div>
