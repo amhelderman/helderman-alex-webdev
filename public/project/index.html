@@ -1,24 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="styles.css" rel="stylesheet" \>
-    <title>Project Home Page</title>
+<html lang="en" ng-app="WamApp"><head>
+
+    <!--Angular Requisites-->
+    <script src="../../vendor/angular/angular.js"></script>
+    <script src="../../vendor/angular/angular-route.js"></script>
+    <script src="app.js"></script>
+    <title>Theme Template for Bootstrap</title>
+    <!-- Bootstrap core CSS -->
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Map</h1>
 
-
-<!---
-
-RateMyFriend
-
-
-
-
-
-
--->
+<h1> RateMyFriend</h1>
+<!--Angular Application-->
+<div ng-controller="loginController">
+    <div ng-view></div>
+    <a class="btn  btn-default" href="#!/login">login</a>
+    <a class="btn  btn-default" href="#!/profile">prof</a>
+    <a class="btn  btn-default" href="#!/register">reg</a>
+    <a class="btn  btn-default" href="#!/website-list">website-list</a>
+</div>
 
 
 

@@ -14,32 +14,20 @@ app.controller("profileController", profileController);
 function Config($routeProvider)
 {
     $routeProvider
-        .when("/",
+        .when("/:pageName",
             {
-                templateUrl: "login.html"
-            })
-        .when("/login",
-            {
-                templateUrl: "login.html"
-            })
-        .when("/profile",
-            {
-                templateUrl: "profile.html"
-            })
-        .when("/register",
-            {
-                templateUrl: "register.html"
-            })
-        .when("/profile",
-            {
-                templateUrl: "profile.html"
+                /* template URL can be a function:
+                 https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
+                 */
+                templateUrl: function (params) {
+                    return params.pageName + '.html';
+                }
             })
 };
 
 
 function loginController($scope, $location){
     $scope.hello = "hello from loginController";
-    $scope.errorMessage = "No Errors.";
 
 
     // When logging in...
@@ -47,15 +35,12 @@ function loginController($scope, $location){
         var users=[
             {_id: "123", username: "alice", password: "alice"}
         ];
-
-        alert("login function called");
         for( var u in users){
             var currentUser = users[u];
             if(currentUser.username === $scope.user.username & currentUser.password === $scope.user.password)
             {
-                alert("changing to login");
-                $location.url("profile.html");
-                // $location.url("profile/"+currentUser.username);
+                // alert("changing to login");
+                $location.url("#!/register");
             }
         }
         $scope.errorMessage = "User not found";
