@@ -15,15 +15,23 @@
 
     function configuration($routeProvider){
                     $routeProvider
-                        .when("/:pageName",
+                        .when("/login",
                             {
-                                /* template URL can be a function:
-                                 https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
-                                 */
-                                templateUrl: function (params) {
-                                    return params.pageName + '.html';
-                                }
+                                templateUrl: "user/templates/login.html"
                             })
+                        .when("/profile",
+                            {
+                                templateUrl: "user/templates/profile.html"
+                            })
+                        // .when("/:pageName",
+                        //     {
+                        //         /* template URL can be a function:
+                        //          https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
+                        //          */
+                        //         templateUrl: function (params) {
+                        //             return "index.html#!" + params.pageName + '.html';
+                        //         }
+                        //     })
     }
 
 
