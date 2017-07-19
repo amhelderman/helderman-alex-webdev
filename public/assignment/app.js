@@ -26,6 +26,14 @@ function Config($routeProvider)
             {
                 templateUrl: "profile.html"
             })
+        .when("/register",
+            {
+                templateUrl: "register.html"
+            })
+        .when("/profile",
+            {
+                templateUrl: "profile.html"
+            })
 };
 
 
