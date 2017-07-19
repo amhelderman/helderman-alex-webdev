@@ -7,6 +7,10 @@
     <!--View I am Handling-->
     <div ng-controller="loginController">
 
+        <h1>LoginController..</h1>
+        <div ng-show="errorMessage" class="alert alert-danger">
+            {{errorMessage}}
+        </div>
 
         <form class="form-signin">
 
@@ -38,7 +42,7 @@
 
             <a class="btn btn-default btn-block"
                name="Register"
-               href="register.html"
+               href="#/!"
                role="button">Register</a>
 
         </form>
