@@ -17,11 +17,39 @@
                     $routeProvider
                         .when("/login",
                             {
-                                templateUrl: "user/templates/login.html"
+                                templateUrl: "user/templates/login.view.client.html"
                             })
                         .when("/profile",
                             {
-                                templateUrl: "user/templates/profile.html"
+                                templateUrl: "user/templates/profile.view.client.html"
+                            })
+                        .when("/register",
+                            {
+                                templateUrl: "user/templates/register.view.client.html"
+                            })
+                        .when("/website-edit",
+                            {
+                                templateUrl: "website/templates/edit.view.client.html"
+                            })
+                        .when("/website-new",
+                            {
+                                templateUrl: "website/templates/new.view.client.html"
+                            })
+                        .when("/website-list",
+                            {
+                                templateUrl: "website/templates/list.view.client.html"
+                            })
+                        .when("/profile",
+                            {
+                                templateUrl: "user/templates/profile.view.client.html"
+                            })
+                        .when("/profile/:iud",
+                            {
+                                templateUrl: "user/templates/profile.view.client.html#!/:uid"
+                            })
+                        .when("/profile",
+                            {
+                                templateUrl: "user/templates/profile.view.client.html"
                             })
                         // .when("/:pageName",
                         //     {

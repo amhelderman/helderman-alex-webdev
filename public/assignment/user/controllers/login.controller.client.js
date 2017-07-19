@@ -13,25 +13,24 @@
         .controller("loginController", loginController)
 
 
-    function loginController($scope, $location){
+
+    function loginController($scope, $location, userService){
                 $scope.hello = "hello from loginController";
 
 
                 // When logging in...
                 $scope.login = function(user){
-                    var users=[
-                        {_id: "123", username: "alice", password: "alice"}
-                    ];
-                    for( var u in users){
-                        var currentUser = users[u];
-                        if(currentUser.username === $scope.user.username & currentUser.password === $scope.user.password)
-                        {
-                            // alert("changing to login");
-                            $location.url("profile/"+currentUser._id);
-                        }
+
+
+                    var user = userService.findUserByUsernameAndPassword(user.username, user.password);
+                    if(user == null)
+                    {
+                        $scope.errorMessage = "user not found";
+
                     }
-                    $scope.errorMessage = "User not found";
-                    $scope.userName = currentUser.username;
+                    else {
+                        $location.url("profile/"+user._id);
+                    }
                 }
     };
 

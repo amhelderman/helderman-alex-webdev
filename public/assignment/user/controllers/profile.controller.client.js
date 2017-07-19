@@ -12,30 +12,14 @@
         .module("WamApp")
         .controller("profileController", profileController);
 
-    function profileController($scope, $location){
+    function profileController($scope, $location, $routeParams,userService){
                 $scope.hello = "hello from profile";
 
-                var users=[
-                    {_id: "123", username: "alice", password: "alice"},
-                    {_id: "124", username: "jerry", password: "jerry"}
-                ];
+                var user= userService.findUserById($routeParams["userId"]);
 
-                for(u in users)
+                if(user == null)
                 {
-                    var currentUser = users[u];
-
-                    /* TODO */
-                    if(currentUser._id == $location)
-                    {
-                        // alert("changing to login");
-                        $scope.user = currentUser;
-                    }
-                }
-
-                $scope.userName =
-
-                // When logging in...
-                $scope.login = function(user){
+                    $scope.errorMessage = "cannot find user by this ID";
                 }
     };
 
