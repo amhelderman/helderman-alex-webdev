@@ -34,21 +34,23 @@
 
 
 
-<script type="text/javascript">
-    var JSLink = "https://maps.googleapis.com/maps/api/js?key="+process.env.MAPS_APIKEY+"&callback=initMap";
-    var JSElement = document.createElement('script');
-    JSElement.src = JSLink;
-    JSElement.onload = OnceLoaded;
-    JSElement.async = true;
-    JSElement.defer = true;
-    document.getElementsByTagName('head')[0].appendChild(JSElement);
+<!--<script type="text/javascript">-->
+    <!--var JSLink = "https://maps.googleapis.com/maps/api/js?key="+process.env.MAPS_APIKEY+"&callback=initMap";-->
+    <!--var JSElement = document.createElement('script');-->
+    <!--JSElement.src = JSLink;-->
+    <!--JSElement.onload = OnceLoaded;-->
+    <!--JSElement.async = true;-->
+    <!--JSElement.defer = true;-->
+    <!--document.getElementsByTagName('head')[0].appendChild(JSElement);-->
 
-//    function OnceLoaded() {
-//        // Once loaded.. load other JS or CSS or call objects of version.js
-//    }
-</script>
+<!--//    function OnceLoaded() {-->
+<!--//        // Once loaded.. load other JS or CSS or call objects of version.js-->
+<!--//    }-->
+<!--</script>-->
 
 
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
+    </script>
+
 </body>
 </html>
