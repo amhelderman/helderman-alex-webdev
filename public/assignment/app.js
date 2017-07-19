@@ -40,10 +40,11 @@ function loginController($scope, $location){
             if(currentUser.username === $scope.user.username & currentUser.password === $scope.user.password)
             {
                 // alert("changing to login");
-                $location.url("#!/register");
+                $location.url("#profile/"+currentUser.username);
             }
         }
         $scope.errorMessage = "User not found";
+        $scope.userName = currentUser.username;
     }
 }
 
@@ -59,16 +60,6 @@ function profileController($scope, $location){
 
     // When logging in...
     $scope.login = function(user){
-        for( var u in users){
-            var currentUser = users[u];
-            if(currentUser.username === $scope.user.username & currentUser.password === $scope.user.password)
-            {
-                // $scope.welcomeUser = currentUser;
-                $location.url("profile");
-                $location.url("profile/"+currentUser.username);
-            }
-        }
-        $scope.errorMessage = "User not found";
     }
 
 

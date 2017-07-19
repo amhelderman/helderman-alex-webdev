@@ -6,8 +6,7 @@ var app = angular.module("WamApp", ["ngRoute"]);
 
 /* Routing*/
 app.config(Config);
-app.controller("loginController", loginController);
-app.controller("profileController", profileController);
+app.controller("indexController", indexController);
 
 function Config($routeProvider)
 {
@@ -24,8 +23,8 @@ function Config($routeProvider)
 };
 
 
-function loginController($scope, $location){
-    $scope.hello = "hello from loginController";
+function indexController($scope, $location){
+    $scope.hello = "hello from RateMyFriend";
 
 
     // When logging in...
@@ -44,36 +43,6 @@ function loginController($scope, $location){
         $scope.errorMessage = "User not found";
     }
 }
-
-function profileController($scope, $location){
-
-    $scope.hello = "hello from profile";
-
-    var users=[
-        {_id: "123", username: "alice", password: "alice"},
-        {_id: "124", username: "jerry", password: "jerry"}
-    ];
-
-
-    // When logging in...
-    $scope.login = function(user){
-        for( var u in users){
-            var currentUser = users[u];
-            if(currentUser.username === $scope.user.username & currentUser.password === $scope.user.password)
-            {
-                // $scope.welcomeUser = currentUser;
-                $location.url("profile");
-                $location.url("profile/"+currentUser.username);
-            }
-        }
-        $scope.errorMessage = "User not found";
-    }
-
-
-}
-
-
-
 
 
 

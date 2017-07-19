@@ -17,44 +17,11 @@
 <h1> RateMyFriend</h1>
 
 
-<h3>My Google Maps Demo</h3>
-
-<p id="demo">Click the button to get your position.</p>
-
-<button onclick="getLocation()">Try It</button>
-<div id="map"></div>
-
-
-
-<div id="mapholder"></div>
-<!--Angular Application-->
-<div ng-controller="loginController">
+<div ng-controller="indexController">
+    {{hello}}
     <div ng-view></div>
-    <a class="btn  btn-default" href="#!/login">login</a>
-    <a class="btn  btn-default" href="#!/profile">prof</a>
-    <a class="btn  btn-default" href="#!/register">reg</a>
-    <a class="btn  btn-default" href="#!/website-list">website-list</a>
+
 </div>
-
-
-
-<!--<script type="text/javascript">-->
-    <!--var JSLink = "https://maps.googleapis.com/maps/api/js?key="+process.env.MAPS_APIKEY+"&callback=initMap";-->
-    <!--var JSElement = document.createElement('script');-->
-    <!--JSElement.src = JSLink;-->
-    <!--JSElement.onload = OnceLoaded;-->
-    <!--JSElement.async = true;-->
-    <!--JSElement.defer = true;-->
-    <!--document.getElementsByTagName('head')[0].appendChild(JSElement);-->
-
-<!--//    function OnceLoaded() {-->
-<!--//        // Once loaded.. load other JS or CSS or call objects of version.js-->
-<!--//    }-->
-<!--</script>-->
-
-
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">
-    </script>
 
 </body>
 </html>

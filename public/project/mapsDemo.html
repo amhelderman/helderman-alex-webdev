@@ -1,4 +1,6 @@
-<html lang="en" ng-app="WamApp"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
     <!--Angular Requisites-->
     <script src="../../vendor/angular/angular.js"></script>
@@ -15,16 +17,21 @@
 <body>
 
 
-<!--Angular Application-->
-<div ng-controller="loginController">
-    <div ng-view></div>
-    <a class="btn  btn-default" href="#!/login">login</a>
-    <a class="btn  btn-default" href="#!/profile">prof</a>
-    <a class="btn  btn-default" href="#!/register">reg</a>
-    <a class="btn  btn-default" href="#!/website-list">website-list</a>
-</div>
+<h3>My Google Maps Demo</h3>
+
+<p id="demo">Click the button to get your position.</p>
+
+<button onclick="getLocation()">Try It</button>
+<div id="map"></div>
 
 
+
+<div id="mapholder"></div>
+
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxo8W1f-xebWiMEjYMyphOI5eUHxu8pg&callback=initMap">
+</script>
 
 </body>
 </html>
