@@ -66,6 +66,12 @@
                         //             return "index.html#!" + params.pageName + '.html';
                         //         }
                         //     })
+
+        // website routes
+                        .when("/user/:userId/website",
+                            {
+                                templateUrl:"website/templates/website-list.html"
+                            })
     }
 
 

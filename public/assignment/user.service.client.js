@@ -22,7 +22,7 @@
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
             "findUserById": findUserById,
             "registerUser": registerUser,
-            "findUserByUsername": findUserByUsername
+            "findUserByUsername": findUserByUsername,
             "updateUser": updateUser
         };
 
