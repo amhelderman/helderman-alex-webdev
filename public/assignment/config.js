@@ -57,20 +57,12 @@
                             {
                                 templateUrl: "user/templates/profile.view.client.html"
                             })
-                        // .when("/:pageName",
-                        //     {
-                        //         /* template URL can be a function:
-                        //          https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
-                        //          */
-                        //         templateUrl: function (params) {
-                        //             return "index.html#!" + params.pageName + '.html';
-                        //         }
-                        //     })
-
         // website routes
-                        .when("/user/:userId/website",
+                        .when("/website/:userId/list",
                             {
-                                templateUrl:"website/templates/website-list.html"
+                                templateUrl:"website/templates/list.view.client.html",
+                                controller: "websiteListController",
+                                controllerAs: "model"
                             })
     }
 

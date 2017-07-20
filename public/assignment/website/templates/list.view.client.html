@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../css/styles.css" rel="stylesheet" />
-    <meta charset="UTF-8">
-    <title>Website List</title>
-</head>
-<body>
-
-
 <!-- Nav Bar -->
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -33,8 +22,8 @@
 <!-- List of Entries -->
 
 <div class="container-fluid amh-padded">
-    <ul class="list-group">
-        <li class="list-group-item">
+    <ul ng-repeat="website in websites"class="list-group">
+        <li ng-repeat="website in websites" class="list-group-item">
             <a href="#!/#page-list">
                 Address Book App
             </a>
@@ -84,9 +73,3 @@
 
     </div>
 </nav>
-
-
-
-
-</body>
-</html>
