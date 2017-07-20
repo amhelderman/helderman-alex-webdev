@@ -24,6 +24,8 @@
 
             console.log("register user");
             console.log(user);
+
+            var user = userService.registerUser(user);
         }
 
         function init()

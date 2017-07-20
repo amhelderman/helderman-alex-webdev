@@ -18,12 +18,13 @@
         var model = this;
 
         model.hello = "hello from loginController";
+        model.login = login;
 
 
 
 
             // When logging in...
-        model.login = function(user){
+        function login(user){
             var user = userService.findUserByUsernameAndPassword(user.username, user.password);
             if(user == null)
             {

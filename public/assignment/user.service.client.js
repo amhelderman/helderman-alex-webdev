@@ -20,8 +20,19 @@
 
         return {
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
-            "findUserById": findUserById
+            "findUserById": findUserById,
+            "registerUser": registerUser,
+            "findUserByUsername": findUserByUsername
+            "updateUser": updateUser
         };
+
+        function updateUser(userId, user)
+        {
+            var currentUser = findUserById(userId);
+
+            currentUser = user;
+            return user;
+        }
 
 
 
@@ -46,6 +57,33 @@
                 }
             }
             return null;
+        }
+
+
+        function findUserByUsername(username)
+        {
+            for( var u in users){
+                var currentUser = users[u];
+                if(currentUser.username === username) {
+                    return currentUser;
+                }
+            }
+            return null;
+        }
+
+
+        function registerUser(user)
+        {
+            var existingUser = userService.findUserByUsername(user.username);
+            if(existingUser)
+            {
+                return null;
+            }
+            else {
+                user._id = (new Date()).getTime() + "";
+                users.push(user);
+                return user;
+            }
         }
 
     }

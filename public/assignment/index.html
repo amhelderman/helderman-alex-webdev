@@ -28,6 +28,13 @@
 
 <!--Angular Application-->
 <div ng-controller="loginController">
+
+
+    <div ng-show="errorMessage" class="alert alert-danger">
+        {{model.errorMessage}}
+    </div>
+
+
     <div ng-view></div>
     <a class="btn  btn-default" href="#!/login">login</a>
     <a class="btn  btn-default" href="#!/profile">prof</a>
