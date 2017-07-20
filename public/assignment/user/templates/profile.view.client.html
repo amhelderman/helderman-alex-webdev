@@ -28,8 +28,8 @@
         <input type="text"
                name="username"
                id="username"
-               class="form-control"
-               value={{user.username}}>
+               ng-model="model.user.username"
+               class="form-control">
 
 
         <label for="email">Email</label>
@@ -56,6 +56,18 @@
            name="Logout"
            href="#!/login"
            role="button">Log out</a>
+
+        <a class="btn btn-default btn-block"
+           id="Logout"
+           name="Logout"
+           ng-click="model.unregister()"
+           role="button">Unregister</a>
+
+        <a class="btn btn-default btn-block"
+           id="Logout"
+           name="Logout"
+           ng-click="model.update()"
+           role="button">Update user</a>
     </form>
 </div>
 

@@ -6,27 +6,28 @@
     <div >
 
         <div ng-show="errorMessage" class="alert alert-danger">
-            {{errorMessage}}
+            {{model.errorMessage}}
         </div>
 
         <form class="form-signin">
 
             <h1 class="navbar-header">Login</h1>
-            <div ng-show="welcomeUser">
-                    Welcome user.
-            </div>
+            <!--<div ng-show="welcomeUser">-->
+                    <!--Welcome user {{model.user.username}}-->
+            <!--</div>-->
             <label for="username" class="sr-only">Username</label>
                 <input type="text"
                        name="username"
                        id="username"
-                       ng-model="user.username"
+                       ng-model="model.user.username"
                        class="form-control"
                        placeholder="Alice">
+            {{model.user.username}}
 
             <label for="password" class="sr-only">Password</label>
                 <input type="password"
                        name="password"
-                       ng-model="user.password"
+                       ng-model="model.user.password"
                        class="form-control"
                        id="password"
                        placeholder="Roast68SaltTable">
@@ -35,7 +36,7 @@
             <a class="btn btn-default btn-block amh-margins"
                name="Login"
                role="button"
-               ng-click="login(user)">Login</a>
+               ng-click="model.login(user)">Login</a>
 
             <a class="btn btn-default btn-block"
                name="Register"

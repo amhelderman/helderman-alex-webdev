@@ -17,15 +17,21 @@
                     $routeProvider
                         .when("/login",
                             {
-                                templateUrl: "user/templates/login.view.client.html"
+                                templateUrl: "user/templates/login.view.client.html",
+                                controller: "loginController",
+                                controllerAs: "model"
                             })
                         .when("/profile",
                             {
-                                templateUrl: "user/templates/profile.view.client.html"
+                                templateUrl: "user/templates/profile.view.client.html",
+                                controller: "profileController",
+                                controllerAs: "model"
                             })
                         .when("/register",
                             {
-                                templateUrl: "user/templates/register.view.client.html"
+                                templateUrl: "user/templates/register.view.client.html",
+                                controller: "registerController",
+                                controllerAs: "model"
                             })
                         .when("/website-edit",
                             {

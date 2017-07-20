@@ -14,24 +14,25 @@
 
 
 
-    function loginController($scope, $location, userService){
-                $scope.hello = "hello from loginController";
+    function loginController($location, userService){
+        var model = this;
+
+        model.hello = "hello from loginController";
 
 
-                // When logging in...
-                $scope.login = function(user){
 
 
-                    var user = userService.findUserByUsernameAndPassword(user.username, user.password);
-                    if(user == null)
-                    {
-                        $scope.errorMessage = "user not found";
-
-                    }
-                    else {
-                        $location.url("profile/"+user._id);
-                    }
-                }
+            // When logging in...
+        model.login = function(user){
+            var user = userService.findUserByUsernameAndPassword(user.username, user.password);
+            if(user == null)
+            {
+                model.errorMessage = "user not found";
+            }
+            else {
+                $location.url("profile/"+user._id);
+            }
+        }
     };
 
 })();

@@ -12,6 +12,7 @@
         <input type="text"
                name="username"
                id="username"
+               ng-model="user.username"
                class="form-control"
                placeholder="Username">
 
@@ -20,19 +21,21 @@
                name="password"
                class="form-control"
                id="password"
+               ng-model="user.password"
                placeholder="Password">
 
         <label for="vpassword" class="sr-only">Verify Password</label>
-        <input type="vpassword"
+        <input type="password"
                name="vpassword"
                class="form-control"
                id="vpassword"
+               ng-model="user.password"
                placeholder="Verify Password">
 
 
         <a class="btn btn-default btn-block amh-margins"
            name="register"
-           href="#!/profile"
+           ng-click="model.registerUser(user)"
            role="button">Register</a>
 
         <a class="btn btn-default btn-block"
