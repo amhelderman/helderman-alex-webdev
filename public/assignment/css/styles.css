@@ -1,95 +1,115 @@
 
+.amh-navbar{
+    color: white;
+    background-color: rgba(28, 0, 130, 0.72);
+    padding: 10px;
+
+}
+
+.amh-shifted-down{
+    padding-top: 80px;
+}
+
+.amh-spacer{
+    padding: 5px;
+    margins: 10px;
+}
+.amh-buttons{
+    padding: 10px;
+    margins: 30px;
+}
+
+.amh-page-button-next{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 20px;
+    color: white;
+}
+
+/******************************/
 /* Button Colors */
 
-a.btn#register{
+.amh-btn-clr-info{
+    color: white;
+    background-color: #8b3a68 !important;
+}
+.amh-btn-clr-good{
     color: white;
     background-color: forestgreen;
 }
-a.btn#Logout{
+.amh-btn-clr-bad{
     color: white;
     background-color: indianred;
 }
-
-a.btn#websites{
+a.btn.logout{
     color: white;
-    background-color: darkmagenta;
-}
-a.btn#Cancel{
-    color: white;
-    background-color: indianred;
-}
-a.btn#delete{
-    color: white;
-    background-color: indianred;
-}
-a.btn#uploadImage{
-    color: white;
-    background-color: cornflowerblue;
+    background-color: ;
 }
 
-/* AMH custom CSS */
+/*!* AMH custom CSS *!*/
 
-/* Colors */
+/*!* Colors *!*/
 
-.amh-white{
-    color: white;
-    padding: 10px;
-}
+/*.amh-white{*/
+    /*color: white;*/
+    /*padding: 10px;*/
+/*}*/
 
-/* Positions */
-.amh-margins{
-    margin-top: 65px;
-}
-.amh-padded{
-    padding-top: 90px;
-    padding-bottom: 65px;
-}
+/*!* Positions *!*/
+/*.amh-margins{*/
+    /*margin-top: 65px;*/
+/*}*/
+/*.amh-padded{*/
+    /*padding-top: 90px;*/
+    /*padding-bottom: 65px;*/
+/*}*/
 
-.amh-pull-right{
-    position: absolute;
-    right: 0px;
-    padding: 20px;
-}
+/*.amh-pull-right{*/
+    /*position: absolute;*/
+    /*right: 0px;*/
+    /*padding: 20px;*/
+/*}*/
 
-.amh-center-container{
-    margin:auto;
-    width: 600px;
-}
+/*.amh-center-container{*/
+    /*margin:auto;*/
+    /*width: 600px;*/
+/*}*/
 
-.amh-sidebar-nav{
-    float: none;
-    left: 0;
-    margin: 0;
-    list-style: none;
-}
+/*.amh-sidebar-nav{*/
+    /*float: none;*/
+    /*left: 0;*/
+    /*margin: 0;*/
+    /*list-style: none;*/
+/*}*/
 
-li.amh-sidebar-nav{
-    float: none;
-    left: 0;
-    margin: 0;
-    list-style: none;
-}
-
-
-
-/* Overwriting Bootstrap classes */
-/* TODO: change these to amh- classes. */
-
-.navbar{
-    color = white;
-    background-color: royalblue;
-    text-color: white;
-}
-
-.list-group-item{
-    border: none;
-}
-
-span.glyphicon {
-    font-size: 1em;
-}
+/*li.amh-sidebar-nav{*/
+    /*float: none;*/
+    /*left: 0;*/
+    /*margin: 0;*/
+    /*list-style: none;*/
+/*}*/
 
 
-span.glyphicon-cog{
-    font-size: 2em;
-}
+
+/*!* Overwriting Bootstrap classes *!*/
+/*!* TODO: change these to amh- classes. *!*/
+
+/*.navbar{*/
+    /*color = white;*/
+    /*background-color: royalblue;*/
+    /*text-color: white;*/
+/*}*/
+
+/*.list-group-item{*/
+    /*border: none;*/
+/*}*/
+
+/*span.glyphicon {*/
+    /*font-size: 1em;*/
+/*}*/
+
+
+/*span.glyphicon-cog{*/
+    /*font-size: 2em;*/
+/*}*/

@@ -1,47 +1,62 @@
 <!DOCTYPE html>
-
-
 <div class="container-fluid">
 
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
+
+        <div class="navbar-header navbar-brand">
+
+            <!-- Page Header -->
+            <span class="amh-white">Register</span>
 
 
-    <form class="form-signin">
+        </div>
 
-        <h1 class="navbar-header">Register</h1>
-        <label for="username" class="sr-only">Username</label>
-        <input type="text"
-               name="username"
-               id="username"
-               ng-model="user.username"
-               class="form-control"
-               placeholder="Username">
+    </div>
 
-        <label for="password" class="sr-only">Password</label>
-        <input type="password"
-               name="password"
-               class="form-control"
-               id="password"
-               ng-model="user.password"
-               placeholder="Password">
+    <!--Main View-->
+    <div class="amh-shifted-down">
 
-        <label for="vpassword" class="sr-only">Verify Password</label>
-        <input type="password"
-               name="vpassword"
-               class="form-control"
-               id="vpassword"
-               ng-model="user.password"
-               placeholder="Verify Password">
+        <form class="form-signin">
+
+            <label for="username" class="sr-only">Username</label>
+            <input type="text"
+                   name="username"
+                   id="username"
+                   ng-model="user.username"
+                   class="form-control"
+                   placeholder="Username">
+
+            <label for="password" class="sr-only">Password</label>
+            <input type="password"
+                   name="password"
+                   class="form-control"
+                   id="password"
+                   ng-model="user.password"
+                   placeholder="Password">
+
+            <label for="vpassword" class="sr-only">Verify Password</label>
+            <input type="password"
+                   name="vpassword"
+                   class="form-control"
+                   id="vpassword"
+                   ng-model="user.password"
+                   placeholder="Verify Password">
 
 
-        <a class="btn btn-default btn-block amh-margins"
-           name="register"
-           ng-click="model.registerUser(user)"
-           role="button">Register</a>
+            <a class="btn btn-default btn-block amh-margins"
+               name="register"
+               ng-click="model.registerUser(user)"
+               role="button">Register</a>
 
-        <a class="btn btn-default btn-block"
-           name="Register"
-           href="#!/login"
-           role="button">Cancel</a>
+            <a class="btn btn-default btn-block"
+               name="Register"
+               href="#!/login"
+               role="button">Cancel</a>
 
-    </form>
+        </form>
+    </div>
+
+
+
 </div>

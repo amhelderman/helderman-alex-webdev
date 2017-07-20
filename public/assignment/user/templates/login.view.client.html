@@ -1,50 +1,70 @@
 <!--Partial HTML Document-->
 
+
 <div class="container-fluid" ng-controller="loginController">
 
-    <!--View I am Handling-->
-    <div >
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
 
+        <div class="navbar-header navbar-brand">
+
+            <span class="amh-white">Login</span>
+
+        </div>
+
+    </div>
+
+
+    <!--Main View-->
+    <div class="amh-shifted-down">
+
+        <!--Error Message-->
         <div ng-show="errorMessage" class="alert alert-danger">
             {{model.errorMessage}}
         </div>
 
-        <form class="form-signin">
+        <form class="form-signin ">
 
-            <h1 class="navbar-header">Login</h1>
-            <!--<div ng-show="welcomeUser">-->
-                    <!--Welcome user {{model.user.username}}-->
-            <!--</div>-->
-            <label for="username" class="sr-only">Username</label>
-                <input type="text"
-                       name="username"
-                       id="username"
-                       ng-model="model.user.username"
-                       class="form-control"
-                       placeholder="Alice">
-            {{model.user.username}}
+            <div class="amh-spacer">
+                <label for="username" class="sr-only">Username</label>
+                    <input type="text"
+                           name="username"
+                           id="username"
+                           ng-model="model.user.username"
+                           class="form-control container"
+                           placeholder="Alice">
+            </div>
 
-            <label for="password" class="sr-only">Password</label>
-                <input type="password"
-                       name="password"
-                       ng-model="model.user.password"
-                       class="form-control"
-                       id="password"
-                       placeholder="Roast68SaltTable">
+            <div class="amh-spacer">
+                <label for="password" class="sr-only">Password</label>
+                    <input type="password"
+                           name="password"
+                           ng-model="model.user.password"
+                           class="form-control"
+                           id="password"
+                           placeholder="Roast68SaltTable">
+            </div>
 
+            <div class="amh-spacer">
+                <input type="submit"
+                       class="btn btn-block amh-buttons amh-btn-clr-good"
+                   name="Login"
+                   role="button"
+                   ng-click="model.login(model.user)"
+                value="Login"></input>
+            </div>
 
-            <a class="btn btn-default btn-block amh-margins"
-               name="Login"
-               role="button"
-               ng-click="model.login(model.user)">Login</a>
-
-            <a class="btn btn-default btn-block"
-               name="Register"
-               href="#!/register"
-               role="button">Register</a>
-
+            <div class="amh-spacer">
+                <a class="btn btn-block amh-buttons amh-btn-clr-info"
+                   name="Register"
+                   href="#!/register"
+                   role="button">Register</a>
+            </div>
         </form>
 
     </div>
 
+
+
 </div>
+

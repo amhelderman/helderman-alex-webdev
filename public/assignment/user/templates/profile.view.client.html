@@ -1,88 +1,74 @@
-<div ng-controller="profileController">
+<div class="container-fluid" ng-controller="profileController">
 
 
-<!-- Nav Bar -->
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid amh-white">
         <div class="navbar-header navbar-brand">
 
             <!-- Page Header -->
             <span class="amh-white">Profile</span>
 
-            <!-- Top-Right Button -->
-            <a href="#">
-                <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
-            </a>
 
         </div>
-    </div>
-</nav>
-
-
-<!-- Form -->
-<div class="container-fluid amh-padded">
-    <form>
-
-        <label for="username">Username</label>
-        <input type="text"
-               name="username"
-               id="username"
-               ng-model="model.user.username"
-               class="form-control">
-
-
-        <label for="email">Email</label>
-        <input type="email"
-               name="email"
-               id="email"
-               class="form-control"
-               placeholder="Alice@Wonderland.com">
-
-        <label for="firstName">First Name</label>
-        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Alice">
-
-        <label for="lastName">Last Name</label>
-        <input type="text" name="firstName" id="lastName" class="form-control" placeholder="Smith">
-
-        <a class="btn btn-default btn-block"
-           id="websites"
-           name="Websites"
-           href="#!/website/{{model.user._id}}/list"
-           role="button">Websites</a>
-
-        <a class="btn btn-default btn-block"
-           id="Logout"
-           name="Logout"
-           href="#!/login"
-           role="button">Log out</a>
-
-        <a class="btn btn-default btn-block"
-           id="Logout"
-           name="Logout"
-           ng-click="model.unregister()"
-           role="button">Unregister</a>
-
-        <a class="btn btn-default btn-block"
-           id="Logout"
-           name="Logout"
-           ng-click="model.update()"
-           role="button">Update user</a>
-    </form>
-</div>
-
-<!-- Footer Bar -->
-<nav class="navbar navbar-default navbar-fixed-bottom" >
-    <div class="container-fluid">
-
-        <!-- Profile Button -->
-        <a class="navbar-brand" href="#!/#">
-            <a href="#!/profile">
-                <span class="glyphicon glyphicon-user pull-right amh-white amh-pull-right"></span>
-            </a>
-        </a>
 
     </div>
-</nav>
+
+    <!-- Main View -->
+    <div class="amh-shifted-down">
+        <form class="form-group">
+
+            <div ng-show="welcomeUser">
+            Welcome user {{model.user.username}}
+            </div>
+
+
+            <label for="username">Username</label>
+            <input type="text"
+                   name="username"
+                   id="username"
+                   ng-model="model.user.username"
+                   class="form-control">
+
+
+            <label for="email">Email</label>
+            <input type="email"
+                   name="email"
+                   id="email"
+                   class="form-control"
+                   placeholder="Alice@Wonderland.com">
+
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Alice">
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="firstName" id="lastName" class="form-control" placeholder="Smith">
+
+            <a class="btn btn-default btn-block"
+               id="websites"
+               name="Websites"
+               href="#!/website/{{model.user._id}}/list"
+               role="button">Websites</a>
+
+            <a class="btn btn-default btn-block"
+               id="Logout"
+               name="Logout"
+               href="#!/login"
+               role="button">Log out</a>
+
+            <a class="btn btn-default btn-block"
+               id="Logout"
+               name="Logout"
+               ng-click="model.unregister()"
+               role="button">Unregister</a>
+
+            <a class="btn btn-default btn-block"
+               id="Logout"
+               name="Logout"
+               ng-click="model.update()"
+               role="button">Update user</a>
+        </form>
+    </div>
+
 
 </div>
