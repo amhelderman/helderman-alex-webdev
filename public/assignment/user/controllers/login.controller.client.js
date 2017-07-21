@@ -26,9 +26,10 @@
             // When logging in...
         function login(user){
             var user = userService.findUserByUsernameAndPassword(user.username, user.password);
-            if(user == null)
+            if(!user)
             {
                 model.errorMessage = "user not found";
+                return;
             }
             else {
                 $location.url("profile/"+user._id);

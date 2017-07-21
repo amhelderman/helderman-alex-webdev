@@ -18,55 +18,92 @@
     <div class="amh-shifted-down">
         <form class="form-group">
 
-            <div ng-show="welcomeUser">
-            Welcome user {{model.user.username}}
+            <div class="amh-spacer">
+
+                <!--From class example  -->
+                Welcome, {{$scope.user.username}}
+                <div ng-show="model.user">
+                    Welcome, {{model.user.username}}
+                </div>
+                <!--Error Message-->
+                <div ng-show="errorMessage" class="alert alert-danger">
+                    {{model.errorMessage}}
+                </div>
+
+
+
+                <div ng-show="welcomeUser">
+                    Welcome user {{model.user.username}}
+                </div>
+
             </div>
 
 
-            <label for="username">Username</label>
-            <input type="text"
-                   name="username"
-                   id="username"
-                   ng-model="model.user.username"
-                   class="form-control">
+            <div class="amh-spacer">
+                <label for="username">Username</label>
+                <input type="text"
+                       name="username"
+                       id="username"
+                       ng-model="model.user.username"
+                       class="form-control">
+            </div>
 
 
-            <label for="email">Email</label>
-            <input type="email"
-                   name="email"
-                   id="email"
-                   class="form-control"
-                   placeholder="Alice@Wonderland.com">
+            <div class="amh-spacer">
+                <label for="email">Email</label>
+                <input type="email"
+                       name="email"
+                       id="email"
+                       class="form-control"
+                       placeholder="Alice@Wonderland.com">
+            </div>
 
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Alice">
+            <div class="amh-spacer">
 
-            <label for="lastName">Last Name</label>
-            <input type="text" name="firstName" id="lastName" class="form-control" placeholder="Smith">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Alice">
 
-            <a class="btn btn-default btn-block"
-               id="websites"
-               name="Websites"
-               href="#!/website/{{model.user._id}}/list"
-               role="button">Websites</a>
+            </div>
 
-            <a class="btn btn-default btn-block"
-               id="Logout"
-               name="Logout"
-               href="#!/login"
-               role="button">Log out</a>
+            <div class="amh-spacer">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="firstName" id="lastName" class="form-control" placeholder="Smith">
+            </div>
 
-            <a class="btn btn-default btn-block"
-               id="Logout"
-               name="Logout"
-               ng-click="model.unregister()"
-               role="button">Unregister</a>
+            <div class="amh-spacer">
+                <a class="btn btn-block amh-btn-clr-info"
+                   id="websites"
+                   name="Websites"
+                   href="#!/website/{{model.user._id}}/list"
+                   role="button">Websites</a>
+            </div>
 
-            <a class="btn btn-default btn-block"
-               id="Logout"
-               name="Logout"
-               ng-click="model.update()"
-               role="button">Update user</a>
+            <div class="amh-spacer">
+                <a class="btn btn-block amh-btn-clr-bad"
+                   id="Logout"
+                   name="Logout"
+                   href="#!/login"
+                   role="button">Log out</a>
+            </div>
+
+            <div class="amh-spacer">
+                <a class="btn btn-block amh-btn-clr-bad"
+                   id="Logout"
+                   name="Logout"
+                   ng-click="model.unregister()"
+                   role="button">Unregister</a>
+            </div>
+
+
+            <div class="amh-spacer">
+                <a class="btn btn-block amh-btn-clr-good"
+                   id="Logout"
+                   name="Logout"
+                   ng-click="model.update()"
+                   role="button">Update user</a>
+            </div>
+
+
         </form>
     </div>
 

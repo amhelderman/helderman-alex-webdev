@@ -41,6 +41,7 @@
 
         function findUserById(id)
         {
+            console.log("finding user by id"+id);
             for( var u in users){
                 var currentUser = users[u];
                 if(currentUser._id === id) {

@@ -1,0 +1,79 @@
+<!-- Nav Bar -->
+<div class="container-fluid" ng-controller="websiteListController">
+
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
+
+        <div class="navbar-header navbar-brand">
+
+            <a href="#!/profile">
+                <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
+            </a>
+
+            <span class="amh-white">Website List</span>
+
+            <a href="#!/website-new">
+                <span class="glyphicon glyphicon-plus amh-page-button-next"></span>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!--Main View-->
+    <div class="amh-shifted-down">
+        <!-- List of Entries -->
+        <!--<ul ng-repeat="website in websites" class="list-group">-->
+        <ul class="list-group">
+            <li ng-repeat="website in websites" class="list-group-item">
+                <a href="#!/#page-list">
+                    Address Book App
+                </a>
+                <a href="#!/website-edit">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#!/page-list">
+                    Blogger
+                </a>
+                <a href="#!/website-edit">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#!/page-list">
+                    Blogging App
+                </a>
+                <a href="#!/website-edit">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#!/page-list">
+                    Script Testing App
+                </a>
+                <a href="#!/website-edit">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+
+    <!-- Footer Bar -->
+    <div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
+        <div class="">
+            <!-- Profile Button -->
+            <a class="navbar-brand" href="#">
+                <a href="#!/profile">
+                    <span class="glyphicon glyphicon-user pull-right amh-white amh-pull-right"></span>
+                </a>
+            </a>
+        </div>
+    </div>
+
+
+</div>

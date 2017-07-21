@@ -18,6 +18,10 @@
     <!--Main View-->
     <div class="amh-shifted-down">
 
+        <!--From class example  -->
+        <div ng-show="model.user">
+            Welcome, {{model.user.username}}
+        </div>
         <!--Error Message-->
         <div ng-show="errorMessage" class="alert alert-danger">
             {{model.errorMessage}}
@@ -31,7 +35,7 @@
                            name="username"
                            id="username"
                            ng-model="model.user.username"
-                           class="form-control container"
+                           class="form-control"
                            placeholder="Alice">
             </div>
 

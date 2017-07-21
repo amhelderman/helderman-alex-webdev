@@ -27,46 +27,22 @@
                                 controller: "loginController",
                                 controllerAs: "model"
                             })
-                        .when("/profile",
-                            {
-                                templateUrl: "user/templates/profile.view.client.html",
-                                controller: "profileController",
-                                controllerAs: "model"
-                            })
                         .when("/register",
                             {
                                 templateUrl: "user/templates/register.view.client.html",
                                 controller: "registerController",
                                 controllerAs: "model"
                             })
-                        .when("/website-edit",
+                        .when("/profile/:uid",
                             {
-                                templateUrl: "website/templates/edit.view.client.html"
-                            })
-                        .when("/website-new",
-                            {
-                                templateUrl: "website/templates/new.view.client.html"
-                            })
-                        .when("/website-list",
-                            {
-                                templateUrl: "website/templates/list.view.client.html"
-                            })
-                        .when("/profile",
-                            {
-                                templateUrl: "user/templates/profile.view.client.html"
-                            })
-                        .when("/profile/:iud",
-                            {
-                                templateUrl: "user/templates/profile.view.client.html#!/:uid"
-                            })
-                        .when("/profile",
-                            {
-                                templateUrl: "user/templates/profile.view.client.html"
+                                templateUrl: "user/templates/profile.view.client.html#!/:uid",
+                                controller: "profileController",
+                                controllerAs: "model"
                             })
         // website routes
                         .when("/website/:userId/list",
                             {
-                                templateUrl:"website/templates/list.view.client.html",
+                                templateUrl:"website/templates/website-list.view.client.html",
                                 controller: "websiteListController",
                                 controllerAs: "model"
                             })

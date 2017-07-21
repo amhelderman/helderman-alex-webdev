@@ -12,34 +12,25 @@
         .module("WamApp")
         .controller("profileController", profileController);
 
-    function profileController($location, $routeParams,userService){
+    function profileController($scope, $routeParams, userService){
         var model = this;
-
-        model.user;
+        var userId = $routeParams["uid"];
         model.updateUser = updateUser;
         model.unregister = unregister;
 
         function init()
         {
-            user = userService.findUserById($routeParams["userId"]);
-
-            model.hello = "hello from profile";
-
-
-            if(user == null)
-            {
-                model.errorMessage = "cannot find user by this ID";
-            }
+            model.user = userService.findUserById(userId);
+            $scope.user = model.user;
         }
         init();
 
         function updateUser()
         {
-            alert("update user");
+            console.log("update user");
         }
         function unregister(){
-            alert(" unreg user");
-
+            console.log(" unreg user");
         }
     };
 

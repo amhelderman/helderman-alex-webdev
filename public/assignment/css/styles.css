@@ -1,10 +1,4 @@
 
-.amh-navbar{
-    color: white;
-    background-color: rgba(28, 0, 130, 0.72);
-    padding: 10px;
-
-}
 
 .amh-shifted-down{
     padding-top: 80px;
@@ -19,6 +13,22 @@
     margins: 30px;
 }
 
+/* Navbar */
+
+.amh-navbar{
+    color: white;
+    background-color: rgba(28, 0, 130, 0.72);
+    padding-left: 5%;
+
+}
+
+.amh-page-button-prev{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 20px;
+    color: white;
+}
 .amh-page-button-next{
     position: absolute;
     right: 0px;
