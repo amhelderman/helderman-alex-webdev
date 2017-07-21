@@ -46,6 +46,18 @@
                                 controller: "websiteListController",
                                 controllerAs: "model"
                             })
+                        .when("/website/:userId/new",
+                            {
+                                templateUrl:"website/templates/website-new.view.client.html",
+                                controller: "websiteListController",
+                                controllerAs: "model"
+                            })
+                        .when("/website/:userId/edit",
+                            {
+                                templateUrl:"website/templates/website-edit.view.client.html",
+                                controller: "websiteListController",
+                                controllerAs: "model"
+                            })
     }
 
 

@@ -21,8 +21,7 @@
             <div class="amh-spacer">
 
                 <!--From class example  -->
-                Welcome, {{$scope.user.username}}
-                <div ng-show="model.user">
+                <div ng-show="model.user" class="alert alert-info">
                     Welcome, {{model.user.username}}
                 </div>
                 <!--Error Message-->
@@ -54,6 +53,7 @@
                 <input type="email"
                        name="email"
                        id="email"
+                       ng-model="model.user.email"
                        class="form-control"
                        placeholder="Alice@Wonderland.com">
             </div>
@@ -61,13 +61,23 @@
             <div class="amh-spacer">
 
                 <label for="firstName">First Name</label>
-                <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Alice">
+                <input type="text"
+                       name="firstName"
+                       id="firstName"
+                       class="form-control"
+                       ng-model="model.user.firstName"
+                       placeholder="Alice">
 
             </div>
 
             <div class="amh-spacer">
                 <label for="lastName">Last Name</label>
-                <input type="text" name="firstName" id="lastName" class="form-control" placeholder="Smith">
+                <input type="text"
+                       name="firstName"
+                       id="lastName"
+                       ng-model="model.user.lastName"
+                       class="form-control"
+                       placeholder="Smith">
             </div>
 
             <div class="amh-spacer">
@@ -90,7 +100,7 @@
                 <a class="btn btn-block amh-btn-clr-bad"
                    id="Logout"
                    name="Logout"
-                   ng-click="model.unregister()"
+                   ng-click="model.unregister(user)"
                    role="button">Unregister</a>
             </div>
 
@@ -99,7 +109,7 @@
                 <a class="btn btn-block amh-btn-clr-good"
                    id="Logout"
                    name="Logout"
-                   ng-click="model.update()"
+                   ng-click="model.updateUser(user)"
                    role="button">Update user</a>
             </div>
 

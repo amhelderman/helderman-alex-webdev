@@ -14,10 +14,10 @@
     {
 
         var users=[
-            {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-            {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-            {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-            {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
+            {_id: "123", username: "alice",    email: "alice@wonderland.com",       password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
+            {_id: "234", username: "bob",      email: "bob@wonderland.com",         password: "bob",      firstName: "Bob",    lastName: "Marley"  },
+            {_id: "345", username: "charly",   email: "charly@wonderland.com",      password: "charly",   firstName: "Charly", lastName: "Garcia"  },
+            {_id: "456", username: "jannunzi", email: "jannunzi@wonderland.com",    password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
         ]
 
 
@@ -32,7 +32,6 @@
         function updateUser(userId, user)
         {
             var currentUser = findUserById(userId);
-
             currentUser = user;
             return user;
         }
@@ -78,7 +77,7 @@
 
         function registerUser(user)
         {
-            var existingUser = userService.findUserByUsername(user.username);
+            var existingUser = findUserByUsername(user.username);
             if(existingUser)
             {
                 return null;
@@ -90,5 +89,14 @@
             }
         }
 
+
+        function unregisterUser(user)
+        {
+            /* Remove the user */
+            var index = users.indexOf(user);
+            if (index > -1) {
+                users.splice(index, 1);
+            }
+        }
     }
 })();

@@ -15,6 +15,7 @@
     function profileController($scope, $routeParams, userService){
         var model = this;
         var userId = $routeParams["uid"];
+
         model.updateUser = updateUser;
         model.unregister = unregister;
 
@@ -27,10 +28,10 @@
 
         function updateUser()
         {
-            console.log("update user");
+            console.log("update user"+model.user.username);
         }
         function unregister(){
-            console.log(" unreg user");
+            console.log(" unreg user"+model.user.username);
         }
     };
 

@@ -15,17 +15,22 @@
         .module("WamApp")
         .controller("registerController", registerController);
 
-    function registerController($location, $routeParams,userService){
+    function registerController($location, $routeParams, userService){
         var model = this;
         model.registerUser = registerUser;
 
         function registerUser(user)
         {
-
             console.log("register user");
-            console.log(user);
-
-            var user = userService.registerUser(user);
+            if(user.password === user.password2)
+            {
+                console.log(user);
+                var user = userService.registerUser(user);
+            }
+            else
+            {
+                model.errorMessage = "Passwords do not match.";
+            }
         }
 
         function init()
