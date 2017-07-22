@@ -1,12 +1,7 @@
 /**
  * Created by Alex on 7/19/17.
  */
-/**
- * Created by Alex on 7/19/17.
- */
-/**
- * Created by Alex on 7/17/17.
- */
+
 
 
 /* Handle Angular Application */
@@ -16,24 +11,25 @@
     /* Get previously-declared Angular module */
     angular
         .module("WamApp")
-        .controller("pageListController", pageListController);
+        .controller("pageNewController", pageNewController);
 
-    function pageListController($location, $routeParams, pageService){
+    function pageNewController($location, $routeParams,userService, pageService){
         var model = this;
 
         model.userId = $routeParams.userId;
         model.webId = $routeParams.webId;
 
         model.createPage = pageService.createPage;
-        model.findPagesByWebsiteId = pageService.findPagesByWebsiteId;
+        model.findPageByWebsite = pageService.findPageByWebsite;
         model.findPageById = pageService.findPageById;
         model.updatePage = pageService.updatePage;
         model.deletePage = pageService.deletePage;
 
         function init()
         {
-            console.log("pageListController init.");
-            model.pages = pageService.findPagesByWebsiteId(model.webId);
+            console.log("pageNewController init.");
+
+
         }
         init();
 

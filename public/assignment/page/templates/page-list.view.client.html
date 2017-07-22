@@ -25,17 +25,17 @@
     <!--Main View-->
     <div class="amh-shifted-down">
 
-
         <ul class="list-group">
             <li ng-repeat="page in model.pages" class="list-group-item">
-                <a href="../../widget/widget-list.html">
+                <a href="#!/page/{{model.userId}}/{{page._id}}/edit">
                     {{page.name}}
                 </a>
-                <a href="#!/page/{{model.userId}}/{{page._id}}/edit">
+                <a href="#!/page/{{model.userId}}/{{model.webId}}/{{page._id}}/edit">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </li>
         </ul>
+
     </div>
 
 

@@ -22,7 +22,7 @@
 
 
         return {
-            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
+            "findUserByUsernameAndPassword": findUserByCredentials,
             "findUserById": findUserById,
             "registerUser": registerUser,
             "findUserByUsername": findUserByUsername,
@@ -50,7 +50,7 @@
             return null;
         }
 
-        function findUserByUsernameAndPassword(username, password)
+        function findUserByCredentials(username, password)
         {
             for( var u in users){
                 var currentUser = users[u];
@@ -90,8 +90,9 @@
         }
 
 
-        function unregisterUser(user)
+        function unregisterUser(userId)
         {
+            var userToRemove = findUserById(userId);
             /* Remove the user */
             var index = users.indexOf(user);
             if (index > -1) {

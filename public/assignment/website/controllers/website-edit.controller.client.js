@@ -22,13 +22,14 @@
         var model = this;
 
         model.userId = $routeParams.userId;
+        model.webId = $routeParams.webId;
 
         function init()
         {
             console.log("websiteEditController init.");
             console.log(model);
 
-            model.websites = websiteService.findWebsitesForUser(model.userId)
+            model.websites = websiteService.findWebsitesByUser(model.userId)
         }
         init();
     };

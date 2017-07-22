@@ -28,7 +28,7 @@
             console.log("websiteNewController init.");
             console.log(model);
 
-            model.websites = websiteService.findWebsitesForUser(model.userId)
+            model.websites = websiteService.findWebsitesByUser(model.userId)
         }
         init();
     };

@@ -65,13 +65,13 @@
                                 controller: "pageListController",
                                 controllerAs: "model"
                             })
-                        .when("/page/:userId/:pageId/new",
+                        .when("/page/:userId/:webId/new",
                             {
                                 templateUrl:"page/templates/page-new.view.client.html",
                                 controller: "pageNewController",
                                 controllerAs: "model"
                             })
-                        .when("/page/:userId/:pageId/edit",
+                        .when("/page/:userId/:webId/:pageId/edit",
                             {
                                 templateUrl:"page/templates/page-edit.view.client.html",
                                 controller: "pageEditController",

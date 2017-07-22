@@ -35,14 +35,16 @@
                    name="name"
                    id="name"
                    class="form-control"
+                   ng-model="model.page.name"
                    placeholder="Page Name">
 
-            <label for="title">Title</label>
+            <label for="description">Description</label>
             <textarea type="text"
-                      name="title"
-                      id="title"
+                      name="description"
+                      id="description"
                       class="form-control"
-                      placeholder="Page Title"></textarea>
+                      ng-model="model.page.description"
+                      placeholder="Page description"></textarea>
 
         </form>
     </div>
