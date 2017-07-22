@@ -27,6 +27,7 @@
         ];
 
         this.findWidgetsByPageId = findWidgetsByPageId;
+        this.findWidgetById = findWidgetById;
 
 
 
@@ -42,7 +43,23 @@
                 }
             }
             console.log("found "+out.length+" pages.");
+            console.log(out);
             return out;
+        }
+
+        function findWidgetById(widgetId)
+        {
+            console.log("Finding widget with widgetId "+widgetId);
+            var out = [];
+            for (var w in widgets){
+                var currentWidget = widgets[w];
+                if(currentWidget._id === widgetId)
+                {
+                    console.log("found widget "+currentWidget.name);
+                    return currentWidget;
+                }
+            }
+            return null;
         }
 
 

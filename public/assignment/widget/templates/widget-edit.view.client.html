@@ -1,24 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Widget Edit</title>
-</head>
-<body>
 
 
-<div ng-switch="widget.widgetType">
-    <div ng-switch-when="HEADING">
-        <ng-include src="'widget-heading-edit.view.client.html'">
+<div class="container-fluid" ng-controller="websiteListController">
+
+
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
+
+        <div class="navbar-header navbar-brand">
+
+
+            <!-- Back Button -->
+            <a href="#!/page/{{model.userId}}/{{model.webId}}/list">
+                <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
+            </a>
+
+            <!-- Page Header -->
+            <span class="amh-white">Widget Edit</span>
+
+            <!-- Top-Right Button -->
+            <a href="#!/page/{{model.userId}}/{{model.webId}}/list">
+                <span class="glyphicon glyphicon-ok amh-page-button-next"></span>
+            </a>
+
+        </div>
+
     </div>
-    <div ng-switch-when="IMAGE">
-        <ng-include src="'widget-image-edit.view.client.html'">
+
+
+    <!--Main View-->
+    <div class="amh-shifted-down">
+        {{model.userId}},
+        {{model.webId}},
+        {{model.pageId}},
+        {{model.widgetId}}.
+        <div ng-switch="model.widget.widgetType">
+            <div ng-switch-when="HEADING">
+                heading
+                <ng-include src="'#!/widget/'{{model.userId}}'/'{{model.webId}}'/'{{model.pageId}}'/heading'">
+            </div>
+            <div ng-switch-when="IMAGE">
+                image
+                <ng-include src="'widget-image-edit.view.client.html'">
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                youtube
+                <ng-include src="'widget-youtube-edit.view.client.html'">
+            </div>
+        </div>
     </div>
-    <div ng-switch-when="YOUTUBE">
-        <ng-include src="'widget-youtube-edit.view.client.html'">
+
+
+    <!-- Footer Bar -->
+    <div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
+        <div class="">
+            <!-- Profile Button -->
+            <a class="navbar-brand" href="#">
+                <a href="#!/profile/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+                </a>
+            </a>
+        </div>
     </div>
 </div>
-
-
-</body>
-</html>

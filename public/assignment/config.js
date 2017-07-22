@@ -84,6 +84,22 @@
                                 controller: "widgetListController",
                                 controllerAs: "model"
                             })
+                        .when("/widget/:userId/:webId/:pageId/:widgetId/edit",
+                            {
+                                templateUrl:"widget/templates/widget-edit.view.client.html",
+                                controller: "widgetEditController",
+                                controllerAs: "model"
+                            })
+                        .when("/widget/:userId/:webId/:pageId/heading",
+                            {
+                                templateUrl:"widget/templates/widget-list.view.client.html",
+                                controller: "widgetListController",
+                                controllerAs: "model"
+                            })
+
+
+
+
     }
 
 

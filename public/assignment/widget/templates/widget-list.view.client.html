@@ -30,9 +30,34 @@
 
     <!--Main View-->
     <div class="amh-shifted-down">
+
+
+<!--new-->
+
+        <div ng-repeat="widget in model.widgets">
+            <div ng-switch="widget.widgetType">
+                <div ng-switch-when="HEADING">
+                    HEADING:
+                    <ng-include src="'#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/heading'">
+                </div>
+                <div ng-switch-when="IMAGE">
+                    IMAGE:
+                    <ng-include src="'#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/image'">
+                </div>
+                <div ng-switch-when="YOUTUBE">
+                    YOUTUBE:
+                    <ng-include src="'#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/youtube'">
+                </div>
+            </div>
+        </div>
+------------
+
+        <!--old-->
+
+
         <ul class="list-group">
             <li class="list-group-item">
-                <a href="widget-heading.view.client.html">
+                <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/heading">
 
                     <!-- Settings Button -->
 
