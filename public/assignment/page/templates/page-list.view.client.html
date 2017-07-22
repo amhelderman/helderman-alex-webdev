@@ -14,7 +14,7 @@
 
             <span class="amh-white">Page List</span>
 
-            <a href="#!/page/{{model.userId}}/{{model.pageId}}/new">
+            <a href="#!/page/{{model.userId}}/{{model.webId}}/new">
                 <span class="glyphicon glyphicon-plus amh-page-button-next"></span>
             </a>
 
@@ -27,7 +27,7 @@
 
         <ul class="list-group">
             <li ng-repeat="page in model.pages" class="list-group-item">
-                <a href="#!/page/{{model.userId}}/{{page._id}}/edit">
+                <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{page._id}}/list">
                     {{page.name}}
                 </a>
                 <a href="#!/page/{{model.userId}}/{{model.webId}}/{{page._id}}/edit">

@@ -2,46 +2,53 @@
 
 <div class="container-fluid" ng-controller="websiteListController">
 
+
     <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid amh-white">
-            <div class="navbar-header navbar-brand">
+        <div class="navbar-header navbar-brand">
 
-                <!--Back Button-->
-                <a href="page-list.view.client.html">
-                    <span class=" glyphicon glyphicon-chevron-left amh-white"></span>
-                </a>
+            <!--Back Button-->
+            <a href="#!/page/{{model.userId}}/{{model.webId}}/list">
+                <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
+            </a>
 
-                <!-- Page Header -->
-                <span class="amh-white">New Page</span>
+            <!-- Page Header -->
+            <span class="amh-white">New Page</span>
 
-                <!-- Top-Right Button -->
-                <a href="page-list.view.client.html">
-                    <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
-                </a>
+            <!-- Top-Right Button -->
+            <a href="#!/page/{{model.userId}}/{{model.webId}}/list">
+                <span class="glyphicon glyphicon-ok amh-page-button-next"></span>
+            </a>
 
-            </div>
         </div>
-    </nav>
 
+    </div>
 
     <!--Main View-->
     <div class="amh-shifted-down">
-        <form class="form-signin">
-            <label for="name">Name</label>
-            <input type="text"
-                   name="name"
-                   id="name"
-                   class="form-control"
-                   placeholder="Page Name">
 
-            <label for="title">Title</label>
-            <textarea type="text"
-                      name="title"
-                      id="title"
-                      class="form-control"
-                      placeholder="Page Title"></textarea>
+        <form class="form-signin">
+
+             <div class="amh-spacer">
+                    <label for="name">Name</label>
+                    <input type="text"
+                           name="name"
+                           id="name"
+                           class="form-control"
+                           placeholder="Page Name">
+            </div>
+
+
+            <div class="amh-spacer">
+                <label for="title">Title</label>
+                <textarea type="text"
+                          name="title"
+                          id="title"
+                          class="form-control"
+                          placeholder="Page Title"></textarea>
+            </div>
+
 
         </form>
     </div>

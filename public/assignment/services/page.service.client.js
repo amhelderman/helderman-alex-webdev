@@ -46,7 +46,7 @@
         {
             console.log("Finding pages with websiteId "+websiteId);
             var out = [];
-            for (p in pages){
+            for (var p in pages){
                 var currentPage = pages[p];
                 if(currentPage.websiteId === websiteId)
                 {
@@ -61,7 +61,7 @@
         function findPageById(pageId)
         {
             console.log("Finding page with Id "+pageId);
-            for (p in pages){
+            for (var p in pages){
                 var currentPage = pages[p];
                 if(currentPage._id === pageId)
                 {

@@ -77,6 +77,13 @@
                                 controller: "pageEditController",
                                 controllerAs: "model"
                             })
+        // widget routes
+                        .when("/widget/:userId/:webId/:pageId/list",
+                            {
+                                templateUrl:"widget/templates/widget-list.view.client.html",
+                                controller: "widgetListController",
+                                controllerAs: "model"
+                            })
     }
 
 

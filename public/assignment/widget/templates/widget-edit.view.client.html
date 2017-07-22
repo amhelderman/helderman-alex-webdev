@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Widget Edit</title>
+</head>
+<body>
+
+
+<div ng-switch="widget.widgetType">
+    <div ng-switch-when="HEADING">
+        <ng-include src="'widget-heading-edit.view.client.html'">
+    </div>
+    <div ng-switch-when="IMAGE">
+        <ng-include src="'widget-image-edit.view.client.html'">
+    </div>
+    <div ng-switch-when="YOUTUBE">
+        <ng-include src="'widget-youtube-edit.view.client.html'">
+    </div>
+</div>
+
+
+</body>
+</html>
