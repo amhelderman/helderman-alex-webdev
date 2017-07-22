@@ -24,37 +24,13 @@
     <!--Main View-->
     <div class="amh-shifted-down">
         <!-- List of Entries -->
-        <ul ng-repeat="website in websites" class="list-group">
+        <ul class="list-group">
         <!--<ul class="list-group">-->
-            <li  class="list-group-item">
+            <li ng-repeat="website in model.websites" class="list-group-item">
                 <a href="#!/#page-list">
-                    Address Book App
+                    {{website.name}}
                 </a>
                 <a href="#!/website/{{model.user._id}}/edit">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a href="#!/page-list">
-                    Blogger
-                </a>
-                <a href="#!/website-edit">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a href="#!/page-list">
-                    Blogging App
-                </a>
-                <a href="#!/website-edit">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
-                </a>
-            </li>
-            <li class="list-group-item">
-                <a href="#!/page-list">
-                    Script Testing App
-                </a>
-                <a href="#!/website-edit">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </li>
