@@ -1,18 +1,20 @@
 
+
 <div class="container-fluid" ng-controller="websiteListController">
+
 
     <!-- Nav Bar -->
     <div class=" navbar navbar-fixed-top amh-navbar">
 
         <div class="navbar-header navbar-brand">
 
-            <a href="#!/profile/{{model.userId}}">
+            <a href="#!/website/{{model.userId}}/list">
                 <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
             </a>
 
-            <span class="amh-white">Website List</span>
+            <span class="amh-white">Page List</span>
 
-            <a href="#!/website/{{model.userId}}/new">
+            <a href="#!/page/{{model.userId}}/{{model.pageId}}/new">
                 <span class="glyphicon glyphicon-plus amh-page-button-next"></span>
             </a>
 
@@ -20,23 +22,22 @@
 
     </div>
 
-
     <!--Main View-->
     <div class="amh-shifted-down">
-        <!-- List of Entries -->
+
+
         <ul class="list-group">
-        <!--<ul class="list-group">-->
-            <li ng-repeat="website in model.websites" class="list-group-item">
-                <a href="#!/page/{{model.userId}}/{{website._id}}/list">
-                    {{website.name}}
+            <li ng-repeat="page in model.pages" class="list-group-item">
+                <a href="../../widget/widget-list.html">
+                    {{page.name}}
                 </a>
-                <a href="#!/website/{{model.userId}}/edit">
+                <a href="#!/page/{{model.userId}}/{{page._id}}/edit">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </li>
         </ul>
-
     </div>
+
 
 
     <!-- Footer Bar -->
@@ -50,6 +51,5 @@
             </a>
         </div>
     </div>
-
 
 </div>

@@ -58,6 +58,25 @@
                                 controller: "websiteEditController",
                                 controllerAs: "model"
                             })
+        // page routes
+                        .when("/page/:userId/:webId/list",
+                            {
+                                templateUrl:"page/templates/page-list.view.client.html",
+                                controller: "pageListController",
+                                controllerAs: "model"
+                            })
+                        .when("/page/:userId/:pageId/new",
+                            {
+                                templateUrl:"page/templates/page-new.view.client.html",
+                                controller: "pageNewController",
+                                controllerAs: "model"
+                            })
+                        .when("/page/:userId/:pageId/edit",
+                            {
+                                templateUrl:"page/templates/page-edit.view.client.html",
+                                controller: "pageEditController",
+                                controllerAs: "model"
+                            })
     }
 
 
