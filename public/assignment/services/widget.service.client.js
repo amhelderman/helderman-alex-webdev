@@ -55,7 +55,7 @@
                 var currentWidget = widgets[w];
                 if(currentWidget._id === widgetId)
                 {
-                    console.log("found widget "+currentWidget.name);
+                    console.log("found widget "+currentWidget.widgetType);
                     return currentWidget;
                 }
             }

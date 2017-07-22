@@ -30,8 +30,10 @@
         {
             console.log("widgetEditController init.");
 
+
             model.widget = widgetService.findWidgetById(model.widgetId);
             console.log(model.widget);
+            console.log(model.widget.widgetType);
         }
         init();
     };
