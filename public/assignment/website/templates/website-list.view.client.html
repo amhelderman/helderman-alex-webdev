@@ -30,7 +30,7 @@
                 <a href="#!/#page-list">
                     {{website.name}}
                 </a>
-                <a href="#!/website/{{website}}/edit">
+                <a href="#!/website/{{model.userId}}/edit">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </li>
@@ -44,8 +44,8 @@
         <div class="">
             <!-- Profile Button -->
             <a class="navbar-brand" href="#">
-                <a href="#!/profile">
-                    <span class="glyphicon glyphicon-user pull-right amh-white amh-pull-right"></span>
+                <a href="#!/profile/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user amh-footer-btn"></span>
                 </a>
             </a>
         </div>

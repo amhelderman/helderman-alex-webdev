@@ -16,16 +16,16 @@
     /* Get previously-declared Angular module */
     angular
         .module("WamApp")
-        .controller("websiteNewController", websiteNewController);
+        .controller("websiteEditController", websiteEditController);
 
-    function websiteNewController($location, $routeParams,userService, websiteService){
+    function websiteEditController($location, $routeParams,userService, websiteService){
         var model = this;
 
         model.userId = $routeParams.userId;
 
         function init()
         {
-            console.log("websiteNewController init.");
+            console.log("websiteEditController init.");
             console.log(model);
 
             model.websites = websiteService.findWebsitesForUser(model.userId)

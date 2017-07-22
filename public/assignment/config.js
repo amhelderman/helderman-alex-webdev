@@ -55,7 +55,7 @@
                         .when("/website/:userId/edit",
                             {
                                 templateUrl:"website/templates/website-edit.view.client.html",
-                                controller: "websiteListController",
+                                controller: "websiteEditController",
                                 controllerAs: "model"
                             })
     }

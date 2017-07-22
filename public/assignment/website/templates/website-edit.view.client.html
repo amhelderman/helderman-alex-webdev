@@ -1,113 +1,96 @@
-<!DOCTYPE html>
 
-<!-- Nav Bar -->
+<div class="container-fluid" ng-controller="websiteNewController">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid amh-white">
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
+
         <div class="navbar-header navbar-brand">
 
-            <a href="#!/website-list">
-                <span class=" glyphicon glyphicon-chevron-left amh-white"></span>
+            <a href="#!/website/{{model.userId}}/list">
+                <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
             </a>
 
             <span class="amh-white">Edit Website</span>
 
-            <a href="#!/website-list">
-                <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
+            <a href="#!/website/{{model.userId}}/list">
+                <span class="glyphicon glyphicon-ok amh-page-button-next"></span>
             </a>
 
         </div>
     </div>
-</nav>
 
 
-<!-- Two column Content -->
-<div class="row">
+    <!--Main View-->
+    <div class="amh-shifted-down row">
 
-    <!-- Column One - List of created websites -->
+        <!-- Column One - List of created websites -->
 
-    <div class="col-sm-6 hidden-xs">
+        <div class="col-sm-6 hidden-xs">
 
-        <!-- List of websites -->
-
-        <div class="container-fluid amh-padded">
+            <!-- List of Entries -->
             <ul class="list-group">
-                <li class="list-group-item">
-                    <a href="#!/page-list">
-                        Address Book App
+                <!--<ul class="list-group">-->
+                <li ng-repeat="website in model.websites" class="list-group-item">
+                    <a href="#!/#page-list">
+                        {{website.name}}
                     </a>
-                    <a href="#!/website-edit">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#!/page-list">
-                        Blogger
-                    </a>
-                    <a href="#!/website-edit">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#!/page-list">
-                        Blogging App
-                    </a>
-                    <a href="#!/website-edit">
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                </li>
-                <li class="list-group-item">
-                    <a href="#!/page-list.html">
-                        Script Testing App
-                    </a>
-                    <a href="#!/website-edit.html">
+                    <a href="#!/website/{{model.userId}}/edit">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
                 </li>
             </ul>
+
+        </div>
+
+
+
+        <!-- Column Two - Form to edit site -->
+
+        <div class="col-sm-6">
+
+            <div class="container-fluid amh-padded">
+
+
+
+                <form class="form-signin">
+                    <div class="amh-spacer">
+                        <label for="name">Name</label>
+                        <input type="text"
+                               name="name"
+                               id="name"
+                               class="form-control"
+                               placeholder="Page Name">
+                    </div>
+
+                    <div class="amh-spacer">
+                        <label for="title">Title</label>
+                        <textarea type="text"
+                                  name="title"
+                                  id="title"
+                                  class="form-control"
+                                  placeholder="Page Title">
+                        </textarea>
+                    </div>
+
+                </form>
+            </div>
+
         </div>
 
     </div>
-    <div class="col-sm-6">
 
-        <div class="container-fluid amh-padded">
-
-
-
-            <form class="form-signin">
-                <label for="name">Name</label>
-                <input type="text"
-                       name="name"
-                       id="name"
-                       class="form-control"
-                       placeholder="Page Name">
-
-                <label for="title">Title</label>
-                <textarea type="text"
-                          name="title"
-                          id="title"
-                          class="form-control"
-                          placeholder="Page Title"></textarea>
-
-            </form>
+    <!-- Footer Bar -->
+    <div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
+        <div class="">
+            <!-- Profile Button -->
+            <a class="navbar-brand" href="#">
+                <a href="#!/profile/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+                </a>
+            </a>
         </div>
-
     </div>
+
+
 
 </div>
-<!--</div>-->
-
-
-<!-- Footer Bar -->
-<nav class="navbar navbar-default navbar-fixed-bottom" >
-    <div class="container-fluid">
-
-        <!-- Profile Button -->
-        <a class="navbar-brand" href="#!/#">
-            <a href="#!/profile.html">
-                <span class="glyphicon glyphicon-user pull-right amh-white amh-pull-right"></span>
-            </a>
-        </a>
-
-    </div>
-</nav>
