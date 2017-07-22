@@ -1,4 +1,4 @@
-<!-- Nav Bar -->
+
 <div class="container-fluid" ng-controller="websiteListController">
 
     <!-- Nav Bar -->
@@ -6,13 +6,13 @@
 
         <div class="navbar-header navbar-brand">
 
-            <a href="#!/profile">
+            <a href="#!/profile/{{model.userId}}">
                 <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
             </a>
 
             <span class="amh-white">Website List</span>
 
-            <a href="#!/website-new">
+            <a href="#!/website/{{model.userId}}/new">
                 <span class="glyphicon glyphicon-plus amh-page-button-next"></span>
             </a>
 
@@ -30,7 +30,7 @@
                 <a href="#!/#page-list">
                     {{website.name}}
                 </a>
-                <a href="#!/website/{{model.user._id}}/edit">
+                <a href="#!/website/{{website}}/edit">
                     <span class="glyphicon glyphicon-cog pull-right"></span>
                 </a>
             </li>

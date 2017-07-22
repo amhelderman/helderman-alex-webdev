@@ -49,7 +49,7 @@
                         .when("/website/:userId/new",
                             {
                                 templateUrl:"website/templates/website-new.view.client.html",
-                                controller: "websiteListController",
+                                controller: "websiteNewController",
                                 controllerAs: "model"
                             })
                         .when("/website/:userId/edit",
