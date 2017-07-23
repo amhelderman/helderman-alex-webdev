@@ -10,7 +10,7 @@
 
 
             <!-- Back Button -->
-            <a href="#!/page/{{model.userId}}/{{model.webId}}/list">
+            <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/list">
                 <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
             </a>
 
@@ -39,12 +39,16 @@
         <!--{{model.userId}}-->
         <!--<ng-include src="{{getIncludedWidget()}}">-->
 
-        <div ng-include="'home.html'">
-        </div>
+        <!--<div ng-include="'home.html'">-->
+        <!--</div>-->
 
 
-        <div ng-include="model.getIncludedWidget()">
-        </div>
+        <!--<div ng-include="model.getIncludedWidget()">-->
+        <!--</div>-->
+
+        <!--<ng-include src="'widget/templates/widget-heading-edit.view.client.html'"></ng-include>-->
+
+
 
         <!--<div ng-switch="widget.widgetType">-->
 
