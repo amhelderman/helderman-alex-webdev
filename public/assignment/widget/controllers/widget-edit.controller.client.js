@@ -26,6 +26,16 @@
         model.pageId = $routeParams.pageId;
         model.widgetId = $routeParams.widgetId;
 
+
+        model.getIncludedWidget = function(){
+            var widgetPath = "/widget/"+model.userId+"/"
+                +model.webId+"/"
+                +model.pageId+"/"
+                +model.widgetId+"/heading-edit";
+            console.log(widgetPath);
+            return "home.html";
+        }
+
         function init()
         {
             console.log("widgetEditController init.");

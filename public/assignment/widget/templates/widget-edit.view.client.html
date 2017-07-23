@@ -31,27 +31,41 @@
 
     <!--Main View-->
     <div class="amh-shifted-down">
-        {{model.userId}},
-        {{model.webId}},
-        {{model.pageId}},
-        {{model.widgetId}}.
-        {{model.widget.widgetType}}
-        {{model.userId}}ssss
+        <!--{{model.userId}},-->
+        <!--{{model.webId}},-->
+        <!--{{model.pageId}},-->
+        <!--{{model.widgetId}}.-->
+        <!--{{model.widget.widgetType}}-->
+        <!--{{model.userId}}-->
+        <!--<ng-include src="{{getIncludedWidget()}}">-->
 
-        <div ng-switch="widget.widgetType">
-            <div ng-switch-when="HEADING">
-                heading:
-                <ng-include src="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{model.widgetId}}/heading-edit">
-            </div>
-            <div ng-switch-when="IMAGE">
-                image
-                <ng-include src="'#!/widget/templates/widget-image-edit.view.client.html'">
-            </div>
-            <div ng-switch-when="YOUTUBE">
-                youtube
-                <ng-include src="'#!/widget/templates/widget-youtube-edit.view.client.html'">
-            </div>
+        <div ng-include="'home.html'">
         </div>
+
+
+        <div ng-include="model.getIncludedWidget()">
+        </div>
+
+        <!--<div ng-switch="widget.widgetType">-->
+
+
+        <!--<div ng-switch="'HEADING'">-->
+            <!--<div ng-switch-when="HEADING">-->
+                <!--heading:-->
+                <!--&lt;!&ndash;<div ng-include="'#!/widget/templates/widget-header-edit.view.client.html'">&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div ng-switch-when="IMAGE">-->
+                <!--image-->
+                <!--<ng-include src="'#!/widget/templates/widget-image-edit.view.client.html'">-->
+                <!--</ng-include>-->
+            <!--</div>-->
+            <!--<div ng-switch-when="YOUTUBE">-->
+                <!--youtube-->
+                <!--<ng-include src="'#!/widget/templates/widget-youtube-edit.view.client.html'">-->
+                <!--</ng-include>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 
 
