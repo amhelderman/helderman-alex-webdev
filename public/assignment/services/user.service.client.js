@@ -25,6 +25,7 @@
             "findUserByUsernameAndPassword": findUserByCredentials,
             "findUserById": findUserById,
             "registerUser": registerUser,
+            "unregisterUser": unregisterUser,
             "findUserByUsername": findUserByUsername,
             "updateUser": updateUser
         };

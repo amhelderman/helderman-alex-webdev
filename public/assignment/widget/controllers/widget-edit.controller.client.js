@@ -36,6 +36,18 @@
             return "home.html";
         }
 
+        // model.createWidget = function(){
+        //     return widgetService.createWidget(model.pageId, model.widget);
+        // }
+        model.updateWidget = function(){
+            widgetService.updateWidget(model.widgetId, model.widget);
+            $location.url("#!/page/"+model.userId+"/"+model.webId+"/list");
+        }
+        model.deleteWidget = function(){
+            widgetService.deleteWidget(model.widgetId);
+            $location.url("#!/page/"+model.userId+"/"+model.webId+"/list");
+        }
+
         function init()
         {
             console.log("widgetEditController init.");
@@ -46,6 +58,8 @@
             console.log(model.widget.widgetType);
         }
         init();
+
+
     };
 
 

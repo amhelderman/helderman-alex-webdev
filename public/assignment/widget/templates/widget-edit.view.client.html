@@ -18,7 +18,7 @@
             <span class="amh-white">Widget Edit</span>
 
             <!-- Top-Right Button -->
-            <a href="#!/page/{{model.userId}}/{{model.webId}}/list">
+            <a ng-click="model.updateWidget()">
                 <span class="glyphicon glyphicon-ok amh-page-button-next"></span>
             </a>
 
@@ -31,29 +31,27 @@
 
     <!--Main View-->
     <div class="amh-shifted-down">
-        Editing widget for user {{model.userId}},
-        website {{model.webId}},
-        page {{model.pageId}},
-        widget #{{model.widgetId}},
-        of type {{model.widget.widgetType}}.
+        <!--Editing widget for user {{model.userId}},-->
+        <!--website {{model.webId}},-->
+        <!--page {{model.pageId}},-->
+        <!--widget #{{model.widgetId}},-->
+        <!--of type {{model.widget.widgetType}}.-->
 
 
-        <div ng-switch="'HEADING'">
+        <div ng-switch="model.widget.widgetType">
             <div ng-switch-when="HEADING">
-                heading:
-                <!--<div ng-include="'#!/widget/templates/widget-header-edit.view.client.html'">-->
-                <!--</div>-->
+                    <ng-include src="'widget/templates/widget-heading-edit.view.client.html'">
+                    </ng-include>
             </div>
             <div ng-switch-when="IMAGE">
-                image
-                <ng-include src="'#!/widget/templates/widget-image-edit.view.client.html'">
-                </ng-include>
+                    <ng-include src="'widget/templates/widget-image.view.client.html'">
+                    </ng-include>
             </div>
             <div ng-switch-when="YOUTUBE">
-                youtube
-                <ng-include src="'#!/widget/templates/widget-youtube-edit.view.client.html'">
-                </ng-include>
+                    <ng-include src="'widget/templates/widget-youtube.view.client.html'">
+                    </ng-include>
             </div>
+
         </div>
     </div>
 

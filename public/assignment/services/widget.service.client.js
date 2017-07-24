@@ -28,8 +28,35 @@
 
         this.findWidgetsByPageId = findWidgetsByPageId;
         this.findWidgetById = findWidgetById;
+        this.createWidget = createWidget;
+        this.updateWidget = updateWidget;
+        this.deleteWidget = deleteWidget;
+
+        function createWidget(pageId, widget)
+        {
+            widget.pageId = pageId;
+            widgets.push(widget);
+        }
 
 
+        function updateWidget(widgetId, widget)
+        {
+            var oldWidget = findWidgetById(widgetId);
+            oldWidget = widget;
+            return oldWidget;
+        }
+
+        function deleteWidget(widgetId)
+        {
+            var widgetRemoved = findWidgetById(widgetId);
+            /* Remove the user */
+            var index = widgets.indexOf(widgetRemoved);
+            if (index > -1) {
+                widgets.splice(index, 1);
+            }
+        }
+
+////////////////
 
         function findWidgetsByPageId(pageId)
         {
