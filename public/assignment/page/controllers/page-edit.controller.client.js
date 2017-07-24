@@ -19,11 +19,35 @@
         model.webId = $routeParams.webId;
         model.pageId = $routeParams.pageId;
 
-        model.createPage = pageService.createPage;
-        model.findPageByWebsite = pageService.findPageByWebsite;
-        model.findPageById = pageService.findPageById;
-        model.updatePage = pageService.updatePage;
-        model.deletePage = pageService.deletePage;
+        model.findPageByWebsite = function(){
+            console.log("Create page");
+            pageService.findPageByWebsite(model.webId);
+            $location.url("/page/"+model.userId+"/"+model.webId+"/list");
+        };
+
+        model.findPageById = function(){
+            console.log("Create page");
+            pageService.findPageById(model.pageId);
+            $location.url("/page/"+model.userId+"/"+model.webId+"/list");
+        };
+
+        model.createPage = function(){
+            console.log("Create page");
+            pageService.createPage(model.webId, model.page);
+            $location.url("/page/"+model.userId+"/"+model.webId+"/list");
+        };
+
+        model.updatePage = function(){
+            console.log("update page");
+            pageService.updatePage(model.pageId, model.page);
+            $location.url("/page/"+model.userId+"/"+model.webId+"/list");
+        };
+        model.deletePage = function(){
+            console.log("delete page");
+            pageService.deletePage(model.pageId);
+            $location.url("/page/"+model.userId+"/"+model.webId+"/list");
+        };
+
 
         function init()
         {

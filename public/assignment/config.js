@@ -84,6 +84,12 @@
                                 controller: "widgetListController",
                                 controllerAs: "model"
                             })
+                        .when("/widget/:userId/:webId/:pageId/chooser",
+                            {
+                                templateUrl:"widget/templates/widget-chooser.view.client.html",
+                                controller: "widgetNewController",
+                                controllerAs: "model"
+                            })
                         .when("/widget/:userId/:webId/:pageId/:widgetId/edit",
                             {
                                 templateUrl:"widget/templates/widget-edit.view.client.html",

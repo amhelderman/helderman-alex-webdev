@@ -19,11 +19,13 @@
         model.userId = $routeParams.userId;
         model.webId = $routeParams.webId;
 
-        model.createPage = pageService.createPage;
-        model.findPageByWebsite = pageService.findPageByWebsite;
-        model.findPageById = pageService.findPageById;
-        model.updatePage = pageService.updatePage;
-        model.deletePage = pageService.deletePage;
+
+        model.createPage = function(){
+            console.log("Create page");
+            pageService.createPage(model.webId, model.page);
+            $location.url("/page/"+model.userId+"/"+model.webId+"/list");
+        };
+
 
         function init()
         {

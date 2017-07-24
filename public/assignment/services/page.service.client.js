@@ -34,9 +34,10 @@
         this.deletePage = deletePage;
 
 
-
+            // TODO: should check if page exists? Nah, probably not.
         function createPage(websiteId, page)
         {
+            page._id =(new Date()).getTime() + "";
             page.websiteId = websiteId;
             pages.push(page);
         }

@@ -36,9 +36,9 @@
             return "home.html";
         }
 
-        // model.createWidget = function(){
-        //     return widgetService.createWidget(model.pageId, model.widget);
-        // }
+        model.createWidget = function(){
+            return widgetService.createWidget(model.pageId, model.widget);
+        }
         model.updateWidget = function(){
             console.log("updating widget...");
             widgetService.updateWidget(model.widgetId, model.widget);

@@ -1,101 +1,98 @@
-<!-- Nav Bar -->
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid amh-white">
+
+
+<div class="container-fluid" ng-controller="websiteListController">
+
+
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
+
         <div class="navbar-header navbar-brand">
 
-            <a href="#!/widget-list">
-                <span class=" glyphicon glyphicon-chevron-left amh-white"></span>
+
+            <!-- Back Button -->
+            <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/list">
+                <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
             </a>
 
+            <!-- Page Header -->
             <span class="amh-white">Widget Chooser</span>
 
-            <a href="#">
-                <span class="glyphicon glyphicon-ok amh-pull-right amh-white"></span>
-            </a>
 
         </div>
+
     </div>
-</nav>
 
-<!--<div class="amh-sidebar-nav">-->
 
-<div class="container-fluid amh-padded">
-    <ul class="list-group">
-        <li class="list-group-item">
-            <a href="#!/widget-heading">
-                Header
-                <span class="glyphicon glyphicon-cog pull-right"></span>
+    <!--Main View-->
+    <div class="amh-shifted-down">
+
+        <div class="container-fluid amh-padded">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="#!/widget-heading">
+                        Header
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Label
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        HTML
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Text Output
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Link
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Button
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#!/widget-image">
+                        Image
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#!/widget-youtube">
+                        YouTube
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Data Table
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <a href="#">
+                        Repeater
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- Footer Bar -->
+    <div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
+        <div class="">
+            <!-- Profile Button -->
+            <a class="navbar-brand" href="#">
+                <a href="#!/profile/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+                </a>
             </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#">
-                Label
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#">
-                HTML
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#">
-                Text Output
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#">
-                Link
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#">
-                Button
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#!/widget-image">
-                Image
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#!/widget-youtube">
-                YouTube
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#">
-                Data Table
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-        <li class="list-group-item">
-            <a href="#">
-                Repeater
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
-        </li>
-    </ul>
+        </div>
+    </div>
 </div>
-<!--</div>-->
-
-<!-- Footer Bar -->
-<nav class="navbar navbar-default navbar-fixed-bottom" >
-    <div class="container-fluid">
-
-        <!-- Profile Button -->
-        <a class="navbar-brand" href="#">
-            <a href="#!/profile">
-                <span class="glyphicon glyphicon-user pull-right amh-white amh-pull-right"></span>
-            </a>
-        </a>
-
-    </div>
-</nav>

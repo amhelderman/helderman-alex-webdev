@@ -17,7 +17,7 @@
             <span class="amh-white">New Page</span>
 
             <!-- Top-Right Button -->
-            <a href="#!/page/{{model.userId}}/{{model.webId}}/list">
+            <a ng-click="model.createPage()">
                 <span class="glyphicon glyphicon-ok amh-page-button-next"></span>
             </a>
 
@@ -36,6 +36,7 @@
                            name="name"
                            id="name"
                            class="form-control"
+                           ng-model="model.page.name"
                            placeholder="Page Name">
             </div>
 
@@ -46,6 +47,7 @@
                           name="title"
                           id="title"
                           class="form-control"
+                          ng-model="model.page.description"
                           placeholder="Page Title"></textarea>
             </div>
 
