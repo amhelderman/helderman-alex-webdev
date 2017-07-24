@@ -31,45 +31,30 @@
 
     <!--Main View-->
     <div class="amh-shifted-down">
-        <!--{{model.userId}},-->
-        <!--{{model.webId}},-->
-        <!--{{model.pageId}},-->
-        <!--{{model.widgetId}}.-->
-        <!--{{model.widget.widgetType}}-->
-        <!--{{model.userId}}-->
-        <!--<ng-include src="{{getIncludedWidget()}}">-->
-
-        <!--<div ng-include="'home.html'">-->
-        <!--</div>-->
+        Editing widget for user {{model.userId}},
+        website {{model.webId}},
+        page {{model.pageId}},
+        widget #{{model.widgetId}},
+        of type {{model.widget.widgetType}}.
 
 
-        <!--<div ng-include="model.getIncludedWidget()">-->
-        <!--</div>-->
-
-        <!--<ng-include src="'widget/templates/widget-heading-edit.view.client.html'"></ng-include>-->
-
-
-
-        <!--<div ng-switch="widget.widgetType">-->
-
-
-        <!--<div ng-switch="'HEADING'">-->
-            <!--<div ng-switch-when="HEADING">-->
-                <!--heading:-->
-                <!--&lt;!&ndash;<div ng-include="'#!/widget/templates/widget-header-edit.view.client.html'">&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--</div>-->
-            <!--<div ng-switch-when="IMAGE">-->
-                <!--image-->
-                <!--<ng-include src="'#!/widget/templates/widget-image-edit.view.client.html'">-->
-                <!--</ng-include>-->
-            <!--</div>-->
-            <!--<div ng-switch-when="YOUTUBE">-->
-                <!--youtube-->
-                <!--<ng-include src="'#!/widget/templates/widget-youtube-edit.view.client.html'">-->
-                <!--</ng-include>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div ng-switch="'HEADING'">
+            <div ng-switch-when="HEADING">
+                heading:
+                <!--<div ng-include="'#!/widget/templates/widget-header-edit.view.client.html'">-->
+                <!--</div>-->
+            </div>
+            <div ng-switch-when="IMAGE">
+                image
+                <ng-include src="'#!/widget/templates/widget-image-edit.view.client.html'">
+                </ng-include>
+            </div>
+            <div ng-switch-when="YOUTUBE">
+                youtube
+                <ng-include src="'#!/widget/templates/widget-youtube-edit.view.client.html'">
+                </ng-include>
+            </div>
+        </div>
     </div>
 
 
