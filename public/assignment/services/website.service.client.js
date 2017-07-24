@@ -42,7 +42,10 @@
         function createWebsite(userId, website)
         {
             website.developerId = userId;
+            website._id = (new Date()).getTime() + "";
             websites.push(website);
+            console.log("Created website, here is websites:"+websites);
+            console.log("Created website, here is website:"+website.name);
         }
 
         function findWebsitesByUser(userId){

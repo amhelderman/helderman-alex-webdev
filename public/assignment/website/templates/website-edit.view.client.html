@@ -12,7 +12,7 @@
 
             <span class="amh-white">Edit Website</span>
 
-            <a href="#!/website/{{model.userId}}/list">
+            <a ng-click="model.updateUser()">
                 <span class="glyphicon glyphicon-ok amh-page-button-next"></span>
             </a>
 
@@ -31,10 +31,10 @@
             <ul class="list-group">
                 <!--<ul class="list-group">-->
                 <li ng-repeat="website in model.websites" class="list-group-item">
-                    <a href="#!/#page-list">
+                    <a href="#!/page/{{model.userId}}/{{website._id}}/list">
                         {{website.name}}
                     </a>
-                    <a href="#!/website/{{model.userId}}/edit">
+                    <a href="#!/website/{{model.userId}}/{{website._id}}/edit">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
                 </li>
@@ -59,7 +59,7 @@
                                name="name"
                                id="name"
                                class="form-control"
-                               ng-model="{{website.name}}"
+                               ng-model="model.website.name"
                                placeholder="Page Name">
                     </div>
 
@@ -69,6 +69,7 @@
                                   name="title"
                                   id="title"
                                   class="form-control"
+                                  ng-model="model.website.description"
                                   placeholder="Page Title">
                         </textarea>
                     </div>

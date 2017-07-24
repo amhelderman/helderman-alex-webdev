@@ -27,7 +27,7 @@
         {
             console.log("websiteListController init.");
 
-            model.websites = websiteService.findWebsitesByUser(model.userId)
+            model.websites = websiteService.findWebsitesByUser(model.userId);
         }
         init();
     };

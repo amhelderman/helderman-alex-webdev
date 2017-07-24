@@ -18,18 +18,42 @@
         .module("WamApp")
         .controller("websiteEditController", websiteEditController);
 
-    function websiteEditController($location, $routeParams,userService, websiteService){
+    function websiteEditController($location, $routeParams, websiteService){
         var model = this;
 
         model.userId = $routeParams.userId;
         model.webId = $routeParams.webId;
+
+
+        model.createWebsite = function(){
+            console.log("Creating website with name "+model.website.name+".");
+            websiteService.createWebsite(model.userId, model.website);
+            console.log("Navigating to #!/website/"+model.userId+"/list")
+            $location.url("/website/"+model.userId+"/list");
+        };
+
+        model.updateWebsite = function(){
+            console.log("Updating website");
+            websiteService.updateWebsite(model.webId, model.website);
+            $location.url("/website/"+model.userId+"/list");
+
+        };
+
+        model.deleteWebsite = function(){
+            console.log("Deleting website");
+            websiteService.deleteWebsite(model.webId);
+            $location.url("/website/"+model.userId+"/list");
+
+        };
+
 
         function init()
         {
             console.log("websiteEditController init.");
             console.log(model);
 
-            model.websites = websiteService.findWebsitesByUser(model.userId)
+            model.website = websiteService.findWebsiteById(model.webId);
+            model.websites = websiteService.findWebsitesByUser(model.userId);
         }
         init();
     };

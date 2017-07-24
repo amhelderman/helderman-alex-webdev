@@ -40,12 +40,14 @@
         //     return widgetService.createWidget(model.pageId, model.widget);
         // }
         model.updateWidget = function(){
+            console.log("updating widget...");
             widgetService.updateWidget(model.widgetId, model.widget);
-            $location.url("#!/page/"+model.userId+"/"+model.webId+"/list");
+            $location.url("#!/widget/"+model.userId+"/"+model.webId+"/list");
         }
         model.deleteWidget = function(){
+            console.log("deleting widget...");
             widgetService.deleteWidget(model.widgetId);
-            $location.url("#!/page/"+model.userId+"/"+model.webId+"/list");
+            $location.url("#!/widget/"+model.userId+"/"+model.webId+"/list");
         }
 
         function init()

@@ -10,6 +10,7 @@
                name="name"
                id="name"
                class="form-control"
+               ng-model="model.widget.name"
                placeholder="Page Name">
 
         <label for="imageText">Text</label>
@@ -17,6 +18,7 @@
                   name="imageText"
                   id="imageText"
                   class="form-control"
+                  ng-model="model.widget.text"
                   placeholder=""></textarea>
 
         <label for="imageURL">URL</label>
@@ -24,6 +26,7 @@
                   name="imageURL"
                   id="imageURL"
                   class="form-control"
+                  ng-model="model.widget.url"
                   placeholder="http://..."></textarea>
 
         <label for="imageWidth">Width</label>
@@ -31,6 +34,7 @@
                   name="imageWidth"
                   id="imageWidth"
                   class="form-control"
+                  ng-model="model.widget.width"
                   placeholder="100%"></textarea>
 
         <label for="uploadSelect">Upload</label>

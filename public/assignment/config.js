@@ -52,7 +52,7 @@
                                 controller: "websiteNewController",
                                 controllerAs: "model"
                             })
-                        .when("/website/:userId/edit",
+                        .when("/website/:userId/:webId/edit",
                             {
                                 templateUrl:"website/templates/website-edit.view.client.html",
                                 controller: "websiteEditController",
