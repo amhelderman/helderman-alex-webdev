@@ -26,6 +26,7 @@
             {
                 console.log(user);
                 var user = userService.registerUser(user);
+                $location.url("/login");
             }
             else
             {

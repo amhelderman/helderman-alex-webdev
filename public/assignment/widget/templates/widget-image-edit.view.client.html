@@ -5,55 +5,77 @@
 
 
     <form class="form-signin">
-        <label for="name">Name</label>
-        <input type="text"
-               name="name"
-               id="name"
-               class="form-control"
-               ng-model="model.widget.name"
-               placeholder="Page Name">
-
-        <label for="imageText">Text</label>
-        <textarea type="text"
-                  name="imageText"
-                  id="imageText"
-                  class="form-control"
-                  ng-model="model.widget.text"
-                  placeholder=""></textarea>
-
-        <label for="imageURL">URL</label>
-        <textarea type="text"
-                  name="imageURL"
-                  id="imageURL"
-                  class="form-control"
-                  ng-model="model.widget.url"
-                  placeholder="http://..."></textarea>
-
-        <label for="imageWidth">Width</label>
-        <textarea type="text"
-                  name="imageWidth"
-                  id="imageWidth"
-                  class="form-control"
-                  ng-model="model.widget.width"
-                  placeholder="100%"></textarea>
-
-        <label for="uploadSelect">Upload</label>
-        <input type="file"
-               name="uploadSelect"
-               id="uploadSelect"
-               class="form-control">
-
-        <a class="btn btn-default btn-block"
-           id="uploadImage"
-           name="uploadImage"
-           role="button">Upload Image</a>
 
 
-        <a class="btn btn-default btn-block"
+        <div class="amh-spacer">
+            <label for="name">Name</label>
+            <input type="text"
+                   name="name"
+                   id="name"
+                   class="form-control"
+                   ng-model="model.widget.name"
+                   placeholder="Widget Name">
+        </div>
+
+
+        <div class="amh-spacer">
+            <label for="imageText">Text</label>
+            <textarea type="text"
+                      name="imageText"
+                      id="imageText"
+                      class="form-control"
+                      ng-model="model.widget.text"
+                      placeholder="Text associated with your image."></textarea>
+        </div>
+
+
+        <div class="amh-spacer">
+            <label for="imageURL">URL</label>
+            <textarea type="text"
+                      name="imageURL"
+                      id="imageURL"
+                      class="form-control"
+                      ng-model="model.widget.url"
+                      placeholder="http://..."></textarea>
+        </div>
+
+
+        <div class="amh-spacer">
+            <label for="imageWidth">Width</label>
+            <textarea type="text"
+                      name="imageWidth"
+                      id="imageWidth"
+                      class="form-control"
+                      ng-model="model.widget.width"
+                      placeholder="100%"></textarea>
+        </div>
+
+
+        <div class="amh-spacer">
+            <label for="uploadSelect">Upload</label>
+            <input type="file"
+                   name="uploadSelect"
+                   id="uploadSelect"
+                   class="form-control">
+        </div>
+
+        <div class="amh-spacer">
+            <a class="btn btn-block amh-buttons amh-btn-clr-info"
+               id="uploadImage"
+               name="uploadImage"
+               role="button">Upload Image</a>
+        </div>
+
+
+        <div class="amh-spacer">
+        <a class="btn btn-block amh-buttons amh-btn-clr-bad"
            id="delete"
            name="delete"
            ng-click="model.deleteWidget()"
            role="button">Delete</a>
+        </div>
+
+
     </form>
 </div>
 
