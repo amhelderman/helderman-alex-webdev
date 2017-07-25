@@ -5,39 +5,56 @@
 
 
     <form class="form-signin">
-        <label for="name">Name of Video</label>
-        <input type="text"
-               name="name"
-               id="name"
-               class="form-control"
-               placeholder="Cute Cat Jumps on Sofa">
 
-        <label for="youtubeText">Text</label>
-        <textarea type="text"
-                  name="youtubeText"
-                  id="youtubeText"
-                  class="form-control"
-                  placeholder=""></textarea>
+        <div class="amh-spacer">
+            <label for="name">Name of Video</label>
+            <input type="text"
+                   name="name"
+                   id="name"
+                   ng-model="model.widget.name"
+                   class="form-control"
+                   placeholder="Cute Cat Jumps on Sofa">
+        </div>
 
-        <label for="youtubeURL">URL</label>
-        <textarea type="text"
-                  name="youtubeURL"
-                  id="youtubeURL"
-                  class="form-control"
-                  placeholder="https://www.youtube.com/..."></textarea>
+        <div class="amh-spacer">
+            <label for="youtubeText">Text</label>
+            <textarea type="text"
+                      name="youtubeText"
+                      id="youtubeText"
+                      ng-model="model.widget.text"
+                      class="form-control"
+                      placeholder=""></textarea>
+        </div>
 
-        <label for="youtubeWidth">Width</label>
-        <textarea type="text"
-                  name="youtubeWidth"
-                  id="youtubeWidth"
-                  class="form-control"
-                  placeholder="100%"></textarea>
+        <div class="amh-spacer">
+            <label for="youtubeURL">URL</label>
+            <textarea type="text"
+                      name="youtubeURL"
+                      id="youtubeURL"
+                      ng-model="model.widget.url"
+                      class="form-control"
+                      placeholder="https://www.youtube.com/..."></textarea>
+        </div>
 
+        <div class="amh-spacer">
+            <label for="youtubeWidth">Width</label>
+            <textarea type="text"
+                      name="youtubeWidth"
+                      id="youtubeWidth"
+                      ng-model="model.widget.width"
+                      class="form-control"
+                      placeholder="100%"></textarea>
+        </div>
+
+        <div class="amh-spacer">
         <a class="btn btn-default btn-block"
            id="delete"
            name="delete"
-           href="widget-list.view.client.html"
+           ng-click="model.deleteWidget()"
            role="button">Delete</a>
+        </div>
+
+
     </form>
 </div>
 

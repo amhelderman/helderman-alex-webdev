@@ -22,8 +22,18 @@
 
         model.createPage = function(){
             console.log("Create page");
-            pageService.createPage(model.webId, model.page);
-            $location.url("/page/"+model.userId+"/"+model.webId+"/list");
+            console.log(model.page);
+            if(!model.page)
+            {
+                console.log("no page");
+                model.errorMessage = "Please define the new page or press back to cancel."
+            }
+            else
+            {
+                pageService.createPage(model.webId, model.page);
+                $location.url("/page/"+model.userId+"/"+model.webId+"/list");
+
+            }
         };
 
 

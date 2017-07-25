@@ -87,7 +87,7 @@
                         .when("/widget/:userId/:webId/:pageId/chooser",
                             {
                                 templateUrl:"widget/templates/widget-chooser.view.client.html",
-                                controller: "widgetNewController",
+                                controller: "widgetChooserController",
                                 controllerAs: "model"
                             })
                         .when("/widget/:userId/:webId/:pageId/:widgetId/edit",

@@ -23,9 +23,15 @@
 
     <!--Main View-->
     <div class="amh-shifted-down">
+
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
         <!-- List of Entries -->
         <ul class="list-group">
         <!--<ul class="list-group">-->
+            <li ng-show="!model.websites.length">No websites</li>
             <li ng-repeat="website in model.websites" class="list-group-item">
                 <a href="#!/page/{{model.userId}}/{{website._id}}/list">
                     {{website.name}}

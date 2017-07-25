@@ -31,6 +31,11 @@
 
     <!--Main View-->
     <div class="amh-shifted-down">
+
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
         <!--Editing widget for user {{model.userId}},-->
         <!--website {{model.webId}},-->
         <!--page {{model.pageId}},-->
@@ -44,11 +49,11 @@
                     </ng-include>
             </div>
             <div ng-switch-when="IMAGE">
-                    <ng-include src="'widget/templates/widget-image.view.client.html'">
+                    <ng-include src="'widget/templates/widget-image-edit.view.client.html'">
                     </ng-include>
             </div>
             <div ng-switch-when="YOUTUBE">
-                    <ng-include src="'widget/templates/widget-youtube.view.client.html'">
+                    <ng-include src="'widget/templates/widget-youtube-edit.view.client.html'">
                     </ng-include>
             </div>
 

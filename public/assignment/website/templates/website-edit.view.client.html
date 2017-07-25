@@ -12,7 +12,7 @@
 
             <span class="amh-white">Edit Website</span>
 
-            <a ng-click="model.updateUser()">
+            <a ng-click="model.updateWebsite()">
                 <span class="glyphicon glyphicon-ok amh-page-button-next"></span>
             </a>
 
@@ -22,6 +22,11 @@
 
     <!--Main View-->
     <div class="amh-shifted-down row">
+
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
 
         <!-- Column One - List of created websites -->
 

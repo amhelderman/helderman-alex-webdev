@@ -26,6 +26,11 @@
     <!--Main View-->
     <div class="amh-shifted-down row">
 
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
+
         <!-- Column One - List of created websites -->
 
         <div class="col-sm-6 hidden-xs">

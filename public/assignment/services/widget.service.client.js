@@ -35,7 +35,10 @@
         function createWidget(pageId, widget)
         {
             widget.pageId = pageId;
+            widget._id =(new Date()).getTime() + "";
             widgets.push(widget);
+            console.log("added widget to widgets, now including:");
+            console.log(widgets);
         }
 
 
@@ -43,6 +46,8 @@
         {
             var oldWidget = findWidgetById(widgetId);
             oldWidget = widget;
+            console.log("updated widget to widgets, now including:");
+            console.log(widgets);
             return oldWidget;
         }
 
@@ -54,6 +59,8 @@
             if (index > -1) {
                 widgets.splice(index, 1);
             }
+            console.log("removed widget from widgets, now including:");
+            console.log(widgets);
         }
 
 ////////////////

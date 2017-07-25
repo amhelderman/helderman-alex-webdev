@@ -34,6 +34,10 @@
         {
             console.log("pageListController init.");
             model.pages = pageService.findPagesByWebsiteId(model.webId);
+            if(!model.pages.length)
+            {
+                model.errorMessage="Please create a page.";
+            }
         }
         init();
 

@@ -25,7 +25,13 @@
     <!--Main View-->
     <div class="amh-shifted-down">
 
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
+
         <ul class="list-group">
+
             <li ng-repeat="page in model.pages" class="list-group-item">
                 <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{page._id}}/list">
                     {{page.name}}

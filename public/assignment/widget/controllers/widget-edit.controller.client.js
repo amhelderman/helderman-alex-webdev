@@ -36,18 +36,15 @@
             return "home.html";
         }
 
-        model.createWidget = function(){
-            return widgetService.createWidget(model.pageId, model.widget);
-        }
         model.updateWidget = function(){
             console.log("updating widget...");
             widgetService.updateWidget(model.widgetId, model.widget);
-            $location.url("#!/widget/"+model.userId+"/"+model.webId+"/list");
+            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
         }
         model.deleteWidget = function(){
             console.log("deleting widget...");
             widgetService.deleteWidget(model.widgetId);
-            $location.url("#!/widget/"+model.userId+"/"+model.webId+"/list");
+            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
         }
 
         function init()

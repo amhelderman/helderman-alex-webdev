@@ -18,18 +18,28 @@
         .module("WamApp")
         .controller("widgetListController", widgetListController);
 
-    function widgetListController($location, $routeParams, widgetService){
+    function widgetListController($location, $sce, $routeParams, widgetService){
         var model = this;
 
         model.userId = $routeParams.userId;
         model.webId = $routeParams.webId;
         model.pageId = $routeParams.pageId;
 
+
+        model.setTrusted = function(url){
+            console.log("setting trusted url:");
+            console.log(url);
+            return $sce.trustAsResourceUrl(url);
+        }
         function init()
         {
             console.log("widgetListController init.");
 
             model.widgets = widgetService.findWidgetsByPageId(model.pageId)
+            if(!model.widgets.length)
+            {
+                model.errorMessage="Please create a widget.";
+            }
         }
         init();
     };

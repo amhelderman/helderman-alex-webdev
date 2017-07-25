@@ -28,6 +28,10 @@
             console.log("websiteListController init.");
 
             model.websites = websiteService.findWebsitesByUser(model.userId);
+            if(!model.websites.length)
+            {
+                model.errorMessage="Please create a website.";
+            }
         }
         init();
     };

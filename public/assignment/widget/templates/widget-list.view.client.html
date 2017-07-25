@@ -31,8 +31,13 @@
     <!--Main View-->
     <div class="amh-shifted-down">
 
+        <div ng-show="model.errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
 
-<!--new-->
+
+
+        <!--new-->
 
         <div ng-repeat="widget in model.widgets">
             <!--{{widget.widgetType}}-->
@@ -42,28 +47,28 @@
                     <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
                         <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
 
                         <ng-include src="'widget/templates/widget-heading.view.client.html'">
                         </ng-include>
-                    </a>
                 </div>
                 <div ng-switch-when="IMAGE">
 
-                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/edit">
+                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
                         <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
                         <ng-include src="'widget/templates/widget-image.view.client.html'">
                         </ng-include>
-                    </a>
                 </div>
                 <div ng-switch-when="YOUTUBE">
 
-                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/edit">
+                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
                         <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
                         <ng-include src="'widget/templates/widget-youtube.view.client.html'">
                         </ng-include>
-                    </a>
                 </div>
 
             </div>
