@@ -49,7 +49,7 @@
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
 
-                        <ng-include src="'widget/templates/view/widget-heading.view.client.html'">
+                        <ng-include src="'widget/templates/views/widget-heading.view.client.html'">
                         </ng-include>
                 </div>
                 <!--<div ng-switch-when="TEXT">-->
@@ -62,22 +62,22 @@
                     <!--</ng-include>-->
 
                 <!--</div>-->
-                <!--<div ng-switch-when="IMAGE">-->
+                <div ng-switch-when="IMAGE">
 
-                    <!--<a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">-->
+                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
-                        <!--<span class="glyphicon glyphicon-cog pull-right"></span>-->
-                    <!--</a>-->
-                        <!--<ng-include src="'widget/templates/view/widget-image.view.client.html'">-->
-                        <!--</ng-include>-->
-                <!--</div>-->
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+                        <ng-include src="'widget/templates/views/widget-image.view.client.html'">
+                        </ng-include>
+                </div>
                 <div ng-switch-when="YOUTUBE">
 
                     <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
-                        <ng-include src="'widget/templates/view/widget-youtube.view.client.html'">
+                        <ng-include src="'widget/templates/views/widget-youtube.view.client.html'">
                         </ng-include>
                 </div>
 
