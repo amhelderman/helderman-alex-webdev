@@ -51,7 +51,7 @@
                 var currentPage = pages[p];
                 if(currentPage.websiteId === websiteId)
                 {
-                    out.push(currentPage);
+                    out.push( angular.copy(currentPage));
                 }
             }
             console.log("found "+out.length+" pages.");
@@ -67,7 +67,7 @@
                 if(currentPage._id === pageId)
                 {
                     console.log("found page "+currentPage.name);
-                    return currentPage;
+                    return  angular.copy(currentPage);
                 }
             }
             return null;

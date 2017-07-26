@@ -1,0 +1,44 @@
+
+    <form class="form-signin">
+
+        <!--Does not exist as part of widget data -->
+        <div class="amh-spacer">
+            <label for="name">Name</label>
+            <input type="text"
+                   name="name"
+                   id="name"
+                   class="form-control"
+                   ng-model="model.widget.name"
+                   placeholder="Widget Name">
+        </div>
+
+        <div class="amh-spacer">
+            <label for="headingText">Text</label>
+            <textarea type="text"
+                      name="headingText"
+                      id="headingText"
+                      class="form-control"
+                      ng-model="model.widget.text"
+                      placeholder="New committee chair implements policy..."></textarea>
+        </div>
+
+
+        <div class="amh-spacer">
+            <label for="headingSize">Size</label>
+            <textarea type="text"
+                      name="headingSize"
+                      id="headingSize"
+                      class="form-control"
+                      ng-model="model.widget.size"
+                      placeholder="3"></textarea>
+        </div>
+
+
+        <div class="amh-spacer">
+            <a class="btn btn-block amh-buttons amh-btn-clr-bad"
+               id="delete"
+               name="delete"
+               ng-click="model.deleteWidget()"
+               role="button">Delete</a>
+        </div>
+    </form>

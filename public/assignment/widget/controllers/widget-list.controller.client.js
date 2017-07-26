@@ -25,7 +25,19 @@
         model.webId = $routeParams.webId;
         model.pageId = $routeParams.pageId;
 
+        model.trustUrlResource = function(url){
+            console.log(url);
+            var youtubeUrl = "https://www.youtube.com/embed/";
+            var urlParts = url.split("/");
+            youtubeUrl += urlParts[urlParts.length-1];
 
+            return $sce.trustAsResourceUrl(youtubeUrl);
+            // return $sce.trustAsResource
+        }
+
+        model.trustHtmlContent = function(htmlContent){
+            return $sce.trustAsHtml(htmlContent);
+        }
         model.setTrusted = function(url){
             console.log("setting trusted url:");
             console.log(url);

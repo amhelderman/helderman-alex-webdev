@@ -52,6 +52,15 @@
                         <ng-include src="'widget/templates/widget-heading.view.client.html'">
                         </ng-include>
                 </div>
+                <div ng-switch-when="TEXT">
+
+                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
+
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
+
+                    {{widget.text}}
+                </div>
                 <div ng-switch-when="IMAGE">
 
                     <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
