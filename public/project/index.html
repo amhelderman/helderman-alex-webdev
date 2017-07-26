@@ -4,6 +4,11 @@
     <script src="../../vendor/angular/angular.js"></script>
     <script src="../../vendor/angular/angular-route.js"></script>
     <script src="app.js"></script>
+    <script src="map.js"></script>
+
+
+
+
     <title>Theme Template for Bootstrap</title>
     <!-- Bootstrap core CSS -->
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,14 +19,69 @@
 </head>
 <body>
 
-<h1> RateMyFriend</h1>
 
-<a href="mapsDemo.html"> maps demo</a>
-<div ng-controller="indexController">
-    {{hello}}
-    <div ng-view></div>
+
+
+<div class="amh-banner">
 
 </div>
+
+<!-- Nav Bar -->
+<div class=" navbar navbar-fixed-top amh-navbar">
+
+    <div class="navbar-header navbar-brand">
+
+        <!--Back Button-->
+        <a href="#!/page/{{model.userId}}/{{model.webId}}/list">
+            <span class=" glyphicon glyphicon-chevron-left amh-page-button-prev"></span>
+        </a>
+
+        <!-- Page Header -->
+        <span class="amh-header"> LifeGoals</span>
+
+        <!-- Top-Right Button -->
+        <a ng-click="model.createPage()">
+            <span class="glyphicon glyphicon-ok amh-page-button-next"></span>
+        </a>
+
+    </div>
+
+</div>
+
+
+<!--Main View-->
+<div class="amh-shifted-down">
+
+
+
+    <a href="mapsDemo.html"> maps demo</a>
+
+
+    <div ng-controller="indexController">
+        {{hello}}
+        <div ng-view></div>
+
+    </div>
+
+</div>
+
+
+
+
+<!-- Footer Bar -->
+<div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
+    <div class="">
+
+        Produced as an exercise. Not for any use.
+        <!-- Profile Button -->
+        <a class="navbar-brand" href="#">
+            <a href="#!/profile/{{model.userId}}">
+                <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+            </a>
+        </a>
+    </div>
+</div>
+
 
 </body>
 </html>

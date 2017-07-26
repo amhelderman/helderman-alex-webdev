@@ -1,101 +1,51 @@
-#map {
-    width: 100%;
-    height: 400px;
-    background-color: grey;
-}
-
-
-/* Button Colors */
-
-a.btn#register{
+.amh-navbar{
+    background-color: black;
     color: white;
-    background-color: forestgreen;
-}
-a.btn#Logout{
-    color: white;
-    background-color: indianred;
 }
 
-a.btn#websites{
-    color: white;
-    background-color: darkmagenta;
+
+.amh-header{
+    font-size: 2em;
+    padding: 20%;
 }
-a.btn#Cancel{
-    color: white;
-    background-color: indianred;
-}
-a.btn#delete{
-    color: white;
-    background-color: indianred;
-}
-a.btn#uploadImage{
-    color: white;
-    background-color: cornflowerblue;
+.amh-shifted-down{
+    padding-top: 80px;
+    padding-bottom: 80px;
 }
 
-/* AMH custom CSS */
 
-/* Colors */
-
-.amh-white{
+.amh-page-button-prev{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    padding: 20px;
     color: white;
-    padding: 10px;
 }
-
-/* Positions */
-.amh-margins{
-    margin-top: 65px;
-}
-.amh-padded{
-    padding-top: 90px;
-    padding-bottom: 65px;
-}
-
-.amh-pull-right{
+.amh-page-button-next{
     position: absolute;
     right: 0px;
+    top: 0px;
     padding: 20px;
+    color: white;
+}
+.amh-footer-btn{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 20px;
+    color: white;
 }
 
-.amh-center-container{
-    margin:auto;
-    width: 600px;
-}
 
-.amh-sidebar-nav{
-    float: none;
-    left: 0;
+/* MAPS */
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+    height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
     margin: 0;
-    list-style: none;
-}
-
-li.amh-sidebar-nav{
-    float: none;
-    left: 0;
-    margin: 0;
-    list-style: none;
-}
-
-
-
-/* Overwriting Bootstrap classes */
-/* TODO: change these to amh- classes. */
-
-.navbar{
-    color = white;
-    background-color: royalblue;
-    text-color: white;
-}
-
-.list-group-item{
-    border: none;
-}
-
-span.glyphicon {
-    font-size: 1em;
-}
-
-
-span.glyphicon-cog{
-    font-size: 2em;
+    padding: 0;
 }
