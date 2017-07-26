@@ -99,7 +99,7 @@
                         // Widget edits for each type:
                         .when("/widget/:userId/:webId/:pageId/:widgetId/heading-edit",
                             {
-                                templateUrl:"widget/templates/widget-heading-edit.view.client.html",
+                                templateUrl:"widget/templates/edit/widget-heading-edit.view.client.html",
                                 controller: "widgetEditController",
                                 controllerAs: "model"
                             })
