@@ -51,7 +51,7 @@
                 var currentPage = pages[p];
                 if(currentPage.websiteId === websiteId)
                 {
-                    out.push( angular.copy(currentPage));
+                    out.push( currentPage);
                 }
             }
             console.log("found "+out.length+" pages.");
@@ -67,7 +67,7 @@
                 if(currentPage._id === pageId)
                 {
                     console.log("found page "+currentPage.name);
-                    return  angular.copy(currentPage);
+                    return currentPage;
                 }
             }
             return null;
@@ -82,12 +82,16 @@
 
         function deletePage(pageId)
         {
-            var pageToRemove = findUserById(pageId);
+            var pageToRemove = findPageById(pageId);
+            console.log("service: deleting page ");
+            console.log(pageToRemove);
             /* Remove the user */
             var index = pages.indexOf(pageToRemove);
+            console.log(index);
             if (index > -1) {
                 pages.splice(index, 1);
             }
+            console.log(pages);
         }
 
 

@@ -54,7 +54,7 @@
             for(var w in websites){
                 if(websites[w].developerId === userId)
                 {
-                    sites.push( angular.copy(websites[w]));
+                    sites.push( websites[w]);
                 }
             }
             return sites;
@@ -65,7 +65,7 @@
             for(var w in websites){
                 if(websites[w]._id === websiteId)
                 {
-                    return  angular.copy(websites[w]);
+                    return websites[w];
                 }
             }
             return null;
@@ -80,9 +80,10 @@
 
         function deleteWebsite(websiteId)
         {
-            var websiteToRemove = findUserById(websiteId);
+            var websiteToRemove = findWebsiteById(websiteId);
             /* Remove the user */
             var index = websites.indexOf(websiteToRemove);
+            console.log("found website of index "+index+"to delete.");
             if (index > -1) {
                 websites.splice(index, 1);
             }
