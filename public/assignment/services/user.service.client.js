@@ -10,7 +10,7 @@
         .module("WamApp")
         .factory("userService", userService);
 
-    function userService()
+    function userService($http)
     {
 
         var users=[
@@ -22,7 +22,7 @@
 
 
         return {
-            "findUserByUsernameAndPassword": findUserByCredentials,
+            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
             "findUserById": findUserById,
             "registerUser": registerUser,
             "unregisterUser": unregisterUser,
@@ -41,26 +41,22 @@
 
         function findUserById(id)
         {
-            console.log("finding user by id"+id);
-            for( var u in users){
-                var currentUser = users[u];
-                if(currentUser._id === id) {
-                    return currentUser;
-                }
-            }
-            return null;
+            return $http.get("http://localhost:3000/user/"+userId);
         }
 
-        function findUserByCredentials(username, password)
+        function findUserByUsernameAndPassword(username, password)
         {
-            for( var u in users){
-                var currentUser = users[u];
-                if(currentUser.username === username
-                    & currentUser.password === password) {
-                    return currentUser;
-                }
-            }
-            return null;
+            console.log("in user service for findUserByUsernameAndPassword");
+            $http.get("/api/user?username="+username+"&password="+password);
+            //
+            // for( var u in users){
+            //     var currentUser = users[u];
+            //     if(currentUser.username === username
+            //         & currentUser.password === password) {
+            //         return currentUser;
+            //     }
+            // }
+            // return null;
         }
 
 

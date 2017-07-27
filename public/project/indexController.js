@@ -1,29 +1,26 @@
-/**
- * Created by Alex on 7/17/17.
+/* indexController *
  */
 
-
-/* Handle Angular Application */
 
 (function (){
 
     /* Get previously-declared Angular module */
     angular
         .module("WamApp")
-        .controller("loginController", loginController)
+        .controller("indexController", indexController)
 
 
 
-    function loginController($location, userService){
+    function indexController($location, userService){
         var model = this;
 
-        model.hello = "hello from loginController";
+        model.hello = "hello from indexController";
         model.login = login;
 
 
-            // When logging in...
+        // When logging in...
         function login(user){
-            console.log("in login controller");
+            console.log("in indexController controller");
             var user = userService.findUserByUsernameAndPassword(user.username, user.password);
             if(!user)
             {

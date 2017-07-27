@@ -1,13 +1,29 @@
 .amh-navbar{
     background-color: black;
     color: white;
+    padding: 20px;
 }
 
-
-.amh-header{
-    font-size: 2em;
-    padding: 20%;
+.amh-jumbotron{
+    background-color: rgba(25, 25, 112, 0.64);
+    color:white;
 }
+.amh-map{
+    position: absolute;
+    top: 80px;
+
+}
+a.jumboLink{
+    color:blue;
+    position: relative;
+    right: 0;
+    padding: 100px;
+}
+
+/*.amh-header{*/
+    /*font-size: 1.2em;*/
+    /*padding: 20%;*/
+/*}*/
 .amh-shifted-down{
     padding-top: 80px;
     padding-bottom: 80px;
@@ -18,7 +34,7 @@
     position: absolute;
     left: 0px;
     top: 0px;
-    padding: 20px;
+    padding: 20%;
     color: white;
 }
 .amh-page-button-next{
