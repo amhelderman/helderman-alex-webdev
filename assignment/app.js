@@ -7,7 +7,6 @@
 var app = require("../express");
 
 
-
 var users = [
     {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder", isAdmin: true  },
     {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
@@ -19,7 +18,7 @@ app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUserByUsernameAndPassword);
 
-function findUserByUsernameAndPassword(req, ret){
+function findUserByUsernameAndPassword(req, res){
     console.log("HELLO");
     console.log(req.query);
     res.send(req.query);
