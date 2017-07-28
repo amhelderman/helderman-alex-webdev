@@ -39,24 +39,17 @@
 
 
 
-        function findUserById(id)
+        function findUserById(userId)
         {
-            return $http.get("http://localhost:3000/user/"+userId);
+            console.log("user service: finding user by id "+userId);
+            return $http.get("/api/user/"+userId);
         }
 
         function findUserByUsernameAndPassword(username, password)
         {
             console.log("in user service for findUserByUsernameAndPassword");
-            $http.get("/api/user?username="+username+"&password="+password);
-            //
-            // for( var u in users){
-            //     var currentUser = users[u];
-            //     if(currentUser.username === username
-            //         & currentUser.password === password) {
-            //         return currentUser;
-            //     }
-            // }
-            // return null;
+            return $http.get("/api/user?username="+username+"&password="+password);
+
         }
 
 

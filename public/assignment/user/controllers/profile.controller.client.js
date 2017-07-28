@@ -21,8 +21,11 @@
 
         function init()
         {
+            console.log("finding profile for user "+userId);
             var promise = userService.findUserById(userId);
             promise.then(function (response){
+                console.log("profileController got user!");
+                console.log(response.data);
                 model.user = response.data;
             });
         }

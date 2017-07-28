@@ -24,15 +24,17 @@
             // When logging in...
         function login(user){
             console.log("in login controller");
-            var user = userService.findUserByUsernameAndPassword(user.username, user.password);
-            if(!user)
-            {
-                model.errorMessage = "user not found";
-                return;
-            }
-            else {
-                $location.url("profile/"+user._id);
-            }
+            var promise = userService.findUserByUsernameAndPassword(user.username, user.password);
+            promise.then(function(response){
+                var userResult = response.data;
+                console.log(userResult);
+                if(!userResult){
+                    model.errorMessage = "user not found";
+                }
+                else {
+                    $location.url("profile/"+userResult._id);
+                }
+            });
         }
     };
 
