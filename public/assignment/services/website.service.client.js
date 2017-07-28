@@ -13,7 +13,6 @@
     function websiteService()
     {
 
-
         var websites = [
             { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },
             { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem" },
@@ -24,20 +23,12 @@
             { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem" }
         ];
 
-
-
         this.createWebsite = createWebsite;
         this.findWebsitesByUser = findWebsitesByUser;
         this.findWebsiteById = findWebsiteById;
         this.updateWebsite = updateWebsite;
         this.updateWebsite = updateWebsite;
         this.deleteWebsite = deleteWebsite;
-
-/* createWebsite(userId, website) - adds the website parameter instance to the local websites array. The new website's developerId is set to the userId parameter
- findWebsitesByUser(userId) - retrieves the websites in local websites array whose developerId matches the parameter userId
- findWebsiteById(websiteId) - retrieves the website in local websites array whose _id matches the websiteId parameter
- updateWebsite(websiteId, website) - updates the website in local websites array whose _id matches the websiteId parameter
- deleteWebsite(websiteId) - removes the website from local websites array whose _id matches the websiteId parameter*/
 
         function createWebsite(userId, website)
         {
@@ -61,14 +52,9 @@
         }
 
 
-        function findWebsiteById(websiteId){
-            for(var w in websites){
-                if(websites[w]._id === websiteId)
-                {
-                    return websites[w];
-                }
-            }
-            return null;
+        function findWebsiteById(userId, webId){
+            var url =  "/api/user/"+userId+"/website/"+webId;
+            return $http.get(url);
         }
 
         function updateWebsite(websiteId, website)

@@ -7,7 +7,14 @@ var users = [
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
 ];
 
-app.get("/api/users", getAllUsers);
+/* Collections */
+app.get("/api/users", getAllUsers); // Get
+// app.post("/api/users", ) // post
+// app.put
+// app.delete("/api/users")
+
+
+/* Element */
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUserByUsernameAndPassword);
 
@@ -28,8 +35,6 @@ function findUserByUsernameAndPassword(req, res){
     res.send(404);
 }
 
-
-/* User stuff */
 function getAllUsers(req, response) {
     response.send(users);
 }
