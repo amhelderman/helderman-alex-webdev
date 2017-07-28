@@ -81,7 +81,6 @@ function findWidgetsByPageId(req, res)
     console.log("found "+out.length+" pages.");
     console.log(out);
     return out;
-    return out;
 }
 
 function findWidgetById(req, res)
