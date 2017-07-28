@@ -2,9 +2,11 @@
 
 var app = require("../express");
 
-app.get ("/api/user/:userId/website", findWebsitesForUser);
-app.get ("/api/user/:userId/website/:websiteId", findWebsiteById);
-app.post("/api/user/:userId/website", createWebsite);
+app.post    ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", createWidget);
+app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", findWidgetsByPageId);
+app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", findWidgetById);
+app.put     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
+app.delete  ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
 
 
 var widgets =[
@@ -19,56 +21,70 @@ var widgets =[
     { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
 ];
 
-function createWidget(pageId, widget)
-{
-    // widget.pageId = pageId;
-    // widget._id =(new Date()).getTime() + "";
-    // widgets.push(widget);
-    // console.log("added widget to widgets, now including:");
-    // console.log(widgets);
+function createWidget(req, res) {
+    var pageId = req.param.pageId;
+    var widget = req.body;
+
+    widget.pageId = pageId;
+    widget._id =(new Date()).getTime() + "";
+    widgets.push(widget);
+    console.log("added widget to widgets, now including:");
+    console.log(widgets);
+    res.sendStatus(201);
 }
 
 
-function updateWidget(widgetId, widget)
+function updateWidget(req, res)
 {
-    // var oldWidget = findWidgetById(widgetId);
-    // oldWidget = widget;
-    // console.log("updated widget to widgets, now including:");
-    // console.log(widgets);
-    // return oldWidget;
+    var widgetId = req.param.widgetId;
+    var widget = req.body;
+
+    var oldWidget = findWidgetById(widgetId);
+    oldWidget = widget;
+    console.log("updated widget to widgets, now including:");
+    console.log(widgets);
+    res.sendStatus(200);
 }
 
-function deleteWidget(widgetId)
+function deleteWidget(req, res)
 {
-    // var widgetRemoved = findWidgetById(widgetId);
-    // /* Remove the user */
-    // var index = widgets.indexOf(widgetRemoved);
-    // if (index > -1) {
-    //     widgets.splice(index, 1);
-    // }
-    // console.log("removed widget from widgets, now including:");
-    // console.log(widgets);
+    var widgetId = req.param.widgetId;
+
+    var widgetRemoved = findWidgetById(widgetId);
+    /* Remove the user */
+    var index = widgets.indexOf(widgetRemoved);
+    if (index > -1) {
+        widgets.splice(index, 1);
+        res.sendStatus(200);
+    }
+    else{
+        res.sendStatus(404);
+    }
 }
 
 ////////////////
 
-function findWidgetsByPageId(pageId)
+function findWidgetsByPageId(req, res)
 {
-    // console.log("Finding widgets with page Id "+pageId);
-    // var out = [];
-    // for (var w in widgets){
-    //     var currentWidget = widgets[w];
-    //     if(currentWidget.pageId === pageId)
-    //     {
-    //         out.push(currentWidget);
-    //     }
-    // }
-    // console.log("found "+out.length+" pages.");
-    // console.log(out);
-    // return out;
+    var pageId = req.param.pageId;
+
+
+    console.log("Finding widgets with page Id "+pageId);
+    var out = [];
+    for (var w in widgets){
+        var currentWidget = widgets[w];
+        if(currentWidget.pageId === pageId)
+        {
+            out.push(currentWidget);
+        }
+    }
+    console.log("found "+out.length+" pages.");
+    console.log(out);
+    return out;
+    return out;
 }
 
-function findWidgetById(widgetId)
+function findWidgetById(req, res)
 {
     // console.log("Finding widget with widgetId "+widgetId);
     // var out = [];

@@ -2,11 +2,11 @@
 
 var app = require("../express");
 
-app.get ("/api/user/:userId/website", findWebsitesForUser);
-app.get ("/api/user/:userId/website/:websiteId", findWebsiteById);
-app.post("/api/user/:userId/website", createWebsite);
-app.put("/api/user/:userId/website", updateWebsite);
-app.delete("/api/user/:userId/website", deleteWebsite);
+app.post    ("/api/user/:userId/website", createWebsite);
+app.get     ("/api/user/:userId/website", findWebsitesForUser);
+app.get     ("/api/user/:userId/website/:websiteId", findWebsiteById);
+app.put     ("/api/user/:userId/website/:websiteId", updateWebsite);
+app.delete  ("/api/user/:userId/website/:websiteId", deleteWebsite);
 
 var websites = [
     { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem" },

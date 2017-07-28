@@ -1,10 +1,6 @@
 /**
  * Created by Alex on 7/19/17.
  */
-
-
-
-
 (function(){
     angular
         .module("WamApp")
@@ -21,39 +17,29 @@
         this.deleteWebsite = deleteWebsite;
 
         function createWebsite(userId, website){
-
+            var url =  "/api/user/"+userId+"/website/";
+            $http.post(url, website);
         }
 
         function findWebsitesByUser(userId){
+            var url =  "/api/user/"+userId+"/website/";
+            return $http.get(url);
         }
-
 
         function findWebsiteById(userId, webId){
             var url =  "/api/user/"+userId+"/website/"+webId;
             return $http.get(url);
         }
 
-        function updateWebsite(websiteId, website)
-        {
-
-
-            // var oldWebsite = findWebsiteById(websiteId);
-            // oldWebsite = website;
-            // return website;
+        function updateWebsite(websiteId, website){
+            var url =  "/api/user/"+userId+"/website/"+websiteId;
+            $http.put(url, website);
         }
 
-        function deleteWebsite(websiteId)
-        {
-            // var websiteToRemove = findWebsiteById(websiteId);
-            // /* Remove the user */
-            // var index = websites.indexOf(websiteToRemove);
-            // console.log("found website of index "+index+"to delete.");
-            // if (index > -1) {
-            //     websites.splice(index, 1);
-            // }
+        function deleteWebsite(websiteId){
+            var url =  "/api/user/"+userId+"/website/"+websiteId;
+            $http.delete(url);
         }
-
-
 
     }
 })();
