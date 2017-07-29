@@ -28,6 +28,27 @@ function createWebsite(req, res) {
     res.json(website);
 }
 
+function updateWebsite(req, res){
+    var webId = req.params.userId;
+    var website = req.body;
+
+    console.log("updating website ");
+    console.log(website);
+
+    for(var u in websites) {
+        if(websites[u]._id === webId) {
+
+            website._id = (new Date()).getTime() + "";
+            websites[u] = website;
+
+            console.log("Updated website ");
+            console.log(website);
+            res.json(website);
+        }
+    }
+    res.sendStatus(404);
+}
+
 function findWebsiteById(req, res) {
     for(var w in websites) {
         if(websites[w]._id === req.params.websiteId) {
