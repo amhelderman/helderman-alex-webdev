@@ -7,16 +7,19 @@ var users = [
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
 ];
 
-/* Collections */
-app.get("/api/users", getAllUsers); // Get
-// app.post("/api/users", ) // post
-// app.put
-// app.delete("/api/users")
-
-
-/* Element */
-app.get("/api/user/:userId", getUserById);
+app.post("/api/user", createUser);
 app.get("/api/user", findUserByUsernameAndPassword);
+app.get("/api/user/:userId", findUserById);
+app.put("/api/user/:userId", updateUser);
+app.delete("/api/user/:userId", deleteUser);
+
+function createUser(req, res){
+    var user = req.body;
+    user._id = (new Date()).getTime() + "";
+    users.push(user);
+    res.json(user);
+}
+
 
 function findUserByUsernameAndPassword(req, res){
     console.log(req.query);
@@ -35,16 +38,28 @@ function findUserByUsernameAndPassword(req, res){
     res.send(404);
 }
 
-function getAllUsers(req, response) {
-    response.send(users);
-}
-
-function getUserById(req, response) {
+function findUserById(req, res) {
     console.log("server: get UserByID "+req.params.userId);
     for(var u in users) {
         if(users[u]._id === req.params.userId) {
-            response.send(users[u]);
+            res.send(users[u]);
         }
     }
-    response.send(404);
+    res.send(404);
+}
+
+function deleteUser(req, res){
+
+    for(var u in users) {
+        if(users[u]._id === req.params.userId) {
+            /* Remove the user */
+            var index = users.indexOf(users[u]);
+            if (index > -1) {
+                users.splice(index, 1);
+                res.sendStatus(200);
+                return;
+            }
+        }
+    }
+    res.sendStatus(404);
 }
