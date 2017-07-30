@@ -19,68 +19,62 @@
         this.updateWidget = updateWidget;
         this.deleteWidget = deleteWidget;
 
-        function createWidget(pageId, widget)
+        function createWidget(userId, websiteId, pageId, widget)
         {
-            // widget.pageId = pageId;
-            // widget._id =(new Date()).getTime() + "";
-            // widgets.push(widget);
-            // console.log("added widget to widgets, now including:");
-            // console.log(widgets);
+            var url =  "/api/user/"+userId
+                        +"/website/"+websiteId
+                        +"/page/"+pageId
+                        +"/widget/";
+            console.log("widget service: posting widget using url:");
+            console.log(url);
+            return $http.post(url, widget);
         }
 
 
-        function updateWidget(widgetId, widget)
+        function updateWidget(userId, websiteId, pageId, widgetId, widget)
         {
-            // var oldWidget = findWidgetById(widgetId);
-            // oldWidget = widget;
-            // console.log("updated widget to widgets, now including:");
-            // console.log(widgets);
-            // return oldWidget;
+            var url =  "/api/user/"+userId
+                +"/website/"+websiteId
+                +"/page/"+pageId
+                +"/widget/"+widgetId;
+            console.log("widget service: updating widget using url:");
+            console.log(url);
+            return $http.put(url, widget);
         }
 
-        function deleteWidget(widgetId)
+        function deleteWidget(userId, websiteId, pageId, widgetId)
         {
-            // var widgetRemoved = findWidgetById(widgetId);
-            // /* Remove the user */
-            // var index = widgets.indexOf(widgetRemoved);
-            // if (index > -1) {
-            //     widgets.splice(index, 1);
-            // }
-            // console.log("removed widget from widgets, now including:");
-            // console.log(widgets);
+            var url =  "/api/user/"+userId
+                +"/website/"+websiteId
+                +"/page/"+pageId
+                +"/widget/"+widgetId;
+            console.log("widget service: deleting widget using url:");
+            console.log(url);
+            return $http.delete(url);
         }
 
-////////////////
 
-        function findWidgetsByPageId(pageId)
+        function findWidgetsByPageId(userId, websiteId, pageId)
         {
-            // console.log("Finding widgets with page Id "+pageId);
-            // var out = [];
-            // for (var w in widgets){
-            //     var currentWidget = widgets[w];
-            //     if(currentWidget.pageId === pageId)
-            //     {
-            //         out.push(currentWidget);
-            //     }
-            // }
-            // console.log("found "+out.length+" pages.");
-            // console.log(out);
-            // return out;
+
+            var url =  "/api/user/"+userId
+                +"/website/"+websiteId
+                +"/page/"+pageId
+                +"/widget/";
+            console.log("widget service: finding widgets using url:");
+            console.log(url);
+            return $http.get(url);
         }
 
-        function findWidgetById(widgetId)
+        function findWidgetById(userId, websiteId, pageId, widgetId)
         {
-            // console.log("Finding widget with widgetId "+widgetId);
-            // var out = [];
-            // for (var w in widgets){
-            //     var currentWidget = widgets[w];
-            //     if(currentWidget._id === widgetId)
-            //     {
-            //         console.log("found widget "+currentWidget.widgetType);
-            //         return currentWidget;
-            //     }
-            // }
-            // return null;
+            var url =  "/api/user/"+userId
+                +"/website/"+websiteId
+                +"/page/"+pageId
+                +"/widget/"+widgetId;
+            console.log("widget service: find widget by Id using url:");
+            console.log(url);
+            return $http.get(url);
         }
 
 
