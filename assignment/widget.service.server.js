@@ -22,78 +22,112 @@ var widgets =[
 ];
 
 function createWidget(req, res) {
-    var pageId = req.param.pageId;
+    var userId = req.params.userId;
+    var websiteId = req.params.websiteId;
+    var pageId = req.params.pageId;
+    var widgetId = req.params.widgetId;
     var widget = req.body;
 
-    widget.pageId = pageId;
-    widget._id =(new Date()).getTime() + "";
-    widgets.push(widget);
-    console.log("added widget to widgets, now including:");
-    console.log(widgets);
-    res.sendStatus(201);
+    console.log("Checking if widget already exists");
+    var index = pages.indexOf(widget);
+    if (index > -1) {
+        res.sendStatus(204); // No Content - must indicate somehow that it exists
+    }
+    else
+    {
+        widget._id =(new Date()).getTime() + "";
+        widget.pageId = pageId;
+
+        console.log("Creating widget ");
+        console.log(widget);
+        pages.push(widget);
+        res.json(widget);
+    }
 }
 
 
 function updateWidget(req, res)
 {
-    var widgetId = req.param.widgetId;
+    var widgetId = req.params.widgetId;
     var widget = req.body;
 
-    var oldWidget = findWidgetById(widgetId);
-    oldWidget = widget;
-    console.log("updated widget to widgets, now including:");
-    console.log(widgets);
-    res.sendStatus(200);
+    console.log("UPDATING widget!!!!!!!!");
+    console.log(widget);
+
+    for(var u in widgets) {
+        console.log("ID CHECK: "+widgets[u]._id+" === "+widgetId);
+        if(pages[u]._id === widgetId) {
+            console.log("Yes it does.");
+
+            console.log("Does widget [u] ");
+            console.log(widgets[u]);
+
+            widgets[u] = widget;
+
+            console.log("equal this widget?");
+            console.log(widget);
+            res.json(widget);
+            return;
+        }
+    }
+    res.sendStatus(404);
 }
 
 function deleteWidget(req, res)
 {
-    var widgetId = req.param.widgetId;
+    var widgetId = req.params.widgetId;
 
-    var widgetRemoved = findWidgetById(widgetId);
-    /* Remove the user */
-    var index = widgets.indexOf(widgetRemoved);
-    if (index > -1) {
-        widgets.splice(index, 1);
-        res.sendStatus(200);
+    console.log("Deleting widget "+widgetId);
+    for(var w in widgets) {
+        if(widgets[w]._id === widgetId) {
+
+            /* Remove the user */
+            var index = widgets.indexOf(widgets[w]);
+            if (index > -1) {
+                widgets.splice(index, 1);
+                console.log("deleted.");
+                res.sendStatus(200);
+                return;
+            }
+        }
     }
-    else{
-        res.sendStatus(404);
-    }
+    console.log("NOT deleted.");
+    res.sendStatus(404);
 }
 
 ////////////////
 
 function findWidgetsByPageId(req, res)
 {
-    var pageId = req.param.pageId;
+    var pageId = req.params.pageId;
 
-
-    console.log("Finding widgets with page Id "+pageId);
+    console.log("Finding widgets with websiteId "+pageId);
     var out = [];
-    for (var w in widgets){
-        var currentWidget = widgets[w];
+    for (var p in widgets){
+        var currentWidget = widgets[p];
         if(currentWidget.pageId === pageId)
         {
             out.push(currentWidget);
         }
     }
-    console.log("found "+out.length+" pages.");
-    console.log(out);
-    return out;
+    console.log("found "+out.length+" widgets.");
+    res.send( out);
 }
 
 function findWidgetById(req, res)
 {
-    // console.log("Finding widget with widgetId "+widgetId);
-    // var out = [];
-    // for (var w in widgets){
-    //     var currentWidget = widgets[w];
-    //     if(currentWidget._id === widgetId)
-    //     {
-    //         console.log("found widget "+currentWidget.widgetType);
-    //         return currentWidget;
-    //     }
-    // }
-    // return null;
+    var widgetId = req.params.widgetId;
+
+    console.log("Finding widget with Id "+widgetId);
+    for (var p in pages){
+        var currentWidget = widgets[p];
+        if(currentWidget._id === widgetId)
+        {
+            console.log("found widget "+currentWidget.name);
+            res.json( currentWidget);
+            return;
+        }
+    }
+    console.log("Did not find it.");
+    res.sendStatus(404);
 }
