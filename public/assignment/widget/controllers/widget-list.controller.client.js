@@ -47,11 +47,19 @@
         {
             console.log("widgetListController init.");
 
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId)
-            if(!model.widgets.length)
-            {
-                model.errorMessage="Please create a widget.";
-            }
+            var promise = widgetService.findWidgetsByPageId(model.userId,
+                model.webId,
+                model.pageId);
+            promise.then(function(response){
+
+                model.widgets = response.data;
+
+                if(!model.widgets.length)
+                {
+                    model.errorMessage="Please create a widget.";
+                }
+
+            });
         }
         init();
     };

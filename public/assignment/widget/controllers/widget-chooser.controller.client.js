@@ -45,7 +45,14 @@
 
         // not used yet...
         model.createWidget = function(){
-            return widgetService.createWidget(model.pageId, model.widget);
+            console.log("Create widget called ");
+            widgetService.createWidget(model.userId, model.webId, model.pageId, model.widget)
+                .then(function(response){
+                console.log("received response");
+                console.log(response);
+                $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+
+            });
         }
 
         /* Create widgets */
@@ -56,8 +63,7 @@
             model.widget.size = 1;
             model.widget.text = "Heading!";
             model.widget.widgetType = "HEADING";
-            widgetService.createWidget(model.pageId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            model.createWidget();
         }
         model.createLabelWidget = function(){
             console.log("controller: create Label widget");
@@ -65,8 +71,7 @@
             model.widget.size = 1;
             model.widget.text = "label.";
             model.widget.widgetType = "LABEL";
-            widgetService.createWidget(model.pageId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            model.createWidget();
         }
         model.createTextWidget = function(){
             console.log("controller: create Text widget");
@@ -74,8 +79,7 @@
             model.widget.size = 1;
             model.widget.text = "plain text.";
             model.widget.widgetType = "TEXT";
-            widgetService.createWidget(model.pageId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            model.createWidget();
         }
         model.createLinkWidget = function(){
             console.log("controller: create Text widget");
@@ -84,8 +88,7 @@
             model.widget.text = "link.";
             model.widget.url = "/page/"+model.userId+"/"+model.webId+"/list";
             model.widget.widgetType = "TEXT";
-            widgetService.createWidget(model.pageId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            model.createWidget();
         }
         model.createButtonWidget = function(){
             console.log("controller: create Button widget");
@@ -94,8 +97,7 @@
             model.widget.text = "Button!";
             model.widget.url = "/page/"+model.userId+"/"+model.webId+"/list";
             model.widget.widgetType = "BUTTON";
-            widgetService.createWidget(model.pageId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            model.createWidget();
         }
         model.createHtmlWidget = function(){
             console.log("controller: create Html widget");
@@ -103,8 +105,7 @@
             model.widget.size = 1;
             model.widget.text = "<h1>heading1<h1> and <h2>heading2</h2>!";
             model.widget.widgetType = "HTML";
-            widgetService.createWidget(model.pageId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            model.createWidget();
         }
 
         model.createImageWidget = function(){
@@ -113,8 +114,7 @@
             model.widget.widgetType = "IMAGE";
             model.widget.url = "http://lorempixel.com/400/200/sports/";
             model.widget.width = "100%";
-            widgetService.createWidget(model.pageId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            model.createWidget();
         }
         model.createYoutubeWidget = function(){
             console.log("controller: create youtube widget");
@@ -122,8 +122,7 @@
             model.widget.widgetType = "YOUTUBE";
             model.widget.url = "https://www.youtube.com/watch?v=k5dkwQY-_tk";
             model.widget.width = "100%";
-            widgetService.createWidget(model.pageId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            model.createWidget();
         }
 
 

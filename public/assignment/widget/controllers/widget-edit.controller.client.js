@@ -38,13 +38,24 @@
 
         model.updateWidget = function(){
             console.log("updating widget...");
-            widgetService.updateWidget(model.widgetId, model.widget);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            widgetService.updateWidget(model.widgetId, model.widget)
+            .then(function(response){
+                console.log("received response");
+                console.log(response);
+                $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+
+            });
         }
+
         model.deleteWidget = function(){
             console.log("deleting widget...");
-            widgetService.deleteWidget(model.widgetId);
-            $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+            widgetService.deleteWidget(model.widgetId)
+                .then(function(response){
+                    console.log("received response");
+                    console.log(response);
+                    $location.url("/widget/"+model.userId+"/"+model.webId+"/"+model.pageId+"/list");
+
+                });
         }
 
         function init()
@@ -52,9 +63,18 @@
             console.log("widgetEditController init.");
 
 
-            model.widget = widgetService.findWidgetById(model.widgetId);
-            console.log(model.widget);
-            console.log(model.widget.widgetType);
+            var promise = widgetService.findWidgetById(model.userId,
+                model.webId,
+                model.pageId,
+                model.widgetId);
+
+            promise.then(function(response){
+
+                model.widget =response.data;
+
+                console.log(model.widget);
+                console.log(model.widget.widgetType);
+            });
         }
         init();
 
