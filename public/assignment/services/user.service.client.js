@@ -3,12 +3,10 @@
  */
 
 
-
-
 (function(){
     angular
         .module("WamApp")
-        .factory("userService", userService);
+        .service("userService", userService);
 
     function userService($http)
     {
@@ -21,20 +19,51 @@
         ];
 
 
-        return {
-            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
-            "findUserById": findUserById,
-            "registerUser": registerUser,
-            "unregisterUser": unregisterUser,
-            "findUserByUsername": findUserByUsername,
-            "updateUser": updateUser
-        };
+        this.findUserByUsernameAndPassword = findUserByUsernameAndPassword;
+        this.findUserById = findUserById;
+        this.registerUser = registerUser;
+        this.unregisterUser = unregisterUser;
+        this.findUserByUsername = findUserByUsername;
+        this.updateUser = updateUser;
+
+
+        function registerUser(user)
+        {
+            /* Handle user check at client level */
+
+            var existingUser = findUserByUsername(user.username);
+            if(existingUser)
+            {
+                return null;
+            }
+            else {
+                var url = "/api/user/"+userId;
+                $http.post(url, user)
+                    .then(function(response){
+                        return response.data;
+                    })
+            }
+        }
+
+
+        function unregisterUser(userId)
+        {
+            console.log("user service: deleting user "+userId);
+            var url = "/api/user/"+userId;
+            $http.delete(url)
+                .then(function(response){
+                    return response.data;
+                });
+        }
+
 
         function updateUser(userId, user)
         {
-            var currentUser = findUserById(userId);
-            currentUser = user;
-            return user;
+            var url = "/api/user/"+userId;
+            $http.put(url, user)
+                .then(function(response){
+                    return response.data;
+                });
         }
 
 
@@ -42,52 +71,33 @@
         function findUserById(userId)
         {
             console.log("user service: finding user by id "+userId);
-            return $http.get("/api/user/"+userId);
+            var url = "/api/user/"+userId;
+            $http.get(url)
+                .then(function(response){
+                return response.data;
+            });
         }
 
         function findUserByUsernameAndPassword(username, password)
         {
             console.log("in user service for findUserByUsernameAndPassword");
-            return $http.get("/api/user?username="+username+"&password="+password);
+            var url = "/api/user?username="+username+"&password="+password;
+            $http.get(url)
+                .then(function(response){
+                    return response.data;
+                });
 
         }
 
 
         function findUserByUsername(username)
         {
-            for( var u in users){
-                var currentUser = users[u];
-                if(currentUser.username === username) {
-                    return currentUser;
-                }
-            }
-            return null;
+            var url = "/api/user?username="+username+"&password="+password;
+            $http.get(url)
+                .then(function(response){
+                    return response.data;
+                });
         }
 
-
-        function registerUser(user)
-        {
-            var existingUser = findUserByUsername(user.username);
-            if(existingUser)
-            {
-                return null;
-            }
-            else {
-                user._id = (new Date()).getTime() + "";
-                users.push(user);
-                return user;
-            }
-        }
-
-
-        function unregisterUser(userId)
-        {
-            var userToRemove = findUserById(userId);
-            /* Remove the user */
-            var index = users.indexOf(user);
-            if (index > -1) {
-                users.splice(index, 1);
-            }
-        }
     }
 })();

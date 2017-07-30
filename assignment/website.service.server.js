@@ -23,6 +23,8 @@ function createWebsite(req, res) {
     var userId = req.params.userId;
     website.developerId = userId;
     website._id = (new Date()).getTime() + "";
+    console.log("Creating website ");
+    console.log(website);
 
     websites.push(website);
     res.json(website);
@@ -50,17 +52,23 @@ function updateWebsite(req, res){
 }
 
 function findWebsiteById(req, res) {
+    var webId = req.params.websiteId;
+    console.log("Finding websites with id "+webId);
+
     for(var w in websites) {
-        if(websites[w]._id === req.params.websiteId) {
+        if(websites[w]._id === webId) {
+            console.log("Found it.");
             res.json(websites[w]);
             return websites[w];
         }
     }
+    console.log("Did not find it.");
     res.sendStatus(404);
 }
 
 function findWebsitesForUser(req, res) {
     var userId = req.params.userId;
+    console.log("Deleting websites with userId "+userId);
 
     var sites = [];
 
@@ -69,25 +77,30 @@ function findWebsitesForUser(req, res) {
             sites.push(websites[w]);
         }
     }
+    console.log(sites);
     res.json(sites);
     return sites;
 }
 
 
 function deleteWebsite(req, res) {
-    var websiteId = req.params.webId;
+    var webId = req.params.webId;
 
-    var websiteToRemove = findWebsiteById(websiteId);
+    console.log("Deleting website "+webId);
+    for(var w in websites) {
+        if(websites[w]._id === webId) {
 
-    /* Remove the user */
-    var index = websites.indexOf(websiteToRemove);
-    console.log("found website of index "+index+"to delete.");
-    if (index > -1) {
-        websites.splice(index, 1);
-        res.sendStatus(200);
+            /* Remove the user */
+            var index = websites.indexOf(websites[w]);
+            if (index > -1) {
+                websites.splice(index, 1);
+                console.log("deleted.");
+                res.sendStatus(200);
+            }
+        }
     }
-    else{
-        res.sendStatus(404);
-    }
+    console.log("NOT deleted.");
+    res.sendStatus(404);
+
 }
 

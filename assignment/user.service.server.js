@@ -20,9 +20,19 @@ function createUser(req, res){
     var user = req.body;
     console.log("Creating user ");
     console.log(user);
-    user._id = (new Date()).getTime() + "";
-    users.push(user);
-    res.json(user);
+
+    var existingUser = findUserByUsername(user.username);
+    if(existingUser)
+    {
+        res.sendStatus()
+    }
+    else {
+
+        user._id = (new Date()).getTime() + "";
+        users.push(user);
+        res.json(user);
+    }
+
 }
 
 function updateUser(req, res){
