@@ -26,7 +26,7 @@ function createPage(req, res)
     var websiteId = req.params.websiteId;
     var page = req.body;
 
-    console.log("Checking if website already exists");
+    console.log("Checking if page already exists");
     var index = pages.indexOf(page);
     if (index > -1) {
         res.sendStatus(204); // No Content - must indicate somehow that it exists
@@ -113,7 +113,7 @@ function deletePage(req, res)
 {
     var pageId = req.params.pageId;
 
-    console.log("Deleting website "+pageId);
+    console.log("Deleting page "+pageId);
     for(var w in pages) {
         if(pages[w]._id === pageId) {
 

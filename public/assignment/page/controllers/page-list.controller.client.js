@@ -33,7 +33,7 @@
         function init()
         {
             console.log("pageListController init.");
-            var promise = pageService.findPagesByWebsiteId(model.webId);
+            var promise = pageService.findPagesByWebsiteId(model.userId, model.webId);
             promise.then(function(response){
 
                 model.pages = response.data;
