@@ -15,26 +15,26 @@ app.put("/api/user/:userId", updateUser);
 app.delete("/api/user/:userId", deleteUser);
 
 
-
+/* Set */
 function createUser(req, res){
     var user = req.body;
     console.log("Creating user ");
     console.log(user);
 
-    var existingUser = findUserByUsername(user.username);
-    if(existingUser)
-    {
-        res.sendStatus()
-    }
-    else {
 
-        user._id = (new Date()).getTime() + "";
-        users.push(user);
-        res.json(user);
+    var index = users.indexOf(users[u]);
+    if (index > -1) {
+        res.sendStatus(204); // No Content - must indicate somehow that it exists
     }
+
+
+    user._id = (new Date()).getTime() + "";
+    users.push(user);
+    res.json(user);
 
 }
 
+/* Set */
 function updateUser(req, res){
     var userId = req.params.userId;
     var user = req.body;
@@ -57,12 +57,13 @@ function updateUser(req, res){
 }
 
 
+/* Set */
 function findUserByUsernameAndPassword(req, res){
     console.log(req.query);
 
     var username = req.query.username;
     var password = req.query.password;
-    console.log("finding user "+username);
+    console.log("finding by passsword the user "+username);
 
     for( var u in users){
         var currentUser = users[u];
@@ -77,6 +78,7 @@ function findUserByUsernameAndPassword(req, res){
     res.send(404);
 }
 
+/* Set */
 function findUserById(req, res) {
     console.log("find UserByID "+req.params.userId);
     for(var u in users) {
@@ -89,6 +91,7 @@ function findUserById(req, res) {
     res.send(404);
 }
 
+/* Set */
 function deleteUser(req, res){
 
     console.log("Deleting user "+ req.params.userId);

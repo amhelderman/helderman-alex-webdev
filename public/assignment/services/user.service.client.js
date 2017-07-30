@@ -1,8 +1,6 @@
 /**
  * Created by Alex on 7/19/17.
  */
-
-
 (function(){
     angular
         .module("WamApp")
@@ -10,14 +8,6 @@
 
     function userService($http)
     {
-
-        var users=[
-            {_id: "123", username: "alice",    email: "alice@wonderland.com",       password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-            {_id: "234", username: "bob",      email: "bob@wonderland.com",         password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-            {_id: "345", username: "charly",   email: "charly@wonderland.com",      password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-            {_id: "456", username: "jannunzi", email: "jannunzi@wonderland.com",    password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
-        ];
-
 
         this.findUserByUsernameAndPassword = findUserByUsernameAndPassword;
         this.findUserById = findUserById;
@@ -27,76 +17,56 @@
         this.updateUser = updateUser;
 
 
+        /* Set */
         function registerUser(user)
         {
             /* Handle user check at client level */
-
-            var existingUser = findUserByUsername(user.username);
-            if(existingUser)
-            {
-                return null;
-            }
-            else {
-                var url = "/api/user/"+userId;
-                $http.post(url, user)
-                    .then(function(response){
-                        return response.data;
-                    })
-            }
+            console.log("user service: registering user "+user.username);
+            var url = "/api/user/";
+            return $http.post(url, user);
         }
 
 
+        /* Set */
         function unregisterUser(userId)
         {
             console.log("user service: deleting user "+userId);
             var url = "/api/user/"+userId;
-            $http.delete(url)
-                .then(function(response){
-                    return response.data;
-                });
+            return $http.delete(url);
         }
 
 
+        /* Set */
         function updateUser(userId, user)
         {
+            console.log("user service: updating user "+userId);
             var url = "/api/user/"+userId;
-            $http.put(url, user)
-                .then(function(response){
-                    return response.data;
-                });
+            return $http.put(url, user);
         }
 
 
 
+        /* Set */
         function findUserById(userId)
         {
             console.log("user service: finding user by id "+userId);
             var url = "/api/user/"+userId;
-            $http.get(url)
-                .then(function(response){
-                return response.data;
-            });
+            return $http.get(url);
         }
 
         function findUserByUsernameAndPassword(username, password)
         {
             console.log("in user service for findUserByUsernameAndPassword");
             var url = "/api/user?username="+username+"&password="+password;
-            $http.get(url)
-                .then(function(response){
-                    return response.data;
-                });
-
+            return $http.get(url);
         }
 
 
         function findUserByUsername(username)
         {
+            console.log("user service: finding user "+username);
             var url = "/api/user?username="+username+"&password="+password;
-            $http.get(url)
-                .then(function(response){
-                    return response.data;
-                });
+            return $http.get(url);
         }
 
     }

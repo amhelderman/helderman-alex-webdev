@@ -22,11 +22,23 @@
         function registerUser(user)
         {
             console.log("register user");
-            if(user.password === user.password2)
+            if(user.password === model.verifyPassword)
             {
+                console.log("Passwords match. Registering user:");
                 console.log(user);
-                var user = userService.registerUser(user);
-                $location.url("/login");
+                var promise = userService.registerUser(user);
+                promise.then(function(response){
+                        console.log("Registering user resulted in:");
+                        console.log(response.data);
+                        $location.url("/login");
+                    });
+                console.log(promise)
+                // }
+                // else
+                // {
+                //     console.log("they exist");
+                //     model.errorMessage = "User already exists.";
+                // }
             }
             else
             {
@@ -36,7 +48,7 @@
 
         function init()
         {
-
+            console.log("registerController init");
         }
         init();
     };

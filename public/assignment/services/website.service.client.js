@@ -6,7 +6,7 @@
         .module("WamApp")
         .service("websiteService", websiteService);
 
-    function websiteService()
+    function websiteService($http)
     {
 
         this.createWebsite = createWebsite;

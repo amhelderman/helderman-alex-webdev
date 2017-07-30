@@ -10,7 +10,7 @@
         .module("WamApp")
         .service("pageService", pageService);
 
-    function pageService()
+    function pageService($http)
     {
 
 

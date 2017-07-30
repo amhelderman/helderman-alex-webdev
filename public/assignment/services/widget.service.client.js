@@ -10,7 +10,7 @@
         .module("WamApp")
         .service("widgetService", widgetService);
 
-    function widgetService()
+    function widgetService($http)
     {
 
         this.findWidgetsByPageId = findWidgetsByPageId;
