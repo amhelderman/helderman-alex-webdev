@@ -30,7 +30,7 @@
             }
             else
             {
-                pageService.createPage(model.webId, model.page);
+                pageService.createPage(model.userId, model.webId, model.page);
                 $location.url("/page/"+model.userId+"/"+model.webId+"/list");
 
             }

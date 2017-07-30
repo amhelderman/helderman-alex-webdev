@@ -21,30 +21,30 @@
 
         model.findPageByWebsite = function(){
             console.log("Create page");
-            pageService.findPageByWebsite(model.webId);
+            pageService.findPageByWebsite(model.userId, model.webId);
             $location.url("/page/"+model.userId+"/"+model.webId+"/list");
         };
 
         model.findPageById = function(){
             console.log("Create page");
-            pageService.findPageById(model.pageId);
+            pageService.findPageById(model.userId, model.webId, model.pageId);
             $location.url("/page/"+model.userId+"/"+model.webId+"/list");
         };
 
         model.createPage = function(){
             console.log("Create page");
-            pageService.createPage(model.webId, model.page);
+            pageService.createPage(model.userId, model.webId, model.page);
             $location.url("/page/"+model.userId+"/"+model.webId+"/list");
         };
 
         model.updatePage = function(){
             console.log("update page");
-            pageService.updatePage(model.pageId, model.page);
+            pageService.updatePage(model.userId, model.webId, model.pageId, model.page);
             $location.url("/page/"+model.userId+"/"+model.webId+"/list");
         };
         model.deletePage = function(){
             console.log("delete page");
-            pageService.deletePage(model.pageId);
+            pageService.deletePage(model.userId, model.webId, model.pageId);
             $location.url("/page/"+model.userId+"/"+model.webId+"/list");
         };
 
@@ -52,7 +52,19 @@
         function init()
         {
             console.log("pageEditController init.");
-            model.page = pageService.findPageById(model.pageId);
+            var promise= pageService.findPageById(model.userId, model.webId, model.pageId);
+            promise.then(function(response){
+                console.log("finding pages - received response!");
+                console.log(response);
+                model.page = response.data;
+
+                if(!model.page)
+                {
+                    model.errorMessage="No page found.";
+                }
+                console.log(model.page);
+
+            });
         }
         init();
 
