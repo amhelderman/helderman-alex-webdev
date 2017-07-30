@@ -30,7 +30,7 @@
 
         function findPagesByWebsiteId(userId, websiteId){
 
-            var url =  "/api/user/"+userId+"/website/"+websiteId;
+            var url =  "/api/user/"+userId+"/website/"+websiteId+"/page/";
             console.log("page service: finding pages using url:");
             console.log(url);
             return $http.get(url);

@@ -2,8 +2,8 @@
 
 var app = require("../express");
 
-app.post    ("/api/user/:userId/website/:websiteId/page", createPage);
-app.get     ("/api/user/:userId/website/:websiteId/page", findPagesByWebsiteId);
+app.post    ("/api/user/:userId/website/:websiteId/page/", createPage);
+app.get     ("/api/user/:userId/website/:websiteId/page/", findPagesByWebsiteId);
 app.get     ("/api/user/:userId/website/:websiteId/page/:pageId", findPageById);
 app.put     ("/api/user/:userId/website/:websiteId/page/:pageId", updatePage);
 app.delete  ("/api/user/:userId/website/:websiteId/page/:pageId", deletePage);
