@@ -27,11 +27,17 @@
         {
             console.log("websiteListController init.");
 
-            model.websites = websiteService.findWebsitesByUser(model.userId);
-            if(!model.websites.length)
-            {
-                model.errorMessage="Please create a website.";
-            }
+            var promise = websiteService.findWebsitesByUser(model.userId);
+            promise.then(function(response){
+                console.log("finding websites - received response");
+                console.log(response);
+
+                model.websites = response.data;
+                if(!model.websites.length)
+                {
+                    model.errorMessage="Please create a website.";
+                }
+            });
         }
         init();
     };

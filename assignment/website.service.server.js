@@ -21,31 +21,45 @@ var websites = [
 function createWebsite(req, res) {
     var website = req.body;
     var userId = req.params.userId;
-    website.developerId = userId;
-    website._id = (new Date()).getTime() + "";
-    console.log("Creating website ");
-    console.log(website);
+    console.log("Checking if website already exists");
+    var index = websites.indexOf(website);
+    if (index > -1) {
+        res.sendStatus(204); // No Content - must indicate somehow that it exists
+    }
+    else
+    {
+        website.developerId = userId;
+        website._id = (new Date()).getTime() + "";
+        console.log("Creating website ");
+        console.log(website);
 
-    websites.push(website);
-    res.json(website);
+        websites.push(website);
+        res.json(website);
+    }
 }
 
 function updateWebsite(req, res){
-    var webId = req.params.userId;
+    var webId = req.params.websiteId;
     var website = req.body;
 
-    console.log("updating website ");
+    console.log("UPDATING WEBSITE!!!!!!!!");
+    // console.log("updating website ");
     console.log(website);
 
     for(var u in websites) {
+        console.log("ID CHECK: "+websites[u]._id+" === "+webId);
         if(websites[u]._id === webId) {
+            console.log("Yes it does.");
 
-            website._id = (new Date()).getTime() + "";
+            console.log("Does website [u] ");
+            console.log(websites[u]);
+
             websites[u] = website;
 
-            console.log("Updated website ");
+            console.log("equal this website?");
             console.log(website);
             res.json(website);
+            return;
         }
     }
     res.sendStatus(404);
@@ -68,7 +82,7 @@ function findWebsiteById(req, res) {
 
 function findWebsitesForUser(req, res) {
     var userId = req.params.userId;
-    console.log("Deleting websites with userId "+userId);
+    console.log("Finding websites with userId "+userId);
 
     var sites = [];
 
@@ -84,7 +98,7 @@ function findWebsitesForUser(req, res) {
 
 
 function deleteWebsite(req, res) {
-    var webId = req.params.webId;
+    var webId = req.params.websiteId;
 
     console.log("Deleting website "+webId);
     for(var w in websites) {
@@ -96,6 +110,7 @@ function deleteWebsite(req, res) {
                 websites.splice(index, 1);
                 console.log("deleted.");
                 res.sendStatus(200);
+                return;
             }
         }
     }

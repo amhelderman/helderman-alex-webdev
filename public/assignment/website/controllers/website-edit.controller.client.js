@@ -24,25 +24,39 @@
         model.userId = $routeParams.userId;
         model.webId = $routeParams.webId;
 
-
         model.createWebsite = function(){
             console.log("Creating website with name "+model.website.name+".");
-            websiteService.createWebsite(model.userId, model.website);
-            console.log("Navigating to #!/website/"+model.userId+"/list")
-            $location.url("/website/"+model.userId+"/list");
+            var promise = websiteService.createWebsite(model.userId, model.website);
+            promise.then(function(response){
+                console.log("received response");
+                console.log(response);
+
+                // console.log("Navigating to #!/website/"+model.userId+"/list")
+                $location.url("/website/"+model.userId+"/list");
+
+            });
         };
 
         model.updateWebsite = function(){
             console.log("Updating website");
-            websiteService.updateWebsite(model.webId, model.website);
-            $location.url("/website/"+model.userId+"/list");
+            var promise = websiteService.updateWebsite(model.userId, model.webId, model.website);
+            promise.then(function(response){
+                console.log("received response");
+                console.log(response);
 
+                $location.url("/website/"+model.userId+"/list");
+            });
         };
 
         model.deleteWebsite = function(){
             console.log("Deleting website");
-            websiteService.deleteWebsite(model.webId);
-            $location.url("/website/"+model.userId+"/list");
+            var promise = websiteService.deleteWebsite(model.userId, model.webId);
+            promise.then(function(response){
+                console.log("received response");
+                console.log(response);
+
+                $location.url("/website/"+model.userId+"/list");
+            });
 
         };
 
@@ -52,8 +66,28 @@
             console.log("websiteEditController init.");
             console.log(model);
 
-            model.website = websiteService.findWebsiteById(model.webId);
-            model.websites = websiteService.findWebsitesByUser(model.userId);
+            var promise1 = websiteService.findWebsiteById(model.userId, model.webId);
+            promise1.then(function(response){
+                console.log("finding website - received response1");
+                console.log(response);
+                model.website = response.data;
+                if(!model.website)
+                {
+                    model.errorMessage+="Website not found. ";
+                }
+            });
+            var promise2 = websiteService.findWebsitesByUser(model.userId);
+            promise2.then(function(response){
+                console.log("finding websites - received response2");
+                console.log(response);
+                model.websites = response.data;
+                if(!model.websites.length)
+                {
+                    model.errorMessage+="List of websites not found. ";
+                }
+            });
+            console.log("end website Edit controller init");
+
         }
         init();
     };
