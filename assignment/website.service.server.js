@@ -67,7 +67,7 @@ function updateWebsite(req, res){
 
 function findWebsiteById(req, res) {
     var webId = req.params.websiteId;
-    console.log("Finding websites with id "+webId);
+    console.log("Finding website with id "+webId);
 
     for(var w in websites) {
         if(websites[w]._id === webId) {

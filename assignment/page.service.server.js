@@ -21,17 +21,34 @@ var pages =
         { "_id": "543", "name": "Post 3", "websiteId": "890", "description": "Lorem" }
     ];
 
-function createPage(websiteId, page)
+function createPage(req, res)
 {
-    page._id =(new Date()).getTime() + "";
-    page.websiteId = websiteId;
-    pages.push(page);
-    $http.sendStatus(201); // Created
+    var websiteId = req.params.websiteId;
+    var page = req.body;
+
+    console.log("Checking if website already exists");
+    var index = pages.indexOf(page);
+    if (index > -1) {
+        res.sendStatus(204); // No Content - must indicate somehow that it exists
+    }
+    else
+    {
+        page._id =(new Date()).getTime() + "";
+        page.websiteId = websiteId;
+
+        console.log("Creating page ");
+        console.log(page);
+        pages.push(page);
+        res.json(page);
+    }
+
 }
 
 
-function findPagesByWebsiteId(websiteId)
+function findPagesByWebsiteId(req, res)
 {
+    var websiteId = req.params.websiteId;
+
     console.log("Finding pages with websiteId "+websiteId);
     var out = [];
     for (var p in pages){
@@ -42,42 +59,75 @@ function findPagesByWebsiteId(websiteId)
         }
     }
     console.log("found "+out.length+" pages.");
-    $http.send( out);
+    res.send( out);
 }
 
 
-function findPageById(pageId)
+function findPageById(req,res)
 {
+    var pageId = req.params.pageId;
+
     console.log("Finding page with Id "+pageId);
     for (var p in pages){
         var currentPage = pages[p];
         if(currentPage._id === pageId)
         {
             console.log("found page "+currentPage.name);
-            $http.send( currentPage);
+            res.json( currentPage);
             return;
         }
     }
-    $http.sendStatus(404);
+    console.log("Did not find it.");
+    res.sendStatus(404);
 }
 
-function updatePage(pageId, page)
+function updatePage(req, res)
 {
-    var oldPage = findPageById(pageId);
-    oldPage = page;
-    $http.sendStatus(200); // Updated
+    var pageId = req.params.pageId;
+    var page = req.body;
+
+    console.log("UPDATING page!!!!!!!!");
+    // console.log("updating page ");
+    console.log(page);
+
+    for(var u in pages) {
+        console.log("ID CHECK: "+pages[u]._id+" === "+pageId);
+        if(pages[u]._id === pageId) {
+            console.log("Yes it does.");
+
+            console.log("Does page [u] ");
+            console.log(pages[u]);
+
+            pages[u] = page;
+
+            console.log("equal this page?");
+            console.log(page);
+            res.json(page);
+            return;
+        }
+    }
+    res.sendStatus(404);
 }
 
-function deletePage(pageId)
+function deletePage(req, res)
 {
-    /* Remove the user */
-    var index = pages.indexOf(findPageById(pageId));
-    if (index > -1) {
-        pages.splice(index, 1);
-        $http.sendStatus(200);
+    var pageId = req.params.pageId;
+
+    console.log("Deleting website "+pageId);
+    for(var w in pages) {
+        if(pages[w]._id === pageId) {
+
+            /* Remove the user */
+            var index = pages.indexOf(pages[w]);
+            if (index > -1) {
+                pages.splice(index, 1);
+                console.log("deleted.");
+                res.sendStatus(200);
+                return;
+            }
+        }
     }
-    else{
-        $http.sendStatus(404);
-    }
+    console.log("NOT deleted.");
+    res.sendStatus(404);
 }
 
