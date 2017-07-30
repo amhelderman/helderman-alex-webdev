@@ -21,17 +21,16 @@ function createUser(req, res){
     console.log("Creating user ");
     console.log(user);
 
-
-    var index = users.indexOf(users[u]);
+    var index = users.indexOf(user);
     if (index > -1) {
         res.sendStatus(204); // No Content - must indicate somehow that it exists
     }
-
-
-    user._id = (new Date()).getTime() + "";
-    users.push(user);
-    res.json(user);
-
+    else
+    {
+        user._id = (new Date()).getTime() + "";
+        users.push(user);
+        res.json(user);
+    }
 }
 
 /* Set */
@@ -45,12 +44,13 @@ function updateUser(req, res){
     for(var u in users) {
         if(users[u]._id === userId) {
 
-            user._id = (new Date()).getTime() + "";
+            // user._id = (new Date()).getTime() + "";
             users[u] = user;
 
             console.log("Updated user ");
             console.log(user);
             res.json(user);
+            return;
         }
     }
     res.sendStatus(404);
@@ -85,6 +85,7 @@ function findUserById(req, res) {
         if(users[u]._id === req.params.userId) {
             console.log("found user");
             res.send(users[u]);
+            return;
         }
     }
     console.log("did not find user");

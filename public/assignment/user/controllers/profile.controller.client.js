@@ -27,6 +27,8 @@
                 console.log("profileController got user!");
                 console.log(response.data);
                 model.user = response.data;
+
+                model.infoMessage = "Welcome, "+model.user.username + "!";
             });
         }
         init();
@@ -34,11 +36,25 @@
         function updateUser()
         {
             console.log("update user"+model.user.username);
-            $location.url("/login");
+
+            var promise = userService.updateUser(userId, model.user);
+            promise.then(function (response){
+                console.log("profileController updated user!");
+                console.log(response.data);
+                model.user = response.data;
+                model.infoMessage = "User "+model.user.username+" updated!";
+
+            });
         }
         function unregister(){
             console.log(" unreg user"+model.user.username);
-            $location.url("/login");
+
+            var promise = userService.unregisterUser(userId);
+            promise.then(function (response){
+                console.log("profileController deleted user!");
+                console.log(response.data);
+                $location.url("/login");
+            });
         }
     };
 

@@ -26,6 +26,9 @@
             console.log("in login controller");
             var promise = userService.findUserByUsernameAndPassword(user.username, user.password);
             promise.then(function(response){
+                console.log("IN LOGIN RESPONSE");
+                console.log("Response:");
+                console.log(response);
                 var userResult = response.data;
                 console.log(userResult);
                 if(!userResult){
