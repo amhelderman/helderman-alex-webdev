@@ -33,11 +33,17 @@
         function init()
         {
             console.log("pageListController init.");
-            model.pages = pageService.findPagesByWebsiteId(model.webId);
-            if(!model.pages.length)
-            {
-                model.errorMessage="Please create a page.";
-            }
+            var promise = pageService.findPagesByWebsiteId(model.webId);
+            promise.then(function(response){
+
+                model.pages = response.data;
+
+                if(!model.pages.length)
+                {
+                    model.errorMessage="Please create a page.";
+                }
+
+            });
         }
         init();
 
