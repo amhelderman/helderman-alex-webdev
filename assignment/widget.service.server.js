@@ -29,7 +29,7 @@ function createWidget(req, res) {
     var widget = req.body;
 
     console.log("Checking if widget already exists");
-    var index = pages.indexOf(widget);
+    var index = widgets.indexOf(widget);
     if (index > -1) {
         res.sendStatus(204); // No Content - must indicate somehow that it exists
     }
@@ -40,7 +40,7 @@ function createWidget(req, res) {
 
         console.log("Creating widget ");
         console.log(widget);
-        pages.push(widget);
+        widgets.push(widget);
         res.json(widget);
     }
 }
@@ -56,7 +56,7 @@ function updateWidget(req, res)
 
     for(var u in widgets) {
         console.log("ID CHECK: "+widgets[u]._id+" === "+widgetId);
-        if(pages[u]._id === widgetId) {
+        if(widgets[u]._id === widgetId) {
             console.log("Yes it does.");
 
             console.log("Does widget [u] ");
@@ -119,7 +119,7 @@ function findWidgetById(req, res)
     var widgetId = req.params.widgetId;
 
     console.log("Finding widget with Id "+widgetId);
-    for (var p in pages){
+    for (var p in widgets){
         var currentWidget = widgets[p];
         if(currentWidget._id === widgetId)
         {

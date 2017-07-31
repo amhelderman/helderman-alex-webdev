@@ -120,7 +120,7 @@
             console.log("controller: create youtube widget");
             model.widget = {};
             model.widget.widgetType = "YOUTUBE";
-            model.widget.url = "https://www.youtube.com/watch?v=k5dkwQY-_tk";
+            model.widget.url = "https://youtu.be/AM2Ivdi9c4E";
             model.widget.width = "100%";
             model.createWidget();
         }

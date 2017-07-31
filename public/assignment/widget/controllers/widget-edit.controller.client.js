@@ -38,7 +38,10 @@
 
         model.updateWidget = function(){
             console.log("updating widget...");
-            widgetService.updateWidget(model.widgetId, model.widget)
+            widgetService.updateWidget(model.userId,
+                                        model.webId,
+                                        model.pageId,
+                model.widgetId, model.widget)
             .then(function(response){
                 console.log("received response");
                 console.log(response);
@@ -49,7 +52,10 @@
 
         model.deleteWidget = function(){
             console.log("deleting widget...");
-            widgetService.deleteWidget(model.widgetId)
+            widgetService.deleteWidget(model.userId,
+                                        model.webId,
+                                        model.pageId,
+                                        model.widgetId)
                 .then(function(response){
                     console.log("received response");
                     console.log(response);
