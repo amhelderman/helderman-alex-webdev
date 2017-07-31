@@ -7,6 +7,13 @@
     angular
         .module("WamApp", ["ngRoute"]);
 
+    // JQuery execution
+    $(init);
+
+    function init(){
+        alert("hello from jquery");
+        $("widgetList").append("HELLOimage");
+    };
 
 })();
 

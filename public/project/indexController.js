@@ -14,23 +14,12 @@
     function indexController($location, userService){
         var model = this;
 
-        model.hello = "hello from indexController";
-        model.login = login;
+        function init(){
 
 
-        // When logging in...
-        function login(user){
-            console.log("in indexController controller");
-            var user = userService.findUserByUsernameAndPassword(user.username, user.password);
-            if(!user)
-            {
-                model.errorMessage = "user not found";
-                return;
-            }
-            else {
-                $location.url("profile/"+user._id);
-            }
         }
+        init();
+
     };
 
 })();

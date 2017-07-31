@@ -39,10 +39,11 @@
 
         <!--new-->
 
-        <div ng-repeat="widget in model.widgets" class="sortable">
+        <div ng-repeat="widget in model.widgets" id="widgetList">
             <!--{{widget.widgetType}}-->
             <div ng-switch="widget.widgetType">
-                <div ng-switch-when="HEADING" class="ui-state-default">
+                <div ng-switch-when="HEADING"
+                     id="headingWidget">
 
                     <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
@@ -62,7 +63,8 @@
                     <!--</ng-include>-->
 
                 <!--</div>-->
-                <div ng-switch-when="IMAGE" class="ui-state-default">
+                <div ng-switch-when="IMAGE"
+                     id="imageWidget">
 
                     <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
@@ -71,7 +73,8 @@
                         <ng-include src="'widget/templates/views/widget-image.view.client.html'">
                         </ng-include>
                 </div>
-                <div ng-switch-when="YOUTUBE" class="ui-state-default">
+                <div ng-switch-when="YOUTUBE"
+                     id="youtubeWidget">
 
                     <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 

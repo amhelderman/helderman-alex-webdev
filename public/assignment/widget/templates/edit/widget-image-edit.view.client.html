@@ -4,7 +4,10 @@
 
 
 
-    <form class="form-signin">
+    <form class="form-signin"
+          action="/api/upload"
+          method="post"
+          enctype="multipart/form-data">
 
 
         <div class="amh-spacer">
@@ -60,10 +63,11 @@
         </div>
 
         <div class="amh-spacer">
-            <a class="btn btn-block amh-buttons amh-btn-clr-info"
-               id="uploadImage"
-               name="uploadImage"
-               role="button">Upload Image</a>
+            <input type="submit"
+                   class="btn btn-block amh-buttons amh-btn-clr-info"
+                   id="uploadImage"
+                   name="uploadImage"
+                   role="button">Upload Image</input>
         </div>
 
 

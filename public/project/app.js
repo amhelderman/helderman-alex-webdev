@@ -1,6 +1,5 @@
-/**
- * Created by Alex on 7/17/17.
- */
+// Stores the angular application.
+
 var app = angular.module("WamApp", ["ngRoute"]);
 
 
