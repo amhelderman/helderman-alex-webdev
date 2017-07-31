@@ -13,6 +13,7 @@
     function init(){
         alert("hello from jquery");
         $("widgetList").append("HELLOimage");
+        // $("div").draggable();
     };
 
 })();
