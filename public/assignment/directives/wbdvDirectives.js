@@ -7,8 +7,24 @@
     angular
         .module("WamApp")
         .directive("wbdvsortable", function(){
+
+            /*
+
+             $( function() {
+             $( "#sortable" ).sortable();
+             $( "#sortable" ).disableSelection();
+             } );
+
+
+             $( function() {
+             $( ".sortable" ).sortable();
+             $( ".sortable" ).disableSelection();
+             } );
+
+
+             */
             return {
-                template : "<h1>YESSSS</h1>"
+                template : "<span class='sortable'>YESSSS</span>"
             };
         });
 

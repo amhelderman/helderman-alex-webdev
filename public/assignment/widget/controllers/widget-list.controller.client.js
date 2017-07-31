@@ -46,6 +46,12 @@
         function init()
         {
             console.log("widgetListController init.");
+            console.log("Making widget list sortable!");
+
+            $( ".sortable" ).sortable();
+            $( ".sortable" ).disableSelection();
+
+            console.log("done with that");
 
             var promise = widgetService.findWidgetsByPageId(model.userId,
                 model.webId,
