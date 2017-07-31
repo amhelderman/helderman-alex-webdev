@@ -3,7 +3,7 @@
 var app = require("../express");
 
 app.post    ("/api/user/:userId/website", createWebsite);
-app.get     ("/api/user/:userId/website", findWebsitesForUser);
+app.get     ("/api/user/:userId/website", findAllWebsitesForUser);
 app.get     ("/api/user/:userId/website/:websiteId", findWebsiteById);
 app.put     ("/api/user/:userId/website/:websiteId", updateWebsite);
 app.delete  ("/api/user/:userId/website/:websiteId", deleteWebsite);
@@ -80,7 +80,7 @@ function findWebsiteById(req, res) {
     res.sendStatus(404);
 }
 
-function findWebsitesForUser(req, res) {
+function findAllWebsitesForUser(req, res) {
     var userId = req.params.userId;
     console.log("Finding websites with userId "+userId);
 

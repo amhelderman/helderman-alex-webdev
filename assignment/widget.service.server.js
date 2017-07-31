@@ -3,7 +3,7 @@
 var app = require("../express");
 
 app.post    ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", createWidget);
-app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", findWidgetsByPageId);
+app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", findAllWidgetsForPage);
 app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", findWidgetById);
 app.put     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
 app.delete  ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
@@ -97,7 +97,7 @@ function deleteWidget(req, res)
 
 ////////////////
 
-function findWidgetsByPageId(req, res)
+function findAllWidgetsForPage(req, res)
 {
     var pageId = req.params.pageId;
 
