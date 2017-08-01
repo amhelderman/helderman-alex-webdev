@@ -11,10 +11,27 @@
     $(init);
 
     function init(){
-        alert("hello from jquery");
-        $("widgetList").append("HELLOimage");
+        console.log("hello from jquery");
+        // $("widgetList").append("HELLOimage");
+        // $("widgetList").draggable();
         // $("div").draggable();
-    };
+        $("img").draggable();
+        // $("li").draggable();
+        // $("ul").draggable();
+
+        $(".sortableList").sortable({
+            revert: true,
+            /*update: function (event, ui) {
+             // Some code to prevent duplicates
+             }*/
+        });
+        $(".draggable").draggable({
+            connectToSortable: '.sortableList',
+            cursor: 'pointer',
+            helper: 'clone',
+            revert: 'invalid'
+        });
+    }
 
 })();
 

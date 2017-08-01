@@ -6,27 +6,28 @@
 
     angular
         .module("WamApp")
-        .directive("wbdvsortable", function(){
+        .directive("hello", helloDirective)
+        .directive("wbdvsortable", wbdvSortable);
 
-            /*
+    function wbdvSortable(){
+        /*
 
-             $( function() {
-             $( "#sortable" ).sortable();
-             $( "#sortable" ).disableSelection();
-             } );
+         $( function() {
+         $( "#sortable" ).sortable();
+         $( "#sortable" ).disableSelection();
+         } );
 
+         */
+        return {
+            template : "<div class='sortable'>YESSSS</div>"
+        };
+    };
 
-             $( function() {
-             $( ".sortable" ).sortable();
-             $( ".sortable" ).disableSelection();
-             } );
-
-
-             */
-            return {
-                template : "<span class='sortable'>YESSSS</span>"
-            };
-        });
+    function helloDirective(){
+        return{
+            template : "<div><h1> HI there!</h1></div>"
+        }
+    }
 
 
 
