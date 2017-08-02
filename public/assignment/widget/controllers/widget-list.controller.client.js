@@ -69,22 +69,22 @@
 
 
             $(function() {
-                alert("HELLO you can run jquery within angular!");
+                console.log("Running jquery within angular controller!");
                 $("#widgetList").append("HI");
+                //
+                // for(var l = 0; l < 10; l++) {
+                //     // var li = $("<li> Item " + l + "</li>");
+                //     var li = $("<li>");
+                //     li.append("Item " + l);
+                //     li.append( model.webId);
+                //     $("#widgetList").append(li);
+                // }
 
-                for(var l = 0; l < 10; l++) {
-                    // var li = $("<li> Item " + l + "</li>");
-                    var li = $("<li>");
-                    li.append("Item " + l);
-                    li.append( model.webId);
-                    $("#widgetList").append(li);
-                }
+                for(var w in model.widgets) {
+                    var widget = model.widgets[w];
 
-                for(var l = 0; l < 10; l++) {
-                    // var li = $("<li> Item " + l + "</li>");
                     var li = $("<li>");
-                    li.append("Item " + l);
-                    li.append( model.webId);
+                    li.append("Item ").append(widget.widgetType);
                     $("#widgetList").append(li);
                 }
 
