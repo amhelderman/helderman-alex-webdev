@@ -1,5 +1,6 @@
 (function () {
     $(function () {
+
         $("h1").remove();
         $("div").append("<h2>Hello World</h2>")
         var ul = $("<ul>");
@@ -10,5 +11,8 @@
             ul.append(li);
         }
         $("div").append(ul);
+
+
+        $("ul").sortable();
     })
 })();

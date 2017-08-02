@@ -1,9 +1,9 @@
 <html lang="en" ng-app="WamApp"><head>
 
     <!--JQuery / UI-->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+    <script src="../vendor/jquery/jquery.js"></script>
+    <script src="../vendor/jquery/jquery-ui.js"></script>
+    <link href="../vendor/jquery/jquery-ui.css" rel="stylesheet">
 
     <!--Angular Requisites-->
     <script src="../vendor/angular/angular.js"></script>
@@ -65,16 +65,28 @@
     </div>
 
 
-    <!--<div wbdvsortable></div>-->
+    <div class="sortable ui-sortable">
+        <h2 class="ui-sortable-handle">
+            Hello World
+        </h2>
+        <ul class="ui-sortable ui-sortable-handle">
+            <li class="">Item 0</li>
+            <li class="">Item 4</li>
+            <li class="">Item 1</li>
+            <li class="">Item 2</li>
+            <li class="">Item 3</li>
+            <li class="">Item 5</li>
+            <li class="">Item 6</li>
+            <li class="">Item 7</li>
+            <li class="">Item 8</li>
+            <li class="">Item 9</li>
+        </ul>
+    </div>
 
     <div ng-view></div>
-    <wbdvsortable></wbdvsortable>
-    <wbdvsortable></wbdvsortable>
-    <wbdvsortable></wbdvsortable>
-    <wbdvsortable></wbdvsortable>
-    <hello></hello>
-    <hello></hello>
-    <hello></hello>
+    <!--...-->
+    <!--<wbdvsortable></wbdvsortable>-->
+    <!--<hello></hello>-->
 
 
     <!--<a class="btn  btn-default" href="#!/login">login</a>-->
