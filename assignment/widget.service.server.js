@@ -8,6 +8,7 @@ app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId
 app.put     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
 app.delete  ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
 
+// app.post("/api/upload", function(req,res){res.sendStatus(200);});
 
 var widgets =[
     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -133,30 +134,69 @@ function findWidgetById(req, res)
 }
 
 
-////////////
-/*
- module.exports = function (app) {
- var multer = require('multer'); // npm install multer --save
- var upload = multer({ dest: __dirname+'/../../public/uploads' });
- app.post ("/api/upload", upload.single('myFile'), uploadImage);
- function uploadImage(req, res) {
- var widgetId      = req.body.widgetId;
- var width         = req.body.width;
- var myFile        = req.file;
- var userId = req.body.userId;
- var websiteId = req.body.websiteId;
- var pageId = req.body.pageId;
- var originalname  = myFile.originalname; // file name on user's computer
- var filename      = myFile.filename;     // new file name in upload folder
- var path          = myFile.path;         // full path of uploaded file
- var destination   = myFile.destination;  // folder where file is saved to
- var size          = myFile.size;
- var mimetype      = myFile.mimetype;
- widget = getWidgetById(widgetId);
- widget.url = '/uploads/'+filename;
- var callbackUrl   = "/assignment/#/user/"+userId+"/website/"+websiteId+...;
- res.redirect(callbackUrl);
- }
- ...
- }
- */
+function getWidgetByIdInternal(widgetId)
+{
+
+    console.log("Finding widget with Id "+widgetId);
+    for (var p in widgets){
+        var currentWidget = widgets[p];
+        if(currentWidget._id === widgetId)
+        {
+            console.log("found widget "+currentWidget.name);
+            return currentWidget;
+        }
+    }
+    return null;
+}
+
+
+
+ // module.exports = function (app) {
+
+     var multer = require('multer'); // npm install multer --save
+
+     var upload = multer({ dest: __dirname+'/public/uploads' });
+
+     console.log(multer);
+console.log("upload:");
+console.log(upload);
+console.log("single:");
+console.log(upload.single('myFile'));
+app.post ("/api/upload", upload.single('myFile'), uploadImage);
+// app.post ("/api/upload",  uploadImage);
+
+
+     function uploadImage(req, res) {
+         console.log("uploading image!");
+         console.log(req.body);
+         console.log("---------------------");
+         var widgetId      = req.body.widgetId;
+         var width         = req.body.width;
+         var myFile        = req.file;
+         var userId = req.body.userId;
+         var websiteId = req.body.websiteId;
+         var webId = req.body.webId;
+         var pageId = req.body.pageId;
+         var originalname  = myFile.originalname; // file name on user's computer
+         var filename      = myFile.filename;     // new file name in upload folder
+         var path          = myFile.path;         // full path of uploaded file
+         var destination   = myFile.destination;  // folder where file is saved to
+         var size          = myFile.size;
+         var mimetype      = myFile.mimetype;
+
+         console.log(myFile);
+         widget = getWidgetByIdInternal(widgetId);
+         console.log(widget);
+         widget.url = '/uploads/'+filename;
+
+         var callbackUrl   = "/assignment/#!/widget/"+userId
+                                +"/"+websiteId
+                                +"/"+pageId
+                                +"/list";
+// #!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/list
+         res.redirect(callbackUrl);
+     }
+
+
+
+ // }

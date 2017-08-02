@@ -44,23 +44,19 @@
 
 
         <div class="amh-spacer">
-            <label for="imageWidth">Width</label>
-            <textarea type="text"
-                      name="imageWidth"
-                      id="imageWidth"
-                      class="form-control"
-                      ng-model="model.widget.width"
-                      placeholder="100%"></textarea>
-        </div>
-
-
-        <div class="amh-spacer">
-            <label for="uploadSelect">Upload</label>
+            <label for="myFile">Upload</label>
             <input type="file"
-                   name="uploadSelect"
-                   id="uploadSelect"
+                   name="myFile"
+                   id="myFile"
                    class="form-control">
+            <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
+            <input  name="userId"    value="{{model.userId}}"   style="display: none"/>
+            <input  name="websiteId" value="{{model.webId}}"   style="display: none"/>
+            <input  name="pageId"    value="{{model.pageId}}"   style="display: none"/>
+            <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
         </div>
+
+
 
         <div class="amh-spacer">
             <input type="submit"

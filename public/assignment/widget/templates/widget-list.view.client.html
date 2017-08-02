@@ -1,6 +1,7 @@
 
 
 
+
 <div class="container-fluid" ng-controller="websiteListController">
 
 
@@ -36,58 +37,60 @@
         </div>
 
 
+
+        <div id="hello"></div>
             <!--new-->
-        <ul class="sortableList">
-            <li class="ui-state-default"
-                 ng-repeat="widget in model.widgets"
-                 id="widgetList">
-                <!--{{widget.widgetType}}-->
-                <div ng-switch="widget.widgetType">
-                    <div
-                         ng-switch-when="HEADING"
-                         id="headingWidget">
-
-                        <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
-
-                            <span class="glyphicon glyphicon-cog pull-right"></span>
-                        </a>
-
-                            <ng-include src="'widget/templates/views/widget-heading.view.client.html'">
-                            </ng-include>
-                    </div>
-                    <!--<div ng-switch-when="TEXT">-->
+        <ul id="widgetList">
+            <!--<li class="ui-state-default"-->
+                 <!--ng-repeat="widget in model.widgets"-->
+                 <!--id="widgetList">-->
+                <!--&lt;!&ndash;{{widget.widgetType}}&ndash;&gt;-->
+                <!--<div ng-switch="widget.widgetType">-->
+                    <!--<div-->
+                         <!--ng-switch-when="HEADING"-->
+                         <!--id="headingWidget">-->
 
                         <!--<a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">-->
 
                             <!--<span class="glyphicon glyphicon-cog pull-right"></span>-->
                         <!--</a>-->
-                        <!--<ng-include src="'widget/templates/view/widget-text.view.client.html'">-->
-                        <!--</ng-include>-->
 
+                            <!--<ng-include src="'widget/templates/views/widget-heading.view.client.html'">-->
+                            <!--</ng-include>-->
                     <!--</div>-->
-                    <div ng-switch-when="IMAGE"
-                         id="imageWidget">
+                    <!--&lt;!&ndash;<div ng-switch-when="TEXT">&ndash;&gt;-->
 
-                        <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
+                        <!--&lt;!&ndash;<a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">&ndash;&gt;-->
 
-                            <span class="glyphicon glyphicon-cog pull-right"></span>
-                        </a>
-                            <ng-include src="'widget/templates/views/widget-image.view.client.html'">
-                            </ng-include>
-                    </div>
-                    <div ng-switch-when="YOUTUBE"
-                         id="youtubeWidget">
+                            <!--&lt;!&ndash;<span class="glyphicon glyphicon-cog pull-right"></span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<ng-include src="'widget/templates/view/widget-text.view.client.html'">&ndash;&gt;-->
+                        <!--&lt;!&ndash;</ng-include>&ndash;&gt;-->
 
-                        <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--<div ng-switch-when="IMAGE"-->
+                         <!--id="imageWidget">-->
 
-                            <span class="glyphicon glyphicon-cog pull-right"></span>
-                        </a>
-                            <ng-include src="'widget/templates/views/widget-youtube.view.client.html'">
-                            </ng-include>
-                    </div>
+                        <!--<a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">-->
 
-                </div>
-            </li>
+                            <!--<span class="glyphicon glyphicon-cog pull-right"></span>-->
+                        <!--</a>-->
+                            <!--<ng-include src="'widget/templates/views/widget-image.view.client.html'">-->
+                            <!--</ng-include>-->
+                    <!--</div>-->
+                    <!--<div ng-switch-when="YOUTUBE"-->
+                         <!--id="youtubeWidget">-->
+
+                        <!--<a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">-->
+
+                            <!--<span class="glyphicon glyphicon-cog pull-right"></span>-->
+                        <!--</a>-->
+                            <!--<ng-include src="'widget/templates/views/widget-youtube.view.client.html'">-->
+                            <!--</ng-include>-->
+                    <!--</div>-->
+
+                <!--</div>-->
+            <!--</li>-->
         </ul>
 
 

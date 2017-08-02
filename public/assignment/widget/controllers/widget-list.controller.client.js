@@ -48,9 +48,6 @@
             console.log("widgetListController init.");
             console.log("Making widget list sortable!");
 
-            $( ".sortable" ).sortable();
-            $( ".sortable" ).disableSelection();
-
             console.log("done with that");
 
             var promise = widgetService.findWidgetsByPageId(model.userId,
@@ -65,7 +62,36 @@
                     model.errorMessage="Please create a widget.";
                 }
 
+                initWidgetList();
             });
+        }
+        function initWidgetList(){
+
+
+            $(function() {
+                alert("HELLO you can run jquery within angular!");
+                $("#widgetList").append("HI");
+
+                for(var l = 0; l < 10; l++) {
+                    // var li = $("<li> Item " + l + "</li>");
+                    var li = $("<li>");
+                    li.append("Item " + l);
+                    li.append( model.webId);
+                    $("#widgetList").append(li);
+                }
+
+                for(var l = 0; l < 10; l++) {
+                    // var li = $("<li> Item " + l + "</li>");
+                    var li = $("<li>");
+                    li.append("Item " + l);
+                    li.append( model.webId);
+                    $("#widgetList").append(li);
+                }
+
+                $("ul").sortable();
+
+            });
+
         }
         init();
     };
