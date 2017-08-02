@@ -70,22 +70,31 @@
 
             $(function() {
                 console.log("Running jquery within angular controller!");
-                $("#widgetList").append("HI");
-                //
-                // for(var l = 0; l < 10; l++) {
-                //     // var li = $("<li> Item " + l + "</li>");
-                //     var li = $("<li>");
-                //     li.append("Item " + l);
-                //     li.append( model.webId);
-                //     $("#widgetList").append(li);
-                // }
-
                 for(var w in model.widgets) {
                     var widget = model.widgets[w];
 
                     var li = $("<li>");
-                    li.append("Item ").append(widget.widgetType);
                     $("#widgetList").append(li);
+
+                    var widgetDiv=$("<div>");
+                    li.append(widgetDiv);
+
+                    if(widget.widgetType=='HEADING'){
+                        widgetDiv.append("<h1>"+widget.text+"</h1>");
+                    } else if (widget.widgetType=='IMAGE'){
+
+                        var img = $("<img>");
+                        img.attr("src", widget.url);
+                        widgetDiv.append(img);
+
+                    }if (widget.widgetType=='YOUTUBE'){
+                        var iframe = $("<iframe>");
+                        iframe.attr("width", widget.width);
+                        iframe.attr("height", 400);
+                        iframe.attr("src", model.trustUrlResource(widget.url));
+                        widgetDiv.append(iframe);
+
+                    }
                 }
 
                 $("ul").sortable();
