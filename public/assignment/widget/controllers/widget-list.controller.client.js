@@ -26,6 +26,7 @@
         model.pageId = $routeParams.pageId;
 
         model.trustUrlResource = function(url){
+            console.log("TRUST URL");
             console.log(url);
             var youtubeUrl = "https://www.youtube.com/embed/";
             var urlParts = url.split("/");
@@ -36,6 +37,8 @@
         }
 
         model.trustHtmlContent = function(htmlContent){
+            console.log("TRUST CONTENT");
+            console.log(htmlContent);
             return $sce.trustAsHtml(htmlContent);
         }
         model.setTrusted = function(url){
