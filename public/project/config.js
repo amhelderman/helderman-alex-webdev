@@ -28,11 +28,17 @@
                     controllerAs: "model"
                 })
             .when("/home",
+                {
+                    templateUrl: "home/home.html",
+                    controller: "homeController",
+                    controllerAs: "model"
+                })
+            .when("/experiments",
                     {
-                        templateUrl: "home/home.html",
-                        controller: "homeController",
+                        templateUrl: "experiment/index.html",
+                        controller: "ajController",
                         controllerAs: "model"
-                    });
+                    })
 
 
     }

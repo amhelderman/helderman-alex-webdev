@@ -3,11 +3,9 @@
     <!--Angular Requisites-->
     <script src="../../vendor/angular/angular.js"></script>
     <script src="../../vendor/angular/angular-route.js"></script>
+    <script src="indexController.js"></script>
     <script src="app.js"></script>
     <script src="map.js"></script>
-
-
-
 
     <title>Theme Template for Bootstrap</title>
     <!-- Bootstrap core CSS -->
@@ -19,11 +17,7 @@
 </head>
 <body>
 
-
-
-
 <div class="amh-banner">
-
 </div>
 
 <!-- Nav Bar -->
@@ -53,26 +47,12 @@
 </div>
 
 
+<div ng-controller="indexController">
+
 <ng-view></ng-view>
 
-<!--&lt;!&ndash;Main View&ndash;&gt;-->
-<!--<div class="amh-shifted-down">-->
+</div>
 
-    <!--<div class="jumbotron amh-jumbotron amh-overlay">-->
-        <!--<h1> Create your life goal. </h1>-->
-
-        <!--<a href="#" class="jumboLink"> Sign up for an account.</a>-->
-    <!--</div>-->
-
-    <!--<div class="container-fluid">-->
-        <!--<div id="map"></div>-->
-    <!--</div>-->
-
-    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">-->
-    <!--</script>-->
-
-
-<!--</div>-->
 
 
 
@@ -82,6 +62,7 @@
     <div class="">
 
 
+        <a href="experiments/">experiment</a>
         <a href="/project/">Home</a>
         <a href="job/jobs.html">Jobs</a>
         <a href="home/homes.html">Apartments</a>

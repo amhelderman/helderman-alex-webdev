@@ -1,57 +1,12 @@
 // Stores the angular application.
 
-var app = angular.module("WamApp", ["ngRoute"]);
 
 
 (function (){
 
     angular
-        .module("WamApp", ["ngRoute"]);
-
-
+        .module("WamApp", ["ngRoute"])
 })();
-
-
-
-/* Routing*/
-app.config(Config);
-app.controller("indexController", indexController);
-
-function Config($routeProvider)
-{
-    $routeProvider
-        .when("/:pageName",
-            {
-                /* template URL can be a function:
-                 https://docs.angularjs.org/api/ngRoute/provider/$routeProvider
-                 */
-                templateUrl: function (params) {
-                    return params.pageName + '.html';
-                }
-            })
-};
-
-
-function indexController($scope, $location){
-    $scope.hello = "hello from RateMyFriend";
-
-
-    // When logging in...
-    $scope.login = function(user){
-        var users=[
-            {_id: "123", username: "alice", password: "alice"}
-        ];
-        for( var u in users){
-            var currentUser = users[u];
-            if(currentUser.username === $scope.user.username & currentUser.password === $scope.user.password)
-            {
-                // alert("changing to login");
-                $location.url("#!/register");
-            }
-        }
-        $scope.errorMessage = "User not found";
-    }
-}
 
 
 
@@ -60,9 +15,9 @@ function indexController($scope, $location){
 // function initMap() {
 //     var uluru = {lat: -25.363, lng: 131.044};
 //     var map = new google.maps.Map(document.getElementById('map'), {
-//         zoom: 4,
+
 //         center: uluru
-//     });
+//         zoom: 4,//     });
 //     var marker = new google.maps.Marker({
 //         position: uluru,
 //         map: map
