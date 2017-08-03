@@ -73,28 +73,50 @@
                 for(var w in model.widgets) {
                     var widget = model.widgets[w];
 
-                    var li = $("<li>");
-                    $("#widgetList").append(li);
+                    var li = $("<div>");
+                    li.attr("class", "ui-sortable");
 
                     var widgetDiv=$("<div>");
-                    li.append(widgetDiv);
+                    // widgetDiv.attr("style", "border: solid;");
 
-                    if(widget.widgetType=='HEADING'){
-                        widgetDiv.append("<h1>"+widget.text+"</h1>");
-                    } else if (widget.widgetType=='IMAGE'){
+                    var widgetLink = $("<a>");
+                    widgetLink.attr("href",
+                        "#!/widget/"
+                        +model.userId+"/"
+                        +model.webId+"/"
+                        +model.pageId+"/"
+                        +widget._id+"/"
+                        +"edit");
+                    var widgetCog = $("<span>").attr("class", "glyphicon glyphicon-cog pull-right");
 
-                        var img = $("<img>");
-                        img.attr("src", widget.url);
-                        widgetDiv.append(img);
 
-                    }if (widget.widgetType=='YOUTUBE'){
-                        var iframe = $("<iframe>");
-                        iframe.attr("width", widget.width);
-                        iframe.attr("height", 400);
-                        iframe.attr("src", model.trustUrlResource(widget.url));
-                        widgetDiv.append(iframe);
+                    if(widget.widgetType==='TEXT') {
+                        var widgetValue = widget.text;
 
+                    } else if(widget.widgetType==='HEADING'){
+                        var widgetValue = "<h1>"+widget.text+"</h1>";
+
+                    } else if (widget.widgetType==='IMAGE'){
+                        var img = $("<img>").attr("src", widget.url);
+                        var widgetValue =img;
+
+                    } else if (widget.widgetType==='YOUTUBE'){
+                        var iframe = $("<iframe>")
+                            .attr("width", widget.width)
+                            .attr("height", 400)
+                            .attr("src", model.trustUrlResource(widget.url));
+                        var widgetValue = iframe;
                     }
+                    else{
+                        widgetValue = $("<div>").append(".");
+                    }
+
+                    // chain of appends
+                    $("#widgetList").append(li);
+                    li.append(widgetDiv);
+                    widgetDiv.append(widgetLink);
+                    widgetLink.append(widgetCog);
+                    widgetDiv.append(widgetValue);
                 }
 
                 $("ul").sortable();

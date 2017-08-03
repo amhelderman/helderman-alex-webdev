@@ -5,7 +5,7 @@
 (function (){
 
     angular
-        .module("WamApp", ["ngRoute"]);
+        .module("WamApp", ["ngRoute", "wbdvDirectives"]);
 
     // JQuery execution
     $(init);

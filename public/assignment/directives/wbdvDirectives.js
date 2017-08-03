@@ -5,7 +5,7 @@
 (function (){
 
     angular
-        .module("WamApp")
+        .module("wbdvDirectives", [])
         .directive("hello", helloDirective)
         .directive("wbdvsortable", wbdvSortable);
 
