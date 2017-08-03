@@ -66,8 +66,6 @@
             });
         }
         function initWidgetList(){
-
-
             $(function() {
                 console.log("Running jquery within angular controller!");
                 for(var w in model.widgets) {
@@ -122,7 +120,6 @@
                 $("ul").sortable();
 
             });
-
         }
         init();
     };

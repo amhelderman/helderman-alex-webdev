@@ -1,5 +1,7 @@
 
-
+.amh-widget-list{
+    list-style-type: none;
+}
 .amh-shifted-down{
     padding-top: 80px;
     padding-bottom: 80px;

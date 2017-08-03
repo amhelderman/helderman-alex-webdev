@@ -9,6 +9,11 @@ app.put     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId
 app.delete  ("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
 
 // app.post("/api/upload", function(req,res){res.sendStatus(200);});
+app.put     ("/page/:pageId/widget/", sortWidgets);
+
+
+
+
 
 var widgets =[
     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -21,6 +26,32 @@ var widgets =[
         "url": "https://youtu.be/AM2Ivdi9c4E" },
     { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
 ];
+
+
+function sortWidgets(req, res){
+    // console.log("YES");
+    var pageId = req.params.pageId;
+    // console.log(req);
+    var startIndex = req.query.initial;
+    var endIndex = req.query.final;
+    console.log("Sorting widgets!");
+    console.log([pageId, startIndex, endIndex]);
+
+    if((startIndex < 0 || startIndex > widgets.length)
+        ||(endIndex < 0 || endIndex > widgets.length)){
+        res.sendStatus(400);
+        return;
+    }
+
+    var tempWidget = widgets[endIndex];
+    widgets[endIndex] = widgets[startIndex];
+    widgets[startIndex] = tempWidget;
+    console.log("after:");
+    console.log(widgets);
+    res.sendStatus(200);
+
+}
+
 
 function createWidget(req, res) {
     var userId = req.params.userId;
@@ -189,11 +220,11 @@ app.post ("/api/upload", upload.single('myFile'), uploadImage);
          console.log(widget);
          widget.url = '/uploads/'+filename;
 
+         // #!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/list
          var callbackUrl   = "/assignment/#!/widget/"+userId
                                 +"/"+websiteId
                                 +"/"+pageId
                                 +"/list";
-// #!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/list
          res.redirect(callbackUrl);
      }
 
