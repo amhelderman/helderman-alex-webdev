@@ -11,7 +11,12 @@
         function init(){
             alert("loginController.");
 
-            userService.facebookSetup();
+            // userService.facebookSetup();
+
+        }
+        init();
+
+        model.loginFacebook = function(){
 
             userService.loginFacebook(getUser);
 
@@ -20,7 +25,6 @@
                 console.log(user);
             }
         }
-        init();
 
     }
 
