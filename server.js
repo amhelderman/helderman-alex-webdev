@@ -19,7 +19,7 @@ var allowCrossDomain = function(req, res, next) {
 }
 app.use(allowCrossDomain);
 
-require("./test/app");
+// require("./test/app");
 require("./assignment/app");
 
 // from piazza thread 641
