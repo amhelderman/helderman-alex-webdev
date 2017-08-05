@@ -1,5 +1,6 @@
 
 
+
 <!--Facebook Javascript SDK-->
 <div id="fb-root"></div>
 <script>
@@ -14,45 +15,42 @@
 
 
 
-    <h1> facebook API test</h1>
-
-    <div ng-controller="ajController as model">
+<h1> facebook API test</h1>
 
 
-        <div ng-show="{{model.user.name}}" class="alert alert-info">
-            Welcome, {{model.user.name}}!
-        </div>
 
-        {{model.user.name}}
-        <img ng-src="{{model.user.profilePicture}}">
+<div ng-show="{{model.user.name}}" class="alert alert-info">
+    Welcome, {{model.user.name}}!
+</div>
 
-        <div>
-                <button ng-click="model.loginFacebook()">
-                    Login with Facebook.
-                </button>
+{{model.user.name}}
+<img ng-src="{{model.user.profilePicture}}">
 
-                <button ng-click="model.logoutFacebook()">
-                    Logout with Facebook.
-                </button>
+<div>
+        <button ng-click="model.loginFacebook()">
+            Login with Facebook.
+        </button>
 
-                <button ng-click="model.shareFacebook()">
-                    Share to facebook.
-                </button>
-        </div>
+        <button ng-click="model.logoutFacebook()">
+            Logout with Facebook.
+        </button>
 
-        <div ng-repeat="photo in model.user.photos">
-            <img ng-src="{{photo.source}}" height="300" >
+        <button ng-click="model.shareFacebook()">
+            Share to facebook.
+        </button>
+</div>
 
-        </div>
+<div ng-repeat="photo in model.user.photos">
+    <img ng-src="{{photo.source}}" height="300" >
 
-
-        <div ng-repeat="n in model.nums">
-            {{n}}
-
-        </div>
-
-        <!--&lt;!&ndash;Continue with Facebook&ndash;&gt;-->
-        <!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+</div>
 
 
-    </div>
+<div ng-repeat="n in model.nums">
+    {{n}}
+
+</div>
+
+<!--&lt;!&ndash;Continue with Facebook&ndash;&gt;-->
+<!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+

@@ -7,28 +7,10 @@
 
     function configuration($routeProvider){
         $routeProvider
-            .when("/",
-                {
-                    templateUrl: "user/login.view.client.html",
-                    controller: "loginController",
-                    controllerAs: "model"
-                })
             .when("/login",
                 {
                     templateUrl: "user/login.view.client.html",
                     controller: "loginController",
-                    controllerAs: "model"
-                })
-            .when("/profile/:userId",
-                {
-                    templateUrl: "friendProfile/profile.view.client.html",
-                    controller: "profileController",
-                    controllerAs: "model"
-                })
-            .when("/map",
-                {
-                    templateUrl: "friendMap/map.view.client.html",
-                    controller: "mapController",
                     controllerAs: "model"
                 })
             .otherwise({ redirectTo: '/'});
