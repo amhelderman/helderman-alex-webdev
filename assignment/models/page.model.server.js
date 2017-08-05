@@ -4,9 +4,10 @@ var db = require("./database");
 var pageModel = mongoose.model("PageModel", pageSchema);
 
 module.exports = pageModel;
-pageModel.createpage = createpage;
-pageModel.updatepage = updatepage;
-pageModel.findpageById = findpageById;
+pageModel.createPage = createPage;
+pageModel.updatePage = updatePage;
+pageModel.findPageById = findPageById;
+pageModel.findPageByWebsiteId = findPageByWebsiteId;
 
 
 function updatePage(pageId, page){
@@ -19,4 +20,7 @@ function createPage(page){
 }
 function findPageById(pageId){
     return pageModel.findById(pageId);
+}
+function findPageByWebsiteId(websiteId){
+    return websiteModel.find({websiteId: websiteId});
 }

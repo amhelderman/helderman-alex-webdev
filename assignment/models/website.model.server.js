@@ -4,21 +4,24 @@ var db = require("./database");
 var websiteModel = mongoose.model("WebsiteModel", websiteSchema);
 
 module.exports = websiteModel;
-websiteModel.createwebsite = createwebsite;
-websiteModel.updatewebsite = updatewebsite;
-websiteModel.findwebsiteById = findwebsiteById;
+websiteModel.createWebsite = createWebsite;
+websiteModel.updateWebsite = updateWebsite;
+websiteModel.findWebsiteById = findWebsiteById;
+websiteModel.findWebsiteByUser = findWebsiteByUser;
 websiteModel.deleteWebsite = deleteWebsite;
 
 
-function updatewebsite(websiteId, website){
+function updateWebsite(websiteId, website){
     return websiteModel.update({_id: websiteId}, {$set: website});
 }
-
-function createwebsite(website){
+function createWebsite(website){
     return websiteModel.create(website);
 }
-function findwebsiteById(websiteId){
+function findWebsiteById(websiteId){
     return websiteModel.findById(websiteId);
+}
+function findWebsiteByUser(userId){
+    return websiteModel.find({developerId: userId});
 }
 function deleteWebsite(websiteId){
     return websiteModel.remove(websiteId);

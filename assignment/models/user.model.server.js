@@ -13,9 +13,7 @@ userModel.findUserByCredentials = findUserByCredentials;
 function updateUser(userId, user){
     return userModel.update({_id: userId}, {$set: user});
 }
-
 function createUser(user){
-
     return userModel.create(user);
 }
 function findUserById(userId){

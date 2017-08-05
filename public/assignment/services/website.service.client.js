@@ -20,6 +20,7 @@
             var url =  "/api/user/"+userId+"/website/";
             console.log("web service: posting website using url:");
             console.log(url);
+            website.developerId = userId;
             return $http.post(url, website);
         }
 
