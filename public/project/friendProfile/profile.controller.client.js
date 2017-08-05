@@ -1,26 +1,19 @@
-/* indexController *
- */
-
-
 (function (){
 
     /* Get previously-declared Angular module */
     angular
         .module("WamApp")
-        .controller("ajController", ajController)
+        .controller("profileController", profileController)
 
-
-
-    function ajController($location, userService){
+    function profileController($location){
         var model = this;
 
         function init(){
-            alert("HI from ajController");
+            alert("profileController.");
 
         }
         init();
-
-    };
+    }
 
 })();
 

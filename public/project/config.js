@@ -1,10 +1,3 @@
-/**
- * Created by Alex on 7/17/17.
- */
-
-
-/* Handle Angular Application */
-
 (function (){
 
     /* Get previously-declared Angular module */
@@ -12,38 +5,35 @@
         .module("WamApp")
         .config(configuration)
 
-
     function configuration($routeProvider){
         $routeProvider
             .when("/",
                 {
-                    templateUrl: "index.html",
-                    controller: "indexController",
+                    templateUrl: "user/login.view.client.html",
+                    controller: "loginController",
                     controllerAs: "model"
                 })
-            .when("/job",
+            .when("/login",
                 {
-                    templateUrl: "job/job.html",
-                    controller: "jobController",
+                    templateUrl: "user/login.view.client.html",
+                    controller: "loginController",
                     controllerAs: "model"
                 })
-            .when("/home",
+            .when("/profile/:userId",
                 {
-                    templateUrl: "home/home.html",
-                    controller: "homeController",
+                    templateUrl: "friendProfile/profile.view.client.html",
+                    controller: "profileController",
                     controllerAs: "model"
                 })
-            .when("/experiments",
-                    {
-                        templateUrl: "experiment/index.html",
-                        controller: "ajController",
-                        controllerAs: "model"
-                    })
-
+            .when("/map",
+                {
+                    templateUrl: "friendMap/map.view.client.html",
+                    controller: "mapController",
+                    controllerAs: "model"
+                })
+            .otherwise({ redirectTo: '/'});
 
     }
-
-
 })();
 
 

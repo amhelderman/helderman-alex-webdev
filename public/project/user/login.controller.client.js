@@ -3,14 +3,13 @@
     /* Get previously-declared Angular module */
     angular
         .module("WamApp")
-        .controller("indexController", indexController)
+        .controller("loginController", loginController)
 
-    function indexController($location){
+    function loginController($location){
         var model = this;
 
-
         function init(){
-            console.log("Index controller");
+            alert("loginController.");
 
         }
         init();

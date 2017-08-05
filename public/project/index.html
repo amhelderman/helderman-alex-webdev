@@ -3,14 +3,19 @@
     <!--Angular Requisites-->
     <script src="../../vendor/angular/angular.js"></script>
     <script src="../../vendor/angular/angular-route.js"></script>
-    <script src="indexController.js"></script>
-    <script src="app.js"></script>
-    <script src="map.js"></script>
 
+    <!--Controllers-->
+    <script src="app.js"></script>
+    <script src="indexController.js"></script>
+    <script src="user/login.controller.client.js"></script>
+    <script src="friendProfile/profile.controller.client.js"></script>
+    <script src="friendMap/map.controller.client.js"></script>
+
+
+
+    <!--Bootstrap-->
     <title>Theme Template for Bootstrap</title>
-    <!-- Bootstrap core CSS -->
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
     <link href="../../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 
@@ -34,7 +39,6 @@
         <!-- Page Header -->
         <span class="amh-header"> Life Goals</span>
 
-        <!-- Top-Right Button -->
         <!-- Profile Button -->
         <a class="navbar-brand" href="#">
             <a href="#!/profile/{{model.userId}}">
@@ -47,27 +51,15 @@
 </div>
 
 
-<div ng-controller="indexController">
-
-<ng-view></ng-view>
-
+<div>
+    <div ng-view></div>
 </div>
-
-
-
 
 
 <!-- Footer Bar -->
 <div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
     <div class="">
-
-
-        <a href="experiments/">experiment</a>
-        <a href="/project/">Home</a>
-        <a href="job/jobs.html">Jobs</a>
-        <a href="home/homes.html">Apartments</a>
         Graduate student project.
-
     </div>
 </div>
 
