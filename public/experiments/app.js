@@ -34,8 +34,10 @@
 
     function ajController($location, jobService){
         var model = this;
-        model.message="HI";
 
+        // model.url = "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13606607_1"+
+        // "489462927745831_321545280577124328_n.jpg?oh=104aa2fe95"+
+        // "2e9d87bffc7762b26bb99d&oe=5A2EA57E";
         function init(){
 
             // jobService.getJobTypes()
@@ -73,30 +75,49 @@
                 // user is now logged out
                 console.log("User is logged out");
                 console.log(response);
+                model.id = null;
             });
         }
 
         model.loginFacebook = function (){
+            // model.url = 'https://farm9.staticflickr.com/8455/8048926748_1bc624e5c9_d.jpg';\
             FB.getLoginStatus(function(response) {
                 if (response.status === 'connected') {
                     console.log('Logged in.');
                     model.accessToken = response.authResponse.accessToken;
                 }
                 else {
-                    FB.login(function(response) {
-                        if (response.authResponse) {
-                            console.log('Welcome!  Fetching your information.... ');
-                            FB.api('/me', function(response) {
-                                console.log('Good to see you, ' + response.name + '.');
-                            });
-                        } else {
-                            console.log('User cancelled login or did not fully authorize.');
-                        }
-                    });
+                    FB.login(loginResponse);
                 }
             });
-
         };
+
+        function loginResponse(response){
+            if (response.authResponse) {
+                console.log('Welcome!  Fetching your information.... ');
+                FB.api('/me', loginSuccessCallback);
+
+            } else {
+                console.log('User cancelled login or did not fully authorize.');
+            }
+        }
+
+        function loginSuccessCallback(response){
+            console.log('Good to see you, ' + response.name + '.');
+            console.log(response);
+            model.id = response.id;
+            model.name = response.name;
+
+            model.url = "//graph.facebook.com/"+model.id+"/picture";
+            // FB.api("/"+model.id+"/picture",getProfilePicture);
+            FB.api("https://graph.facebook.com/"+model.id+"/picture", getProfilePicture);
+        }
+
+        function getProfilePicture(response) {
+                /* handle the result */
+                console.log("Got profile picture")
+                model.profilePicture = response.data.url;
+        }
 
         model.shareFacebook = function (){
             FB.ui({

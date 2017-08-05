@@ -31,23 +31,34 @@
 
 
 
-    <h1> aj jobs</h1>
-    <a href="https://authenticjobs.com/"> Authentic Jobs Link</a>
+    <h1> facebook API test</h1>
 
     <div ng-controller="ajController as model">
 
-    {{model.message}}
 
-        <a ng-click="model.loginFacebook()">
+        <div ng-show="{{model.name}}" class="alert alert-info">
+            Welcome, {{model.name}}!
+        </div>
+
+        {{model.name}}
+        <div ng-show="{{model.profilePicture}}">
+            <img ng-src="{{model.profilePicture}}">
+        </div>
+
+        <!--<img ng-src="//graph.facebook.com/{{model.id}}/picture">-->
+        <img ng-src="{{model.url}}">
+        <img ng-src="{{model.profilePicture}}">
+
+        <button ng-click="model.loginFacebook()">
             Login with Facebook.
-        </a>
-        <a ng-click="model.logoutFacebook()">
+        </button>
+        <button ng-click="model.logoutFacebook()">
             Logout with Facebook.
-        </a>
+        </button>
 
-        <a ng-click="model.shareFacebook()">
+        <button ng-click="model.shareFacebook()">
             Share to facebook.
-        </a>
+        </button>
 
         <!--Continue with Facebook-->
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
