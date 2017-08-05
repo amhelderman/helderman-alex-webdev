@@ -10,7 +10,7 @@
 
 
         function init(){
-            alert("IndexController.");
+            console.log("mapController.");
             createMap();
 
         }
