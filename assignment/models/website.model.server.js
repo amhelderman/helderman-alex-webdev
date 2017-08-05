@@ -24,5 +24,5 @@ function findWebsiteByUser(userId){
     return websiteModel.find({developerId: userId});
 }
 function deleteWebsite(websiteId){
-    return websiteModel.remove(websiteId);
+    return websiteModel.findById(websiteId).remove();
 }
