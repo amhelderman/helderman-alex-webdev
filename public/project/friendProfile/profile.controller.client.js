@@ -5,7 +5,7 @@
         .module("WamApp")
         .controller("profileController", profileController)
 
-    function profileController($location){
+    function profileController($location, userService){
         var model = this;
 
         function init(){
