@@ -35,6 +35,12 @@
     function ajController($location, jobService){
         var model = this;
 
+        model.accessToken = null;
+        model.user = {};
+
+        model.nums = [1, 2, 3, 4, 5];
+
+
         // model.url = "https://scontent.xx.fbcdn.net/v/t1.0-1/p50x50/13606607_1"+
         // "489462927745831_321545280577124328_n.jpg?oh=104aa2fe95"+
         // "2e9d87bffc7762b26bb99d&oe=5A2EA57E";
@@ -75,49 +81,77 @@
                 // user is now logged out
                 console.log("User is logged out");
                 console.log(response);
-                model.id = null;
+                model.user = null;
             });
         }
 
         model.loginFacebook = function (){
-            // model.url = 'https://farm9.staticflickr.com/8455/8048926748_1bc624e5c9_d.jpg';\
-            FB.getLoginStatus(function(response) {
-                if (response.status === 'connected') {
-                    console.log('Logged in.');
-                    model.accessToken = response.authResponse.accessToken;
-                }
-                else {
-                    FB.login(loginResponse);
-                }
-            });
+            console.log("logging in...");
+            FB.getLoginStatus(loginConnected);
         };
+
+        function loginConnected(response){
+            if (response.status === 'connected') {
+                console.log('Logged in.');
+                model.accessToken = response.authResponse.accessToken;
+            }
+            else {
+                FB.login(loginResponse,  {scope: 'public_profile, user_photos'});
+            }
+        }
 
         function loginResponse(response){
             if (response.authResponse) {
-                console.log('Welcome!  Fetching your information.... ');
+                console.log(response.authResponse);
                 FB.api('/me', loginSuccessCallback);
 
-            } else {
-                console.log('User cancelled login or did not fully authorize.');
+                model.accessToken = response.authResponse.accessToken;
+            }
+            else {
+                console.log('Login failed.');
             }
         }
 
         function loginSuccessCallback(response){
             console.log('Good to see you, ' + response.name + '.');
-            console.log(response);
-            model.id = response.id;
-            model.name = response.name;
+            model.user.id = response.id;
+            model.user.name = response.name;
 
-            model.url = "//graph.facebook.com/"+model.id+"/picture";
-            // FB.api("/"+model.id+"/picture",getProfilePicture);
-            FB.api("https://graph.facebook.com/"+model.id+"/picture", getProfilePicture);
+                FB.api("https://graph.facebook.com/"+model.user.id+"/picture", getProfilePicture);
+
         }
 
         function getProfilePicture(response) {
-                /* handle the result */
-                console.log("Got profile picture")
-                model.profilePicture = response.data.url;
+            console.log("Got profile picture")
+            model.user.profilePicture = response.data.url;
+            console.log(model.user.profilePicture);
+            model.loginFacebook();
+            getPhotos();
         }
+
+        function getPhotos(response) {
+            console.log("Getting photos");
+
+            FB.api("https://graph.facebook.com/"+model.user.id+"/photos",
+                function(response){
+                    console.log("Got photos:");
+                    model.user.photoInfo = response.data;
+                    model.user.photos = [];
+                    for(var p in model.user.photoInfo){
+                        var currentPhoto = model.user.photoInfo[p];
+
+                        FB.api('/'+currentPhoto.id+"?fields=images  ",
+                            function(response){
+                                model.user.photos.push(response.images[0]);
+                                console.log(model.user.photos);
+                            });
+                    }
+                });
+
+        }
+
+
+
 
         model.shareFacebook = function (){
             FB.ui({

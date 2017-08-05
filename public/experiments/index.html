@@ -36,32 +36,40 @@
     <div ng-controller="ajController as model">
 
 
-        <div ng-show="{{model.name}}" class="alert alert-info">
-            Welcome, {{model.name}}!
+        <div ng-show="{{model.user.name}}" class="alert alert-info">
+            Welcome, {{model.user.name}}!
         </div>
 
-        {{model.name}}
-        <div ng-show="{{model.profilePicture}}">
-            <img ng-src="{{model.profilePicture}}">
+        {{model.user.name}}
+        <img ng-src="{{model.user.profilePicture}}">
+
+        <div>
+                <button ng-click="model.loginFacebook()">
+                    Login with Facebook.
+                </button>
+
+                <button ng-click="model.logoutFacebook()">
+                    Logout with Facebook.
+                </button>
+
+                <button ng-click="model.shareFacebook()">
+                    Share to facebook.
+                </button>
         </div>
 
-        <!--<img ng-src="//graph.facebook.com/{{model.id}}/picture">-->
-        <img ng-src="{{model.url}}">
-        <img ng-src="{{model.profilePicture}}">
+        <div ng-repeat="photo in model.user.photos">
+            <img ng-src="{{photo.source}}" height="{{photo.data.height}}" width="{{photo.data.width}}">
 
-        <button ng-click="model.loginFacebook()">
-            Login with Facebook.
-        </button>
-        <button ng-click="model.logoutFacebook()">
-            Logout with Facebook.
-        </button>
+        </div>
 
-        <button ng-click="model.shareFacebook()">
-            Share to facebook.
-        </button>
 
-        <!--Continue with Facebook-->
-        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        <div ng-repeat="n in model.nums">
+            {{n}}
+
+        </div>
+
+        <!--&lt;!&ndash;Continue with Facebook&ndash;&gt;-->
+        <!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
 
 
     </div>
