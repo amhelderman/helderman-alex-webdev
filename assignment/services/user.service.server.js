@@ -66,7 +66,6 @@ function findUserByUsernameAndPassword(req, res){
     }
 }
 
-/* Set */
 function findUserById(req, res) {
     console.log("find UserByID "+req.params.userId);
     userModel.findUserById(req.params.userId)
@@ -75,21 +74,7 @@ function findUserById(req, res) {
         })
 }
 
-/* Set */
 function deleteUser(req, res){
-
     console.log("Deleting user "+ req.params.userId);
-
-    for(var u in users) {
-        if(users[u]._id === req.params.userId) {
-            /* Remove the user */
-            var index = users.indexOf(users[u]);
-            if (index > -1) {
-                users.splice(index, 1);
-                res.sendStatus(200);
-                return;
-            }
-        }
-    }
-    res.sendStatus(404);
+    userModel.deleteUser(req.params.userId);
 }
