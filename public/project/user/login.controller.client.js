@@ -5,12 +5,12 @@
         .module("WamApp")
         .controller("loginController", loginController)
 
-    function loginController($location, userService){
+    function loginController($document, $location, userService){
         var model = this;
 
         function init(){
             console.log("loginController.");
-
+            userService.loadScript($document);
             // userService.facebookSetup();
 
         }

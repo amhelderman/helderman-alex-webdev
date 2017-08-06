@@ -19,8 +19,27 @@
         this.loginFacebook = loginFacebook;
         this.logoutFacebook = logoutFacebook;
         this.shareFacebook = shareFacebook;
+        this.loadScript = loadScript;
 
         var FB = $window.FB;
+
+
+        function loadScript(d, cb) {
+            console.log(d);
+            var scriptOb = $("<script>")
+            scriptOb
+                .attr("class", "amhhhh")
+                .attr("async", true)
+                .attr("source", "//connect.facebook.net/en_US/all.js" )
+                .attr("onreadystatechange",function() {
+                        console.log("HELLO!");
+                        if (this.readyState == "complete") {
+                            console.log("HELLO!2");
+                            cb();
+                        }
+                    } );
+            $(d.documentElement).append(scriptOb);
+        };
 
         function logoutFacebook () {
             FB.logout(function (response) {
@@ -36,7 +55,6 @@
 
             // Returned at end
             var user = {};
-
 
             if(!FB){
                 console.log("FB is not defined yet.");

@@ -1,6 +1,7 @@
 <html lang="en" ng-app="WamApp"><head>
 
     <!--Angular Requisites-->
+    <script src="../../vendor/jquery/jquery.js"></script>
     <script src="../../vendor/angular/angular.js"></script>
     <script src="../../vendor/angular/angular-route.js"></script>
 
@@ -25,6 +26,28 @@
 
 </head>
 <body>
+
+<!------------------------------------------------>
+<!--Load Facebook SDK-->
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : 852027658298964,
+            xfbml      : true,
+            version    : 'v2.1'
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<!------------------------------------------------>
+
 
     <div class="amh-banner">
     </div>
@@ -57,27 +80,6 @@
 
         </div>
     </div>
-    <!------------------------------------------------>
-
-    <!------------------------------------------------>
-    <!--Load Facebook SDK-->
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : 852027658298964,
-                xfbml      : true,
-                version    : 'v2.1'
-            });
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
     <!------------------------------------------------>
 
 
