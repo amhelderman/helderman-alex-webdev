@@ -8,6 +8,7 @@ widgetModel.createWidget = createWidget;
 widgetModel.updateWidget = updateWidget;
 widgetModel.findWidgetById = findWidgetById;
 widgetModel.findWidgetByPageId = findWidgetByPageId;
+widgetModel.deleteWidget = deleteWidget;
 
 function updateWidget(widgetId, widget){
     return widgetModel.update({_id: widgetId}, {$set: widget});
@@ -20,4 +21,8 @@ function findWidgetById(widgetId){
 }
 function findWidgetByPageId(pageId){
     return websiteModel.find({pageId: pageId});
+}
+
+function deleteWidget(widgetId){
+    return widgetModel.findById(widgetId).remove();
 }

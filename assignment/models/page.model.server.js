@@ -8,6 +8,7 @@ pageModel.createPage = createPage;
 pageModel.updatePage = updatePage;
 pageModel.findPageById = findPageById;
 pageModel.findPageByWebsiteId = findPageByWebsiteId;
+pageModel.deletePage = deletePage;
 
 
 function updatePage(pageId, page){
@@ -23,4 +24,7 @@ function findPageById(pageId){
 }
 function findPageByWebsiteId(websiteId){
     return websiteModel.find({websiteId: websiteId});
+}
+function deletePage(pageId){
+    return pageModel.findById(pageId).remove();
 }

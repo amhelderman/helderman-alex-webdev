@@ -26,10 +26,19 @@ app.delete  ("/api/user/:userId/website/:websiteId/page/:pageId", deletePage);
 function createPage(req, res)
 {
     var websiteId = req.params.websiteId;
-    var page = req.body
+    var page = req.body;
 
 
-
+    pageModel.createPage(page)
+        .then(function(page){
+            console.log("created page:");
+            console.log(page);
+            res.json(page);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
+        })
 }
 
 
@@ -38,16 +47,15 @@ function findAllPagesForWebsite(req, res)
     var websiteId = req.params.websiteId;
 
     console.log("Finding pages with websiteId "+websiteId);
-    var out = [];
-    for (var p in pages){
-        var currentPage = pages[p];
-        if(currentPage.websiteId === websiteId)
-        {
-            out.push(currentPage);
-        }
-    }
-    console.log("found "+out.length+" pages.");
-    res.send( out);
+
+    pageModel.findPageByWebsiteId(websiteId)
+        .then(function(page){
+            res.json(page);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
+        })
 }
 
 
@@ -56,17 +64,18 @@ function findPageById(req,res)
     var pageId = req.params.pageId;
 
     console.log("Finding page with Id "+pageId);
-    for (var p in pages){
-        var currentPage = pages[p];
-        if(currentPage._id === pageId)
-        {
-            console.log("found page "+currentPage.name);
-            res.json( currentPage);
+
+    pageModel.findPageById(pageId)
+        .then(function(page){
+            res.json(page);
             return;
-        }
-    }
-    console.log("Did not find it.");
-    res.sendStatus(404);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
+        })
+
+
+
 }
 
 function updatePage(req, res)
@@ -78,23 +87,14 @@ function updatePage(req, res)
     // console.log("updating page ");
     console.log(page);
 
-    for(var u in pages) {
-        console.log("ID CHECK: "+pages[u]._id+" === "+pageId);
-        if(pages[u]._id === pageId) {
-            console.log("Yes it does.");
-
-            console.log("Does page [u] ");
-            console.log(pages[u]);
-
-            pages[u] = page;
-
-            console.log("equal this page?");
-            console.log(page);
-            res.json(page);
+    pageModel.updatePage(pageId, page)
+        .then(function(status){
+            res.sendStatus(200);
             return;
-        }
-    }
-    res.sendStatus(404);
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
+        })
 }
 
 function deletePage(req, res)
@@ -102,20 +102,14 @@ function deletePage(req, res)
     var pageId = req.params.pageId;
 
     console.log("Deleting page "+pageId);
-    for(var w in pages) {
-        if(pages[w]._id === pageId) {
 
-            /* Remove the user */
-            var index = pages.indexOf(pages[w]);
-            if (index > -1) {
-                pages.splice(index, 1);
-                console.log("deleted.");
-                res.sendStatus(200);
-                return;
-            }
-        }
-    }
-    console.log("NOT deleted.");
-    res.sendStatus(404);
+    pageModel.deletePage(pageId)
+        .then(function(status){
+            res.sendStatus(200);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
+        })
 }
 

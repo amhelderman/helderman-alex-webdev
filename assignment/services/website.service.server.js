@@ -26,6 +26,10 @@ function createWebsite(req, res) {
             console.log("created website:");
             console.log(website);
             res.json(website);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
         })
 }
 

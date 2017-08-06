@@ -28,6 +28,7 @@ app.put     ("/page/:pageId/widget/", sortWidgets);
 // ];
 //
 
+/// TODO: sortwidgets
 function sortWidgets(req, res){
     // console.log("YES");
     var pageId = req.params.pageId;
@@ -35,20 +36,6 @@ function sortWidgets(req, res){
     var startIndex = req.query.initial;
     var endIndex = req.query.final;
     console.log("Sorting widgets!");
-    // console.log([pageId, startIndex, endIndex]);
-    //
-    // if((startIndex < 0 || startIndex > widgets.length)
-    //     ||(endIndex < 0 || endIndex > widgets.length)){
-    //     res.sendStatus(400);
-    //     return;
-    // }
-    //
-    // var tempWidget = widgets[endIndex];
-    // widgets[endIndex] = widgets[startIndex];
-    // widgets[startIndex] = tempWidget;
-    // console.log("after:");
-    // console.log(widgets);
-    // res.sendStatus(200);
 
 }
 
@@ -65,6 +52,10 @@ function createWidget(req, res) {
             console.log("created widget:");
             console.log(widget);
             res.json(widget);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
         })
 
 
@@ -96,6 +87,10 @@ function deleteWidget(req, res)
     widgetModel.deleteWidget(req.params.userId)
         .then(function(status){
             res.sendSatus(status);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
         })
 }
 
@@ -109,6 +104,10 @@ function findAllWidgetsForPage(req, res)
     widgetModel.findWidgetByPageId(pageId)
         .then(function(widget){
             res.json(widget);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
         })
 }
 
@@ -120,6 +119,10 @@ function findWidgetById(req, res)
     widgetModel.findWidgetById(req.params.userId)
         .then(function(widget){
             res.json(widget);
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
         })
 }
 
@@ -131,6 +134,10 @@ function getWidgetByIdInternal(widgetId)
     widgetModel.findWidgetById(widgetId)
         .then(function(widget){
             return widget;
+            return;
+        }, function (err) {
+            res.sendStatus(404).send(err);
+            return;
         })
 }
 
