@@ -1,9 +1,16 @@
 var mongoose = require("mongoose");
 var widgetSchema = mongoose.Schema({
-    widgetType: String,
-    pageId: String,
+    widgetType: {type: String, enum: ["HTML", "HEADER", "LABEL", "TEXT",
+        "LINK", "BUTTON", "IMAGE", "YOUTUBE","DATATABLE", "REPEATER"]},
+    name      : String,
+    title     : String,
+    text      : {type:String, default:'Text'},
     size: Number,
-    text: String
+    html      : HtmlSchema,
+    youTube   : YouTubeSchema,
+    datatable : DataTableSchema,
+    repeater  : RepeaterSchema,
+    textInput : TextInputSchema
 });
 /*[
  { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
