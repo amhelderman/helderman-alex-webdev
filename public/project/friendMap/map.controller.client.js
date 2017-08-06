@@ -12,6 +12,15 @@
             console.log("mapController.");
             // createMap();
 
+            if (typeof google !== 'undefined') {
+                initMap();
+            }
+            else
+            {
+                mapService.then(initMap);
+            }
+
+
         }
 
         init();
@@ -25,19 +34,12 @@
             }
         };
         function initMap() {
-            function checkVariable() {
-                console.log(typeof google);
-                if (typeof google !== 'undefined') {
-                    map = new google.maps.Map(
-                        document.getElementById('map'), {
-                            center: {lat: -34.397, lng: 150.644},
-                            zoom: 8
-                        });
-                    console.log(map);
-                }
-            }
-
-            setTimeout(checkVariable, 1000);
+            map = new google.maps.Map(
+                document.getElementById('map'), {
+                    center: {lat: -34.397, lng: 150.644},
+                    zoom: 8
+                });
+            console.log(map);
         };
     }
 
