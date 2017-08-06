@@ -1,7 +1,7 @@
 // based on code from jannunzi
 
 var app = require("../../express");
-var websiteModel = require("../models/website.model.server");
+var websiteModel = require("../models/model/website.model.server");
 
 app.post    ("/api/user/:userId/website", createWebsite);
 app.get     ("/api/user/:userId/website", findAllWebsitesForUser);

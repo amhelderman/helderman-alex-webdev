@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
-var widgetSchema = require("./widget.schema.server");
-var db = require("./database");
+var widgetSchema = require("../schema/widget.schema.server");
+var db = require("../database");
 var widgetModel = mongoose.model("WidgetModel", widgetSchema);
 
 module.exports = widgetModel;

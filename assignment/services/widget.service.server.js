@@ -1,6 +1,6 @@
 // based on code from jannunzi
 var app = require("../../express");
-var widgetModel = require("../models/widget.model.server");
+var widgetModel = require("../models/model/widget.model.server");
 
 app.post    ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", createWidget);
 app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", findAllWidgetsForPage);
