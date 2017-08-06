@@ -25,6 +25,7 @@
                         +"/website/"+websiteId
                         +"/page/"+pageId
                         +"/widget/";
+            widget.pageId = pageId;
             console.log("widget service: posting widget using url:");
             console.log(url);
             return $http.post(url, widget);

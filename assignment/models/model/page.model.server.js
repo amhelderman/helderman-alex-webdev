@@ -21,7 +21,7 @@ function findPageById(pageId){
     return pageModel.findById(pageId);
 }
 function findPageByWebsiteId(websiteId){
-    return websiteModel.find({websiteId: websiteId});
+    return pageModel.find({websiteId: websiteId});
 }
 function deletePage(pageId){
     return pageModel.findById(pageId).remove();

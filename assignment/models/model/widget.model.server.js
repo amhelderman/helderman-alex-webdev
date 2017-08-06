@@ -20,9 +20,8 @@ function findWidgetById(widgetId){
     return widgetModel.findById(widgetId);
 }
 function findWidgetByPageId(pageId){
-    return websiteModel.find({pageId: pageId});
+    return widgetModel.find({pageId: pageId});
 }
-
 function deleteWidget(widgetId){
     return widgetModel.findById(widgetId).remove();
 }

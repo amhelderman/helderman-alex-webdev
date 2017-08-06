@@ -30,12 +30,10 @@ app.put     ("/page/:pageId/widget/", sortWidgets);
 
 /// TODO: sortwidgets
 function sortWidgets(req, res){
-    // console.log("YES");
     var pageId = req.params.pageId;
-    // console.log(req);
     var startIndex = req.query.initial;
     var endIndex = req.query.final;
-    console.log("Sorting widgets!");
+    console.log("Sorting widgets! Widget moved from "+startIndex+" to "+endIndex);
 
 }
 
@@ -99,15 +97,13 @@ function deleteWidget(req, res)
 function findAllWidgetsForPage(req, res)
 {
     var pageId = req.params.pageId;
-    console.log("Finding widgets with websiteId "+pageId);
+    console.log("Finding widgets with pageId "+pageId);
 
     widgetModel.findWidgetByPageId(pageId)
         .then(function(widget){
             res.json(widget);
-            return;
         }, function (err) {
             res.sendStatus(404).send(err);
-            return;
         })
 }
 
@@ -119,10 +115,8 @@ function findWidgetById(req, res)
     widgetModel.findWidgetById(req.params.userId)
         .then(function(widget){
             res.json(widget);
-            return;
         }, function (err) {
             res.sendStatus(404).send(err);
-            return;
         })
 }
 

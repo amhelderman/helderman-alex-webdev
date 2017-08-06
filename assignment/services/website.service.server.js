@@ -67,7 +67,6 @@ function findAllWebsitesForUser(req, res) {
     console.log("Finding websites with userId "+userId);
     websiteModel.findWebsiteByUser(userId)
         .then(function(website){
-            console.log("found website:");
             console.log(website);
             res.json(website);
         }, function(err){
