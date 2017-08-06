@@ -8,24 +8,15 @@
 
     function userService($window, $http)
     {
-        this.findUserByUsernameAndPassword = findUserByUsernameAndPassword;
-        this.findUserById = findUserById;
-        this.registerUser = registerUser;
-        this.unregisterUser = unregisterUser;
-        this.findUserByUsername = findUserByUsername;
-        this.updateUser = updateUser;
-
-
         this.loginFacebook = loginFacebook;
         this.logoutFacebook = logoutFacebook;
         this.shareFacebook = shareFacebook;
         this.loadScript = loadScript;
 
-        var FB = $window.FB;
-
 
         function loadScript(d, cb) {
             console.log(d);
+            console.log(cb);
             var scriptOb = $("<script>")
             scriptOb
                 .attr("class", "amhhhh")
@@ -39,7 +30,7 @@
                         }
                     } );
             $(d.documentElement).append(scriptOb);
-        };
+        }
 
         function logoutFacebook () {
             FB.logout(function (response) {
@@ -131,42 +122,6 @@
                 // Debug response (optional)
                 console.log(response);
             });
-        }
-
-
-        ///////////////////////
-
-        function registerUser(user)
-        {
-            /* Handle user check at client level */
-            console.log("user service: registering user "+user.username);
-        }
-
-        function unregisterUser(userId)
-        {
-            console.log("user service: deleting user "+userId);
-        }
-
-        function updateUser(userId, user)
-        {
-            console.log("user service: updating user "+userId);
-        }
-
-
-        function findUserById(userId)
-        {
-            console.log("user service: finding user by id "+userId);
-        }
-
-        function findUserByUsernameAndPassword(username, password)
-        {
-            console.log("in user service for findUserByUsernameAndPassword");
-        }
-
-
-        function findUserByUsername(username)
-        {
-            console.log("user service: finding user "+username);
         }
 
     }

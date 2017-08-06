@@ -5,14 +5,24 @@
         .module("WamApp")
         .controller("loginController", loginController)
 
-    function loginController($document, $location, userService){
+    function loginController($document, $window, $location, userService){
         var model = this;
+
+        $window.model = model;
+
 
         function init(){
             console.log("loginController.");
-            userService.loadScript($document);
-            // userService.facebookSetup();
+            userService.loadScript($document,function(){
+                console.log("ALEX");
 
+                FB.init({
+                    appId      : 852027658298964,
+                    xfbml      : true,
+                    version    : 'v2.1'
+                });
+
+            });
         }
         init();
 
