@@ -1,6 +1,6 @@
 // based on code from jannunzi
-
 var app = require("../../express");
+var widgetModel = require("../models/widget.model.server");
 
 app.post    ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", createWidget);
 app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", findAllWidgetsForPage);
@@ -14,19 +14,19 @@ app.put     ("/page/:pageId/widget/", sortWidgets);
 
 
 
-
-var widgets =[
-    { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
-    { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-    { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
-        "url": "http://lorempixel.com/400/200/"},
-    { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
-    { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
-    { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
-        "url": "https://youtu.be/AM2Ivdi9c4E" },
-    { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
-];
-
+//
+// var widgets =[
+//     { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
+//     { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+//     { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
+//         "url": "http://lorempixel.com/400/200/"},
+//     { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
+//     { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+//     { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
+//         "url": "https://youtu.be/AM2Ivdi9c4E" },
+//     { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
+// ];
+//
 
 function sortWidgets(req, res){
     // console.log("YES");
@@ -35,20 +35,20 @@ function sortWidgets(req, res){
     var startIndex = req.query.initial;
     var endIndex = req.query.final;
     console.log("Sorting widgets!");
-    console.log([pageId, startIndex, endIndex]);
-
-    if((startIndex < 0 || startIndex > widgets.length)
-        ||(endIndex < 0 || endIndex > widgets.length)){
-        res.sendStatus(400);
-        return;
-    }
-
-    var tempWidget = widgets[endIndex];
-    widgets[endIndex] = widgets[startIndex];
-    widgets[startIndex] = tempWidget;
-    console.log("after:");
-    console.log(widgets);
-    res.sendStatus(200);
+    // console.log([pageId, startIndex, endIndex]);
+    //
+    // if((startIndex < 0 || startIndex > widgets.length)
+    //     ||(endIndex < 0 || endIndex > widgets.length)){
+    //     res.sendStatus(400);
+    //     return;
+    // }
+    //
+    // var tempWidget = widgets[endIndex];
+    // widgets[endIndex] = widgets[startIndex];
+    // widgets[startIndex] = tempWidget;
+    // console.log("after:");
+    // console.log(widgets);
+    // res.sendStatus(200);
 
 }
 
@@ -60,21 +60,14 @@ function createWidget(req, res) {
     var widgetId = req.params.widgetId;
     var widget = req.body;
 
-    console.log("Checking if widget already exists");
-    var index = widgets.indexOf(widget);
-    if (index > -1) {
-        res.sendStatus(204); // No Content - must indicate somehow that it exists
-    }
-    else
-    {
-        widget._id =(new Date()).getTime() + "";
-        widget.pageId = pageId;
+    widgetModel.createWidget(widget)
+        .then(function(widget){
+            console.log("created widget:");
+            console.log(widget);
+            res.json(widget);
+        })
 
-        console.log("Creating widget ");
-        console.log(widget);
-        widgets.push(widget);
-        res.json(widget);
-    }
+
 }
 
 
@@ -85,24 +78,14 @@ function updateWidget(req, res)
 
     console.log("UPDATING widget!!!!!!!!");
     console.log(widget);
-
-    for(var u in widgets) {
-        console.log("ID CHECK: "+widgets[u]._id+" === "+widgetId);
-        if(widgets[u]._id === widgetId) {
-            console.log("Yes it does.");
-
-            console.log("Does widget [u] ");
-            console.log(widgets[u]);
-
-            widgets[u] = widget;
-
-            console.log("equal this widget?");
-            console.log(widget);
-            res.json(widget);
-            return;
-        }
-    }
-    res.sendStatus(404);
+    widgetModel.updateWidget(widgetId, widget)
+        .then(function(status){
+            console.log("updateed widget status:");
+            console.log(status);
+            res.json(status);
+        }, function(err){
+            res.sendStatus(404).send(err);
+        });
 }
 
 function deleteWidget(req, res)
@@ -110,21 +93,10 @@ function deleteWidget(req, res)
     var widgetId = req.params.widgetId;
 
     console.log("Deleting widget "+widgetId);
-    for(var w in widgets) {
-        if(widgets[w]._id === widgetId) {
-
-            /* Remove the user */
-            var index = widgets.indexOf(widgets[w]);
-            if (index > -1) {
-                widgets.splice(index, 1);
-                console.log("deleted.");
-                res.sendStatus(200);
-                return;
-            }
-        }
-    }
-    console.log("NOT deleted.");
-    res.sendStatus(404);
+    widgetModel.deleteWidget(req.params.userId)
+        .then(function(status){
+            res.sendSatus(status);
+        })
 }
 
 ////////////////
@@ -132,52 +104,34 @@ function deleteWidget(req, res)
 function findAllWidgetsForPage(req, res)
 {
     var pageId = req.params.pageId;
-
     console.log("Finding widgets with websiteId "+pageId);
-    var out = [];
-    for (var p in widgets){
-        var currentWidget = widgets[p];
-        if(currentWidget.pageId === pageId)
-        {
-            out.push(currentWidget);
-        }
-    }
-    console.log("found "+out.length+" widgets.");
-    res.send( out);
+
+    widgetModel.findWidgetByPageId(pageId)
+        .then(function(widget){
+            res.json(widget);
+        })
 }
 
 function findWidgetById(req, res)
 {
     var widgetId = req.params.widgetId;
 
-    console.log("Finding widget with Id "+widgetId);
-    for (var p in widgets){
-        var currentWidget = widgets[p];
-        if(currentWidget._id === widgetId)
-        {
-            console.log("found widget "+currentWidget.name);
-            res.json( currentWidget);
-            return;
-        }
-    }
-    console.log("Did not find it.");
-    res.sendStatus(404);
+    console.log("Findinwg widget with Id "+widgetId);
+    widgetModel.findWidgetById(req.params.userId)
+        .then(function(widget){
+            res.json(widget);
+        })
 }
 
 
 function getWidgetByIdInternal(widgetId)
 {
-
     console.log("Finding widget with Id "+widgetId);
-    for (var p in widgets){
-        var currentWidget = widgets[p];
-        if(currentWidget._id === widgetId)
-        {
-            console.log("found widget "+currentWidget.name);
-            return currentWidget;
-        }
-    }
-    return null;
+
+    widgetModel.findWidgetById(widgetId)
+        .then(function(widget){
+            return widget;
+        })
 }
 
 

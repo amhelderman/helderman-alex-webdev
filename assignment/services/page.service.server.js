@@ -1,6 +1,7 @@
 // based on code from jannunzi
 
 var app = require("../../express");
+var pageModel = require("../models/page.model.server");
 
 app.post    ("/api/user/:userId/website/:websiteId/page/", createPage);
 app.get     ("/api/user/:userId/website/:websiteId/page/", findAllPagesForWebsite);
@@ -8,39 +9,26 @@ app.get     ("/api/user/:userId/website/:websiteId/page/:pageId", findPageById);
 app.put     ("/api/user/:userId/website/:websiteId/page/:pageId", updatePage);
 app.delete  ("/api/user/:userId/website/:websiteId/page/:pageId", deletePage);
 
-var pages =
-    [
-        { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
-        { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
-        { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" },
-        { "_id": "321", "name": "Post 1", "websiteId": "890", "description": "Lorem" },
-        { "_id": "432", "name": "Post 2", "websiteId": "890", "description": "Lorem" },
-        { "_id": "543", "name": "Post 3", "websiteId": "890", "description": "Lorem" },
-        { "_id": "321", "name": "Post 1", "websiteId": "890", "description": "Lorem" },
-        { "_id": "432", "name": "Post 2", "websiteId": "890", "description": "Lorem" },
-        { "_id": "543", "name": "Post 3", "websiteId": "890", "description": "Lorem" }
-    ];
+
+// var pages =
+//     [
+//         { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
+//         { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
+//         { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" },
+//         { "_id": "321", "name": "Post 1", "websiteId": "890", "description": "Lorem" },
+//         { "_id": "432", "name": "Post 2", "websiteId": "890", "description": "Lorem" },
+//         { "_id": "543", "name": "Post 3", "websiteId": "890", "description": "Lorem" },
+//         { "_id": "321", "name": "Post 1", "websiteId": "890", "description": "Lorem" },
+//         { "_id": "432", "name": "Post 2", "websiteId": "890", "description": "Lorem" },
+//         { "_id": "543", "name": "Post 3", "websiteId": "890", "description": "Lorem" }
+//     ];
 
 function createPage(req, res)
 {
     var websiteId = req.params.websiteId;
-    var page = req.body;
+    var page = req.body
 
-    console.log("Checking if page already exists");
-    var index = pages.indexOf(page);
-    if (index > -1) {
-        res.sendStatus(204); // No Content - must indicate somehow that it exists
-    }
-    else
-    {
-        page._id =(new Date()).getTime() + "";
-        page.websiteId = websiteId;
 
-        console.log("Creating page ");
-        console.log(page);
-        pages.push(page);
-        res.json(page);
-    }
 
 }
 

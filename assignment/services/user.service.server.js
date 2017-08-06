@@ -76,5 +76,8 @@ function findUserById(req, res) {
 
 function deleteUser(req, res){
     console.log("Deleting user "+ req.params.userId);
-    userModel.deleteUser(req.params.userId);
+    userModel.deleteUser(req.params.userId)
+        .then(function(status){
+            res.sendSatus(status);
+        })
 }

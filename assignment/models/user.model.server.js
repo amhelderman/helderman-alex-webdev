@@ -8,6 +8,7 @@ userModel.createUser = createUser;
 userModel.updateUser = updateUser;
 userModel.findUserById = findUserById;
 userModel.findUserByCredentials = findUserByCredentials;
+userModel.deleteUser=deleteUser;
 
 
 function updateUser(userId, user){
@@ -21,4 +22,8 @@ function findUserById(userId){
 }
 function findUserByCredentials(username, password) {
     return userModel.findOne({username: username, password: password});
+}
+
+function deleteUser(userId){
+    return userModel.findById(userId).remove();
 }
