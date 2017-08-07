@@ -9,30 +9,31 @@
         var model = this;
 
         $window.model = model;
-
+        model.user = {};
+        model.user.name = "User"
 
         function init(){
             console.log("loginController.");
-            userService.loadScript($document,function(){
-                console.log("ALEX");
-
-                FB.init({
-                    appId      : 852027658298964,
-                    xfbml      : true,
-                    version    : 'v2.1'
-                });
-
-            });
         }
         init();
 
         model.loginFacebook = function(){
-
-            userService.loginFacebook(getUser);
-
-            function getUser(user){
+            userService.loginFacebook(getUserCallback);
+            function getUserCallback(user){
                 console.log("ALEX, callback returned user:");
                 console.log(user);
+                model.user = user;
+            }
+        }
+
+
+        model.getPhotos = function(){
+            console.log("GETTING PHOTOS");
+            userService.getPhotos(model.user.id, getPhotosCallback);
+            function getPhotosCallback(photos){
+                console.log("ALEX, callback returned photos:");
+                console.log(photos);
+                model.user.photos = photos;
             }
         }
 

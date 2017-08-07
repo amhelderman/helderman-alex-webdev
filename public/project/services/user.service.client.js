@@ -12,6 +12,7 @@
         this.logoutFacebook = logoutFacebook;
         this.shareFacebook = shareFacebook;
         this.loadScript = loadScript;
+        this.getPhotos = getPhotos;
 
 
         function loadScript(d, cb) {
@@ -90,22 +91,27 @@
             }
         }
 
-        function getFacebookPhotos(fbId){
-            console.log("Getting photos for user "+fbId);
+        function getPhotos(fbUserId, callback){
+            console.log("Getting photos for user "+fbUserId);
 
             var photos = [];
 
-            FB.api("https://graph.facebook.com/"+fbId+"/photos",
+            FB.api("https://graph.facebook.com/"+fbUserId+"/photos",
                 function(response){
                     console.log("Got photos:");
                     var photoInfo = response.data;
+                    var numPhotos = photoInfo.length-1;
                     for(var p in photoInfo){
                         var currentPhoto = photoInfo[p];
-
+                        console.log([Number(p), numPhotos]);
                         FB.api('/'+currentPhoto.id+"?fields=images  ",
                             function(response){
                                 photos.push(response.images[0]);
-                                console.log(photos);
+                                if(Number(p)==numPhotos){
+                                    console.log("!!!!!!Got all photos.");
+                                    callback(photos);
+                                    return;
+                                }
                             });
                     }
                 });
