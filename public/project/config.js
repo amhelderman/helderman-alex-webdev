@@ -7,6 +7,12 @@
 
     function configuration($routeProvider){
         $routeProvider
+            .when("/",
+                {
+                    templateUrl: "friendMap/map.view.client.html",
+                    controller: "mapController",
+                    controllerAs: "model"
+                })
             .when("/login",
                 {
                     templateUrl: "user/login.view.client.html",

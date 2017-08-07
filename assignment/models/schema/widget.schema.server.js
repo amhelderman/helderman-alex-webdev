@@ -1,4 +1,22 @@
 var mongoose = require("mongoose");
+
+
+var HtmlSchema = mongoose.Schema({
+    text: String
+});
+var YouTubeSchema = mongoose.Schema({
+    text: String
+});
+var DataTableSchema = mongoose.Schema({
+    text: String
+});
+var RepeaterSchema = mongoose.Schema({
+    text: String
+});
+var TextInputSchema = mongoose.Schema({
+    text: String
+});
+
 var widgetSchema = mongoose.Schema({
     widgetType: {type: String, enum: ["HTML", "HEADER", "LABEL", "TEXT",
         "LINK", "BUTTON", "IMAGE", "YOUTUBE","DATATABLE", "REPEATER"]},
@@ -12,6 +30,9 @@ var widgetSchema = mongoose.Schema({
     repeater  : RepeaterSchema,
     textInput : TextInputSchema
 });
+
+
+
 /*[
  { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
  { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
