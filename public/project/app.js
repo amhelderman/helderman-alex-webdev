@@ -1,6 +1,6 @@
 (function (){
 
     angular
-        .module("WamApp", ["ngRoute", "ui.carousel"])
+        .module("WamApp", ["ngRoute"])
 })();
 
