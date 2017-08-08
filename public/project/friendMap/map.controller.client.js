@@ -33,8 +33,9 @@
         };
         function initMapAtPosition(position){
             console.log(position);
-            myLatLng = {lat: position.coords.latitude,
+            var myLatLng = {lat: position.coords.latitude,
                         lng: position.coords.longitude};
+            var marker = false;
             map = new google.maps.Map(
                 document.getElementById('map'), {
                     center: myLatLng,
@@ -120,11 +121,41 @@
                         }
                     ]
                 });
-            var marker = new google.maps.Marker({
-                position: myLatLng,
-                map: map,
-                title: 'Hello World!'
+
+
+
+            //Listen for any clicks on the map.
+            google.maps.event.addListener(map, 'click', function(event) {
+                //Get the location that the user clicked.
+                var clickedLocation = event.latLng;
+                //If the marker hasn't been added.
+                if(marker === false){
+                    //Create the marker.
+                    marker = new google.maps.Marker({
+                        position: clickedLocation,
+                        map: map,
+                        draggable: true //make it draggable
+                    });
+                    //Listen for drag events!
+                    google.maps.event.addListener(marker, 'dragend', function(event){
+                        // markerLocation()
+                        var pos = marker.getPosition();
+                        myLatLng = {lat: pos.coords.latitude,
+                                    lng: pos.coords.longitude};
+                    });
+                } else{
+                    //Marker has already been added, so just change its location.
+                    marker.setPosition(clickedLocation);
+                }
+                //Get the marker's location.
+                // markerLocation();
             });
+
+            // var marker = new google.maps.Marker({
+            //     position: myLatLng,
+            //     map: map,
+            //     title: 'Hello World!'
+            // });
         }
     }
 
