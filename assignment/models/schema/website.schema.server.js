@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var websiteSchema = mongoose.Schema({
     name: String,
-    developerId: String,
+    developerId: {type: mongoose.Schema.ObjectId, ref: "UserModel"},
     description: String
 });
 /*[

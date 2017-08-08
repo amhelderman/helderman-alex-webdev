@@ -1,34 +1,14 @@
 var mongoose = require("mongoose");
 
-
-var HtmlSchema = mongoose.Schema({
-    text: String
-});
-var YouTubeSchema = mongoose.Schema({
-    text: String
-});
-var DataTableSchema = mongoose.Schema({
-    text: String
-});
-var RepeaterSchema = mongoose.Schema({
-    text: String
-});
-var TextInputSchema = mongoose.Schema({
-    text: String
-});
-
 var widgetSchema = mongoose.Schema({
     widgetType: {type: String, enum: ["HTML", "HEADER", "LABEL", "TEXT",
         "LINK", "BUTTON", "IMAGE", "YOUTUBE","DATATABLE", "REPEATER"]},
     name      : String,
     title     : String,
     text      : {type:String, default:'Text'},
-    size: Number,
-    html      : HtmlSchema,
-    youTube   : YouTubeSchema,
-    datatable : DataTableSchema,
-    repeater  : RepeaterSchema,
-    textInput : TextInputSchema
+    size      : Number,
+    url       : String,
+    pageId    : {type: mongoose.Schema.ObjectId, ref: "PageModel"}
 });
 
 
