@@ -35,6 +35,10 @@ function sortWidgets(req, res){
     var endIndex = req.query.final;
     console.log("Sorting widgets! Widget moved from "+startIndex+" to "+endIndex);
 
+    widgetModel.sortWidget(startIndex, endIndex)
+        .then(function(status){
+            res.sendStatus(200);
+        });
 }
 
 

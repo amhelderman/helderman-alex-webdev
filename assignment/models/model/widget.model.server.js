@@ -9,6 +9,7 @@ widgetModel.updateWidget = updateWidget;
 widgetModel.findWidgetById = findWidgetById;
 widgetModel.findWidgetByPageId = findWidgetByPageId;
 widgetModel.deleteWidget = deleteWidget;
+widgetModel.sortWidget = sortWidget;
 
 function updateWidget(widgetId, widget){
     return widgetModel.update({_id: widgetId}, {$set: widget});
@@ -24,4 +25,12 @@ function findWidgetByPageId(pageId){
 }
 function deleteWidget(widgetId){
     return widgetModel.findById(widgetId).remove();
+}
+
+
+// TODO: This wont work unless I give each widget an index upon creation
+
+function sortWidget(start, end){
+
+
 }

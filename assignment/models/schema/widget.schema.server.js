@@ -8,10 +8,12 @@ var widgetSchema = mongoose.Schema({
     text      : {type:String, default:'Text'},
     size      : Number,
     url       : String,
-    pageId    : {type: mongoose.Schema.ObjectId, ref: "PageModel"}
+    pageId    : {type: mongoose.Schema.ObjectId, ref: "PageModel"},
+    indexInList : Number
 });
 
-
+// TODO: Sort widgets using the indexInList field, which is set every time the list is sorted.
+//https://stackoverflow.com/questions/32167714/specific-order-by-field-in-ng-repeat
 
 /*[
  { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
