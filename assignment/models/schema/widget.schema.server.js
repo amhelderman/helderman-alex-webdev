@@ -8,7 +8,8 @@ var widgetSchema = mongoose.Schema({
     text      : {type:String, default:'Text'},
     url       : {type:String, default:'#'},
     size      : {type:Number, default:1},
-    pageId    : {type: mongoose.Schema.ObjectId, ref: "PageModel"}
+    pageId    : {type: mongoose.Schema.ObjectId, ref: "PageModel"},
+    sortIndex : Number
 });
 
 

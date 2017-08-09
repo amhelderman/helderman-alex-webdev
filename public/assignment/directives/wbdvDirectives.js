@@ -10,7 +10,7 @@
         .directive("wbdvSortable", wbdvSortable)
 
 
-    function wbdvSortable($http, $routeParams){
+    function wbdvSortable($http, $route, $routeParams){
 
         function linkFunction(scope, element){
 
@@ -28,8 +28,13 @@
                             +"/widget?initial="+startIndex
                             +"&final="+endIndex;
                         console.log(url);
-                        $http.put(url);
+                        $http.put(url).then(
+                            function(response){
 
+                                // Don't start reloading the page until the PUT has responded.
+                                $route.reload();
+                                return response;
+                            });
                     }
                 });
 
