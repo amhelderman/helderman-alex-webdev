@@ -1,48 +1,49 @@
 <ul class="amh-widget-list">
-    <li ng-repeat="widget in widgets">
-        <!--{{widget}}-->
+    <li ng-repeat="widget in model.widgets">
+        {{widget}}
         <div ng-switch="widget.widgetType">
             <div ng-switch-when="HEADING" id="headingWidget">
+                HEADING!
+                <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
-            <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
 
-                <span class="glyphicon glyphicon-cog pull-right"></span>
-            </a>
+                <ng-include src="'widget/templates/views/widget-heading.view.client.html'">
+                </ng-include>
+            </div>
+            <div ng-switch-when="TEXT">
+                TEXT!
+                <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
-            <ng-include src="'widget/templates/views/widget-heading.view.client.html'">
-            </ng-include>
-                <div ng-switch-when="TEXT">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+                <ng-include src="'widget/templates/view/widget-text.view.client.html'">
+                </ng-include>
 
-                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
+            </div>
+            <div ng-switch-when="IMAGE"
+                 id="imageWidget">
+                IMAGE!
+                <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                    <ng-include src="'widget/templates/view/widget-text.view.client.html'">
-                    </ng-include>
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+                <ng-include src="'widget/templates/views/widget-image.view.client.html'">
+                </ng-include>
+            </div>
+            <div ng-switch-when="YOUTUBE"
+                 id="youtubeWidget"
+                 class="youtube-widget">
+                YOUTUBE!
 
-                </div>
-                <div ng-switch-when="IMAGE"
-                     id="imageWidget">
+                <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
-                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
-
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                    <ng-include src="'widget/templates/views/widget-image.view.client.html'">
-                    </ng-include>
-                </div>
-                <div ng-switch-when="YOUTUBE"
-                     id="youtubeWidget"
-                     class="youtube-widget">
-
-                    <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
-
-                        <span class="glyphicon glyphicon-cog pull-right"></span>
-                    </a>
-                    <ng-include src="'widget/templates/views/widget-youtube.view.client.html'">
-                    </ng-include>
-                </div>
-        </div>
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </a>
+                <ng-include src="'widget/templates/views/widget-youtube.view.client.html'">
+                </ng-include>
+            </div>
 
 
         </div>

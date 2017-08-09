@@ -58,73 +58,80 @@
                 model.pageId);
             promise.then(function(response){
                 console.log("GOT WIDGETS:");
-                console.log(response.data);
                 model.widgets = response.data;
+
+                // model.widgets = [{name: "WIDGET TEST DEBUG", widgetType: "HEADING"}];
+                console.log(model.widgets);
 
                 if(!model.widgets.length)
                 {
                     model.errorMessage="Please create a widget.";
                 }
 
+                ///widget/598a6451706a0023145a86b1/598a64c85e6e3f00ec93c05d/598a661b5e6e3f00ec93c061/chooser
+                // /api/user/598a6451706a0023145a86b1/website/598a64c85e6e3f00ec93c05d/page/598a661b5e6e3f00ec93c061/widget/
+
+
+
                 // initWidgetList();
             });
         }
-        function initWidgetList(){
-            $(function() {
-                console.log("Running jquery within angular controller!");
-                for(var w in model.widgets) {
-                    var widget = model.widgets[w];
-
-                    var li = $("<div>");
-                    li.attr("class", "ui-sortable");
-
-                    var widgetDiv=$("<div>");
-                    // widgetDiv.attr("style", "border: solid;");
-
-                    var widgetLink = $("<a>");
-                    widgetLink.attr("href",
-                        "#!/widget/"
-                        +model.userId+"/"
-                        +model.webId+"/"
-                        +model.pageId+"/"
-                        +widget._id+"/"
-                        +"edit");
-                    var widgetCog = $("<span>").attr("class", "glyphicon glyphicon-cog pull-right");
-
-
-                    if(widget.widgetType==='TEXT') {
-                        var widgetValue = widget.text;
-
-                    } else if(widget.widgetType==='HEADING'){
-                        var widgetValue = "<h1>"+widget.text+"</h1>";
-
-                    } else if (widget.widgetType==='IMAGE'){
-                        var img = $("<img>").attr("src", widget.url);
-                        var widgetValue =img;
-
-                    } else if (widget.widgetType==='YOUTUBE'){
-                        var iframe = $("<iframe>")
-                            .attr("width", widget.width)
-                            .attr("height", 400)
-                            .attr("src", model.trustUrlResource(widget.url));
-                        var widgetValue = iframe;
-                    }
-                    else{
-                        widgetValue = $("<div>").append(".");
-                    }
-
-                    // chain of appends
-                    $("#widgetList").append(li);
-                    li.append(widgetDiv);
-                    widgetDiv.append(widgetLink);
-                    widgetLink.append(widgetCog);
-                    widgetDiv.append(widgetValue);
-                }
-
-                $("ul").sortable();
-
-            });
-        }
+        // function initWidgetList(){
+        //     $(function() {
+        //         console.log("Running jquery within angular controller!");
+        //         for(var w in model.widgets) {
+        //             var widget = model.widgets[w];
+        //
+        //             var li = $("<div>");
+        //             li.attr("class", "ui-sortable");
+        //
+        //             var widgetDiv=$("<div>");
+        //             // widgetDiv.attr("style", "border: solid;");
+        //
+        //             var widgetLink = $("<a>");
+        //             widgetLink.attr("href",
+        //                 "#!/widget/"
+        //                 +model.userId+"/"
+        //                 +model.webId+"/"
+        //                 +model.pageId+"/"
+        //                 +widget._id+"/"
+        //                 +"edit");
+        //             var widgetCog = $("<span>").attr("class", "glyphicon glyphicon-cog pull-right");
+        //
+        //
+        //             if(widget.widgetType==='TEXT') {
+        //                 var widgetValue = widget.text;
+        //
+        //             } else if(widget.widgetType==='HEADING'){
+        //                 var widgetValue = "<h1>"+widget.text+"</h1>";
+        //
+        //             } else if (widget.widgetType==='IMAGE'){
+        //                 var img = $("<img>").attr("src", widget.url);
+        //                 var widgetValue =img;
+        //
+        //             } else if (widget.widgetType==='YOUTUBE'){
+        //                 var iframe = $("<iframe>")
+        //                     .attr("width", widget.width)
+        //                     .attr("height", 400)
+        //                     .attr("src", model.trustUrlResource(widget.url));
+        //                 var widgetValue = iframe;
+        //             }
+        //             else{
+        //                 widgetValue = $("<div>").append(".");
+        //             }
+        //
+        //             // chain of appends
+        //             $("#widgetList").append(li);
+        //             li.append(widgetDiv);
+        //             widgetDiv.append(widgetLink);
+        //             widgetLink.append(widgetCog);
+        //             widgetDiv.append(widgetValue);
+        //         }
+        //
+        //         $("ul").sortable();
+        //
+        //     });
+        // }
         init();
     };
 
