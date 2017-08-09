@@ -1,6 +1,7 @@
 var mongoose = require("mongoose");
-var widgetSchema = require("../schema/widget.schema.server");
 var db = require("../database");
+
+var widgetSchema = require("../schema/widget.schema.server");
 var widgetModel = mongoose.model("WidgetModel", widgetSchema);
 
 module.exports = widgetModel;
@@ -9,7 +10,7 @@ widgetModel.updateWidget = updateWidget;
 widgetModel.findWidgetById = findWidgetById;
 widgetModel.findWidgetByPageId = findWidgetByPageId;
 widgetModel.deleteWidget = deleteWidget;
-widgetModel.sortWidget = sortWidget;
+widgetModel.removePageWidgets = removePageWidgets;
 
 function updateWidget(widgetId, widget){
     return widgetModel.update({_id: widgetId}, {$set: widget});
@@ -23,14 +24,15 @@ function findWidgetById(widgetId){
 function findWidgetByPageId(pageId){
     return widgetModel.find({pageId: pageId});
 }
+function removePageWidgets(pageId){
+    return findWidgetByPageId(pageId).then(function(widgets){
+        console.log("Remove page's widgets!!!!!");
+        console.log(widgets);
+        for(var w in widgets){
+            deleteWidget(widgets[w]._id);
+        }
+    })
+}
 function deleteWidget(widgetId){
     return widgetModel.findById(widgetId).remove();
-}
-
-
-// TODO: This wont work unless I give each widget an index upon creation
-
-function sortWidget(start, end){
-
-
 }

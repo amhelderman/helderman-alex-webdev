@@ -1,19 +1,17 @@
 var mongoose = require("mongoose");
 
+
 var widgetSchema = mongoose.Schema({
     widgetType: {type: String, enum: ["HTML", "HEADER", "LABEL", "TEXT",
         "LINK", "BUTTON", "IMAGE", "YOUTUBE","DATATABLE", "REPEATER"]},
-    name      : String,
-    title     : String,
+    name      : {type:String, default:'Name'},
     text      : {type:String, default:'Text'},
-    size      : Number,
-    url       : String,
-    pageId    : {type: mongoose.Schema.ObjectId, ref: "PageModel"},
-    indexInList : Number
+    url       : {type:String, default:'#'},
+    size      : {type:Number, default:1},
+    pageId    : {type: mongoose.Schema.ObjectId, ref: "PageModel"}
 });
 
-// TODO: Sort widgets using the indexInList field, which is set every time the list is sorted.
-//https://stackoverflow.com/questions/32167714/specific-order-by-field-in-ng-repeat
+
 
 /*[
  { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
