@@ -28,12 +28,14 @@
                             +"/widget?initial="+startIndex
                             +"&final="+endIndex;
                         console.log(url);
+
+                        // TODO: need to translate from indices of page and indices of sortIndex
                         $http.put(url).then(
                             function(response){
 
                                 // Don't start reloading the page until the PUT has responded.
-                                $route.reload();
-                                return response;
+                                // $route.reload();
+                                // return response;
                             });
                     }
                 });
