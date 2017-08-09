@@ -59,8 +59,6 @@ function createWidget(req, res) {
             res.sendStatus(404).send(err);
             return;
         })
-
-
 }
 
 

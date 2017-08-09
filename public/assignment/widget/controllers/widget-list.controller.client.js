@@ -57,7 +57,8 @@
                 model.webId,
                 model.pageId);
             promise.then(function(response){
-
+                console.log("GOT WIDGETS:");
+                console.log(response.data);
                 model.widgets = response.data;
 
                 if(!model.widgets.length)
@@ -65,7 +66,7 @@
                     model.errorMessage="Please create a widget.";
                 }
 
-                initWidgetList();
+                // initWidgetList();
             });
         }
         function initWidgetList(){
