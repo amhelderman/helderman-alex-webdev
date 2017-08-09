@@ -1,9 +1,11 @@
 <ul class="amh-widget-list">
+    <!--{{// model.widgets.length}}-->
     <li ng-repeat="widget in model.widgets">
-        {{widget}}
+        <!--{{widget}}-->
+        <div class="amh-spacer">
         <div ng-switch="widget.widgetType">
             <div ng-switch-when="HEADING" id="headingWidget">
-                HEADING!
+
                 <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
                     <span class="glyphicon glyphicon-cog pull-right"></span>
@@ -13,7 +15,7 @@
                 </ng-include>
             </div>
             <div ng-switch-when="TEXT">
-                TEXT!
+
                 <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
                     <span class="glyphicon glyphicon-cog pull-right"></span>
@@ -24,7 +26,7 @@
             </div>
             <div ng-switch-when="IMAGE"
                  id="imageWidget">
-                IMAGE!
+
                 <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 
                     <span class="glyphicon glyphicon-cog pull-right"></span>
@@ -35,7 +37,7 @@
             <div ng-switch-when="YOUTUBE"
                  id="youtubeWidget"
                  class="youtube-widget">
-                YOUTUBE!
+
 
                 <a href="#!/widget/{{model.userId}}/{{model.webId}}/{{model.pageId}}/{{widget._id}}/edit">
 

@@ -26,7 +26,7 @@
         model.pageId = $routeParams.pageId;
 
         model.trustUrlResource = function(url){
-            console.log("TRUST URL");
+            console.log("TRUST URL RESOURCE");
             console.log(url);
             var youtubeUrl = "https://www.youtube.com/embed/";
             var urlParts = url.split("/");

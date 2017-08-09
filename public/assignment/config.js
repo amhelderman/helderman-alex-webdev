@@ -97,18 +97,18 @@
                                 controllerAs: "model"
                             })
                         // Widget edits for each type:
-                        .when("/widget/:userId/:webId/:pageId/:widgetId/heading-edit",
-                            {
-                                templateUrl:"widget/templates/edit/widget-heading-edit.view.client.html",
-                                controller: "widgetEditController",
-                                controllerAs: "model"
-                            })
-                        .when("/widget/:userId/:webId/:pageId/heading",
-                            {
-                                templateUrl:"widget/templates/widget-list.view.client.html",
-                                controller: "widgetListController",
-                                controllerAs: "model"
-                            })
+                        // .when("/widget/:userId/:webId/:pageId/:widgetId/heading-edit",
+                        //     {
+                        //         templateUrl:"widget/templates/edit/widget-heading-edit.view.client.html",
+                        //         controller: "widgetEditController",
+                        //         controllerAs: "model"
+                        //     })
+                        // .when("/widget/:userId/:webId/:pageId/heading",
+                        //     {
+                        //         templateUrl:"widget/templates/widget-list.view.client.html",
+                        //         controller: "widgetListController",
+                        //         controllerAs: "model"
+                        //     })
 
 
 

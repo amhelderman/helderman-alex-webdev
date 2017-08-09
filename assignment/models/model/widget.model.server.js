@@ -34,5 +34,6 @@ function removePageWidgets(pageId){
     })
 }
 function deleteWidget(widgetId){
+    console.log("widget "+widgetId+"is being deleted.");
     return widgetModel.findById(widgetId).remove();
 }

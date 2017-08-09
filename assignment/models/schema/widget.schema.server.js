@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 
 var widgetSchema = mongoose.Schema({
-    widgetType: {type: String, enum: ["HTML", "HEADER", "LABEL", "TEXT",
+    widgetType: {type: String, enum: ["HTML", "HEADING", "LABEL", "TEXT",
         "LINK", "BUTTON", "IMAGE", "YOUTUBE","DATATABLE", "REPEATER"]},
     name      : {type:String, default:'Name'},
     text      : {type:String, default:'Text'},

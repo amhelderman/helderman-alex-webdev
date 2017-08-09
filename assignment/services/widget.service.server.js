@@ -69,11 +69,14 @@ function deleteWidget(req, res)
     var widgetId = req.params.widgetId;
 
     console.log("Deleting widget "+widgetId);
-    widgetModel.deleteWidget(req.params.userId)
+    widgetModel.deleteWidget(widgetId)
         .then(function(status){
-            res.sendSatus(status);
+            console.log("deleted the widget"+widgetId);
+            console.log("Worked!");
+            res.sendStatus(200);
             return;
         }, function (err) {
+            console.log("Didn't delete!");
             res.sendStatus(404).send(err);
             return;
         })
@@ -98,8 +101,8 @@ function findWidgetById(req, res)
 {
     var widgetId = req.params.widgetId;
 
-    console.log("Findinwg widget with Id "+widgetId);
-    widgetModel.findWidgetById(req.params.userId)
+    console.log("Finding widget with Id "+widgetId);
+    widgetModel.findWidgetById(req.params.widgetId)
         .then(function(widget){
             res.json(widget);
         }, function (err) {

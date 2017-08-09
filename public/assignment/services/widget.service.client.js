@@ -51,7 +51,13 @@
                 +"/widget/"+widgetId;
             console.log("widget service: deleting widget using url:");
             console.log(url);
-            return $http.delete(url);
+            return $http.delete(url).then(
+                function(response){
+                    console.log("It actually worked right?");
+                    console.log(response);
+                    return response;
+                }
+            )
         }
 
 
