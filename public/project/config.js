@@ -31,6 +31,12 @@
                     controller: "mapController",
                     controllerAs: "model"
                 })
+            .when("/maptest",
+                {
+                    templateUrl: "friendMap/mapSearch.html",
+                    controller: "mapSearchController",
+                    controllerAs: "model"
+                })
             .otherwise({ redirectTo: '/'});
 
     }
