@@ -1,3 +1,10 @@
+/**
+ * Created by Alex on 7/17/17.
+ */
+
+
+/* Handle Angular Application */
+
 (function (){
 
     /* Get previously-declared Angular module */
@@ -5,23 +12,32 @@
         .module("WamApp")
         .config(configuration)
 
+
     function configuration($routeProvider){
         $routeProvider
-            .when("/login",
+            .when("/",
                 {
-                    templateUrl: "user/login.view.client.html",
-                    controller: "loginController",
+                    templateUrl: "index.html",
+                    controller: "indexController",
                     controllerAs: "model"
                 })
-            .when("/map",
+            .when("/job",
                 {
-                    templateUrl: "friendMap/map.view.client.html",
-                    controller: "mapController",
+                    templateUrl: "job/job.html",
+                    controller: "jobController",
                     controllerAs: "model"
                 })
-            .otherwise({ redirectTo: '/'});
+            .when("/home",
+                    {
+                        templateUrl: "home/home.html",
+                        controller: "homeController",
+                        controllerAs: "model"
+                    });
+
 
     }
+
+
 })();
 
 

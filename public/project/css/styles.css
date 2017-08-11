@@ -20,11 +20,10 @@ a.jumboLink{
     padding: 100px;
 }
 
-.amh-header{
-    font-size: 1.2em;
-    padding: 20%;
-    color: rgba(207,237,249,255);
-}
+/*.amh-header{*/
+    /*font-size: 1.2em;*/
+    /*padding: 20%;*/
+/*}*/
 .amh-shifted-down{
     padding-top: 80px;
     padding-bottom: 80px;

@@ -1,90 +1,88 @@
-<h1> REGISTER VIEW</h1>
+<!DOCTYPE html>
+<div class="container-fluid">
 
-<!--<!DOCTYPE html>-->
-<!--<div class="container-fluid">-->
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
 
-    <!--&lt;!&ndash; Nav Bar &ndash;&gt;-->
-    <!--<div class=" navbar navbar-fixed-top amh-navbar">-->
+        <div class="navbar-header navbar-brand">
 
-        <!--<div class="navbar-header navbar-brand">-->
-
-            <!--&lt;!&ndash; Page Header &ndash;&gt;-->
-            <!--<span class="amh-white">Register</span>-->
+            <!-- Page Header -->
+            <span class="amh-white">Register</span>
 
 
-        <!--</div>-->
+        </div>
 
-    <!--</div>-->
+    </div>
 
-    <!--&lt;!&ndash;Main View&ndash;&gt;-->
-    <!--<div class="amh-shifted-down">-->
-
-
-        <!--&lt;!&ndash; Message showing  &ndash;&gt;-->
-        <!--<div ng-show="model.user" class="alert alert-info">-->
-            <!--Welcome, {{model.user.username}}-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash;Error Message&ndash;&gt;-->
-        <!--<div ng-show="errorMessage" class="alert alert-danger">-->
-            <!--{{model.errorMessage}}-->
-        <!--</div>-->
-
-        <!--<form class="form-signin">-->
-
-            <!--<div class="amh-spacer">-->
-                <!--<label for="username" class="sr-only">Username</label>-->
-                <!--<input type="text"-->
-                       <!--name="username"-->
-                       <!--id="username"-->
-                       <!--ng-model="user.username"-->
-                       <!--class="form-control"-->
-                       <!--placeholder="Username">-->
-            <!--</div>-->
+    <!--Main View-->
+    <div class="amh-shifted-down">
 
 
-            <!--<div class="amh-spacer">-->
-                <!--<label for="password" class="sr-only">Password</label>-->
-                <!--<input type="password"-->
-                       <!--name="password"-->
-                       <!--class="form-control"-->
-                       <!--id="password"-->
-                       <!--ng-model="user.password"-->
-                       <!--placeholder="Password">-->
-            <!--</div>-->
+        <!-- Message showing  -->
+        <div ng-show="model.user" class="alert alert-info">
+            Welcome, {{model.user.username}}
+        </div>
+
+        <!--Error Message-->
+        <div ng-show="errorMessage" class="alert alert-danger">
+            {{model.errorMessage}}
+        </div>
+
+        <form class="form-signin">
+
+            <div class="amh-spacer">
+                <label for="username" class="sr-only">Username</label>
+                <input type="text"
+                       name="username"
+                       id="username"
+                       ng-model="user.username"
+                       class="form-control"
+                       placeholder="Username">
+            </div>
 
 
-            <!--<div class="amh-spacer">-->
-                <!--<label for="vpassword" class="sr-only">Verify Password</label>-->
-                <!--<input type="password"-->
-                       <!--name="vpassword"-->
-                       <!--class="form-control"-->
-                       <!--id="vpassword"-->
-                       <!--ng-model="user.password"-->
-                       <!--placeholder="Verify Password">-->
-            <!--</div>-->
+            <div class="amh-spacer">
+                <label for="password" class="sr-only">Password</label>
+                <input type="password"
+                       name="password"
+                       class="form-control"
+                       id="password"
+                       ng-model="user.password"
+                       placeholder="Password">
+            </div>
+
+
+            <div class="amh-spacer">
+                <label for="vpassword" class="sr-only">Verify Password</label>
+                <input type="password"
+                       name="vpassword"
+                       class="form-control"
+                       id="vpassword"
+                       ng-model="user.password"
+                       placeholder="Verify Password">
+            </div>
 
 
 
-            <!--<div class="amh-spacer">-->
-                <!--<a class="btn btn-block amh-buttons amh-btn-clr-good"-->
-                   <!--name="register"-->
-                   <!--ng-click="model.registerUser(user)"-->
-                   <!--role="button">Register</a>-->
-            <!--</div>-->
+            <div class="amh-spacer">
+                <a class="btn btn-block amh-buttons amh-btn-clr-good"
+                   name="register"
+                   ng-click="model.registerUser(user)"
+                   role="button">Register</a>
+            </div>
 
 
-            <!--<div class="amh-spacer">-->
-                <!--<a class="btn btn-block amh-buttons amh-btn-clr-bad"-->
-                   <!--name="Register"-->
-                   <!--href="#!/login"-->
-                   <!--role="button">Cancel</a>-->
-            <!--</div>-->
+            <div class="amh-spacer">
+                <a class="btn btn-block amh-buttons amh-btn-clr-bad"
+                   name="Register"
+                   href="#!/login"
+                   role="button">Cancel</a>
+            </div>
 
 
-        <!--</form>-->
-    <!--</div>-->
+        </form>
+    </div>
 
 
 
-<!--</div>-->
+</div>

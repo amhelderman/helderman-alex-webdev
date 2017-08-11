@@ -1,3 +1,7 @@
+/* indexController *
+ */
+
+
 (function (){
 
     /* Get previously-declared Angular module */
@@ -5,16 +9,18 @@
         .module("WamApp")
         .controller("indexController", indexController)
 
-    function indexController($location){
+
+
+    function indexController($location, userService){
         var model = this;
 
-
         function init(){
-            console.log("Index controller");
+
 
         }
         init();
-    }
+
+    };
 
 })();
 
