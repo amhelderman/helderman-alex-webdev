@@ -188,12 +188,12 @@ function getWidgetByIdInternal(widgetId)
 
      var upload = multer({ dest: __dirname+'/public/uploads' });
 
-    //  console.log(multer);
-    // console.log("upload:");
-    // console.log(upload);
-    // console.log("single:");
-    // console.log(upload.single('myFile'));
-    app.post ("/api/upload", upload.single('myFile'), uploadImage);
+     console.log(multer);
+console.log("upload:");
+console.log(upload);
+console.log("single:");
+console.log(upload.single('myFile'));
+app.post ("/api/upload", upload.single('myFile'), uploadImage);
 // app.post ("/api/upload",  uploadImage);
 
 

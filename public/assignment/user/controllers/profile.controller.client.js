@@ -40,7 +40,9 @@
             var promise = userService.updateUser(userId, model.user);
             promise.then(function (response){
                 console.log("profileController updated user!");
-                init();
+                console.log(response.data);
+                model.user = response.data;
+                model.infoMessage = "User "+model.user.username+" updated!";
 
             });
         }
