@@ -44,7 +44,32 @@
 
 
         <div class="amh-spacer">
-            <label for="myFile">Upload</label>
+            <a class="btn btn-info" ng-click="model.flickrSearch()">
+                Search
+            </a>
+
+        </div>
+
+        <div class="amh-spacer">
+        <a class="btn btn-block amh-buttons amh-btn-clr-bad"
+           id="delete"
+           name="delete"
+           ng-click="model.deleteWidget()"
+           role="button">Delete</a>
+        </div>
+
+
+    </form>
+
+
+    <!--Photo Upload Form-->
+    <form class="form-signin"
+          action="/api/upload"
+          method="post"
+          enctype="multipart/form-data">
+
+        <div class="amh-spacer">
+            <label for="myFile">Image Upload</label>
             <input type="file"
                    name="myFile"
                    id="myFile"
@@ -57,25 +82,17 @@
         </div>
 
 
-
         <div class="amh-spacer">
             <input type="submit"
                    class="btn btn-block amh-buttons amh-btn-clr-info"
                    id="uploadImage"
                    name="uploadImage"
-                   role="button">Upload Image</input>
+                   role="button"
+                    value = "Upload Image File">
         </div>
-
-
-        <div class="amh-spacer">
-        <a class="btn btn-block amh-buttons amh-btn-clr-bad"
-           id="delete"
-           name="delete"
-           ng-click="model.deleteWidget()"
-           role="button">Delete</a>
-        </div>
-
 
     </form>
+
+
 </div>
 

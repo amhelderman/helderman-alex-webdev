@@ -1,16 +1,12 @@
-<h1> MAP VIEW</h1>
 
 
-<h3>My Google Maps Demo</h3>
+<h3>Find yourself.</h3>
 
 <p id="demo">Click the button to get your position.</p>
 
-<button onclick="getLocation()">Try It</button>
+<button ng-click="model.getLocation()">Try It</button>
+
 <div id="map"></div>
 
-
-
-<div id="mapholder"></div>
-
-
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxo8W1f-xebWiMEjYMyphOI5eUHxu8pg&callback=initMap"
+        async defer></script>

@@ -3,13 +3,14 @@
     /* Get previously-declared Angular module */
     angular
         .module("WamApp")
-        .controller("mapController", mapController)
+        .controller("mapSearchController", mapSearchController)
 
-    function mapController($location, mapService) {
+    function mapSearchController($location, mapService) {
         var model = this;
 
+        model.msg = "MapSearchController is working";
         function init() {
-            console.log("mapController.");
+            console.log("mapSearchController.");
             // createMap();
 
                 mapService.then(initMap);
@@ -22,7 +23,15 @@
         model.map = {};
 
 
+        model.moveMap = function(){
+            console.log("MOVE MAP:");
+            var myLatLng = {coords: {lat: model.myLat,
+                                     lng: Number(model.myLon)}};
+            console.log(myLatLng);
 
+            initMapAtPosition(myLatLng);
+
+        };
 
 
         model.getLocation = function () {

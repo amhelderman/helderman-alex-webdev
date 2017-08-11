@@ -1,6 +1,7 @@
 <html lang="en" ng-app="WamApp"><head>
 
     <!--Angular Requisites-->
+    <script src="../../vendor/jquery/jquery.js"></script>
     <script src="../../vendor/angular/angular.js"></script>
     <script src="../../vendor/angular/angular-route.js"></script>
 
@@ -11,9 +12,12 @@
     <script src="user/login.controller.client.js"></script>
     <script src="friendProfile/profile.controller.client.js"></script>
     <script src="friendMap/map.controller.client.js"></script>
+    <script src="friendMap/mapSearchController.js"></script>
 
     <!--Services-->
     <script src="services/user.service.client.js"></script>
+    <script src="services/facebook.service.client.js"></script>
+    <script src="services/maps.service.client.js"></script>
 
 
     <!--Bootstrap-->
@@ -25,9 +29,9 @@
 </head>
 <body>
 
+
     <div class="amh-banner">
     </div>
-
 
     <!------------------------------------------------>
     <!-- Nav Bar -->
@@ -58,41 +62,15 @@
     </div>
     <!------------------------------------------------>
 
-    <!------------------------------------------------>
-    <!--Load Facebook SDK-->
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : 'your-app-id',
-                xfbml      : true,
-                version    : 'v2.1'
-            });
-        };
-
-        (function(d, s, id){
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {return;}
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <!------------------------------------------------>
-
 
 
     <!------------------------------------------------>
     <!--Show Current Page -->
-    <div ng-controller="indexController" class="amh-shifted-down">
+    <div ng-controller="indexController as model" class="amh-shifted-down">
+
+
         <div ng-view></div>
     </div>
-    <!------------------------------------------------>
-
-
-    <!------------------------------------------------>
-    <!--Load Google SDK-->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxo8W1f-xebWiMEjYMyphOI5eUHxu8pg&callback=initMap">
-    </script>
     <!------------------------------------------------>
 
 
