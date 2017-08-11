@@ -1,0 +1,56 @@
+
+
+
+<!--Facebook Javascript SDK-->
+<div id="fb-root"></div>
+<script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=852027658298964";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+<h1> Login</h1>
+
+
+
+<div ng-show="{{model.user.name}}" class="alert alert-info">
+    Welcome, {{model.user.name}}!
+</div>
+
+{{model.user.name}}
+<img ng-src="{{model.user.profilePicture}}">
+
+<div>
+        <button ng-click="model.loginFacebook()">
+            Login with Facebook.
+        </button>
+
+        <button ng-click="model.logoutFacebook()">
+            Logout with Facebook.
+        </button>
+
+        <button ng-click="model.shareFacebook()">
+            Share to facebook.
+        </button>
+</div>
+
+<div ng-repeat="photo in model.user.photos">
+    <img ng-src="{{photo.source}}" height="300" >
+
+</div>
+
+
+<div ng-repeat="n in model.nums">
+    {{n}}
+
+</div>
+
+<!--&lt;!&ndash;Continue with Facebook&ndash;&gt;-->
+<!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+

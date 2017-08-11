@@ -1,0 +1,6 @@
+
+Things done:
+-login to facebook
+-Get facebook API:https://developers.facebook.com/apps/852027658298964/settings/
+- inserted quickstart code into controlelr: https://developers.facebook.com/docs/javascript/quickstart
+- adding share dialog: https://developers.facebook.com/docs/javascript/examples
