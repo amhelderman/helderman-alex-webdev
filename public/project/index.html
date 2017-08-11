@@ -25,72 +25,87 @@
 </head>
 <body>
 
-<div class="amh-banner">
-</div>
+    <div class="amh-banner">
+    </div>
 
 
-<!-- Nav Bar -->
-<div class=" navbar navbar-fixed-top amh-navbar">
+    <!------------------------------------------------>
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
+        <div class="navbar-header navbar-brand">
 
-    <div class="navbar-header navbar-brand">
 
 
-        <!--Back Button-->
-        <a href="#">
-            <span class=" glyphicon glyphicon-forward"></span>
-        </a>
-
-        <!-- Page Header -->
-        <span class="amh-header"> RateMyFriend </span>
-
-        <!-- Profile Button -->
-        <a class="navbar-brand" href="#">
-            <a href="#!/profile/{{model.userId}}">
-                <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+            <!--Back Button-->
+            <a href="#">
+                <span class=" glyphicon glyphicon-forward"></span>
             </a>
-        </a>
 
+
+            <!-- Page Header -->
+            <span class="amh-header"> RateMyFriend </span>
+
+
+            <!-- Profile Button -->
+            <a class="navbar-brand" href="#">
+                <a href="#!/profile/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+                </a>
+            </a>
+
+
+        </div>
     </div>
+    <!------------------------------------------------>
 
-</div>
+    <!------------------------------------------------>
+    <!--Load Facebook SDK-->
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : 'your-app-id',
+                xfbml      : true,
+                version    : 'v2.1'
+            });
+        };
 
-
-<!--Load Facebook SDK-->
-
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : 'your-app-id',
-            xfbml      : true,
-            version    : 'v2.1'
-        });
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<div ng-controller="indexController" class="amh-shifted-down">
-    <div ng-view></div>
-</div>
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!------------------------------------------------>
 
 
 
-
-
-
-<!-- Footer Bar -->
-<div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
-    <div class="">
-        Graduate student project.
+    <!------------------------------------------------>
+    <!--Show Current Page -->
+    <div ng-controller="indexController" class="amh-shifted-down">
+        <div ng-view></div>
     </div>
-</div>
+    <!------------------------------------------------>
 
+
+    <!------------------------------------------------>
+    <!--Load Google SDK-->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxo8W1f-xebWiMEjYMyphOI5eUHxu8pg&callback=initMap">
+    </script>
+    <!------------------------------------------------>
+
+
+
+
+    <!------------------------------------------------>
+    <!-- Footer Bar -->
+    <div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
+        <div class="">
+            Graduate student project.
+        </div>
+    </div>
+    <!------------------------------------------------>
 
 </body>
 </html>

@@ -13,6 +13,12 @@
                     controller: "loginController",
                     controllerAs: "model"
                 })
+            .when("/map",
+                {
+                    templateUrl: "friendMap/map.view.client.html",
+                    controller: "mapController",
+                    controllerAs: "model"
+                })
             .otherwise({ redirectTo: '/'});
 
     }
