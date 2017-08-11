@@ -1,6 +1,6 @@
 // based on code from jannunzi
 
-var app = require("../express");
+var app = require("../../express");
 
 app.post    ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", createWidget);
 app.get     ("/api/user/:userId/website/:websiteId/page/:pageId/widget/", findAllWidgetsForPage);
@@ -188,12 +188,12 @@ function getWidgetByIdInternal(widgetId)
 
      var upload = multer({ dest: __dirname+'/public/uploads' });
 
-     console.log(multer);
-console.log("upload:");
-console.log(upload);
-console.log("single:");
-console.log(upload.single('myFile'));
-app.post ("/api/upload", upload.single('myFile'), uploadImage);
+    //  console.log(multer);
+    // console.log("upload:");
+    // console.log(upload);
+    // console.log("single:");
+    // console.log(upload.single('myFile'));
+    app.post ("/api/upload", upload.single('myFile'), uploadImage);
 // app.post ("/api/upload",  uploadImage);
 
 
