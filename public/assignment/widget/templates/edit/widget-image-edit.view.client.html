@@ -33,10 +33,10 @@
 
 
         <div class="amh-spacer">
-            <label for="url">URL</label>
+            <label for="imageURL">URL</label>
             <textarea type="text"
-                      name="url"
-                      id="url"
+                      name="imageURL"
+                      id="imageURL"
                       class="form-control"
                       ng-model="model.widget.url"
                       placeholder="http://..."></textarea>
@@ -44,19 +44,23 @@
 
 
         <div class="amh-spacer">
-            <label for="myFile">Upload</label>
-            <input type="file"
-                   name="myFile"
-                   id="myFile"
-                   class="form-control">
-            <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
-            <input  name="userId"    value="{{model.userId}}"   style="display: none"/>
-            <input  name="websiteId" value="{{model.webId}}"   style="display: none"/>
-            <input  name="pageId"    value="{{model.pageId}}"   style="display: none"/>
-            <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
+            <label for="imageWidth">Width</label>
+            <textarea type="text"
+                      name="imageWidth"
+                      id="imageWidth"
+                      class="form-control"
+                      ng-model="model.widget.width"
+                      placeholder="100%"></textarea>
         </div>
 
 
+        <div class="amh-spacer">
+            <label for="uploadSelect">Upload</label>
+            <input type="file"
+                   name="uploadSelect"
+                   id="uploadSelect"
+                   class="form-control">
+        </div>
 
         <div class="amh-spacer">
             <input type="submit"

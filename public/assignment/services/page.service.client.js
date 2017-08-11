@@ -23,7 +23,6 @@
         function createPage(userId, websiteId, page)
         {
             var url =  "/api/user/"+userId+"/website/"+websiteId+"/page/";
-            page.websiteId = websiteId;
             console.log("page service: posting page using url:");
             console.log(url);
             return $http.post(url, page);
