@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/assignment'));
 app.use(express.static(__dirname + '/project'));
 
-// require("./test/app");
+require("./test/app");
 require("./assignment/app");
 require("./project/app");
 
