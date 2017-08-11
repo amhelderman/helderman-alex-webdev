@@ -19,12 +19,6 @@
                     controller: "loginController",
                     controllerAs: "model"
                 })
-            .when("/profile/:userId",
-                {
-                    templateUrl: "user/profile.view.client.html",
-                    controller: "profileController",
-                    controllerAs: "model"
-                })
             .when("/map",
                 {
                     templateUrl: "friendMap/map.view.client.html",
