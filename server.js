@@ -6,11 +6,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/assignment'));
-app.use(express.static(__dirname + '/project'));
 
-// require("./test/app");
-require("./assignment/app");
-require("./project/app");
 
 // allow cross-origin
 //CORS middleware
@@ -23,6 +19,8 @@ var allowCrossDomain = function(req, res, next) {
 }
 app.use(allowCrossDomain);
 
+// require("./test/app");
+require("./assignment/app");
 
 // from piazza thread 641
 port = process.env.PORT || 3000;

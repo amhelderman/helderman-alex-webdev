@@ -1,10 +1,7 @@
 var mongoose = require("mongoose");
-var db = require("../database");
-
 var userSchema = require("../schema/user.schema.server");
+var db = require("../database");
 var userModel = mongoose.model("UserModel", userSchema);
-
-var websiteModel = require("./website.model.server");
 
 module.exports = userModel;
 userModel.createUser = createUser;
@@ -28,10 +25,5 @@ function findUserByCredentials(username, password) {
 }
 
 function deleteUser(userId){
-    return userModel.findById(userId).remove()
-        .then(function (status){
-            console.log("Deleting user worked?");
-            console.log(status);
-            websiteModel.removeUserWebsites(userId);
-        })
+    return userModel.findById(userId).remove();
 }

@@ -1,36 +1,30 @@
-<!------------------------------------------------>
-<!--Load Facebook SDK-->
+
+
+
+<!--Facebook Javascript SDK-->
+<div id="fb-root"></div>
 <script>
-    window.fbAsyncInit = function() {
-        console.log("fb asynchronous is loaded");
-        FB.init({
-            appId      : 852027658298964,
-            xfbml      : true,
-            version    : 'v2.1'
-        });
-
-    };
-
-
-    (function(d, s, id){
-        console.log("Facebook Script Initialization:");
-        console.log([d, s, id]);
+    (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
+        if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=852027658298964";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
+
+
 <h1> Login</h1>
-<facebook-login-button></facebook-login-button>
 
-Welcome, {{model.user.name}}!
 
-<div>
-    <img ng-src="{{model.user.profilePicture}}">
+
+<div ng-show="{{model.user.name}}" class="alert alert-info">
+    Welcome, {{model.user.name}}!
 </div>
+
+{{model.user.name}}
+<img ng-src="{{model.user.profilePicture}}">
 
 <div>
         <button ng-click="model.loginFacebook()">
@@ -41,19 +35,14 @@ Welcome, {{model.user.name}}!
             Logout with Facebook.
         </button>
 
-        <button ng-click="model.getPhotos()">
-            GetPhotos with Facebook.
-        </button>
-
         <button ng-click="model.shareFacebook()">
             Share to facebook.
         </button>
 </div>
 
-
-You have {{model.user.photos.length}} photos uploaded.
 <div ng-repeat="photo in model.user.photos">
     <img ng-src="{{photo.source}}" height="300" >
+
 </div>
 
 
@@ -61,3 +50,7 @@ You have {{model.user.photos.length}} photos uploaded.
     {{n}}
 
 </div>
+
+<!--&lt;!&ndash;Continue with Facebook&ndash;&gt;-->
+<!--<div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+

@@ -5,35 +5,24 @@
         .module("WamApp")
         .controller("loginController", loginController)
 
-    function loginController($document, $window, $location, userService){
+    function loginController($location, userService){
         var model = this;
-
-        $window.model = model;
-        model.user = {};
-        model.user.name = "User"
 
         function init(){
             console.log("loginController.");
+
+            // userService.facebookSetup();
+
         }
         init();
 
         model.loginFacebook = function(){
-            userService.loginFacebook(getUserCallback);
-            function getUserCallback(user){
+
+            userService.loginFacebook(getUser);
+
+            function getUser(user){
                 console.log("ALEX, callback returned user:");
                 console.log(user);
-                model.user = user;
-            }
-        }
-
-
-        model.getPhotos = function(){
-            console.log("GETTING PHOTOS");
-            userService.getPhotos(model.user.id, getPhotosCallback);
-            function getPhotosCallback(photos){
-                console.log("ALEX, callback returned photos:");
-                console.log(photos);
-                model.user.photos = photos;
             }
         }
 
