@@ -20,10 +20,11 @@ a.jumboLink{
     padding: 100px;
 }
 
-/*.amh-header{*/
-    /*font-size: 1.2em;*/
-    /*padding: 20%;*/
-/*}*/
+.amh-header{
+    font-size: 1.2em;
+    padding: 20%;
+    color: rgba(207,237,249,255);
+}
 .amh-shifted-down{
     padding-top: 80px;
     padding-bottom: 80px;
@@ -57,7 +58,8 @@ a.jumboLink{
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 #map {
-    height: 100%;
+    height: 75%;
+    width: 100%;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {

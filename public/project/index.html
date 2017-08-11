@@ -1,18 +1,28 @@
 <html lang="en" ng-app="WamApp"><head>
 
     <!--Angular Requisites-->
+    <script src="../../vendor/jquery/jquery.js"></script>
     <script src="../../vendor/angular/angular.js"></script>
     <script src="../../vendor/angular/angular-route.js"></script>
+
+    <!--Controllers-->
     <script src="app.js"></script>
-    <script src="map.js"></script>
+    <script src="config.js"></script>
+    <script src="indexController.js"></script>
+    <script src="user/login.controller.client.js"></script>
+    <script src="friendProfile/profile.controller.client.js"></script>
+    <script src="friendMap/map.controller.client.js"></script>
+    <script src="friendMap/mapSearchController.js"></script>
+
+    <!--Services-->
+    <script src="services/user.service.client.js"></script>
+    <script src="services/facebook.service.client.js"></script>
+    <script src="services/maps.service.client.js"></script>
 
 
-
-
+    <!--Bootstrap-->
     <title>Theme Template for Bootstrap</title>
-    <!-- Bootstrap core CSS -->
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
     <link href="../../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 
@@ -20,76 +30,60 @@
 <body>
 
 
+    <div class="amh-banner">
+    </div>
+
+    <!------------------------------------------------>
+    <!-- Nav Bar -->
+    <div class=" navbar navbar-fixed-top amh-navbar">
+        <div class="navbar-header navbar-brand">
 
 
-<div class="amh-banner">
 
-</div>
-
-<!-- Nav Bar -->
-<div class=" navbar navbar-fixed-top amh-navbar">
-
-    <div class="navbar-header navbar-brand">
-
-
-        <!--Back Button-->
-        <a href="#">
-            <span class=" glyphicon glyphicon-forward"></span>
-        </a>
-
-        <!-- Page Header -->
-        <span class="amh-header"> Life Goals</span>
-
-        <!-- Top-Right Button -->
-        <!-- Profile Button -->
-        <a class="navbar-brand" href="#">
-            <a href="#!/profile/{{model.userId}}">
-                <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+            <!--Back Button-->
+            <a href="#">
+                <span class=" glyphicon glyphicon-forward"></span>
             </a>
-        </a>
 
+
+            <!-- Page Header -->
+            <span class="amh-header"> RateMyFriend </span>
+
+
+            <!-- Profile Button -->
+            <a class="navbar-brand" href="#">
+                <a href="#!/profile/{{model.userId}}">
+                    <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+                </a>
+            </a>
+
+
+        </div>
     </div>
-
-</div>
-
-
-<ng-view></ng-view>
-
-<!--&lt;!&ndash;Main View&ndash;&gt;-->
-<!--<div class="amh-shifted-down">-->
-
-    <!--<div class="jumbotron amh-jumbotron amh-overlay">-->
-        <!--<h1> Create your life goal. </h1>-->
-
-        <!--<a href="#" class="jumboLink"> Sign up for an account.</a>-->
-    <!--</div>-->
-
-    <!--<div class="container-fluid">-->
-        <!--<div id="map"></div>-->
-    <!--</div>-->
-
-    <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap">-->
-    <!--</script>-->
-
-
-<!--</div>-->
+    <!------------------------------------------------>
 
 
 
+    <!------------------------------------------------>
+    <!--Show Current Page -->
+    <div ng-controller="indexController as model" class="amh-shifted-down">
 
-<!-- Footer Bar -->
-<div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
-    <div class="">
 
-
-        <a href="/project/">Home</a>
-        <a href="job/jobs.html">Jobs</a>
-        <a href="home/homes.html">Apartments</a>
-        Graduate student project.
-
+        <div ng-view></div>
     </div>
-</div>
+    <!------------------------------------------------>
 
+
+
+
+    <!------------------------------------------------>
+    <!-- Footer Bar -->
+    <div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
+        <div class="">
+            Graduate student project.
+        </div>
+    </div>
+    <!------------------------------------------------>
 
 </body>
 </html>

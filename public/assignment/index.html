@@ -10,8 +10,10 @@
     <script src="../vendor/angular/angular-route.js"></script>
 
     <!--Custom Javascript-->
+    <!--Directives-->
     <script src="app.js"></script>
     <script src="config.js"></script>
+    <script src="directives/wbdvDirectives.js"></script>
 
     <!--Controllers-->
         <!--Users-->
@@ -35,15 +37,15 @@
             <script src="widget/controllers/widget-list.controller.client.js"></script>
             <script src="widget/controllers/widget-edit.controller.client.js"></script>
             <script src="widget/controllers/widget-chooser.controller.client.js"></script>
+            <script src="widget/controllers/widget-flickr-search.controller.client.js"></script>
 
         <!--Services-->
     <script src="services/user.service.client.js"></script>
     <script src="services/website.service.client.js"></script>
     <script src="services/page.service.client.js"></script>
     <script src="services/widget.service.client.js"></script>
+    <script src="services/flickr.service.client.js"></script>
 
-        <!--Directives-->
-    <script src="directives/wbdvDirectives.js"></script>
 
 
     <title>Theme Template for Bootstrap</title>
@@ -56,6 +58,8 @@
 </head>
 <body>
 
+<!--TODO: Mobile view not working, new widget creates a default widget when you choose a widget type, pages/websites in edit page/website does not link to corresponding links on right hand side of page-->
+
 
 <!--Angular Application-->
 <div ng-controller="loginController">
@@ -64,37 +68,8 @@
         {{model.errorMessage}}
     </div>
 
-
-    <div class="sortable ui-sortable">
-        <h2 class="ui-sortable-handle">
-            Hello World
-        </h2>
-        <ul class="ui-sortable ui-sortable-handle">
-            <li class="">Item 0</li>
-            <li class="">Item 4</li>
-            <li class="">Item 1</li>
-            <li class="">Item 2</li>
-            <li class="">Item 3</li>
-            <li class="">Item 5</li>
-            <li class="">Item 6</li>
-            <li class="">Item 7</li>
-            <li class="">Item 8</li>
-            <li class="">Item 9</li>
-        </ul>
-    </div>
-
     <div ng-view></div>
-    <!--...-->
-    <!--<wbdvsortable></wbdvsortable>-->
-    <!--<hello></hello>-->
 
-
-    <!--<a class="btn  btn-default" href="#!/login">login</a>-->
-    <!--<a class="btn  btn-default" href="#!/profile">prof</a>-->
-    <!--<a class="btn  btn-default" href="#!/register">reg</a>-->
-    <!--<a class="btn  btn-default" href="#!/website-list">website-list</a>-->
-    <!--<a class="btn  btn-default" href="#!/page-list">page-list</a>-->
-    <!--<a class="btn  btn-default" href="#!/widget-list">widget-list</a>-->
 </div>
 
 

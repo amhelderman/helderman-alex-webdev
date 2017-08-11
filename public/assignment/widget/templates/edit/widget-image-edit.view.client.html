@@ -33,10 +33,10 @@
 
 
         <div class="amh-spacer">
-            <label for="imageURL">URL</label>
+            <label for="url">URL</label>
             <textarea type="text"
-                      name="imageURL"
-                      id="imageURL"
+                      name="url"
+                      id="url"
                       class="form-control"
                       ng-model="model.widget.url"
                       placeholder="http://..."></textarea>
@@ -44,32 +44,11 @@
 
 
         <div class="amh-spacer">
-            <label for="imageWidth">Width</label>
-            <textarea type="text"
-                      name="imageWidth"
-                      id="imageWidth"
-                      class="form-control"
-                      ng-model="model.widget.width"
-                      placeholder="100%"></textarea>
+            <a class="btn btn-info" ng-click="model.flickrSearch()">
+                Search
+            </a>
+
         </div>
-
-
-        <div class="amh-spacer">
-            <label for="uploadSelect">Upload</label>
-            <input type="file"
-                   name="uploadSelect"
-                   id="uploadSelect"
-                   class="form-control">
-        </div>
-
-        <div class="amh-spacer">
-            <input type="submit"
-                   class="btn btn-block amh-buttons amh-btn-clr-info"
-                   id="uploadImage"
-                   name="uploadImage"
-                   role="button">Upload Image</input>
-        </div>
-
 
         <div class="amh-spacer">
         <a class="btn btn-block amh-buttons amh-btn-clr-bad"
@@ -81,5 +60,39 @@
 
 
     </form>
+
+
+    <!--Photo Upload Form-->
+    <form class="form-signin"
+          action="/api/upload"
+          method="post"
+          enctype="multipart/form-data">
+
+        <div class="amh-spacer">
+            <label for="myFile">Image Upload</label>
+            <input type="file"
+                   name="myFile"
+                   id="myFile"
+                   class="form-control">
+            <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
+            <input  name="userId"    value="{{model.userId}}"   style="display: none"/>
+            <input  name="websiteId" value="{{model.webId}}"   style="display: none"/>
+            <input  name="pageId"    value="{{model.pageId}}"   style="display: none"/>
+            <input  name="widgetId"  value="{{model.widget._id}}"   style="display: none"/>
+        </div>
+
+
+        <div class="amh-spacer">
+            <input type="submit"
+                   class="btn btn-block amh-buttons amh-btn-clr-info"
+                   id="uploadImage"
+                   name="uploadImage"
+                   role="button"
+                    value = "Upload Image File">
+        </div>
+
+    </form>
+
+
 </div>
 

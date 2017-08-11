@@ -1,7 +1,3 @@
-/* indexController *
- */
-
-
 (function (){
 
     /* Get previously-declared Angular module */
@@ -11,16 +7,18 @@
 
 
 
-    function indexController($location, userService){
+    function indexController($location){
         var model = this;
+        model.message = "HI";
+
+        // model.initMap = initMap;
 
         function init(){
-
+            console.log("Index controller");
 
         }
         init();
-
-    };
+    }
 
 })();
 
