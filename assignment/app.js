@@ -5,7 +5,7 @@
 
 // based on code from class
 var app = require("../express");
-require("./services/user.service.server");
-require("./services/website.service.server");
-require("./services/page.service.server");
-require("./services/widget.service.server");
+require("./user.service.server");
+require("./website.service.server");
+require("./page.service.server");
+require("./widget.service.server");
