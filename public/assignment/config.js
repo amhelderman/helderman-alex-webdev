@@ -96,12 +96,6 @@
                                 controller: "widgetEditController",
                                 controllerAs: "model"
                             })
-                        .when("/widget/:widgetId/search",
-                            {
-                                templateUrl:"widget/templates/views/widget-flickr-search.view.client.html",
-                                controller: "FlickrImageSearchController",
-                                controllerAs: "model"
-                            })
                         // Widget edits for each type:
                         // .when("/widget/:userId/:webId/:pageId/:widgetId/heading-edit",
                         //     {
