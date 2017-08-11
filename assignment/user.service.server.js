@@ -1,5 +1,5 @@
-var app = require("../../express");
-var userModel = require("../models/user.model.server");
+var app = require("../express");
+
 
 var users = [
     {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder", isAdmin: true  },
@@ -20,10 +20,17 @@ function createUser(req, res){
     var user = req.body;
     console.log("Creating user ");
     console.log(user);
-    userModel.createUser(user)
-        .then(function(user){
-            res.json(user);
-        })
+
+    var index = users.indexOf(user);
+    if (index > -1) {
+        res.sendStatus(204); // No Content - must indicate somehow that it exists
+    }
+    else
+    {
+        user._id = (new Date()).getTime() + "";
+        users.push(user);
+        res.json(user);
+    }
 }
 
 /* Set */
@@ -74,19 +81,15 @@ function findUserByUsernameAndPassword(req, res){
 /* Set */
 function findUserById(req, res) {
     console.log("find UserByID "+req.params.userId);
-    userModel.findUserById(req.params.userId)
-        .then(function(user){
-            res.json(user);
-        })
-    // for(var u in users) {
-    //     if(users[u]._id === req.params.userId) {
-    //         console.log("found user");
-    //         res.send(users[u]);
-    //         return;
-    //     }
-    // }
-    // console.log("did not find user");
-    // res.send(404);
+    for(var u in users) {
+        if(users[u]._id === req.params.userId) {
+            console.log("found user");
+            res.send(users[u]);
+            return;
+        }
+    }
+    console.log("did not find user");
+    res.send(404);
 }
 
 /* Set */
