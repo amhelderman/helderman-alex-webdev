@@ -21,6 +21,10 @@
 
         model.map = {};
 
+
+
+
+
         model.getLocation = function () {
             console.log("HI");
             if (navigator.geolocation) {
@@ -30,7 +34,8 @@
         function initMap() {
             position = {coords: {latitude: -34.397, longitude: 150.644}};
             initMapAtPosition(position);
-        };
+        }
+
         function initMapAtPosition(position){
             console.log(position);
             var myLatLng = {lat: position.coords.latitude,
