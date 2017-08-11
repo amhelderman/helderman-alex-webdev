@@ -9,7 +9,7 @@
         var model = this;
 
         function init(){
-            alert("loginController.");
+            console.log("loginController.");
 
             // userService.facebookSetup();
 

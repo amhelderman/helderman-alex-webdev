@@ -9,7 +9,7 @@
         var model = this;
 
         function init(){
-            alert("profileController.");
+            console.log("profileController.");
 
         }
         init();
