@@ -9,9 +9,14 @@
         var model = this;
 
         function init(){
-            alert("loginController.");
+            console.log("loginController.");
 
-            userService.facebookSetup();
+            // userService.facebookSetup();
+
+        }
+        init();
+
+        model.loginFacebook = function(){
 
             userService.loginFacebook(getUser);
 
@@ -20,7 +25,6 @@
                 console.log(user);
             }
         }
-        init();
 
     }
 

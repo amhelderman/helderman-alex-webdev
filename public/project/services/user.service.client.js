@@ -6,7 +6,7 @@
         .module("WamApp")
         .service("userService", userService);
 
-    function userService($http)
+    function userService($window, $http)
     {
         this.findUserByUsernameAndPassword = findUserByUsernameAndPassword;
         this.findUserById = findUserById;
@@ -16,30 +16,11 @@
         this.updateUser = updateUser;
 
 
-        this.facebookSetup = facebookSetup;
         this.loginFacebook = loginFacebook;
         this.logoutFacebook = logoutFacebook;
         this.shareFacebook = shareFacebook;
 
-        function facebookSetup(){
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId            : 852027658298964,
-                    autoLogAppEvents : true,
-                    xfbml            : true,
-                    version          : 'v2.10'
-                });
-                FB.AppEvents.logPageView();
-
-            };
-            (function(d, s, id){
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) {return;}
-                js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
-        }
+        var FB = $window.FB;
 
         function logoutFacebook () {
             FB.logout(function (response) {
@@ -56,14 +37,22 @@
             // Returned at end
             var user = {};
 
+
+            if(!FB){
+                console.log("FB is not defined yet.");
+                return;
+            }
+
             FB.getLoginStatus(loginConnected);
 
             function loginConnected(response){
+                console.log("loginConnected");
                 if (response.status === 'connected') {
                     console.log('Logged in.');
                     user.accessToken = response.authResponse.accessToken;
                 }
                 else {
+                    console.log("Not logged in yet, so logging in now.");
                     FB.login(loginResponse,  {scope: 'public_profile, user_photos'});
                 }
             }
