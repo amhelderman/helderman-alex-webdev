@@ -26,12 +26,6 @@
         model.pageId = $routeParams.pageId;
         model.widgetId = $routeParams.widgetId;
 
-        model.flickrSearch = function(){
-            var u = "/widget/"+model.widgetId+"/search";
-            console.log("Go to "+u);
-            $location.url(u);
-
-        }
 
         model.getIncludedWidget = function(){
             var widgetPath = "/widget/"+model.userId+"/"
