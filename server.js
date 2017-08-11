@@ -22,7 +22,7 @@ app.use(allowCrossDomain);
 
 // require("./test/app");
 require("./assignment/app");
-require("./project/app");
+// require("./project/app");
 
 // from piazza thread 641
 port = process.env.PORT || 3000;
