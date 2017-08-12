@@ -10,7 +10,7 @@
 
 
         model.map = {};
-        model.mapPosition = {latitude: -34.397, longitude: 150.644};
+        model.mapPosition = {latitude: 42.34, longitude: -71.08};
 
         model.getLocation = function () {
             console.log("HI");
@@ -35,7 +35,9 @@
         function addMarkerToMap(markerPosition){
             var myLatLng = {lat: markerPosition.latitude,
                             lng: markerPosition.longitude};
-
+            console.log("addMarkerToMap, heres latlng");
+            console.log(myLatLng);
+            console.log(typeof myLatLng);
             //Create the marker.
             marker = new google.maps.Marker({
                 position: myLatLng,
@@ -54,6 +56,8 @@
         }
 
         function initMap() {
+            console.log("HERES THE POS");
+            console.log(model.mapPosition);
             initMapAtPosition(model.mapPosition);
             getNearbyUsers();
         }
@@ -77,7 +81,7 @@
             console.log("mapController.");
             // createMap();
 
-            model.getLocation();
+            // model.getLocation();
             mapService.then(initMap);
         }
 
