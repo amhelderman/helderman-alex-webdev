@@ -23,32 +23,90 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<h1> Login</h1>
-<facebook-login-button></facebook-login-button>
+<h1> Profile</h1>
 
-Welcome, {{model.user.name}}!
 
-<div>
-    <img ng-src="{{model.user.profilePicture}}">
-</div>
 
-<div>
-    <button ng-click="model.loginFacebook()">
-        Login with Facebook.
-    </button>
 
-    <button ng-click="model.logoutFacebook()">
-        Logout with Facebook.
-    </button>
+<form>
+    <div class="amh-spacer">
+        <h2>Account Settings:</h2>
+    </div>
+    <div class="amh-spacer">
+        <label for="username">
+            Username:
+        </label>
+        <input type="text" ng-model="model.user.username">
+    </div>
+    <div class="amh-spacer">
+        <label for="email">
+            Email:
+        </label>
+        <input type="email" ng-model="model.user.email">
+    </div>
+    <div class="amh-spacer">
+        <label for="password">
+            Password:
+        </label>
+        <input type="text" ng-model="model.user.password">
+    </div>
 
-    <button ng-click="model.getPhotos()">
-        GetPhotos with Facebook.
-    </button>
 
-    <button ng-click="model.shareFacebook()">
-        Share to facebook.
-    </button>
-</div>
+    <div class="amh-spacer">
+        <h2>FriendProfile:</h2>
+    </div>
+    <div class="amh-spacer">
+        <label for="firstName">
+            First Name:
+        </label>
+        <input type="email" ng-model="model.user.profile.firstName">
+    </div>
+    <div class="amh-spacer">
+        <label for="lastName">
+            Last Name:
+        </label>
+        <input type="email" ng-model="model.user.profile.lastName">
+    </div>
+    <div class="amh-spacer">
+        <label for="birthday">
+            Birthday:
+        </label>
+        <input type="date" ng-model="model.user.profile.birthday">
+    </div>
+
+    <div class="amh-spacer">
+        <label for="birthday">
+            Location:
+        </label>
+        <input type="text"
+               ng-model="model.user.profile.location.latitude"
+               placeholder="Latitude">
+        <input type="text"
+               ng-model="model.user.profile.location.longitude"
+               placeholder="Longitude">
+
+        <button ng-click="model.getUserLocation()">
+            Use my current location.
+        </button>
+    </div>
+
+
+    <div class="amh-spacer">
+
+        <label for="photos">
+            Facebook Photo Upload:
+        </label>
+        <button ng-click="model.getPhotos()">
+            GetPhotos with Facebook.
+        </button>
+    </div>
+
+
+    <div class="amh-spacer">
+        <input type="button" ng-click="model.updateUser()" value="Update User">
+    </div>
+</form>
+
 
 
 You have {{model.user.photos.length}} photos uploaded.

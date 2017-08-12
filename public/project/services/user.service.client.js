@@ -35,9 +35,10 @@
         }
 
         function getUser(userId){
-            console.log("Project - User Service Client - getUser ");
+            console.log("Project - User Service Client - getUser "+userId);
             for(var u in users){
-                if (users[u]._id === userId){
+                // console.log([users[u]._id, userId, u]);
+                if (users[u]._id === Number(userId)){
                     return users[u];
                 }
             }
