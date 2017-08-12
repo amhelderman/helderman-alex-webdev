@@ -41,13 +41,24 @@
         }
 
         function login(credentials){
-            for(var u in users){
-                if ((users[u].username === credentials.username) &&
-                     (users[u].password === credentials.password)){
-                        return users[u];
+            var myURL = "/api/user/?username="
+                +credentials.username
+                +"&password="+credentials.password;
+            return $http.get(myURL).then(
+                function(response){
+                    console.log("GOT USER LOGIN FROM SERVER:");
+                    console.log(response.data);
+                    return response.data;
                 }
-            }
-            return null;
+            )
+
+            // for(var u in users){
+            //     if ((users[u].username === credentials.username) &&
+            //          (users[u].password === credentials.password)){
+            //             return users[u];
+            //     }
+            // }
+            // return null;
         }
 
         function createUser(user){

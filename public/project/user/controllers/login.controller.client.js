@@ -32,8 +32,15 @@
 
         model.login = function(){
             console.log("Log in");
-            model.user = userService.login({username: model.user.username,
-                                            password: model.user.password});
+            var credentials = {username: model.user.username,
+                password: model.user.password};
+            userService.login(credentials).then(
+                function(response){
+                    console.log("got user");
+                    console.log(response);
+                    model.user = response;
+                }
+            )
             if(model.user === null){
                 model.message = "User not found.";
             } else{

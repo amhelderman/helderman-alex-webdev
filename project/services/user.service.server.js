@@ -8,6 +8,7 @@ app.put("/api/user/:userId", updateUser);
 app.delete("/api/user/:userId", deleteUser);
 
 
+
 function createUser(req, res){
     var user = req.body;
     console.log("Creating user ");
@@ -46,6 +47,7 @@ function findUserByUsernameAndPassword(req, res){
 
         userModel.findUserByCredentials(username, password)
             .then(function (user) {
+                console.log(user);
                 res.json(user);
                 return;
             }, function (err) {

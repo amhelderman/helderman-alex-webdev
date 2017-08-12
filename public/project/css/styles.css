@@ -29,6 +29,7 @@ a.jumboLink{
 .amh-header{
     font-size: 2em;
     color: rgba(207,237,249,255);
+    background-color: #3c3c3c;
 }
 .amh-shifted-down{
     padding-top: 80px;
@@ -64,7 +65,7 @@ a.jumboLink{
 /* MAPS */
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
-#map {
+#map,  #pano  {
     height: 75%;
     width: 100%;
 }
