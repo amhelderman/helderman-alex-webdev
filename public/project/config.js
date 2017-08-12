@@ -15,13 +15,13 @@
                 })
             .when("/login",
                 {
-                    templateUrl: "user/login.view.client.html",
+                    templateUrl: "user/views/login.view.client.html",
                     controller: "loginController",
                     controllerAs: "model"
                 })
             .when("/profile/:userId",
                 {
-                    templateUrl: "user/profile.view.client.html",
+                    templateUrl: "user/views/profile.view.client.html",
                     controller: "profileController",
                     controllerAs: "model"
                 })

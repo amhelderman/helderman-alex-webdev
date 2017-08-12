@@ -19,9 +19,14 @@
             {_id: 2, username: "po", password: "po"}
         ];
 
-        function login(callback){
-
-
+        function login(credentials){
+            for(var u in users){
+                if ((users[u].username === credentials.username) &&
+                     (users[u].password === credentials.password)){
+                        return users[u];
+                }
+            }
+            return null;
         }
 
         function createUser(user){

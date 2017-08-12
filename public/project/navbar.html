@@ -14,17 +14,30 @@
 
 
         <!-- Page Header -->
-        <span class="amh-siteName"> RateMyFriend </span>
+        <span class="amh-site-name"> RateMyFriend </span>
 
 
         <!-- Profile Button -->
-        <a class="navbar-brand amh-page-button-next"
-           href="#">
+        <div class="navbar-brand amh-page-button-next">
+
             <a href="#!/login">
-                <span class="glyphicon glyphicon-user amh-footer-btn"></span>
+                Login
             </a>
-        </a>
+            <a ng-click="model.goToProfile()">
+                <span class="glyphicon glyphicon-user "></span>
+
+                <div>
+                    <img ng-src="{{model.user.profilePicture}}">
+                </div>
+            </a>
+
+
+        </div>
 
 
     </div>
+</div>
+
+<div class="alert alert-info">
+    {{model.message}}
 </div>

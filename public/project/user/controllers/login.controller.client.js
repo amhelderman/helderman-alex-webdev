@@ -10,20 +10,35 @@
 
         $window.model = model;
         model.user = {};
-        model.user.name = "User"
+        model.user.name = "User";
+        model.user.loggedIn = false;
+        model.message = "Welcome, user!";
 
         function init(){
             console.log("loginController.");
         }
         init();
 
+        model.goToProfile = function(){
+            if(model.user.loggedIn === false){
+                model.message = "Please log in.";
+                $location.url("/login");
+            } else{
+                model.message = "Welcome to your profile, "+model.user.username;
+                var u = "/profile/"+ model.user._id;
+                $location.url(u);
+            }
+        };
+
         model.login = function(){
             console.log("Log in");
-            userService.getUser(loginCallback);
-            function loginCallback(user){
-                console.log("ALEX, callback returned user:");
-                console.log(user);
-                model.user = user;
+            model.user = userService.login({username: model.user.username,
+                                            password: model.user.password});
+            if(model.user === null){
+                model.message = "User not found.";
+            } else{
+                model.message = "Logged in as "+model.user.username+"!";
+                $location.url("/profile/"+model.user._id);
             }
         };
 
