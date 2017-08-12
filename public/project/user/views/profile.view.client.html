@@ -23,89 +23,110 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
-<h1> Profile</h1>
+<h1>Profile</h1>
 
 
+<div class="row">
 
+    <div class="col-sm-6">
+        <span class="glyphicon glyphicon-user" style="font-size: 10em;"></span>
+        <div class="amh-spacer">
+            <h2>Account Settings:</h2>
+        </div>
+        <div class="amh-spacer">
+            <label for="username">
+                Username:
+            </label>
+            <input type="text" ng-model="model.user.username">
+        </div>
+        <div class="amh-spacer">
+            <label for="email">
+                Email:
+            </label>
+            <input type="email" ng-model="model.user.email">
+        </div>
+        <div class="amh-spacer">
+            <label for="password">
+                Password:
+            </label>
+            <input type="text" ng-model="model.user.password">
+        </div>
 
-<form>
-    <div class="amh-spacer">
-        <h2>Account Settings:</h2>
     </div>
-    <div class="amh-spacer">
-        <label for="username">
-            Username:
-        </label>
-        <input type="text" ng-model="model.user.username">
-    </div>
-    <div class="amh-spacer">
-        <label for="email">
-            Email:
-        </label>
-        <input type="email" ng-model="model.user.email">
-    </div>
-    <div class="amh-spacer">
-        <label for="password">
-            Password:
-        </label>
-        <input type="text" ng-model="model.user.password">
+    <div class="col-sm-6">
+
+
+        <form>
+
+
+            <div class="amh-spacer">
+                <h2>FriendProfile:</h2>
+            </div>
+            <div class="amh-spacer">
+                <label for="firstName">
+                    First Name:
+                </label>
+                <input type="text" ng-model="model.user.profile.firstName">
+            </div>
+            <div class="amh-spacer">
+                <label for="lastName">
+                    Last Name:
+                </label>
+                <input type="text" ng-model="model.user.profile.lastName">
+            </div>
+            <div class="amh-spacer">
+                <label for="birthday">
+                    Birthday:
+                </label>
+                <input type="date" ng-model="model.user.profile.birthday">
+            </div>
+
+            <div class="amh-spacer">
+                <label for="birthday">
+                    Location:
+                </label>
+                <input type="text"
+                       ng-model="model.user.profile.location.latitude"
+                       ng-change="model.getUserLocation()"
+                       placeholder="Latitude">
+                <input type="text"
+                       ng-model="model.user.profile.location.longitude"
+                       ng-change="model.getUserLocation()"
+                       placeholder="Longitude">
+
+                <button ng-click="model.getUserLocation()"
+                        class="btn btn-default">
+                    Use my current location.
+                </button>
+            </div>
+
+
+            <div class="amh-spacer">
+
+                <label for="photos">
+                    Facebook Photo Upload:
+                </label>
+                <button ng-click="model.getFacebookPhotos()"
+                        class="btn btn-info">
+                    GetPhotos with Facebook.
+                </button>
+            </div>
+
+
+            <div class="amh-spacer">
+                <input type="button"
+                       class="btn btn-success"
+                       ng-click="model.updateUser()"
+                       value="Update User">
+            </div>
+        </form>
+
     </div>
 
 
-    <div class="amh-spacer">
-        <h2>FriendProfile:</h2>
-    </div>
-    <div class="amh-spacer">
-        <label for="firstName">
-            First Name:
-        </label>
-        <input type="email" ng-model="model.user.profile.firstName">
-    </div>
-    <div class="amh-spacer">
-        <label for="lastName">
-            Last Name:
-        </label>
-        <input type="email" ng-model="model.user.profile.lastName">
-    </div>
-    <div class="amh-spacer">
-        <label for="birthday">
-            Birthday:
-        </label>
-        <input type="date" ng-model="model.user.profile.birthday">
-    </div>
 
-    <div class="amh-spacer">
-        <label for="birthday">
-            Location:
-        </label>
-        <input type="text"
-               ng-model="model.user.profile.location.latitude"
-               placeholder="Latitude">
-        <input type="text"
-               ng-model="model.user.profile.location.longitude"
-               placeholder="Longitude">
+</div>
 
-        <button ng-click="model.getUserLocation()">
-            Use my current location.
-        </button>
-    </div>
-
-
-    <div class="amh-spacer">
-
-        <label for="photos">
-            Facebook Photo Upload:
-        </label>
-        <button ng-click="model.getPhotos()">
-            GetPhotos with Facebook.
-        </button>
-    </div>
-
-
-    <div class="amh-spacer">
-        <input type="button" ng-click="model.updateUser()" value="Update User">
-    </div>
-</form>
 
 
 

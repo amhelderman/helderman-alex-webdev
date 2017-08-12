@@ -13,11 +13,32 @@
         this.updateUser = updateUser;
         this.deleteUser = deleteUser;
         this.login = login;
+        this.getUserLocations = getUserLocations;
 
         var users= [
-            {_id: 1, username: "alice", password: "alice"},
-            {_id: 2, username: "po", password: "po"}
+            {_id: 1,
+             username: "alice",
+             password: "alice",
+             profile:  {location: {latitude: 42.36,
+                                  longitude: -71.09}
+                        }
+            },
+            {_id: 2,
+             username: "po",
+             password: "po",
+             profile:  {location: {latitude: 42.34,
+                                   longitude: -71.08}
+                        }
+            },
         ];
+
+        function getUserLocations(){
+            var out = [];
+            for(var u in users){
+                out.push(users[u].profile.location);
+            }
+            return out;
+        }
 
         function login(credentials){
             for(var u in users){

@@ -5,11 +5,12 @@
         .module("WamApp")
         .controller("mapController", mapController)
 
-    function mapController($location, mapService) {
+    function mapController($location, mapService, userService) {
         var model = this;
 
 
         model.map = {};
+        model.mapPosition = {latitude: -34.397, longitude: 150.644};
 
         model.getLocation = function () {
             console.log("HI");
@@ -17,57 +18,60 @@
                 navigator.geolocation.getCurrentPosition(initMapAtPosition);
             }
         };
+
+        function getNearbyUsers(){
+            console.log("mapController - client - getNearbyUsers");
+            console.log(model.mapPosition);
+
+            // TODO: Make this only get nearby users.
+            var userLocations = userService.getUserLocations();
+            for(u in userLocations){
+                var loc = userLocations[u];
+                console.log(loc);
+                addMarkerToMap(userLocations[u]);
+            }
+        }
+
+        function addMarkerToMap(markerPosition){
+            var myLatLng = {lat: markerPosition.latitude,
+                            lng: markerPosition.longitude};
+
+            //Create the marker.
+            marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                draggable: true //make it draggable
+            });
+            //Listen for drag events!
+            google.maps.event.addListener(marker, 'dragend', function (event) {
+                // markerLocation()
+                var pos = marker.getPosition();
+                myLatLng = {
+                    lat: pos.coords.latitude,
+                    lng: pos.coords.longitude
+                };
+            });
+        }
+
         function initMap() {
-            position = {coords: {latitude: -34.397, longitude: 150.644}};
-            initMapAtPosition(position);
+            initMapAtPosition(model.mapPosition);
+            getNearbyUsers();
         }
 
         function initMapAtPosition(position){
             console.log(position);
-            var myLatLng = {lat: position.coords.latitude,
-                lng: position.coords.longitude};
-            var marker = false;
+            var myLatLng = {lat: position.latitude,
+                            lng: position.longitude};
             map = new google.maps.Map(
                 document.getElementById('map'), {
                     center: myLatLng,
                     zoom: 15,
                     styles: myStyles
                 });
-
-
-
             //Listen for any clicks on the map.
             google.maps.event.addListener(map, 'click', function(event) {
-                //Get the location that the user clicked.
-                var clickedLocation = event.latLng;
-                //If the marker hasn't been added.
-                if(marker === false){
-                    //Create the marker.
-                    marker = new google.maps.Marker({
-                        position: clickedLocation,
-                        map: map,
-                        draggable: true //make it draggable
-                    });
-                    //Listen for drag events!
-                    google.maps.event.addListener(marker, 'dragend', function(event){
-                        // markerLocation()
-                        var pos = marker.getPosition();
-                        myLatLng = {lat: pos.coords.latitude,
-                            lng: pos.coords.longitude};
-                    });
-                } else{
-                    //Marker has already been added, so just change its location.
-                    marker.setPosition(clickedLocation);
-                }
-                //Get the marker's location.
-                // markerLocation();
-            });
 
-            // var marker = new google.maps.Marker({
-            //     position: myLatLng,
-            //     map: map,
-            //     title: 'Hello World!'
-            // });
+            });
         }
         function init() {
             console.log("mapController.");
