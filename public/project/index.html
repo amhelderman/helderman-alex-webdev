@@ -1,5 +1,5 @@
-<html lang="en" ng-app="WamApp"><head>
-
+<html lang="en" ng-app="WamApp">
+<head>
     <!--Angular Requisites-->
     <script src="../../vendor/jquery/jquery.js"></script>
     <script src="../../vendor/angular/angular.js"></script>
@@ -21,7 +21,7 @@
 
 
     <!--Bootstrap-->
-    <title>Theme Template for Bootstrap</title>
+    <title>RateMyFriend</title>
     <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -31,27 +31,19 @@
 
     <div ng-include="'navbar.html'"></div>
 
-
-    <!------------------------------------------------>
     <!--Show Current Page -->
     <div ng-controller="indexController as model" class="amh-shifted-down">
 
 
         <div ng-view></div>
     </div>
-    <!------------------------------------------------>
 
-
-
-
-    <!------------------------------------------------>
     <!-- Footer Bar -->
     <div class="container-fluid navbar navbar-fixed-bottom amh-navbar" >
         <div class="">
             Graduate student project.
         </div>
     </div>
-    <!------------------------------------------------>
 
 </body>
 </html>
