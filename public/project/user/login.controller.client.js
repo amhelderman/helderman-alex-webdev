@@ -17,14 +17,15 @@
         }
         init();
 
-        model.loginFacebook = function(){
-            userService.loginFacebook(getUserCallback);
-            function getUserCallback(user){
+        model.login = function(){
+            console.log("Log in");
+            userService.getUser(loginCallback);
+            function loginCallback(user){
                 console.log("ALEX, callback returned user:");
                 console.log(user);
                 model.user = user;
             }
-        }
+        };
 
 
         model.getPhotos = function(){
@@ -35,7 +36,7 @@
                 console.log(photos);
                 model.user.photos = photos;
             }
-        }
+        };
 
     }
 

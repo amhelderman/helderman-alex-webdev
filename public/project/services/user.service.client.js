@@ -12,11 +12,17 @@
         this.getUser = getUser;
         this.updateUser = updateUser;
         this.deleteUser = deleteUser;
+        this.login = login;
 
         var users= [
             {_id: 1, username: "alice", password: "alice"},
             {_id: 2, username: "po", password: "po"}
         ];
+
+        function login(callback){
+
+
+        }
 
         function createUser(user){
             console.log("Project - User Service Client - createUser ");
