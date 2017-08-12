@@ -10,14 +10,25 @@
 
 
         model.map = {};
-        model.mapPosition = {latitude: 42.34, longitude: -71.08};
+        model.mapPosition = {lat: 42.35, lng: -71.08};
 
         model.getLocation = function () {
-            console.log("HI");
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(initMapAtPosition);
+                navigator.geolocation.getCurrentPosition(setMapPos);
+            }
+            function setMapPos(position){
+                // console.log(position);
+                model.mapPosition = {lat: position.coords.latitude,
+                                    lng: position.coords.longitude};
             }
         };
+
+        function initMap() {
+            console.log("HERES THE POS");
+            console.log(model.mapPosition);
+            initMapAtPosition(model.mapPosition);
+            getNearbyUsers();
+        }
 
         function getNearbyUsers(){
             console.log("mapController - client - getNearbyUsers");
@@ -32,9 +43,7 @@
             }
         }
 
-        function addMarkerToMap(markerPosition){
-            var myLatLng = {lat: markerPosition.latitude,
-                            lng: markerPosition.longitude};
+        function addMarkerToMap(myLatLng){
             console.log("addMarkerToMap, heres latlng");
             console.log(myLatLng);
             console.log(typeof myLatLng);
@@ -55,21 +64,12 @@
             });
         }
 
-        function initMap() {
-            console.log("HERES THE POS");
-            console.log(model.mapPosition);
-            initMapAtPosition(model.mapPosition);
-            getNearbyUsers();
-        }
-
-        function initMapAtPosition(position){
-            console.log(position);
-            var myLatLng = {lat: position.latitude,
-                            lng: position.longitude};
+        function initMapAtPosition(myLatLng){
+            console.log(myLatLng);
             map = new google.maps.Map(
                 document.getElementById('map'), {
                     center: myLatLng,
-                    zoom: 15,
+                    zoom: 14,
                     styles: myStyles
                 });
             //Listen for any clicks on the map.
@@ -81,7 +81,7 @@
             console.log("mapController.");
             // createMap();
 
-            // model.getLocation();
+            model.getLocation();
             mapService.then(initMap);
         }
 

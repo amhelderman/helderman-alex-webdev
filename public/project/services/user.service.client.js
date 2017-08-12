@@ -19,15 +19,15 @@
             {_id: 1,
              username: "alice",
              password: "alice",
-             profile:  {location: {latitude: 42.36,
-                                  longitude: -71.09}
+             profile:  {location: {lat: 42.36,
+                 lng: -71.09}
                         }
             },
             {_id: 2,
              username: "po",
              password: "po",
-             profile:  {location: {latitude: 42.34,
-                                   longitude: -71.08}
+             profile:  {location: {lat: 42.34,
+                 lng: -71.08}
                         }
             },
         ];
