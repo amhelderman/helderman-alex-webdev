@@ -1,18 +1,19 @@
 /* Title Bar */
 .amh-title-bar{
     background-color: #1A181B;
-    color: white;
+    color: rgba(207,237,249,255);
 }
 .amh-title-bar a{
     background-color: #1A181B;
-    color: white;
+    color: rgba(207,237,249,255);
 }
-
 .amh-site-name{
     font-size: 2em;
     /*padding: 20%;*/
     padding-left: 20%;
     padding-right: 20%;
+    padding-top: 30%;
+    /*padding-bottom: 30%;*/
     color: rgba(207,237,249,255);
 }
 .amh-page-button-prev{
@@ -20,7 +21,7 @@
     left: 0px;
     top: 0px;
     padding: 10px;
-    color: white;
+    color: rgba(207,237,249,255);
     font-size: 2em;
 }
 .amh-page-button-next{
@@ -39,7 +40,7 @@
 .amh-nav-link{
     float: left;
     display: block;
-    color: white;
+    color: rgba(207,237,249,255);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -53,13 +54,15 @@
     right: 0px;
     bottom: 0px;
     padding: 20px;
-    color: white;
+    color: rgba(207,237,249,255);
 }
 
 
 /* Main body content styling */
 
-
+.amh-input{
+    color: black;
+}
 
 
 /* Use these two classes to center without percentages */
@@ -78,7 +81,7 @@
 }
 .amh-header{
     font-size: 2em;
-    color: white;
+    color: rgba(207,237,249,255);
 }
 .amh-shifted-down{
     padding-top: 80px;
@@ -108,5 +111,6 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #564D65;
+    background-color: #4a297d;
+    color: rgba(207,237,249,255);
 }

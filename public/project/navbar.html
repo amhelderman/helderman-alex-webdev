@@ -1,12 +1,11 @@
 <!------------------------------------------------>
 <!-- Nav Bar -->
-<div class=" navbar navbar-fixed-top amh-title-bar">
+<div class="navbar-fixed-top amh-title-bar">
+
         <!--Back Button-->
-        <a class="amh-page-button-prev"
-           href="#">
+        <a class="amh-page-button-prev" href="#">
             <span class=" glyphicon glyphicon-forward"></span>
         </a>
-
 
         <!-- Page Header -->
         <span class="amh-site-name"> RateMyFriend </span>
@@ -26,27 +25,28 @@
             </a>
         </div>
 
-    <div class=" amh-navbar">
-        <ul class=" amh-navbar">
-            <li class="amh-nav-link">
-                <a href="/">Home</a></li>
+        <!--Links -->
+        <div class=" amh-navbar">
+            <ul class=" amh-navbar">
+                <li class="amh-nav-link">
+                    <a href="/">Home</a></li>
 
-            <li class="amh-nav-link">
-                <a href="/login">Login</a></li>
+                <li class="amh-nav-link">
+                    <a href="/login">Login</a></li>
 
-            <li class="amh-nav-link">
-                <a ng-href="/user/{{model.user._id}}">Profile</a></li>
+                <li class="amh-nav-link">
+                    <a ng-href="/user/{{model.user._id}}">Profile</a></li>
 
-            <li class="amh-nav-link">
-                <a href="/map">Map</a></li>
+                <li class="amh-nav-link">
+                    <a href="/map">Map</a></li>
 
-            <li class="amh-nav-link">
-                <a ng-href="/profile/{{model.user._id}}">Account Settings</a></li>
-        </ul>
-    </div>
+                <li class="amh-nav-link">
+                    <a ng-href="/profile/{{model.user._id}}">Account Settings</a></li>
+            </ul>
+        </div>
 </div>
 
-...
+
 <div class="amh-spacer container-fluid">
 
     <div class="alert alert-info">
