@@ -17,6 +17,7 @@ function createUser(req, res){
         .then(function(user){
             console.log("created user:");
             console.log(user);
+
             res.json(user);
         })
 }

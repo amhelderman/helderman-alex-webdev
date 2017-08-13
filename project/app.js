@@ -9,4 +9,4 @@ var app = require("../express");
 console.log("Hello from project app.");
 
 require("./services/user.service.server");
-// require("./services/profile.service.server");
+require("./services/profile.service.server");

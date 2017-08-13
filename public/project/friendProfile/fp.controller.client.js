@@ -5,16 +5,30 @@
         .module("WamApp")
         .controller("fpController", fpController)
 
-    function fpController($document, $routeParams, $window, $location, userService){
+    function fpController($document, $routeParams, $window, $location, profileService){
         var model = this;
 
+        model.message = "Edit your profile!";
+
         var userId = $routeParams['userId'];
+        var profileId = null
 
         $window.model = model;
         model.user = {};
         model.user.name = "User";
         model.message = "Welcome, user!";
         model.profile = {};
+
+
+        model.updateProfile = function(){
+            console.log("HELLO");
+            console.log(["fpController updating profile ", profileId, model.profile]);
+            profileService.updateProfile(profileId, model.profile)
+                .then(function (response){
+                    console.log(["fpController client update profile", response]);
+                    model.profile = response;
+                });
+        };
 
         model.getUserLocation = function () {
             if (navigator.geolocation) {
@@ -27,20 +41,13 @@
             }
         };
         function init(){
-            console.log("fpController.");
-            // userService.getUser(userId)
-            //     .then(function(response){
-            //         console.log("Here's the user:");
-            //         console.log(response.data);
-            //         model.user = response.data;
-            //         console.log("found user ");
-            //         console.log(model.user);
-            //         model.message = "Welcome, "+model.user.username+"!";
-            //         if(model.user === null){
-            //             console.log("User is null - going to login page!");
-            //             $location.url("/login");
-            //         }
-            //     })
+            console.log("fpController.")
+
+            profileService.getProfileByUser(userId)
+                .then(function(response){
+                    console.log(["getProfileByUser result", response]);
+                    profileId = response.data;
+                })
         }
         init();
 

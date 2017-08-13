@@ -1,9 +1,9 @@
 var mongoose = require("mongoose");
 
 var profileSchema = mongoose.Schema({
-    location: {type: LatLngSchema, default: {lat: 42.34,lng: -71.08}},
+    lat: Number,
+    lng: Number,
     userId: {type: mongoose.Schema.ObjectId, ref:"UserInfoModel"}
-}), { collection: 'profileInfo' );
-
+}, { collection: 'profileInfo'});
 
 module.exports = profileSchema;

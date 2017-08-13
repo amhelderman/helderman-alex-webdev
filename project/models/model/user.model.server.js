@@ -19,9 +19,13 @@ function updateUser(userId, user){
     return userModel.update({_id: userId}, {$set: user});
 }
 function createUser(user){
-    console.log("createUser");
-    console.log([user]);
-    return userModel.create(user);
+    console.log(["createUser", user]);
+    return userModel.create(user).then(
+        function(response){
+            var blankProfile = {userId: user._id};
+            profileModel.createProfile(blankProfile);
+            return response;
+        });
 }
 function findUserById(userId){
     console.log("findUserById");
@@ -39,6 +43,7 @@ function findUserByCredentials(username, password) {
 function deleteUser(userId){
     return userModel.findById(userId).remove()
         .then(function (status){
+            profileModel.deleteProfileByUser(userId);
             return status;
         })
 }

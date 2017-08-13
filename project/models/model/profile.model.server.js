@@ -9,8 +9,9 @@ module.exports = profileModel;
 profileModel.createProfile = createProfile;
 profileModel.updateProfile = updateProfile;
 profileModel.findProfileById = findProfileById;
-profileModel.findProfilesByUser = findProfilesByUser;
+profileModel.findProfileByUser = findProfileByUser;
 profileModel.deleteProfile=deleteProfile;
+profileModel.deleteProfileByUser=deleteProfileByUser;
 
 
 function createProfile(profile){
@@ -26,16 +27,12 @@ function findProfileById(profileId){
 
     });
 }
-function findProfilesByUser(userId){
-    console.log("findProfilesByUser");
-    console.log(userId);
-    return profileModel.findById(profileId).then(function (response){
-        return response;
-    });
+function findProfileByUser(userId){
+    console.log(["findProfileByUser", userId]);
+    return profileModel.findOne({userId: userId});
 }
 function updateProfile(profileId, profile){
-    console.log("updateProfile");
-    console.log([profileId, profile]);
+    console.log(["updateProfile", profileId, profile]);
     return profileModel.update({_id: profileId}, {$set: profile});
 }
 function deleteProfile(profileId){
@@ -43,4 +40,8 @@ function deleteProfile(profileId){
         .then(function (status){
             return status;
         })
+}
+function deleteProfileByUser(userId){
+    console.log(["deleteProfileByUser", userId]);
+    return profileModel.findProfileByUser(userId).remove();
 }

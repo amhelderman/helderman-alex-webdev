@@ -102,7 +102,7 @@
             console.log("mapController.");
             // createMap();
 
-            model.getLocation();
+            // model.getLocation();
             mapService.then(initMap);
         }
 

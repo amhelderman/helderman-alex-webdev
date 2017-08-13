@@ -18,6 +18,7 @@
 
     <!--Services-->
     <script src="services/user.service.client.js"></script>
+    <script src="services/profile.service.client.js"></script>
     <script src="services/facebook.service.client.js"></script>
     <script src="services/maps.service.client.js"></script>
 
@@ -32,9 +33,7 @@
 <body>
 
     <!--Show Current Page -->
-    <div ng-controller="profileController as model" class="amh-shifted-down">
-
-
+    <div ng-controller="loginController as model" class="amh-shifted-down">
         <div ng-view></div>
     </div>
 
