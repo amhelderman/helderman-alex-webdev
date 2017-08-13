@@ -30,6 +30,7 @@ function findProfileById(req, res) {
             res.json(profile);
         })
 }
+
 function findProfileByUser(req, res) {
     var userId = req.params.userId;
     console.log("findProfileByUser "+userId);
