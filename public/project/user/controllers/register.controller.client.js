@@ -23,7 +23,7 @@
                     console.log("got user");
                     console.log(response.data);
                     model.user = response.data;
-                    $location.url("/profile/"+model.user._id);
+                    $location.url("/user/"+model.user._id);
                 }
             )
 

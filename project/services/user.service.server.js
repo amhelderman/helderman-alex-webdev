@@ -41,10 +41,10 @@ function updateUser(req, res){
 function findUserByUsernameAndPassword(req, res){
     var username = req.query.username;
     var password = req.query.password;
-    console.log("finding the user "+username+" with password "+password);
+    console.log("111finding the user '"+username+"' with password '"+password+"'...");
 
     if(username && password){
-
+        console.log("username and password are filled in, so...");
         userModel.findUserByCredentials(username, password)
             .then(function (user) {
                 console.log(user);
@@ -54,8 +54,8 @@ function findUserByUsernameAndPassword(req, res){
                 res.sendStatus(404).send(err);
                 return;
             })
-    }
-    else{
+    } else{
+        console.log("username and password arent defined!");
         res.sendStatus(0);
     }
 }

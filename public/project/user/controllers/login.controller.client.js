@@ -25,7 +25,7 @@
                 $location.url("/login");
             } else{
                 model.message = "Welcome to your profile, "+model.user.username;
-                var u = "/profile/"+ model.user._id;
+                var u = "/user/"+ model.user._id;
                 $location.url(u);
             }
         };
@@ -37,7 +37,7 @@
             userService.login(credentials).then(
                 function(response){
                     console.log("got user");
-                    console.log(response.data);
+                    console.log(response);
                     model.user = response.data;
                     if(model.user === null){
                         console.log("User is not found");
@@ -45,7 +45,7 @@
                     } else{
                         console.log("User is not found");
                         model.message = "Logged in as "+model.user.username+"!";
-                        $location.url("/profile/"+model.user._id);
+                        $location.url("/user/"+model.user._id);
                     }
                 }
             )
