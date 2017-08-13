@@ -10,7 +10,9 @@
 
 .amh-site-name{
     font-size: 2em;
-    padding: 20%;
+    /*padding: 20%;*/
+    padding-left: 20%;
+    padding-right: 20%;
     color: rgba(207,237,249,255);
 }
 .amh-page-button-prev{

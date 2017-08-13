@@ -1,7 +1,6 @@
 <!------------------------------------------------>
 <!-- Nav Bar -->
 <div class=" navbar navbar-fixed-top amh-title-bar">
-    <!--<div class="navbar-header navbar-brand">-->
         <!--Back Button-->
         <a class="amh-page-button-prev"
            href="#">
@@ -25,17 +24,24 @@
                     <img ng-src="{{model.user.profilePicture}}">
                 </div>
             </a>
+        </div>
 
-
-        <!--</div>-->
-    </div>
     <div class=" amh-navbar">
         <ul class=" amh-navbar">
-            <li class="amh-nav-link">Home</li>
-            <li class="amh-nav-link">Login</li>
-            <li class="amh-nav-link">Profile</li>
-            <li class="amh-nav-link">Map</li>
-            <li class="amh-nav-link">Account Settings</li>
+            <li class="amh-nav-link">
+                <a href="/">Home</a></li>
+
+            <li class="amh-nav-link">
+                <a href="/login">Login</a></li>
+
+            <li class="amh-nav-link">
+                <a ng-href="/user/{{model.user._id}}">Profile</a></li>
+
+            <li class="amh-nav-link">
+                <a href="/map">Map</a></li>
+
+            <li class="amh-nav-link">
+                <a ng-href="/profile/{{model.user._id}}">Account Settings</a></li>
         </ul>
     </div>
 </div>
