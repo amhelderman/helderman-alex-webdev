@@ -11,17 +11,17 @@
 
         model.map = {};
         model.mapPosition = {lat: 42.35, lng: -71.08};
-
-        model.getLocation = function () {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(setMapPos);
-            }
-            function setMapPos(position){
-                // console.log(position);
-                model.mapPosition = {lat: position.coords.latitude,
-                                    lng: position.coords.longitude};
-            }
-        };
+        //
+        // model.getLocation = function () {
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(setMapPos);
+        //     }
+        //     function setMapPos(position){
+        //         // console.log(position);
+        //         model.mapPosition = {lat: position.coords.latitude,
+        //                             lng: position.coords.longitude};
+        //     }
+        // };
 
         function initMap() {
             console.log("HERES THE POS");

@@ -15,23 +15,6 @@
         this.login = login;
         this.getUserLocations = getUserLocations;
 
-        // var users= [
-        //     {_id: 1,
-        //      username: "alice",
-        //      password: "alice",
-        //      profile:  {location: {lat: 42.36,
-        //          lng: -71.09}
-        //                 }
-        //     },
-        //     {_id: 2,
-        //      username: "po",
-        //      password: "po",
-        //      profile:  {location: {lat: 42.34,
-        //          lng: -71.08}
-        //                 }
-        //     },
-        // ];
-
         function getUserLocations(){
             var out = [];
             for(var u in users){

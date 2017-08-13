@@ -31,6 +31,12 @@
                     controller: "profileController",
                     controllerAs: "model"
                 })
+            .when("/profile/:userId",
+                {
+                    templateUrl: "friendProfile/friendProfile.html",
+                    controller: "fpController",
+                    controllerAs: "model"
+                })
             .when("/map",
                 {
                     templateUrl: "friendMap/map.view.client.html",

@@ -1,28 +1,26 @@
+<h1 class="amh-header">Friend Profile</h1>
+<div ng-include="'navbar.html'"></div>
 
+{{model.profile}}
 
 <form>
-
-
-    <div class="amh-spacer">
-        <h2>FriendProfile:</h2>
-    </div>
     <div class="amh-spacer">
         <label for="firstName">
             First Name:
         </label>
-        <input class="amh-input" type="text" ng-model="model.user.profile.firstName">
+        <input class="amh-input" type="text" ng-model="model.profile.firstName">
     </div>
     <div class="amh-spacer">
         <label for="lastName">
             Last Name:
         </label>
-        <input class="amh-input" type="text" ng-model="model.user.profile.lastName">
+        <input class="amh-input" type="text" ng-model="model.profile.lastName">
     </div>
     <div class="amh-spacer">
         <label for="birthday">
             Birthday:
         </label>
-        <input class="amh-input" type="date" ng-model="model.user.profile.birthday">
+        <input class="amh-input" type="date" ng-model="model.profile.birthday">
     </div>
 
     <div class="amh-spacer">
@@ -30,11 +28,11 @@
             Location:
         </label>
         <input class="amh-input" type="text"
-               ng-model="model.user.profile.location.latitude"
+               ng-model="model.profile.location.lat"
                ng-change="model.getUserLocation()"
                placeholder="Latitude">
         <input class="amh-input" type="text"
-               ng-model="model.user.profile.location.longitude"
+               ng-model="model.profile.location.lng"
                ng-change="model.getUserLocation()"
                placeholder="Longitude">
 
@@ -54,6 +52,12 @@
                 class="btn btn-info">
             GetPhotos with Facebook.
         </button>
+    </div>
+    <div class="amh-spacer">
+        <input type="button"
+               class="amh-input btn btn-success"
+               ng-click="model.updateProfile()"
+               value="Update Profile">
     </div>
 
 
