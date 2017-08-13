@@ -3,6 +3,7 @@ var db = require("../database");
 
 var userSchema = require("../schema/user.schema.server");
 var userModel = mongoose.model("UserInfoModel", userSchema);
+var profileModel = require("./profile.model.server");
 
 
 module.exports = userModel;
@@ -22,7 +23,9 @@ function createUser(user){
     console.log(["createUser", user]);
     return userModel.create(user).then(
         function(response){
-            var blankProfile = {userId: user._id};
+            console.log(["the users id is ", response]);
+            console.log(["lets create a profile too..."]);
+            var blankProfile = {userId: response._id};
             profileModel.createProfile(blankProfile);
             return response;
         });

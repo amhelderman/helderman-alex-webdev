@@ -11,7 +11,6 @@
         model.message = "Edit your profile!";
 
         var userId = $routeParams['userId'];
-        var profileId = null
 
         $window.model = model;
         model.user = {};
@@ -21,9 +20,9 @@
 
 
         model.updateProfile = function(){
-            console.log("HELLO");
-            console.log(["fpController updating profile ", profileId, model.profile]);
-            profileService.updateProfile(profileId, model.profile)
+            console.log("ALEX YOURE UPDATING PROFILE NOW");
+            console.log(["fpController updating profile ", model.profile._id, model.profile]);
+            profileService.updateProfile(model.profile._id, model.profile)
                 .then(function (response){
                     console.log(["fpController client update profile", response]);
                     model.profile = response;
@@ -46,7 +45,10 @@
             profileService.getProfileByUser(userId)
                 .then(function(response){
                     console.log(["getProfileByUser result", response]);
-                    profileId = response.data;
+
+
+                    model.profile = response.data;
+                    console.log(["IS THIS AN ID?", model.profile._id]);
                 })
         }
         init();

@@ -24,11 +24,10 @@ function findProfileById(profileId){
     console.log(profileId);
     return profileModel.findById(profileId).then(function (response){
        return response;
-
     });
 }
 function findProfileByUser(userId){
-    console.log(["findProfileByUser", userId]);
+    console.log(["findProfileByUser2", userId]);
     return profileModel.findOne({userId: userId});
 }
 function updateProfile(profileId, profile){

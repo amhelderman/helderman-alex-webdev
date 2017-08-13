@@ -11,8 +11,7 @@ console.log("profile service loaded.");
 
 function createProfile(req, res){
     var profile = req.body;
-    console.log("Creating profile ");
-    console.log(profile);
+    console.log(["Creating profile ", profile]);
     profileModel.createProfile(profile)
         .then(function(profile){
             console.log("created profile:");
@@ -41,11 +40,12 @@ function findProfileByUser(req, res) {
         })
 }
 function updateProfile(req, res){
-    var profileId = req.params.profileId;
     var profile = req.body;
-
-    console.log("updating profile ");
+    console.log("errrored, lets go");
     console.log(profile);
+    var profileId = profileModel.findProfileByUser(profile.userId);
+
+    console.log(["profileService: updateProfile", profileId, profile]);
 
     profileModel.updateProfile(profileId, profile)
         .then(function(status){

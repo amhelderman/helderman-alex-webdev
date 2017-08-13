@@ -71,6 +71,7 @@
 }
 .amh-center-main{
     display: inline-block;
+    width: 100%;
 }
 
 /* Generic Form Classes */
