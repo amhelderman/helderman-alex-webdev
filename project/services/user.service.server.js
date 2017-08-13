@@ -1,11 +1,11 @@
 var app = require("../../express");
 var userModel = require("../models/model/user.model.server");
 
-app.post("/api/user", createUser);
-app.get("/api/user", findUserByUsernameAndPassword);
-app.get("/api/user/:userId", findUserById);
-app.put("/api/user/:userId", updateUser);
-app.delete("/api/user/:userId", deleteUser);
+app.post("/ratemyfriend/api/user", createUser);
+app.get("/ratemyfriend/api/user", findUserByUsernameAndPassword);
+app.get("/ratemyfriend/api/user/:userId", findUserById);
+app.put("/ratemyfriend/api/user/:userId", updateUser);
+app.delete("/ratemyfriend/api/user/:userId", deleteUser);
 
 
 
@@ -61,9 +61,11 @@ function findUserByUsernameAndPassword(req, res){
 }
 
 function findUserById(req, res) {
-    console.log("find UserByID "+req.params.userId);
+    console.log("find111 UserByID "+req.params.userId);
     userModel.findUserById(req.params.userId)
         .then(function(user){
+            console.log("WE FOUND HER");
+            console.log(user);
             res.json(user);
         })
 }

@@ -14,39 +14,14 @@
         <input type="text" ng-model="model.user.password">
     </div>
     <div class="amh-spacer">
-        <input type="submit" ng-click="model.login()" value="Login">
+        <input type="submit"
+               ng-click="model.login()"
+               value="Login">
+    </div>
+    <div class="amh-spacer">
+        <a class="btn btn-info"
+           href="#!/register">
+            Register
+        </a>
     </div>
 </form>
-
-
-
-
-<div>
-        <button ng-click="model.login()">
-            Login with Facebook.
-        </button>
-
-        <button ng-click="model.logout()">
-            Logout with Facebook.
-        </button>
-
-        <button ng-click="model.getPhotos()">
-            GetPhotos with Facebook.
-        </button>
-
-        <button ng-click="model.shareFacebook()">
-            Share to facebook.
-        </button>
-</div>
-
-
-You have {{model.user.photos.length}} photos uploaded.
-<div ng-repeat="photo in model.user.photos">
-    <img ng-src="{{photo.source}}" height="300" >
-</div>
-
-
-<div ng-repeat="n in model.nums">
-    {{n}}
-
-</div>

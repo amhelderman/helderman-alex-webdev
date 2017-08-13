@@ -14,15 +14,29 @@ userModel.deleteUser=deleteUser;
 
 
 function updateUser(userId, user){
+    console.log("updateUser");
+    console.log([userId, user]);
     return userModel.update({_id: userId}, {$set: user});
 }
 function createUser(user){
+    console.log("createUser");
+    console.log([user]);
     return userModel.create(user);
 }
 function findUserById(userId){
-    return userModel.findById(userId);
+    console.log("findUserById");
+    console.log(userId);
+    console.log(["model here it is:", userModel.findById(userId)]);
+    return userModel.findById(userId).then(function (response){
+       console.log("or here......");
+       console.log(response);
+       return response;
+
+    });
 }
 function findUserByCredentials(username, password) {
+    console.log("updateUser");
+    console.log([username, password]);
     return userModel.findOne({username: username, password: password});
 }
 

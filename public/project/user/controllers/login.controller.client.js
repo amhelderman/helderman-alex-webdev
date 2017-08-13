@@ -37,16 +37,18 @@
             userService.login(credentials).then(
                 function(response){
                     console.log("got user");
-                    console.log(response);
-                    model.user = response;
+                    console.log(response.data);
+                    model.user = response.data;
+                    if(model.user === null){
+                        console.log("User is not found");
+                        model.message = "User not found.";
+                    } else{
+                        console.log("User is not found");
+                        model.message = "Logged in as "+model.user.username+"!";
+                        $location.url("/profile/"+model.user._id);
+                    }
                 }
             )
-            if(model.user === null){
-                model.message = "User not found.";
-            } else{
-                model.message = "Logged in as "+model.user.username+"!";
-                $location.url("/profile/"+model.user._id);
-            }
         };
 
 

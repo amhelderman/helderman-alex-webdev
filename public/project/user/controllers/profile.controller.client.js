@@ -16,9 +16,19 @@
 
         function init(){
             console.log("profileController.");
-            model.user = userService.getUser(userId);
-            console.log("found user ");
-            console.log(model.user);
+            console.log("profileController finding user"+userId);
+            userService.getUser(userId)
+                .then(function(response){
+                    console.log("Here's the user:");
+                    console.log(response.data);
+                    model.user = response.data;
+                    console.log("found user ");
+                    console.log(model.user);
+                    if(model.user === null){
+                        console.log("User is null - going to login page!");
+                        $location.url("/login");
+                    }
+                })
         }
         init();
 

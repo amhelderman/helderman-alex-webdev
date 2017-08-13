@@ -41,65 +41,49 @@
         }
 
         function login(credentials){
+            console.log("user service client login...");
+            console.log(credentials);
+
             var myURL = "/api/user/?username="
                 +credentials.username
                 +"&password="+credentials.password;
+
             return $http.get(myURL).then(
                 function(response){
                     console.log("GOT USER LOGIN FROM SERVER:");
-                    console.log(response.data);
-                    return response.data;
+                    console.log(response);
+                    return response;
                 }
             )
-
-            // for(var u in users){
-            //     if ((users[u].username === credentials.username) &&
-            //          (users[u].password === credentials.password)){
-            //             return users[u];
-            //     }
-            // }
-            // return null;
         }
 
         function createUser(user){
-            console.log("Project - User Service Client - createUser ");
-            users.push(user);
+            /* Handle user check at client level */
+            console.log("user service: createUser user "+user.username);
+            var url = "/ratemyfriend/api/user/";
+            return $http.post(url, user);
         }
 
         function getUser(userId){
             console.log("Project - User Service Client - getUser "+userId);
-            for(var u in users){
-                // console.log([users[u]._id, userId, u]);
-                if (users[u]._id === Number(userId)){
-                    return users[u];
-                }
-            }
-            return null;
+            var url = "/ratemyfriend/api/user/"+userId;
+            return $http.get(url).then(function(response){
+                console.log("GET USER IN SERVICE: response");
+                console.log(response);
+                return response;
+            })
         }
 
         function updateUser(userId, user){
-            console.log("Project - User Service Client - updateUser ");
-            for(var u in users){
-                if (users[u]._id === userId){
-                    users[u] = user;
-                    return user;
-                }
-            }
-            return null;
+            console.log("Project - User Service Client - updateUser "+userId);
+            var url = "/ratemyfriend/api/user/"+userId;
+            return $http.put(url, user);
         }
 
         function deleteUser(userId){
-            console.log("Project - User Service Client - deleteUser ");
-            for(var u in users){
-                if (users[u]._id === userId){
-                    var index = users.indexOf(users[u]);
-                    if (index > -1) {
-                        array.splice(index, 1);
-                        return true;
-                    }
-                }
-            }
-            return null;
+            console.log("Project - User Service Client - deleteUser "+userId);
+            var url = "/ratemyfriend/api/user/"+userId;
+            return $http.delete(url);
         }
 
 
