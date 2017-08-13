@@ -37,6 +37,10 @@
             console.log("Profile Controller - client - updateUser ");
             userService.updateUser(model.user._id, model.user);
         };
+        model.deleteUser = function(){
+            console.log("Profile Controller - client - deleteUser ");
+            userService.deleteUser(model.user._id);
+        };
         model.getUserLocation = function(){
             console.log("Profile Controller - client - getUserLocation ");
             function setUserLocation(position){

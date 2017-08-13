@@ -26,12 +26,8 @@ function createUser(user){
 function findUserById(userId){
     console.log("findUserById");
     console.log(userId);
-    console.log(["model here it is:", userModel.findById(userId)]);
     return userModel.findById(userId).then(function (response){
-       console.log("or here......");
-       console.log(response);
        return response;
-
     });
 }
 function findUserByCredentials(username, password) {
@@ -43,8 +39,6 @@ function findUserByCredentials(username, password) {
 function deleteUser(userId){
     return userModel.findById(userId).remove()
         .then(function (status){
-            console.log("Deleting user worked?");
-            console.log(status);
-            // websiteModel.removeUserWebsites(userId);
+            return status;
         })
 }

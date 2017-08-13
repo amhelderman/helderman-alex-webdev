@@ -4,6 +4,19 @@
     padding: 20px;
 }
 
+/* Use these two classes to center without percentages */
+.amh-center-container{
+    text-align: center;
+}
+.amh-center-main{
+    display: inline-block;
+}
+
+
+.amh-spacer{
+    padding: 5px;
+    margins: 10px;
+}
 .amh-jumbotron{
     background-color: rgba(25, 25, 112, 0.64);
     color:white;

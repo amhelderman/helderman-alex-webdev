@@ -1,0 +1,73 @@
+
+
+<form>
+
+
+    <div class="amh-spacer">
+        <h2>FriendProfile:</h2>
+    </div>
+    <div class="amh-spacer">
+        <label for="firstName">
+            First Name:
+        </label>
+        <input type="text" ng-model="model.user.profile.firstName">
+    </div>
+    <div class="amh-spacer">
+        <label for="lastName">
+            Last Name:
+        </label>
+        <input type="text" ng-model="model.user.profile.lastName">
+    </div>
+    <div class="amh-spacer">
+        <label for="birthday">
+            Birthday:
+        </label>
+        <input type="date" ng-model="model.user.profile.birthday">
+    </div>
+
+    <div class="amh-spacer">
+        <label for="birthday">
+            Location:
+        </label>
+        <input type="text"
+               ng-model="model.user.profile.location.latitude"
+               ng-change="model.getUserLocation()"
+               placeholder="Latitude">
+        <input type="text"
+               ng-model="model.user.profile.location.longitude"
+               ng-change="model.getUserLocation()"
+               placeholder="Longitude">
+
+        <button ng-click="model.getUserLocation()"
+                class="btn btn-default">
+            Use my current location.
+        </button>
+    </div>
+
+
+    <div class="amh-spacer">
+
+        <label for="photos">
+            Facebook Photo Upload:
+        </label>
+        <button ng-click="model.getFacebookPhotos()"
+                class="btn btn-info">
+            GetPhotos with Facebook.
+        </button>
+    </div>
+
+
+</form>
+
+
+
+You have {{model.user.photos.length}} photos uploaded.
+<div ng-repeat="photo in model.user.photos">
+    <img ng-src="{{photo.source}}" height="300" >
+</div>
+
+
+<div ng-repeat="n in model.nums">
+    {{n}}
+
+</div>
