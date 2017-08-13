@@ -13,6 +13,7 @@
         $window.model = model;
         model.user = {};
         model.user.name = "User";
+        model.message = "Welcome, user!";
 
         function init(){
             console.log("profileController.");
@@ -24,6 +25,7 @@
                     model.user = response.data;
                     console.log("found user ");
                     console.log(model.user);
+                    model.message = "Welcome, "+model.user.username+"!";
                     if(model.user === null){
                         console.log("User is null - going to login page!");
                         $location.url("/login");

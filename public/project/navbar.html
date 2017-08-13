@@ -1,10 +1,7 @@
 <!------------------------------------------------>
 <!-- Nav Bar -->
-<div class=" navbar navbar-fixed-top amh-navbar">
-    <div class="navbar-header navbar-brand">
-
-
-
+<div class=" navbar navbar-fixed-top amh-title-bar">
+    <!--<div class="navbar-header navbar-brand">-->
         <!--Back Button-->
         <a class="amh-page-button-prev"
            href="#">
@@ -30,13 +27,21 @@
             </a>
 
 
-        </div>
-
-
+        <!--</div>-->
+    </div>
+    <div class=" amh-navbar">
+        <ul class=" amh-navbar">
+            <li class="amh-nav-link">Home</li>
+            <li class="amh-nav-link">Login</li>
+            <li class="amh-nav-link">Profile</li>
+            <li class="amh-nav-link">Map</li>
+            <li class="amh-nav-link">Account Settings</li>
+        </ul>
     </div>
 </div>
 
-<div class="container-fluid">
+...
+<div class="amh-spacer container-fluid">
 
     <div class="alert alert-info">
         {{model.message}}

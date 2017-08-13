@@ -22,13 +22,14 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
+<div ng-include="'navbar.html'"></div>
 
 
 
 <div class="amh-center-container">
     <div class="amh-center-main">
 
-        <h1> Account Information</h1>
+        <h1 class="amh-header"> Account Information</h1>
         <span class="glyphicon glyphicon-user" style="font-size: 10em;"></span>
         <div class="amh-spacer">
             <label for="username">
@@ -47,6 +48,12 @@
                 Password:
             </label>
             <input type="text" ng-model="model.user.password">
+        </div>
+        <div class="amh-spacer">
+            <input type="button"
+                   class="btn btn-success"
+                   ng-click="model.updateUser()"
+                   value="Go  User">
         </div>
         <div class="amh-spacer">
             <input type="button"

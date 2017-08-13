@@ -1,36 +1,11 @@
-.amh-navbar{
-    background-color: black;
+/* Title Bar */
+.amh-title-bar{
+    background-color: #1A181B;
     color: white;
-    padding: 20px;
 }
-
-/* Use these two classes to center without percentages */
-.amh-center-container{
-    text-align: center;
-}
-.amh-center-main{
-    display: inline-block;
-}
-
-
-.amh-spacer{
-    padding: 5px;
-    margins: 10px;
-}
-.amh-jumbotron{
-    background-color: rgba(25, 25, 112, 0.64);
-    color:white;
-}
-.amh-map{
-    position: absolute;
-    top: 80px;
-
-}
-a.jumboLink{
-    color:blue;
-    position: relative;
-    right: 0;
-    padding: 100px;
+.amh-title-bar a{
+    background-color: #1A181B;
+    color: white;
 }
 
 .amh-site-name{
@@ -38,23 +13,11 @@ a.jumboLink{
     padding: 20%;
     color: rgba(207,237,249,255);
 }
-
-.amh-header{
-    font-size: 2em;
-    color: rgba(207,237,249,255);
-    background-color: #3c3c3c;
-}
-.amh-shifted-down{
-    padding-top: 80px;
-    padding-bottom: 80px;
-}
-
-
 .amh-page-button-prev{
     position: absolute;
     left: 0px;
     top: 0px;
-    padding: 20px;
+    padding: 10px;
     color: white;
     font-size: 2em;
 }
@@ -62,10 +25,27 @@ a.jumboLink{
     position: absolute;
     right: 0px;
     top: 0px;
-    padding: 20px;
-    color: white;
+    padding: 10px;
+    color: #05F140;
     font-size: 2em;
 }
+
+/* Navigation Bar */
+.amh-navbar{
+    background-color: black;
+}
+.amh-nav-link{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+
+/* Footer Bar */
 .amh-footer-btn{
     position: absolute;
     right: 0px;
@@ -75,16 +55,56 @@ a.jumboLink{
 }
 
 
+/* Main body content styling */
+
+
+
+
+/* Use these two classes to center without percentages */
+.amh-center-container{
+    text-align: center;
+}
+.amh-center-main{
+    display: inline-block;
+}
+
+/* Generic Form Classes */
+
+.amh-spacer{
+    padding: 5px;
+    margins: 10px;
+}
+.amh-header{
+    font-size: 2em;
+    color: white;
+}
+.amh-shifted-down{
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+
 /* MAPS */
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
+.amh-map{
+    position: absolute;
+    top: 80px;
+
+}
 #map,  #pano  {
     height: 75%;
     width: 100%;
 }
+
+.btn-danger{
+    background-color: #4F0000;
+}
+
 /* Optional: Makes the sample page fill the window. */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background-color: #564D65;
 }
