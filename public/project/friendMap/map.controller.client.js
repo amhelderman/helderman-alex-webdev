@@ -15,6 +15,7 @@
         init();
         function init() {
             console.log("mapController.");
+
             mapService.then( function(){
                     initMapAtPosition(model.mapPosition);
                     getNearbyUsers();
@@ -25,16 +26,19 @@
             console.log("mapController - client - getNearbyUsers");
             profileService.getLocations(model.mapPosition)
                 .then(function(response){
-                    model.locations = response.data;
-                    console.log(["mapController received locations:", model.locations]);
-                    for(var u in  model.locations){
-                        if( model.locations[u] === null){continue;}
-                        addMarkerToMap( model.locations[u]);
+                    model.profiles = response.data;
+                    console.log(["mapController received profiles:", model.profiles]);
+                    for(var u in  model.profiles){
+                        if( model.profiles[u] === null){continue;}
+                        addMarkerToMap( model.profiles[u]);
                     }
                 });
         }
 
-        function addMarkerToMap(myLatLng){
+        function addMarkerToMap(profile){
+            var myLatLng = {lat: profile.lat,
+                            lng: profile.lng};
+
             //Create the marker.
             circle = new google.maps.Circle({
                 strokeColor: '#FF0000',
@@ -48,19 +52,30 @@
             });
 
             marker = new google.maps.Marker({
-                icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                icon: '/project/userIcon.png',
                 position: myLatLng,
                 map: map
             });
 
-            //Listen for drag events!
-            google.maps.event.addListener(marker, 'dragend', function (event) {
-                // markerLocation()
-                var pos = marker.getPosition();
-                myLatLng = {
-                    lat: pos.coords.latitude,
-                    lng: pos.coords.longitude
-                };
+            //Listen for click events!
+            google.maps.event.addListener(marker, 'mouseover', toggleBounce);
+            // google.maps.event.addListener(marker, 'mouseover', function (event) {
+            //     console.log("HEY THERE!");
+            // });
+
+
+            function toggleBounce() {
+                if (marker.getAnimation() !== null) {
+                    marker.setAnimation(null);
+                } else {
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+            //Listen for click events!
+            google.maps.event.addListener(marker, 'dblclick', function (event) {
+                console.log(["Going to profile...", profile]);
+                $location.url("/");
+                $location.url("/profile/"+profile._id);
             });
         }
 

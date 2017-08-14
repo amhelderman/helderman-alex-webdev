@@ -22,7 +22,7 @@ function getProfilesNearLocation(mapPosition){
         //     locations.push({lat: profiles[p].lat, lng: profiles[p].lng});
         // }
         // console.log(["Resulting profiles near location:", locations]);
-        return locations;
+        return profiles;
     });
 }
 
