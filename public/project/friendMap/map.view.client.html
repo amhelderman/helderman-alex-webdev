@@ -6,20 +6,17 @@
 <div class="container-fluid row">
     <div class="col-xs-6">
         <div id="map"></div>
-        <div id="pano"></div>
+        <!--<div id="pano"></div>-->
     </div>
     <div class="col-xs-6">
-        HELLO
-        <!--<div ng-controller="fpController as model">-->
+        <div ng-show="model.profile">
             <div ng-include="'/project/friendProfile/friendProfile.html'"></div>
-        <!--</div>-->
+        </div>
+
     </div>
 </div>
 
 
-<div ng-show="model.myDialogBox" class="amh-dialog-box">
-    HELLO THERE!
-</div>
 
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApxo8W1f-xebWiMEjYMyphOI5eUHxu8pg&callback=initMap"

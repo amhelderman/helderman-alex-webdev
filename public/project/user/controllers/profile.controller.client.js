@@ -43,18 +43,21 @@
             console.log("Profile Controller - client - deleteUser ");
             userService.deleteUser(model.user._id);
         };
-        model.getUserLocation = function(){
-            console.log("Profile Controller - client - getUserLocation ");
-            function setUserLocation(position){
-                console.log(position);
-                model.user.profile.location = {latitude: position.coords.latitude,
-                                                longitude: position.coords.longitude};
-                console.log(model.user);
-            }
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(setUserLocation);
-            }
-        };
+        // model.getUserLocation = function(){
+        //     console.log("Profile Controller - client - getUserLocation ");
+        //     function setUserLocation(position){
+        //         model.user.latitude = round(position.coords.latitude,3);
+        //         model.user.longitude= round(position.coords.longitude,3);
+        //         console.log(model.user.latitude, model.user.longitude]);
+        //         console.log(model.user);
+        //     }
+        //     function round(value, decimals) {
+        //         return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+        //     }
+        //     if (navigator.geolocation) {
+        //         navigator.geolocation.getCurrentPosition(setUserLocation);
+        //     }
+        // };
 
     }
 

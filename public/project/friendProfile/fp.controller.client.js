@@ -35,9 +35,15 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(setMapPos);
             }
+            function randomOffset(){
+                return 0.002*((new Date().getSeconds()*Math.random())%1)-0.01;
+            }
+            function round(value, decimals) {
+                return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+            }
             function setMapPos(position){
-                model.profile.lat = position.coords.latitude;
-                model.profile.lng = position.coords.longitude;
+                model.profile.lat = round(position.coords.latitude,2)+randomOffset();
+                model.profile.lng = round(position.coords.longitude,2)+randomOffset();
 
                 console.log(["Setting user location to", model.profile.lat, model.profile.lng ]);
             }

@@ -8,6 +8,7 @@
     function mapController($scope, $window, $location, mapService, profileService) {
         var model = this;
 
+        // $window.model = model;
         model.map = {};
         model.mapPosition = {lat: 42.35, lng: -71.08};
         model.locations = [];
@@ -37,10 +38,13 @@
                     }
                 });
         }
+        function randomOffset(){
+            return 0.002*((new Date().getSeconds()*Math.random())%1)-0.01;
+        }
 
         function addMarkerToMap(profile){
-            var myLatLng = {lat: profile.lat,
-                            lng: profile.lng};
+            var myLatLng = {lat: profile.lat+randomOffset(),
+                            lng: profile.lng+randomOffset()};
 
             //Create the marker.
             circle = new google.maps.Circle({
@@ -60,13 +64,12 @@
                 map: map
             });
 
-            google.maps.event.addListener(marker, 'mouseover', showProfilePreview);
+            google.maps.event.addListener(marker, 'click', showProfilePreview);
 
             function showProfilePreview(){
                 // model.myDialogBox = marker;
                 console.log("Hey, you're checking out "+profile.firstName+"'s profile.");
                 model.profile = profile;
-                model.myDialogBox = true;
                 $scope.$digest();
             }
 
@@ -90,7 +93,9 @@
                 });
             //Listen for any clicks on the map.
             google.maps.event.addListener(map, 'click', function(event) {
-
+                console.log("map clicked!");
+                model.profile = null;
+                $scope.$digest();
             });
             var fenway = {lat: 42.345573, lng: -71.098326};
             var panorama = new google.maps.StreetViewPanorama(
