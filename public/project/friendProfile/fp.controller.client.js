@@ -20,12 +20,16 @@
 
 
         model.updateProfile = function(){
-            console.log("ALEX YOURE UPDATING PROFILE NOW");
             console.log(["fpController updating profile ", model.profile._id, model.profile]);
             profileService.updateProfile(model.profile._id, model.profile)
                 .then(function (response){
                     console.log(["fpController client update profile", response]);
-                    model.profile = response;
+
+                    if(response.statusText === "OK"){
+                        model.message = "Profile has been updated.";
+                    } else{
+                        model.message = "Error - profile was not updated.";
+                    }
                 });
         };
 
@@ -34,9 +38,10 @@
                 navigator.geolocation.getCurrentPosition(setMapPos);
             }
             function setMapPos(position){
-                model.profile.location = {lat: position.coords.latitude,
-                                        lng: position.coords.longitude};
-                console.log(["Setting user location to", model.profile.location ]);
+                model.profile.lat = position.coords.latitude;
+                model.profile.lng = position.coords.longitude;
+
+                console.log(["Setting user location to", model.profile.lat, model.profile.lng ]);
             }
         };
         function init(){
@@ -44,10 +49,8 @@
 
             profileService.getProfileByUser(userId)
                 .then(function(response){
-                    console.log(["getProfileByUser result", response]);
-
-
                     model.profile = response.data;
+                    console.log(["getProfileByUser yields profile: ", model.profile]);
                     console.log(["IS THIS AN ID?", model.profile._id]);
                 })
         }

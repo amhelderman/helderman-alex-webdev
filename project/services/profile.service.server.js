@@ -7,7 +7,18 @@ app.get("/ratemyfriend/api/user/:userId/profile", findProfileByUser);
 app.put("/ratemyfriend/api/profile/:profileId", updateProfile);
 app.delete("/ratemyfriend/api/profile/:profileId", deleteProfile);
 
+app.post("/ratemyfriend/api/profile/location/", getProfilesNearLocation);
+
 console.log("profile service loaded.");
+
+function getProfilesNearLocation(req, res){
+    var mapPosition = req.body;
+    profileModel.getProfilesNearLocation(mapPosition)
+        .then(function (locations){
+            res.json(locations);
+        })
+}
+
 
 function createProfile(req, res){
     var profile = req.body;
@@ -43,10 +54,7 @@ function findProfileByUser(req, res) {
 }
 function updateProfile(req, res){
     var profile = req.body;
-    console.log("errrored, lets go");
-    console.log(profile);
-    var profileId = profileModel.findProfileByUser(profile.userId);
-
+    var profileId = profile._id;
     console.log(["profileService: updateProfile", profileId, profile]);
 
     profileModel.updateProfile(profileId, profile)

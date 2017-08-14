@@ -5,42 +5,33 @@
         .module("WamApp")
         .controller("mapController", mapController)
 
-    function mapController($location, mapService, userService) {
+    function mapController($location, mapService, profileService) {
         var model = this;
-
 
         model.map = {};
         model.mapPosition = {lat: 42.35, lng: -71.08};
-        //
-        // model.getLocation = function () {
-        //     if (navigator.geolocation) {
-        //         navigator.geolocation.getCurrentPosition(setMapPos);
-        //     }
-        //     function setMapPos(position){
-        //         // console.log(position);
-        //         model.mapPosition = {lat: position.coords.latitude,
-        //                             lng: position.coords.longitude};
-        //     }
-        // };
+        model.locations = [];
 
-        function initMap() {
-            console.log("HERES THE POS");
-            console.log(model.mapPosition);
-            initMapAtPosition(model.mapPosition);
-            getNearbyUsers();
+        init();
+        function init() {
+            console.log("mapController.");
+            mapService.then( function(){
+                    initMapAtPosition(model.mapPosition);
+                    getNearbyUsers();
+                });
         }
 
         function getNearbyUsers(){
             console.log("mapController - client - getNearbyUsers");
-            console.log(model.mapPosition);
-
-            // TODO: Make this only get nearby users.
-            var userLocations = userService.getUserLocations();
-            for(u in userLocations){
-                var loc = userLocations[u];
-                console.log(loc);
-                addMarkerToMap(userLocations[u]);
-            }
+            profileService.getLocations(model.mapPosition)
+                .then(function(response){
+                    model.locations = response.data;
+                    console.log(["mapController received locations:", model.locations]);
+                    for(var u in  model.locations){
+                        if( model.locations[u] === null){continue;}
+                        addMarkerToMap( model.locations[u]);
+                    }
+                });
         }
 
         function addMarkerToMap(myLatLng){
@@ -98,15 +89,8 @@
                 });
             map.setStreetView(panorama);
         }
-        function init() {
-            console.log("mapController.");
-            // createMap();
 
-            // model.getLocation();
-            mapService.then(initMap);
-        }
 
-        init();
 
 
         var myStyles = [

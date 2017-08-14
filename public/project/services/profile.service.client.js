@@ -10,6 +10,13 @@
         this.getProfileByUser = getProfileByUser;
         this.updateProfile = updateProfile;
         this.deleteProfile = deleteProfile;
+        this.getLocations = getLocations;
+
+        function getLocations(mapPosition){
+            var url = "/ratemyfriend/api/profile/location/";
+            return $http.post(url, mapPosition);
+        }
+
 
         function createProfile(profile){
             console.log("profile service: createProfile profile "+profile._id);
