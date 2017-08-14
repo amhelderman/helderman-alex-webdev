@@ -75,7 +75,11 @@
 }
 
 /* Generic Form Classes */
-
+.amh-skill{
+    padding: 5px;
+    margins: 10px;
+    font-size: 2em;
+}
 .amh-spacer{
     padding: 5px;
     margins: 10px;

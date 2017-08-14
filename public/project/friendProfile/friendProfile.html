@@ -79,6 +79,18 @@
                id="longitude"
                ng-model="model.profile.lng"
                placeholder="Longitude">
+        <div class="amh-skill">
+            Reliable: {{model.profile.reliable}} points
+        </div>
+        <div class="amh-skill">
+            Cool: {{model.profile.cool}} points
+        </div>
+        <div class="amh-skill">
+            Fun: {{model.profile.fun}} points
+        </div>
+        <div class="amh-skill">
+            Hot: {{model.profile.hot}} points
+        </div>
 
         <button ng-click="model.getUserLocation()"
                 class="btn btn-default">
