@@ -2,18 +2,58 @@
 <div ng-include="'navbar.html'"></div>
 
 <form>
+
+
+    <!--User Photo-->
+    <span class="glyphicon glyphicon-user" style="font-size: 10em;"></span>
+
+
+    <!--Photo Selection-->
+    <div class="amh-spacer">
+
+        <!--Photo Display-->
+
+        <div class="amh-spacer">
+            <span ng-repeat="n in [1,2,3]"
+                  class="glyphicon glyphicon-plus"
+                  style="font-size: 5em;"></span>
+        </div>
+
+        <div ng-show="model.profile.photos">
+            You have {{model.profile.photos.length}} photos uploaded.
+        </div>
+        <div ng-repeat="photo in model.user.photos">
+            <img ng-src="{{photo.source}}" height="300" >
+        </div>
+
+        <!--Upload Button-->
+        <button ng-click="model.getFacebookPhotos()"
+                class="btn btn-info">
+            <span class="glyphicon glyphicon-edit"></span>
+            Get Photos with Facebook.
+        </button>
+    </div>
+
+
+    <!--First Name-->
     <div class="amh-spacer">
         <label for="firstName">
             First Name:
         </label>
         <input class="amh-input" type="text" ng-model="model.profile.firstName">
     </div>
+
+
+    <!--Last Name-->
     <div class="amh-spacer">
         <label for="lastName">
             Last Name:
         </label>
         <input class="amh-input" type="text" ng-model="model.profile.lastName">
     </div>
+
+
+    <!--Birthday-->
     <div class="amh-spacer">
         <label for="birthday">
             Birthday:
@@ -21,15 +61,19 @@
         <input class="amh-input" type="date" ng-model="model.profile.birthday">
     </div>
 
+
+    <!--Location-->
     <div class="amh-spacer">
         <label for="latitudeLongitude">
             Latitude/Longitude
         </label>
+
         <input class="amh-input"
                type="text"
                id="latitude"
                ng-model="model.profile.lat"
                placeholder="Latitude">
+
         <input class="amh-input"
                type="text"
                id="longitude"
@@ -40,19 +84,10 @@
                 class="btn btn-default">
             Use my current location.
         </button>
+
     </div>
 
-
-    <div class="amh-spacer">
-
-        <label for="photos">
-            Facebook Photo Upload:
-        </label>
-        <button ng-click="model.getFacebookPhotos()"
-                class="btn btn-info">
-            GetPhotos with Facebook.
-        </button>
-    </div>
+    <!--Update Profile-->
     <div class="amh-spacer">
         <input type="button"
                class="amh-input btn btn-success"
@@ -63,15 +98,3 @@
 
 </form>
 
-
-
-You have {{model.user.photos.length}} photos uploaded.
-<div ng-repeat="photo in model.user.photos">
-    <img ng-src="{{photo.source}}" height="300" >
-</div>
-
-
-<div ng-repeat="n in model.nums">
-    {{n}}
-
-</div>

@@ -14,6 +14,7 @@
 
         $window.model = model;
         model.profile = {};
+        model.profile.photos = [];
 
 
         model.updateProfile = function(){
