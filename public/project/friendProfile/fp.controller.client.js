@@ -13,9 +13,6 @@
         var userId = $routeParams['userId'];
 
         $window.model = model;
-        model.user = {};
-        model.user.name = "User";
-        model.message = "Welcome, user!";
         model.profile = {};
 
 
@@ -52,6 +49,10 @@
                     model.profile = response.data;
                     console.log(["getProfileByUser yields profile: ", model.profile]);
                     console.log(["IS THIS AN ID?", model.profile._id]);
+
+                    if(model.message.firstName !== null){
+                        model.message = "Welcome, "+model.profile.firstName+"!";
+                    }
                 })
         }
         init();

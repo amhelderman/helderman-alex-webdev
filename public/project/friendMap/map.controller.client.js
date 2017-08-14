@@ -5,7 +5,7 @@
         .module("WamApp")
         .controller("mapController", mapController)
 
-    function mapController($location, mapService, profileService) {
+    function mapController($window, $location, mapService, profileService) {
         var model = this;
 
         model.map = {};
@@ -52,30 +52,17 @@
             });
 
             marker = new google.maps.Marker({
-                icon: '/project/userIcon.png',
+                icon: '/userIcon.png',
                 position: myLatLng,
                 map: map
             });
 
             //Listen for click events!
-            google.maps.event.addListener(marker, 'mouseover', toggleBounce);
-            // google.maps.event.addListener(marker, 'mouseover', function (event) {
-            //     console.log("HEY THERE!");
-            // });
-
-
-            function toggleBounce() {
-                if (marker.getAnimation() !== null) {
-                    marker.setAnimation(null);
-                } else {
-                    marker.setAnimation(google.maps.Animation.BOUNCE);
-                }
-            }
-            //Listen for click events!
             google.maps.event.addListener(marker, 'dblclick', function (event) {
                 console.log(["Going to profile...", profile]);
-                $location.url("/");
-                $location.url("/profile/"+profile._id);
+
+                $location.url("/profile/"+profile.userId);
+                $window.location.assign("#!/profile/"+profile.userId);
             });
         }
 
