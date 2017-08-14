@@ -35,18 +35,16 @@
         }
 
         function addMarkerToMap(myLatLng){
-            console.log("addMarkerToMap, heres latlng");
-            console.log(myLatLng);
-            console.log(typeof myLatLng);
             //Create the marker.
             circle = new google.maps.Circle({
                 strokeColor: '#FF0000',
-                strokeOpacity: 0.8,strokeWeight: 2,
-                fillColor: '#FF0000',
+                strokeOpacity: 0.8,
+                strokeWeight: 0,
+                fillColor: '#c7eeff',
                 fillOpacity: 0.35,
                 center: myLatLng,
                 map: map,
-                radius: 1000
+                radius: 200
             });
 
             marker = new google.maps.Marker({

@@ -24,16 +24,18 @@
     </div>
 
     <div class="amh-spacer">
-        <label for="birthday">
-            Location:
+        <label for="latitudeLongitude">
+            Latitude/Longitude
         </label>
-        <input class="amh-input" type="text"
+        <input class="amh-input"
+               type="text"
+               id="latitude"
                ng-model="model.profile.lat"
-               ng-change="model.getUserLocation()"
                placeholder="Latitude">
-        <input class="amh-input" type="text"
+        <input class="amh-input"
+               type="text"
+               id="longitude"
                ng-model="model.profile.lng"
-               ng-change="model.getUserLocation()"
                placeholder="Longitude">
 
         <button ng-click="model.getUserLocation()"
