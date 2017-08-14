@@ -5,7 +5,7 @@
         .module("WamApp")
         .controller("mapController", mapController)
 
-    function mapController($window, $location, mapService, profileService) {
+    function mapController($scope, $window, $location, mapService, profileService) {
         var model = this;
 
         model.map = {};
@@ -60,11 +60,14 @@
                 map: map
             });
 
-            google.maps.event.addListener(marker, 'click', showProfilePreview);
+            google.maps.event.addListener(marker, 'mouseover', showProfilePreview);
 
             function showProfilePreview(){
-                model.myDialogBox = marker;
-
+                // model.myDialogBox = marker;
+                console.log("Hey, you're checking out "+profile.firstName+"'s profile.");
+                model.profile = profile;
+                model.myDialogBox = true;
+                $scope.$digest();
             }
 
             //Listen for click events!

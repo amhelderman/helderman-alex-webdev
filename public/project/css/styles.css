@@ -121,3 +121,22 @@ html, body {
     background-color: #4F0000;
 }
 
+
+#amh-sidebar{
+
+
+}
+
+/*Simple Dialog Box*/
+.amh-dialog-box{
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding: 10%;
+    /*margin: auto;*/
+    /*display: inline-block;*/
+    width: 100%;
+    /*: left;*/
+    background-color: #4CAF50;
+}
