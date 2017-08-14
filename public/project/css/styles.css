@@ -1,3 +1,13 @@
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #4a297d;
+    color: rgba(207,237,249,255);
+}
+
 /* Title Bar */
 .amh-title-bar{
     background-color: #1A181B;
@@ -111,11 +121,3 @@
     background-color: #4F0000;
 }
 
-/* Optional: Makes the sample page fill the window. */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #4a297d;
-    color: rgba(207,237,249,255);
-}

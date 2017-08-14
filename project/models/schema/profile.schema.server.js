@@ -1,11 +1,15 @@
 var mongoose = require("mongoose");
 
 var profileSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    birthday: Date,
-    lat: Number,
-    lng: Number,
+    firstName: {type: String, default: "John"},
+    lastName: {type: String, default: "Smith"},
+    birthday: {type: Date, default: Date.now()},
+    lat: {type: Number, default: 0},
+    lng: {type: Number, default: 0},
+    reliable: {type: Number, default: 0},
+    cool: {type: Number, default: 0},
+    fun: {type: Number, default: 0},
+    hot: {type: Number, default: 0},
     userId: {type: mongoose.Schema.ObjectId, ref:"UserInfoModel"}
 }, { collection: 'profileInfo'});
 

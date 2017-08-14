@@ -12,6 +12,9 @@
         model.mapPosition = {lat: 42.35, lng: -71.08};
         model.locations = [];
 
+        // When defined, will show a dialog box containing its contents.
+        // model.myDialogBox = "HI";
+
         init();
         function init() {
             console.log("mapController.");
@@ -57,6 +60,13 @@
                 map: map
             });
 
+            google.maps.event.addListener(marker, 'click', showProfilePreview);
+
+            function showProfilePreview(){
+                model.myDialogBox = marker;
+
+            }
+
             //Listen for click events!
             google.maps.event.addListener(marker, 'dblclick', function (event) {
                 console.log(["Going to profile...", profile]);
@@ -65,6 +75,7 @@
                 $window.location.assign("#!/profile/"+profile.userId);
             });
         }
+
 
         function initMapAtPosition(myLatLng){
             console.log(myLatLng);
