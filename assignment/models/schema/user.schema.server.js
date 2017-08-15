@@ -7,8 +7,7 @@ var userSchema = mongoose.Schema({
     lastName: String,
     email: String,
     isAdmin: Boolean,
-    dateCreated: {type: Date, default: Date.now()},
-    googleId: String
+    dateCreated: {type: Date, default: Date.now()}
 });
 
 module.exports = userSchema;

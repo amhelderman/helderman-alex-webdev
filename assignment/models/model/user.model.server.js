@@ -12,7 +12,7 @@ userModel.updateUser = updateUser;
 userModel.findUserById = findUserById;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.deleteUser=deleteUser;
-userModel.findUserByGoogleId = findUserByGoogleId;
+
 
 function updateUser(userId, user){
     return userModel.update({_id: userId}, {$set: user});
@@ -34,8 +34,4 @@ function deleteUser(userId){
             console.log(status);
             websiteModel.removeUserWebsites(userId);
         })
-}
-
-function findUserByGoogleId(googleId){
-    return userModel.findOne({googleId: googleId});
 }
