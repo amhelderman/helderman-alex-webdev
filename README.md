@@ -14,15 +14,15 @@ This repository is hosted on a heroku site. Its purpose is to implement web deve
 
 ## The heroku-hosted website can be found here:
 
-https://helderman-alex-webdev.herokuapp.com/
+[https://helderman-alex-webdev.herokuapp.com/](https://helderman-alex-webdev.herokuapp.com/)
 
 ## The project website can be found here:
 
-Not available yet
+[https://helderman-alex-webdev.herokuapp.com/project/](https://helderman-alex-webdev.herokuapp.com/project/)
 
 ## The assignments can be found here:
 
-Not available yet
+[https://helderman-alex-webdev.herokuapp.com/assigment/](https://helderman-alex-webdev.herokuapp.com/assigment/)
 
 
 # web-dev-template
