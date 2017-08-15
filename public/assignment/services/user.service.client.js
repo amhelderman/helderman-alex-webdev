@@ -9,7 +9,8 @@
     function userService($http)
     {
 
-        this.findUserByUsernameAndPassword = findUserByUsernameAndPassword;
+        this.login = login;
+        this.logout = logout;
         this.findUserById = findUserById;
         this.registerUser = registerUser;
         this.unregisterUser = unregisterUser;
@@ -54,11 +55,17 @@
             return $http.get(url);
         }
 
-        function findUserByUsernameAndPassword(username, password)
+        function login(username, password)
         {
-            console.log("in user service for findUserByUsernameAndPassword");
-            var url = "/api/user?username="+username+"&password="+password;
-            return $http.get(url);
+            console.log("in user service for login");
+            var url = '/api/login';
+            return $http.post(url, {username: username,
+                                    password: password});
+        }
+        function logout(){
+            console.log("user service client logout");
+            var url =  '/api/logout';
+            return $http.post(url);
         }
 
 

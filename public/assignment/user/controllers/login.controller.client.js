@@ -24,7 +24,7 @@
             // When logging in...
         function login(user){
             console.log("in login controller");
-            var promise = userService.findUserByUsernameAndPassword(user.username, user.password);
+            var promise = userService.login(user.username, user.password);
             console.log("heres the promise:");
             console.log(promise);
             promise.then(function(response){
