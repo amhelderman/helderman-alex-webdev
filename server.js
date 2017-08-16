@@ -11,6 +11,7 @@ app.use(express.static(__dirname + '/project'));
 require("./test/app");
 require("./assignment/app");
 require("./project/app");
+require("./passportConfig");
 
 // allow cross-origin
 //CORS middleware
