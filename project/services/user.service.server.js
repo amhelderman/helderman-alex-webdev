@@ -1,20 +1,19 @@
 var app = require("../../express");
 var userModel = require("../models/model/user.model.server");
+var passport      = require('passport');
+var auth = authorized;
 
 app.post  ('/ratemyfriend/api/login', passport.authenticate('local'), login);
 app.post  ('/ratemyfriend/api/logout',         logout);
 app.post  ('/ratemyfriend/api/register',       register);
 app.post  ('/ratemyfriend/api/user',     auth, createUser);
 app.get   ('/ratemyfriend/api/loggedin',       loggedin);
+app.get   ('/ratemyfriend/api/isadmin',       isAdmin);
 app.get   ('/ratemyfriend/api/user',     auth, findAllUsers);
 app.put   ('/ratemyfriend/api/user/:id', auth, updateUser);
 app.delete('/ratemyfriend/api/user/:id', auth, deleteUser);
 
 /********* Passport configuration *************/
-
-// Load passport
-var passport      = require('passport');
-var auth = authorized;
 
 function authorized (req, res, next) {
     if (!req.isAuthenticated()) {
@@ -80,11 +79,46 @@ function loggedin(req, res) {
     res.send(req.isAuthenticated() ? req.user : '0');
 }
 
+function isAdmin(req, res){
+    if(req.isAuthenticated()){
+        var user = req.user;
+
+        userModel.findOne({username: user.username, password: user.password})
+            .then(function(user){
+                if(user !== null){
+                    if(user.isAdmin){
+                        res.send(user);
+                    }
+                    else{
+                        res.send(503);
+                    }
+                } else{
+                    res.send('0');
+                }
+            })
+    } else{
+        res.send(0);
+    }
+}
+
 
 /***********************************************/
 
 function findAllUsers(req, res){
     userModel.find().then(function(response){ res.send(response)});
+}
+
+function register(req, res){
+    var user = req.body;
+    console.log("Creating user ");
+    console.log(user);
+    userModel.createUser(user)
+        .then(function(user){
+            console.log("created user:");
+            console.log(user);
+
+            res.json(user);
+        })
 }
 
 function createUser(req, res){
