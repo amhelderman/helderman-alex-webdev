@@ -3,15 +3,15 @@ var userModel = require("../models/model/user.model.server");
 var passport      = require('passport');
 var auth = authorized;
 
-app.post  ('/ratemyfriend/api/login', passport.authenticate('local'), login);
-app.post  ('/ratemyfriend/api/logout',         logout);
-app.post  ('/ratemyfriend/api/register',       register);
-app.post  ('/ratemyfriend/api/user',     auth, createUser);
-app.get   ('/ratemyfriend/api/loggedin',       loggedin);
-app.get   ('/ratemyfriend/api/isadmin',       isAdmin);
-app.get   ('/ratemyfriend/api/user',     auth, findAllUsers);
-app.put   ('/ratemyfriend/api/user/:id', auth, updateUser);
-app.delete('/ratemyfriend/api/user/:id', auth, deleteUser);
+// app.post  ('/ratemyfriend/api/login', login);
+// app.post  ('/ratemyfriend/api/logout',         logout);
+// app.post  ('/ratemyfriend/api/register',       register);
+// app.post  ('/ratemyfriend/api/user',     auth, createUser);
+// app.get   ('/ratemyfriend/api/loggedin',       loggedin);
+// app.get   ('/ratemyfriend/api/isadmin',       isAdmin);
+// app.get   ('/ratemyfriend/api/user',     auth, findAllUsers);
+// app.put   ('/ratemyfriend/api/user/:id', auth, updateUser);
+// app.delete('/ratemyfriend/api/user/:id', auth, deleteUser);
 
 /********* Passport configuration *************/
 
@@ -65,6 +65,19 @@ function deserializeUser(user, done) {
 
 // Implementation
 function login(req, res) {
+    var username = req.body.username;
+    var password = req.body.password;
+
+    userModel.findUserByCredentials(username, password)
+        .then(function (user){
+            if(!user){
+                res.status(401).send({'message': "User not found"});
+                return;
+            }
+            req.login(user, function(){
+                res.json(user);
+            });
+        });
     var user = req.user;
     res.json(user);
 }
