@@ -17,7 +17,7 @@
                 {
                     templateUrl: "user/views/login.view.client.html",
                     controller: "loginController",
-                    controllerAs: "model"
+                    controllerAs: "model",
                     resolve:{
                         loggedin: checkLoggedIn
                     }
