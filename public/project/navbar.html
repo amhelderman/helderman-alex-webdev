@@ -10,45 +10,29 @@
         <!-- Page Header -->
         <span class="amh-site-name"> RateMyFriend </span>
 
-        <!-- Profile Button -->
-        <div class="navbar-brand amh-page-button-next">
-
-            <a href="#!/login">
-                Login
-            </a>
-            <a ng-href="#!/user/{{model.user._id}}">
-                <span class="glyphicon glyphicon-user "></span>
-
-                <div>
-                    <img ng-src="{{model.user.profilePicture}}">
-                </div>
-            </a>
-        </div>
-
         <!--Links -->
         <div class=" amh-navbar">
             <ul class=" amh-navbar">
                 <li class="amh-nav-link">
-                    <a href="#!/">Home</a></li>
+                    <a href="#!/">RateMyFriend Map</a></li>
 
-                <li class="amh-nav-link">
+                <li ng-hide="{{model.user}}" class="amh-nav-link">
                     <a href="#!/login">Login</a></li>
+                <li ng-show="{{model.user}}" class="amh-nav-link">
+                    <a href="#!/login">Logout</a></li>
 
-                <li class="amh-nav-link">
+                <li ng-hide="{{model.user}}" class="amh-nav-link">
                     <a href="#!/register">Register</a></li>
 
-                <li class="amh-nav-link">
+                <li ng-show="{{model.user}}" class="amh-nav-link">
                     <a ng-href="#!/profile/{{model.user._id}}">Profile</a></li>
 
-                <li class="amh-nav-link">
-                    <a href="#!/map">Map</a></li>
 
-                <li class="amh-nav-link">
+                <li ng-show="{{model.user}}" class="amh-nav-link">
                     <a ng-href="#!/user/{{model.user._id}}">Account Settings</a></li>
             </ul>
         </div>
 </div>
-
 
 <div class="amh-spacer container-fluid">
 

@@ -13,6 +13,7 @@
         this.getLocations = getLocations;
 
         function getLocations(mapPosition){
+            console.log(["profileService - getLocations", mapPosition]);
             var url = "/ratemyfriend/api/profile/location/";
             return $http.post(url, mapPosition);
         }

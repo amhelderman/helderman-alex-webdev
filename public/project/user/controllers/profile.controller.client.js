@@ -34,6 +34,9 @@
         }
         init();
 
+        model.goToProfile = function(){
+            $location.url("/profile/"+model.user._id);
+        };
 
         model.updateUser = function(){
             console.log("Profile Controller - client - updateUser ");

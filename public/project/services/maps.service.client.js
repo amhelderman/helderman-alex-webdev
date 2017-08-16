@@ -9,7 +9,7 @@
     // https://stackoverflow.com/questions/24246403/angularjs-load-google-map-script-async-in-directive-for-multiple-maps
     // It is simply lazy-loading the google api script.
     // This is necessary because the <script> used to async load in html would not work
-    function mapService($window, $q, $http) {
+    function mapService($window, $q, $http, profileService) {
 
         this.init = init;
         this.initMapAtPosition = initMapAtPosition;
@@ -18,18 +18,22 @@
         this.addMarkerToMap = addMarkerToMap;
 
         var deferred = $q.defer();
-        function init(){
+        function init(mapDiv, myLatLng, pclickCallback, pdblclickCallback, mapClickCallback){
+            console.log(["Mapservice init, given:",mapDiv, myLatLng, pclickCallback, pdblclickCallback, mapClickCallback]);
 
-            $window.initMap = function () {
-                deferred.resolve()
-            };
+
+            $window.initMap = function () {deferred.resolve()};
 
             if ($window.attachEvent) {
                 $window.attachEvent('onload', loadScript)
             } else {
                 $window.addEventListener('load', loadScript, false)
             }
-            return deferred.promise;
+
+            return deferred.promise.then(function(response){
+                initMapAtPosition(mapDiv, myLatLng, pclickCallback, pdblclickCallback, mapClickCallback);
+                return response;
+            })
         }
 
         function loadScript() {
@@ -40,10 +44,12 @@
             // document.body.appendChild(s)
         }
 
+        var myLatLng;
         var clickCallback = null;
         var dblclickCallback = null;
-        function initMapAtPosition(mapDiv, myLatLng, pclickCallback, pdblclickCallback, mapClickCallback) {
-            console.log(myLatLng);
+        function initMapAtPosition(mapDiv, pmyLatLng, pclickCallback, pdblclickCallback, mapClickCallback) {
+            console.log(["initMapAtPosition",mapDiv, myLatLng, pclickCallback, pdblclickCallback, mapClickCallback ]);
+            myLatLng = pmyLatLng;
             clickCallback = pclickCallback;
             dblclickCallback = pdblclickCallback;
             map = new google.maps.Map(
@@ -53,9 +59,11 @@
                     styles: myStyles
                 });
             google.maps.event.addListener(map, 'click', mapClickCallback);
+            getNearbyUsers();
         }
 
         function addStreetView(){
+            console.log("addStreetView");
             // var fenway = {lat: 42.345573, lng: -71.098326};
             // var panorama = new google.maps.StreetViewPanorama(
             //     document.getElementById('pano'), {
@@ -70,17 +78,22 @@
 
         function getNearbyUsers(){
             console.log("mapController - client - getNearbyUsers");
-            profileService.getLocations(model.mapPosition)
+            profileService.getLocations(myLatLng)
                 .then(function(response){
-                    model.profiles = response.data;
-                    return model.profiles;
+                    var profiles = response.data;
+                    console.log(["getNearbyUsers:", profiles]);
+                    for (var p in profiles){
+                        addMarkerToMap(profiles[p]);
+                    }
+                    return profiles;
                 });
         }
 
 
         function addMarkerToMap(profile){
-            var myLatLng = {lat: profile.lat+randomOffset(),
-                lng: profile.lng+randomOffset()};
+            console.log(["Map service adding marker to map for profile ",profile]);
+
+            var loc = {lat: profile.lat+randomOffset(), lng: profile.lng+randomOffset()};
 
             //Create the marker.
             circle = new google.maps.Circle({
@@ -89,19 +102,27 @@
                 strokeWeight: 0,
                 fillColor: '#c7eeff',
                 fillOpacity: 0.35,
-                center: myLatLng,
+                center: loc,
                 map: map,
                 radius: 200
             });
 
             marker = new google.maps.Marker({
                 icon: '/userIcon.png',
-                position: myLatLng,
+                position: loc,
                 map: map
             });
 
-            google.maps.event.addListener(marker, 'click', clickCallback);
-            google.maps.event.addListener(marker, 'dblclick',dblclickCallback );
+            console.log(["Heres a callback", clickCallback]);
+            google.maps.event.addListener(marker, 'click', cb1);
+            function cb1(){
+                console.log(["CB 1 ", profile])
+                clickCallback(profile);
+            }
+            google.maps.event.addListener(marker, 'dblclick',cb2 );
+            function cb2(){
+                clickCallback(profile);
+            }
         }
     } // end mapService
 

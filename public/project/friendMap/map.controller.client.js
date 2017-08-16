@@ -21,12 +21,12 @@
             var myLatLng = getUserLocation();
             var mapDiv = document.getElementById('map');
 
-            mapService.init(mapDiv, myLatLng, setProfileCallback, mapsGoToProfileCallback);
+            mapService.init(mapDiv, myLatLng, setProfileCallback, mapsGoToProfileCallback, mapClickCallback);
         }
 
         function getUserLocation () {
             console.log("HI");
-            var location ={lat: -42.35, lng: -71.08};
+            var location ={lat: 42.35, lng: -71.08};
             if (navigator.geolocation) {
                 navigator.geolocation
                     .getCurrentPosition(function (position){
@@ -42,12 +42,15 @@
             model.profile = profile;
             $scope.$digest();
         }
-
         function mapsGoToProfileCallback(event){
             console.log(["Going to profile...", profile]);
             $location.url("/profile/"+profile.userId);
             $scope.$digest(); // see if window isnt required...
             $window.location.assign("#!/profile/"+profile.userId);
+        }
+        function mapClickCallback(){
+            model.profile = null;
+            $scope.$digest();
         }
 
     }

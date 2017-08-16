@@ -5,7 +5,7 @@
         .module("WamApp")
         .controller("fpController", fpController)
 
-    function fpController($document, $routeParams, $window, $location, profileService){
+    function fpController($document, $routeParams, $window, $location, profileService, userService){
         var model = this;
 
         model.message = "Edit your profile!";
@@ -15,7 +15,6 @@
         $window.model = model;
         model.profile = {};
         model.profile.photos = [];
-
 
         model.updateProfile = function(){
             console.log(["fpController updating profile ", model.profile._id, model.profile]);
@@ -50,6 +49,20 @@
         };
         function init(){
             console.log("fpController.")
+
+            userService.getUser(userId)
+                .then(function(response){
+                    console.log("Here's the user:");
+                    console.log(response.data);
+                    model.user = response.data;
+                    console.log("found user ");
+                    console.log(model.user);
+                    model.message = "Welcome, "+model.user.username+"!";
+                    if(model.user === null){
+                        console.log("User is null - going to login page!");
+                        $location.url("/login");
+                    }
+                });
 
             profileService.getProfileByUser(userId)
                 .then(function(response){

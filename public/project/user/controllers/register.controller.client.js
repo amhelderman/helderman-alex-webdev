@@ -9,9 +9,6 @@
         var model = this;
 
         $window.model = model;
-        model.user = {};
-        model.user.name = "User";
-        model.user.loggedIn = false;
         model.message = "Welcome, user!";
 
 
