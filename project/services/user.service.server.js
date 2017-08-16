@@ -36,8 +36,7 @@ function localStrategy(username, password, done) {
             },
             function(err) {
                 if (err) { return done(err); }
-            }
-        );
+            });
 }
 
 

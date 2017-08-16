@@ -21,7 +21,7 @@
                                 controller: "loginController",
                                 controllerAs: "model"
                             })
-                        .when("/login",
+                        .when("/blogin",
                             {
                                 templateUrl: "user/templates/login.view.client.html",
                                 controller: "loginController",

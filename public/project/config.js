@@ -63,13 +63,13 @@ function checkLoggedIn($q, $http, $location, $rootscope){
 
     $http.get('/ratemyfriend/api/loggedin')
         .then(function (user){
-            if(user != '0'){
+            if(user !== '0'){
                 $rootscope.currentUser = user;
                 deferred.resolve();
             } else{
                 $rootscope.currentUser = null;
                 deferred.reject();
-                $location.url("/login");
+                $location.url("/");
             }
         })
 }
@@ -80,13 +80,13 @@ function checkIsAdmin($q, $http, $location, $rootscope){
 
     $http.get('/ratemyfriend/api/loggedin')
         .then(function (user){
-            if(user != '0'){
+            if(user !== '0'){
                 $rootscope.currentUser = user;
                 deferred.resolve();
             } else{
                 $rootscope.currentUser = null;
                 deferred.reject();
-                $location.url("/login");
+                $location.url("/");
             }
         })
 }
