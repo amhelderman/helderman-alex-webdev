@@ -18,6 +18,9 @@
                     templateUrl: "user/views/login.view.client.html",
                     controller: "loginController",
                     controllerAs: "model"
+                    resolve:{
+                        loggedin: checkLoggedIn
+                    }
                 })
             .when("/register",
                 {
@@ -55,6 +58,20 @@
 })();
 
 
+function checkLoggedIn($q, $http, $location, $rootscope){
+    var deferred = $q.defer();
 
+    $http.get('/ratemyfriend/api/loggedin')
+        .then(function (user){
+            if(user != '0'){
+                $rootscope.currentUser = user;
+                deferred.resolve();
+            } else{
+                $rootscope.currentUser = null;
+                deferred.reject();
+                $location.url("/login");
+            }
+        })
+}
 
 
