@@ -42,7 +42,7 @@
             model.profile = profile;
             $scope.$digest();
         }
-        function mapsGoToProfileCallback(event){
+        function mapsGoToProfileCallback(profile){
             console.log(["Going to profile...", profile]);
             $location.url("/profile/"+profile.userId);
             $scope.$digest(); // see if window isnt required...

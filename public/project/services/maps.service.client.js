@@ -121,7 +121,8 @@
             }
             google.maps.event.addListener(marker, 'dblclick',cb2 );
             function cb2(){
-                clickCallback(profile);
+                console.log(["CB 2 ", profile])
+                dblclickCallback(profile);
             }
         }
     } // end mapService
