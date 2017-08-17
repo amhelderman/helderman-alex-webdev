@@ -3,7 +3,8 @@ var userModel = require("../models/model/user.model.server");
 var passport      = require('passport');
 var auth = authorized;
 
-app.post  ('/ratemyfriend/api/login', login);
+app.post  ('/ratemyfriend/api/login',
+    passport.authenticate('local'),             login);
 app.post  ('/ratemyfriend/api/logout',         logout);
 app.post  ('/ratemyfriend/api/register',       register);
 app.post  ('/ratemyfriend/api/user',     auth, createUser);
@@ -117,6 +118,7 @@ function isAdmin(req, res){
 /***********************************************/
 
 function findAllUsers(req, res){
+    console.log("user server - findAllusers")
     userModel.find().then(function(response){ res.send(response)});
 }
 

@@ -29,8 +29,8 @@
             console.log("Project - Profile Service Client - getProfile "+profileId);
             var url = "/ratemyfriend/api/profile/"+profileId;
             return $http.get(url).then(function(response){
-                console.log("GET profile IN SERVICE: response");
-                console.log(response);
+                // console.log("GET profile IN SERVICE: response");
+                // console.log(response);
                 return response;
             })
         }
@@ -39,8 +39,8 @@
             console.log("Profile Service Client - getProfileByUser "+userId);
             var url = "/ratemyfriend/api/user/"+userId+"/profile";
             return $http.get(url).then(function(response){
-                console.log("GET profile IN SERVICE: response");
-                console.log(response);
+                // console.log("GET profile IN SERVICE: response");
+                // console.log(response);
                 return response;
             })
         }

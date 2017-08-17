@@ -25,8 +25,8 @@ function createProfile(req, res){
     console.log(["Creating profile ", profile]);
     profileModel.createProfile(profile)
         .then(function(profile){
-            console.log("created profile:");
-            console.log(profile);
+            // console.log("created profile:");
+            // console.log(profile);
             res.json(profile);
         })
 }
@@ -36,8 +36,8 @@ function findProfileById(req, res) {
     console.log("findProfileById "+req.params.profileId);
     profileModel.findProfileById(req.params.profileId)
         .then(function(profile){
-            console.log("WE FOUND HER");
-            console.log(profile);
+            // console.log("WE FOUND HER");
+            // console.log(profile);
             res.json(profile);
         })
 }
@@ -48,7 +48,7 @@ function findProfileByUser(req, res) {
     console.log("findProfileByUser "+userId);
     profileModel.findProfileByUser(userId)
         .then(function(profile){
-            console.log(["found profile by user", profile]);
+            // console.log(["found profile by user", profile]);
             res.json(profile);
         })
 }
@@ -59,8 +59,8 @@ function updateProfile(req, res){
 
     profileModel.updateProfile(profileId, profile)
         .then(function(status){
-            console.log("udpated profile status:");
-            console.log(status);
+            // console.log("udpated profile status:");
+            // console.log(status);
             res.json(status);
         }, function(err){
             res.sendStatus(404).send(err);
@@ -72,7 +72,7 @@ function deleteProfile(req, res){
     console.log("Deleting profile "+ req.params.profileId);
     profileModel.deleteProfile(req.params.profileId)
         .then(function(status){
-            console.log("Did we delete the profile?");
+            // console.log("Did we delete the profile?");
             res.sendStatus(status);
         })
 }

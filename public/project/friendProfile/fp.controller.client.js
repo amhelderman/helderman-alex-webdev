@@ -100,9 +100,6 @@
             profileService.getProfileByUser(userId)
                 .then(function(response){
                     model.profile = response.data;
-                    console.log(["getProfileByUser yields profile: ", model.profile]);
-                    console.log(["IS THIS AN ID?", model.profile._id]);
-
                     if(model.message.firstName !== null){
                         model.message = "Welcome, "+model.profile.firstName+"!";
                     }
@@ -111,8 +108,12 @@
 
             interestService.getInterestsByUser(userId)
                 .then(function(response){
+                    console.log(["interestService getting interests from user",
+                        response.data])
                     model.interests = response.data;
-                });
+                }).catch(function(err){
+                    console.log(["Error...", err]);
+            })
         }
         init();
 

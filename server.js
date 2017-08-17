@@ -1,5 +1,23 @@
 var app = require('./express');
 var express = app.express;
+
+var cookieParser=require('cookie-parser');
+var session = require('express-session');
+
+app.use(session({
+    secret: 'this is the secret',
+    resave: true,
+    saveUninitialized: true
+}))
+app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
+
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
