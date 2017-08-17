@@ -8,7 +8,7 @@ My experiences in the workplace have taught me a lot about how to best develop s
 
 # What is this Repository?
 
-This repository is hosted on a heroku site. Its purpose is to implement web development exercises for my web development course. 
+This repository contains source for a website made for a grad course. Its purpose is to implement web development exercises. 
 
 # How can I access the website?
 
