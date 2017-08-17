@@ -54,8 +54,8 @@
 
         // Interests
         model.generateInterests = function(){
-            model.interest = {label: model.bio,
-                userId: userId};
+            model.interest = {label: model.profile.bio,
+                                userId: userId};
             //connect to API to get interests
             interestService.generateInterests(model.interest)
                 .then(function (response){
@@ -85,17 +85,15 @@
 
             userService.getUser(userId)
                 .then(function(response){
-                    console.log("Here's the user:");
-                    console.log(response.data);
                     model.user = response.data;
-                    console.log("found user ");
-                    console.log(model.user);
-                    model.message = "Welcome, "+model.user.username+"!";
-                    if(model.user === null){
-                        console.log("User is null - going to login page!");
+                    console.log(["Account controller checking login status", model.user]);
+                    if(model.user) {
+                        console.log(["Account Controller - getUser: ", model.user]);
+                        model.message = "Welcome, " + model.user.username + "!";
+                    }else{
                         $location.url("/login");
                     }
-                });
+                })
 
             profileService.getProfileByUser(userId)
                 .then(function(response){
@@ -111,9 +109,8 @@
                     console.log(["interestService getting interests from user",
                         response.data])
                     model.interests = response.data;
-                }).catch(function(err){
-                    console.log(["Error...", err]);
-            })
+                });
+
         }
         init();
 

@@ -42,7 +42,7 @@
         }
         function getInterestsByUser(userId){
             console.log(["interest service client getInterestsByUser", userId]);
-            return $http.get("/ratemyfriend/api/interest/byUser?userId="+userId);
+            return $http.get("/ratemyfriend/api/interestByUser/"+userId);
         }
         function updateInterest(interestId, interest){
             console.log(["interest service client updateInterest", interest]);

@@ -14,6 +14,7 @@
         this.checkLogin = checkLogin;
 
         function checkLogin(){
+            console.log("12222111");
             return $http.get('/ratemyfriend/api/loggedin');
         }
 
@@ -43,6 +44,7 @@
 
         function getUser(userId){
             // console.log("Project - User Service Client - getUser "+userId);
+            console.log("111111");
             var url = "/ratemyfriend/api/user/"+userId;
             return $http.get(url).then(function(response){
                 console.log(["GET USER IN SERVICE: response", response]);

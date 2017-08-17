@@ -72,8 +72,8 @@ function deserializeUser(user, done) {
 
 // Implementation
 function login(req, res) {
-    console.log(["Login Request has been received by the server and authorized", user]);
     var user = req.user;
+    console.log(["Login Request has been received by the server and authorized", user]);
     res.json(user);
 }
 
@@ -83,7 +83,14 @@ function logout(req, res) {
 }
 
 function loggedin(req, res) {
-    res.send(req.isAuthenticated() ? req.user : '0');
+
+    if(req.isAuthenticated()) {
+        console.log(["Logged In Check: authenticated.", req.user]);
+        res.send(req.user);
+    } else{
+        console.log(["Logged In Check: not authenticated.", req.user]);
+        res.send('0');
+    }
 }
 
 function isAdmin(req, res){
@@ -181,7 +188,6 @@ function findUserByUsernameAndPassword(req, res){
 }
 
 function findUserById(req, res) {
-    console.log(["ALEXXXXXXXX", req.params.userId]);
     userModel.findUserById(req.params.userId)
         .then(function(user){
             res.json(user);

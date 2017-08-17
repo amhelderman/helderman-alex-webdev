@@ -10,7 +10,7 @@ app.get("/ratemyfriend/api/interestDetail/:label", getInterestByLabel);
 // CRUD
 app.post("/ratemyfriend/api/interest/", createInterest);
 app.get("/ratemyfriend/api/interest/:interestId", findInterestById);
-app.get("/ratemyfriend/api/interest/byUser", getInterestsByUser);
+app.get("/ratemyfriend/api/interestByUser/:userId", getInterestsByUser);
 app.put("/ratemyfriend/api/interest/:interestId", updateInterest);
 app.delete("/ratemyfriend/api/interest/:interestId", deleteInterest);
 
@@ -27,7 +27,7 @@ function findInterestById(req, res){
         });
 }
 function getInterestsByUser(req, res){
-    var userId = req.query.userId;
+    var userId = req.params.userId;
     console.log(["SERVER getInterestByUserId", userId]);
     res.status([{name: "swimming"}, {name: "running"}]);
 }

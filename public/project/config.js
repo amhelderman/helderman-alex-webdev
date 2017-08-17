@@ -32,13 +32,19 @@
                 {
                     templateUrl: "user/views/account.view.client.html",
                     controller: "accountController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        qweqweqwe: checkLoggedIn
+                    }
                 })
             .when("/profile/:userId",
                 {
                     templateUrl: "friendProfile/friendProfile.html",
                     controller: "fpController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        qweqweqwe: checkLoggedIn
+                    }
                 })
             .when("/map",
                 {
@@ -50,7 +56,10 @@
                 {
                     templateUrl: "interest/interest.view.client.html",
                     controller: "interestController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        qweqweqwe: checkLoggedIn
+                    }
                 })
             .when("/interest-detail/:interestLabel",
                 {
@@ -64,8 +73,11 @@
 
     function checkLoggedIn($q,  userService){
         var deferred = $q.defer();
+
+        console.log(["CHECK LOGIN:"])
         userService.checkLogin()
             .then(function (user) {
+                console.log(["CHECK LOGIN:DONE"])
                 if (user === "0") {
                     deferred.reject();
                 } else {
