@@ -18,15 +18,12 @@
 
         function init(){
             console.log("interestController.")
-            // model.interest.users = [userId];
-
-
-
         }
         init();
 
         model.submitInterest = function(){
-            model.interest = {label: model.interestQuery};
+            model.interest = {label: model.interestQuery,
+                             userId: userId};
 
             //connect to API to get interests
             interestService.submitInterest(model.interest)

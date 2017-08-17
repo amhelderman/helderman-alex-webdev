@@ -13,7 +13,9 @@ function submitInterestQuery(req, res){
     var myRes = res;
 
     var interest = req.body;
-    console.log("ALEX, INTEREST TEST HAS RECEIVED YOUR INTEREST"+interest)
+    console.log("ALEX, INTEREST TEST HAS RECEIVED YOUR INTEREST"
+        +interest.label+"from user"+interest.userId);
+
 
 
     // Make sure the environment is set up.
@@ -30,7 +32,7 @@ function submitInterestQuery(req, res){
         host: 'api.primal.com',
         headers: {'Primal-App-ID': process.env.PRIMAL_APP_ID,
             'Primal-App-Key': process.env.PRIMAL_APP_KEY},
-        path: '/v2/recommendations?q='+interest.label+'&maxContentItems=5',
+        path: '/v2/recommendations?q='+encodeURIComponent(interest.label)+'&maxContentItems=5',
         method: 'GET'
     };
     function callback (res) {
