@@ -33,25 +33,24 @@
 
         // CRUD
         function createInterest(interest){
-            console.log(["interest service client removeInterest", interest]);
-            return $http.delete("/ratemyfriend/api/interest/", interest);
+            console.log(["interest service client createInterest", interest]);
+            return $http.post("/ratemyfriend/api/interest/", interest);
         }
         function getInterestById(interestId){
-            console.log(["interest service client removeInterest", interest]);
-            return $http.delete("/ratemyfriend/api/interest/", interest);
+            console.log(["interest service client getInterestById", interest]);
+            return $http.get("/ratemyfriend/api/interest/"+interestId);
         }
-
         function getInterestsByUser(userId){
-            console.log(["interest service client getInterestByUser", userId]);
-            return $http.get("/ratemyfriend/api/interest/", userId);
+            console.log(["interest service client getInterestsByUser", userId]);
+            return $http.get("/ratemyfriend/api/interest/byUser?userId="+userId);
         }
-        function updateInterest(){
-            console.log(["interest service client removeInterest", interest]);
-            return $http.delete("/ratemyfriend/api/interest/", interest);
+        function updateInterest(interestId, interest){
+            console.log(["interest service client updateInterest", interest]);
+            return $http.put("/ratemyfriend/api/interest/"+interestId, interest);
         }
-        function removeInterest(interest){
-            console.log(["interest service client removeInterest", interest]);
-            return $http.delete("/ratemyfriend/api/interest/", interest);
+        function removeInterest(interestId){
+            console.log(["interest service client removeInterest", interestId]);
+            return $http.delete("/ratemyfriend/api/interest/"+ interestId);
         }
 
     }

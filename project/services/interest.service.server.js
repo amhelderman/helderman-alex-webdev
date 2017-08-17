@@ -1,32 +1,80 @@
 var app = require("../../express");
 var interestModel = require("../models/model/interest.model.server");
 
-
 // Auto-generation
-app.put("/ratemyfriend/api/interest/", submitInterestQuery);
+app.put("/ratemyfriend/api/interest/", generateInterests);
 
 // getting interest by label
 app.get("/ratemyfriend/api/interestDetail/:label", getInterestByLabel);
 
 // CRUD
-app.post("/ratemyfriend/api/interest", createInterest);
+app.post("/ratemyfriend/api/interest/", createInterest);
 app.get("/ratemyfriend/api/interest/:interestId", findInterestById);
-app.get("/ratemyfriend/api/interest/:userId", getInterestsByUser);
+app.get("/ratemyfriend/api/interest/byUser", getInterestsByUser);
 app.put("/ratemyfriend/api/interest/:interestId", updateInterest);
 app.delete("/ratemyfriend/api/interest/:interestId", deleteInterest);
 
+function createInterest(req, res){
+    interestModel.createInterest(req.body)
+        .then(function(status){
+            res.status(status);
+        });
+}
+function findInterestById(req, res){
+    interestModel.findInterestById(req.params.interestId)
+        .then(function(status){
+            res.status(status);
+        });
+}
+function getInterestsByUser(req, res){
+    var userId = req.query.userId;
+    console.log(["SERVER getInterestByUserId", userId]);
+    res.status([{name: "swimming"}, {name: "running"}]);
+}
+function updateInterest(req, res){
+    interestModel.updateInterest(req.body, req.params.interestId)
+        .then(function(status){
+            res.status(status);
+        });
+}
+function deleteInterest(req, res){
+    console.log(["SERVER deleteInterest", req.params.interest]);
+    interestModel.deleteInterest(req.params.interest)
+        .then(function(status){
+            res.status(status);
+        });
+}
+
+/******************************************************/
+// Get interest by label
+function getInterestByLabel(req, res){
+    var label = req.params.label;
+    console.log(["server finding interest by label", label])
+    interestModel.getInterestByLabel(label)
+        .then(function (interest){
+            console.log(["server found interest by label", label, interest])
+            if(interest){
+                res.send(interest);
+            }
+            else{
+                res.send('0');
+            }
+        })
+        .catch(function (err){
+            res.status(0);
+        })
+}
+/******************************************************/
 // Auto-generation from user's bio.
 
-function submitInterestQuery(req, res){
+function generateInterests(req, res){
 
     var https = require('https');
     var myRes = res;
 
     var interest = req.body;
-    console.log("ALEX, INTEREST TEST HAS RECEIVED YOUR INTEREST"
-        +interest.label+"from user"+interest.userId);
-
-
+    console.log("server - generateInterests "
+        +interest.label+" from user "+interest.userId);
 
     // Make sure the environment is set up.
     if(!(process.env.PRIMAL_APP_ID && process.env.PRIMAL_APP_KEY)){
@@ -63,56 +111,3 @@ function submitInterestQuery(req, res){
     });
 }
 
-
-// Get interest by label
-function getInterestByLabel(req, res){
-    var label = req.params.label;
-    console.log(["server finding interest by label", label])
-    interestModel.getInterestByLabel(label)
-        .then(function (interest){
-            console.log(["server found interest by label", label, interest])
-            if(interest){
-                res.send(interest);
-            }
-            else{
-                res.send('0');
-            }
-        })
-        .catch(function (err){
-            res.status(0);
-        })
-}
-
-
-
-// CRUD commands
-function createInterest(req, res){
-    interestModel.createInterest(req.body)
-        .then(function(status){
-            res.status(status);
-        });
-}
-function findInterestById(req, res){
-    interestModel.findInterestById(req.params.interestId)
-        .then(function(status){
-            res.status(status);
-        });
-}
-function getInterestsByUser(req, res){
-    var userId = req.params.id;
-    console.log(["SERVER getInterestByUserId", userId]);
-    res.status([{name: "swimming"}, {name: "running"}]);
-}
-function updateInterest(req, res){
-    interestModel.updateInterest(req.body, req.params.interestId)
-        .then(function(status){
-            res.status(status);
-        });
-}
-function deleteInterest(req, res){
-    console.log(["SERVER deleteInterest", req.params.interest]);
-    interestModel.deleteInterest(req.params.interest)
-        .then(function(status){
-            res.status(status);
-        });
-}
