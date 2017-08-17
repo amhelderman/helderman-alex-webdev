@@ -22,7 +22,7 @@
         init();
 
         model.submitInterest = function(){
-            model.interest = {label: model.interestQuery,
+            model.interest = {label: model.bio,
                              userId: userId};
 
             //connect to API to get interests

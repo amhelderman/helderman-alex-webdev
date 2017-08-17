@@ -3,11 +3,11 @@
 
 
 <label for="interestQuery">
-    Type an interest to add to your interests.
+    Please write your bio.
 </label>
 <input type="text"
        class="amh-input "
-       ng-model="model.interestQuery"
+       ng-model="model.bio"
     placeholder="pizza, dancing, swimming">
 <input type="submit"
        class="amh-input btn btn-success"
@@ -17,10 +17,6 @@
        class="amh-input btn btn-success"
        ng-click="model.removeInterest()"
        value="Remove">
-
-<div>
-    The selected interest is {{model.interest}}.
-</div>
 
 <div>
     Interests: {{model.interests}}.
