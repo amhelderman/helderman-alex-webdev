@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<h1 class="amh-header">User Interests</h1>
+<div ng-include="'navbar.html'"></div>
 
-</body>
-</html>
+
+<label for="interestQuery">
+    Type an interest to add to your interests.
+</label>
+<input type="text"
+       class="amh-input "
+       ng-model="model.interest"
+    placeholder="pizza, dancing, swimming">
+<input type="submit"
+       class="amh-input btn btn-success"
+       ng-click="model.submitInterest()"
+       value="Submit">
+<input type="submit"
+       class="amh-input btn btn-success"
+       ng-click="model.removeInterest()"
+       value="Remove">
+
+<div>
+    The selected interest is {{model.interest}}.
+</div>
+<div>
+    <ul>
+        <li ng-repeat="in in model.interests">
+            {{in}}
+        </li>
+    </ul>
+</div>

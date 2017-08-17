@@ -46,10 +46,10 @@
                     controller: "mapController",
                     controllerAs: "model"
                 })
-            .when("/maptest",
+            .when("/interest/:userId",
                 {
-                    templateUrl: "friendMap/mapSearch.html",
-                    controller: "mapSearchController",
+                    templateUrl: "interest/interest.view.client.html",
+                    controller: "interestController",
                     controllerAs: "model"
                 })
             .otherwise({ redirectTo: '/'});

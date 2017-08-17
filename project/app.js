@@ -10,3 +10,4 @@ console.log("Hello from project app.");
 
 require("./services/user.service.server");
 require("./services/profile.service.server");
+require("./services/interest.service.server");
