@@ -29,7 +29,7 @@ var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
 function localStrategy(username, password, done) {
     userModel
-        .findUserByCredentials({username: username, password: password})
+        .findUserByCredentials(username,password)
         .then(
             function(user) {
                 if (!user) { return done(null, false); }
@@ -68,19 +68,19 @@ function deserializeUser(user, done) {
 function login(req, res) {
     var username = req.body.username;
     var password = req.body.password;
-
-    userModel.findUserByCredentials(username, password)
-        .then(function (user){
-            if(!user){
-                res.status(401).send({'message': "User not found"});
-                return;
-            }
-            req.login(user, function(){
+    console.log(["server login: ", username, password])
+    if(username && password){
+        userModel.findUserByCredentials(username, password)
+            .then(function (user){
                 res.json(user);
+                return;
+            }, function (err){
+                res.sendStatus(404).send(err);
+                return;
             });
-        });
-    var user = req.user;
-    res.json(user);
+    } else{
+        res.sendStatus(403);
+    }
 }
 
 function logout(req, res) {

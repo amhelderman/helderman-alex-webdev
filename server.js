@@ -1,6 +1,7 @@
 var app = require('./express');
 var express = app.express;
 
+var passport = require('passport');
 var cookieParser=require('cookie-parser');
 var session = require('express-session');
 
@@ -12,10 +13,6 @@ app.use(session({
 app.use(cookieParser());
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
-
 
 
 var bodyParser = require('body-parser');
