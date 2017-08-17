@@ -30,8 +30,8 @@
                 })
             .when("/user/:userId",
                 {
-                    templateUrl: "user/views/profile.view.client.html",
-                    controller: "profileController",
+                    templateUrl: "user/views/account.view.client.html",
+                    controller: "accountController",
                     controllerAs: "model"
                 })
             .when("/profile/:userId",
