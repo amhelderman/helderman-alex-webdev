@@ -10,6 +10,7 @@ var profileSchema = mongoose.Schema({
     cool: {type: Number, default: 0},
     fun: {type: Number, default: 0},
     hot: {type: Number, default: 0},
+    bio: {type: String, default: ""},
     userId: {type: mongoose.Schema.ObjectId, ref:"UserInfoModel"}
 }, { collection: 'profileInfo'});
 

@@ -10,18 +10,18 @@
         var model = this;
         $window.model = model;
 
-        model.message = "Enter an interest!";
-        var userId = $routeParams['userId'];
 
         function init(){
             console.log("interestController.")
         }
         init();
 
+        model.message = "Enter an interest!";
+        var userId = $routeParams['userId'];
+
         model.submitInterest = function(){
             model.interest = {label: model.bio,
                              userId: userId};
-
             //connect to API to get interests
             interestService.submitInterest(model.interest)
                 .then(function (response){

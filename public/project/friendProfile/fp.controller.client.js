@@ -5,7 +5,8 @@
         .module("WamApp")
         .controller("fpController", fpController)
 
-    function fpController($document, $routeParams, $window, $location, profileService, userService){
+    function fpController($document, $routeParams, $window, $location,
+                          profileService, userService, interestService){
         var model = this;
 
         model.message = "Edit your profile!";
@@ -47,6 +48,36 @@
                 console.log(["Setting user location to", model.profile.lat, model.profile.lng ]);
             }
         };
+
+
+        // Interests
+        model.generateInterests = function(){
+            model.interest = {label: model.bio,
+                userId: userId};
+            //connect to API to get interests
+            interestService.generateInterests(model.interest)
+                .then(function (response){
+                    var interests = response.data["@graph"];
+                    console.log(["updateBio...", interests]);
+
+                    model.interests = [];
+                    for (var i in interests){
+                        var currentInterest = interests[i];
+
+                        // The interest must be defined and not in list already.
+                        console.log(["Pushing ", currentInterest.label]);
+                        if((currentInterest.label) &&
+                            (model.interests.indexOf(currentInterest.label) === -1)){
+                            model.interests.push(currentInterest.label);
+                        }
+                    }
+
+                    console.log(model.interests)
+                })
+        };
+
+
+        // Some things must be executed at page load.
         function init(){
             console.log("fpController.")
 

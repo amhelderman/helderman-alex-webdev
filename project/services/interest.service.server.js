@@ -102,16 +102,12 @@ function interestTest(req, res){
             bodyChunks.push(chunk);
         }).on('end', function() {
             var body = Buffer.concat(bodyChunks);
-            //
-            // console.log(["yeah..........", body]);
-            // var labels = body['@graph'];
-
             myRes.send(body);
         })
     }
-    var req = https.get(options, callback);
+    var primalReq = https.get(options, callback);
 
-    req.on('error', function(e) {
+    primalReq.on('error', function(e) {
         console.log('ERROR: ' + e.message);
         myRes.status(404);
     });

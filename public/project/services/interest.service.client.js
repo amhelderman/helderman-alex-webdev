@@ -5,12 +5,13 @@
 
     function interestService($http)
     {
-        this.submitInterest = submitInterest;
-        this.removeInterest = removeInterest;
+        // Individual interests can still be CRUD edited.
+        this.generateInterests = generateInterests;
         this.getInterestsByUser = getInterestsByUser;
-        this.interestTest = interestTest;
+        this.updateInterest = updateInterest;
+        this.removeInterest = removeInterest;
 
-        function submitInterest(interest){
+        function generateInterests(interest){
             console.log(["interest service client submitInterest", interest]);
             return $http.post("/ratemyfriend/api/interest/", interest);
         }
@@ -19,13 +20,13 @@
             return $http.get("/ratemyfriend/api/interest/", userId);
         }
         function removeInterest(interest){
-            console.log(["interest service client removeInterest", interest]);
-            return $http.delete("/ratemyfriend/api/interest/", interest);
+            // console.log(["interest service client removeInterest", interest]);
+            // return $http.delete("/ratemyfriend/api/interest/", interest);
         }
 
-        function interestTest(){
-
-
+        function updateInterest(){
+            // console.log(["interest service client removeInterest", interest]);
+            // return $http.delete("/ratemyfriend/api/interest/", interest);
         }
     }
 })();

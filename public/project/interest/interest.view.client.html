@@ -1,31 +1,24 @@
 
 <div>
-<label for="bio">Please write your bio.</label>
-</div>
-<div>
-    <textarea id="bio" rows="4" cols="50"
-               class="amh-input "
-               ng-model="model.bio"
-              placeholder="I'm a big fan of pizza, dancing, swimming..."></textarea>
-</div>
-<div>
     <input type="submit"
            class="amh-input btn btn-success"
-           ng-click="model.submitInterest()"
-           value="Submit">
-    <input type="submit"
-           class="amh-input btn btn-success"
-           ng-click="model.removeInterest()"
-           value="Remove">
+           ng-click="model.generateInterests()"
+           value="Generate Interests based on bio!">
 </div>
 
 <div>
     Interests: {{model.interests}}.
 </div>
+Click on an interest to remove:
 <div>
     <ul>
         <li ng-repeat="interest in model.interests">
-            {{interest}}
+            <a class="amh-input btn btn-success"
+                    ng-click="model.removeInterest()"
+               value="Remove">
+                {{interest}}
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
         </li>
     </ul>
 </div>
