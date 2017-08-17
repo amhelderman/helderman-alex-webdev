@@ -1,28 +1,3 @@
-<!------------------------------------------------>
-<!--Load Facebook SDK-->
-<script>
-    window.fbAsyncInit = function() {
-        console.log("fb asynchronous is loaded");
-        FB.init({
-            appId      : 852027658298964,
-            xfbml      : true,
-            version    : 'v2.1'
-        });
-
-    };
-
-
-    (function(d, s, id){
-        console.log("Facebook Script Initialization:");
-        console.log([d, s, id]);
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-
 
 <div ng-include="'navbar.html'"></div>
 

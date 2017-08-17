@@ -23,7 +23,10 @@
                 {
                     templateUrl: "user/views/register.view.client.html",
                     controller: "registerController",
-                    controllerAs: "model"
+                    controllerAs: "model",
+                    resolve: {
+                        qweqweqwe: checkLoggedIn
+                    }
                 })
             .when("/user/:userId",
                 {
@@ -58,41 +61,38 @@
             .otherwise({ redirectTo: '/'});
 
     }
+
+    function checkLoggedIn($q,  userService){
+        var deferred = $q.defer();
+        userService.checkLogin()
+            .then(function (user) {
+                if (user === "0") {
+                    deferred.reject();
+                } else {
+                    deferred.resolve(user);
+                }
+            });
+        return deferred.promise;
+    }
+
+    function checkIsAdmin($q, $http, $location, $rootscope){
+        var deferred = $q.defer();
+
+        $http.get('/ratemyfriend/api/loggedin')
+            .then(function (user){
+                if(user !== '0'){
+                    $rootscope.currentUser = user;
+                    deferred.resolve();
+                } else{
+                    $rootscope.currentUser = null;
+                    deferred.reject();
+                    $location.url("/");
+                }
+            })
+    }
+
+
+
+
 })();
-
-
-function checkLoggedIn($q, $http, $location, $rootscope){
-    var deferred = $q.defer();
-
-    $http.get('/ratemyfriend/api/loggedin')
-        .then(function (user){
-            if(user !== '0'){
-                $rootscope.currentUser = user;
-                deferred.resolve();
-            } else{
-                $rootscope.currentUser = null;
-                deferred.reject();
-                $location.url("/");
-            }
-        })
-}
-
-
-function checkIsAdmin($q, $http, $location, $rootscope){
-    var deferred = $q.defer();
-
-    $http.get('/ratemyfriend/api/loggedin')
-        .then(function (user){
-            if(user !== '0'){
-                $rootscope.currentUser = user;
-                deferred.resolve();
-            } else{
-                $rootscope.currentUser = null;
-                deferred.reject();
-                $location.url("/");
-            }
-        })
-}
-
-
 

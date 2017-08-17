@@ -1,18 +1,19 @@
 var app = require("../../express");
 var userModel = require("../models/model/user.model.server");
 var passport      = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 var auth = authorized;
 
-app.post  ('/ratemyfriend/api/login',
-    passport.authenticate('local'),             login);
+app.post  ('/ratemyfriend/api/login', passport.authenticate('local'),  login);
 app.post  ('/ratemyfriend/api/logout',         logout);
 app.post  ('/ratemyfriend/api/register',       register);
 app.post  ('/ratemyfriend/api/user',     auth, createUser);
 app.get   ('/ratemyfriend/api/loggedin',       loggedin);
 app.get   ('/ratemyfriend/api/isadmin',       isAdmin);
 app.get   ('/ratemyfriend/api/user',     auth, findAllUsers);
-app.put   ('/ratemyfriend/api/user/:id', auth, updateUser);
-app.delete('/ratemyfriend/api/user/:id', auth, deleteUser);
+app.get   ('/ratemyfriend/api/user/:userId', auth, findUserById);
+app.put   ('/ratemyfriend/api/user/:userId', auth, updateUser);
+app.delete('/ratemyfriend/api/user/:userId', auth, deleteUser);
 
 /********* Passport configuration *************/
 
@@ -25,18 +26,23 @@ function authorized (req, res, next) {
 }
 
 // Configure Local Strategy
-var LocalStrategy = require('passport-local').Strategy;
 passport.use(new LocalStrategy(localStrategy));
 function localStrategy(username, password, done) {
     userModel
         .findUserByCredentials(username,password)
         .then(
             function(user) {
-                if (!user) { return done(null, false); }
+                console.log("Local strategy has determined the user to be:");
+                console.log(user);
+                if (!user) {
+                    return done(null, false);
+                }
                 return done(null, user);
             },
             function(err) {
-                if (err) { return done(err); }
+                if (err) {
+                    return done(err);
+                }
             });
 }
 
@@ -66,21 +72,9 @@ function deserializeUser(user, done) {
 
 // Implementation
 function login(req, res) {
-    var username = req.body.username;
-    var password = req.body.password;
-    console.log(["server login: ", username, password])
-    if(username && password){
-        userModel.findUserByCredentials(username, password)
-            .then(function (user){
-                res.json(user);
-                return;
-            }, function (err){
-                res.sendStatus(404).send(err);
-                return;
-            });
-    } else{
-        res.sendStatus(403);
-    }
+    console.log(["Login Request has been received by the server and authorized", user]);
+    var user = req.user;
+    res.json(user);
 }
 
 function logout(req, res) {
@@ -116,7 +110,6 @@ function isAdmin(req, res){
 
 
 /***********************************************/
-
 function findAllUsers(req, res){
     console.log("user server - findAllusers")
     userModel.find().then(function(response){ res.send(response)});
@@ -188,11 +181,9 @@ function findUserByUsernameAndPassword(req, res){
 }
 
 function findUserById(req, res) {
-    console.log("find111 UserByID "+req.params.userId);
+    console.log(["ALEXXXXXXXX", req.params.userId]);
     userModel.findUserById(req.params.userId)
         .then(function(user){
-            console.log("WE FOUND HER");
-            console.log(user);
             res.json(user);
         })
 }

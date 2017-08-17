@@ -31,15 +31,10 @@ function createUser(user){
         });
 }
 function findUserById(userId){
-    console.log("findUserById");
-    console.log(userId);
-    return userModel.findById(userId).then(function (response){
-       return response;
-    });
+    return userModel.findById(userId);
 }
 function findUserByCredentials(username, password) {
     console.log(["finding user by credentials", username, password]);
-    console.log([username, password]);
     return userModel.findOne({username: username, password: password});
 }
 

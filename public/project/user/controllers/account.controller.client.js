@@ -16,14 +16,15 @@
         model.message = "Welcome, user!";
 
         function init(){
-            console.log("accountController.");
-            console.log("accountController finding user"+userId);
+            console.log(["Account trying to get user using id ", userId]);
             userService.getUser(userId)
                 .then(function(response){
                     model.user = response.data;
-                    model.message = "Welcome, "+model.user.username+"!";
-                    if(model.user === null){
-                        console.log("User is null - going to login page!");
+                    console.log(["Account controller checking login status", model.user]);
+                    if(model.user) {
+                        console.log(["Account Controller - getUser: ", model.user]);
+                        model.message = "Welcome, " + model.user.username + "!";
+                    }else{
                         $location.url("/login");
                     }
                 })
@@ -35,11 +36,9 @@
         };
 
         model.updateUser = function(){
-            console.log("accountController  - client - updateUser ");
             userService.updateUser(model.user._id, model.user);
         };
         model.deleteUser = function(){
-            console.log("accountController  - client - deleteUser ");
             userService.deleteUser(model.user._id);
         };
     }

@@ -28,17 +28,14 @@
         };
 
         model.login = function(){
-            console.log("Log in");
             userService.login(model.user).then(
                 function(response){
-                    console.log(".........got user");
-                    console.log(response);
                     model.user = response.data;
-                    if(model.user === null){
-                        console.log("User is not found");
+                    if(!model.user){
+                        console.log(["Login Failure:", model.user]);
                         model.message = "User not found.";
                     } else{
-                        console.log("User is not found");
+                        console.log(["Login Success:", model.user]);
                         model.message = "Logged in as "+model.user.username+"!";
                         $location.url("/user/"+model.user._id);
                     }
