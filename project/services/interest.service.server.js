@@ -5,7 +5,7 @@ app.get("/ratemyfriend/api/interest/:userId", getInterestsByUser);
 // app.delete("/ratemyfriend/api/interest/:profileId", removeInterest);
 
 
-console.log("interest service loaded.");
+// console.log("interest service loaded.");
 
 function submitInterest(req, res){
     // var interest = req.body;
@@ -28,24 +28,28 @@ function removeInterest(req, res){
 // https://stackoverflow.com/questions/9577611/http-get-request-in-node-js-express
 function interestTest(req, res){
 
+    // console.log(["request", req]);
+    var interest = req.body;
+    console.log("ALEX, INTEREST TEST HAS RECEIVED YOUR INTEREST"+interest)
+
     var https = require('https');
     var myRes = res;
-    console.log(["here it is", myRes]);
+    // console.log(["here it is", myRes]);
 
-    console.log(["GOT PROCESSS VARIABLES: ",{'Primal-App-ID': process.env.PRIMAL_APP_ID,
-        'Primal-App-Key': process.env.PRIMAL_APP_KEY}] );
+    // console.log(["GOT PROCESSS VARIABLES: ",{'Primal-App-ID': process.env.PRIMAL_APP_ID,
+    //     'Primal-App-Key': process.env.PRIMAL_APP_KEY}] );
 
     var options = {
         auth: process.env.PRIMAL_USERNAME+':'+process.env.PRIMAL_PASSWORD,
         host: 'api.primal.com',
         headers: {'Primal-App-ID': process.env.PRIMAL_APP_ID,
                  'Primal-App-Key': process.env.PRIMAL_APP_KEY},
-        path: '/v2/recommendations?q=cars&maxContentItems=5',
+        path: '/v2/recommendations?q='+interest.label+'&maxContentItems=5',
         method: 'GET'
     };
     function callback (res) {
-        console.log('STATUS: ' + res.statusCode);
-        console.log('HEADERS: ' + JSON.stringify(res.headers));
+        // console.log('STATUS: ' + res.statusCode);
+        // console.log('HEADERS: ' + JSON.stringify(res.headers));
 
         var bodyChunks = [];
         res.on('data', function(chunk) {

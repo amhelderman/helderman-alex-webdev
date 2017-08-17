@@ -10,8 +10,7 @@
         this.getInterestsByUser = getInterestsByUser;
         this.interestTest = interestTest;
 
-        function submitInterest(i){
-            var interest =null;
+        function submitInterest(interest){
             console.log(["interest service client submitInterest", interest]);
             return $http.post("/ratemyfriend/api/interest/", interest);
         }
