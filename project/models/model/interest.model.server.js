@@ -10,7 +10,7 @@ module.exports = interestModel;
 interestModel.getInterestByLabel = getInterestByLabel;
 interestModel.createInterest = createInterest;
 interestModel.findInterestById=findInterestById;
-interestModel.findInterestByUser = findInterestByUser;
+interestModel.findInterestsByUser = findInterestsByUser;
 interestModel.updateInterest = updateInterest;
 interestModel.deleteInterest=deleteInterest;
 
@@ -25,7 +25,7 @@ function createInterest(interest){
 function findInterestById(interestId){
     return interestModel.findOne({_id: interestId});
 }
-function findInterestByUser(userId){
+function findInterestsByUser(userId){
     return interestModel.find({userId: userId});
 }
 function updateInterest(interestId, interest){

@@ -29,7 +29,10 @@ function findInterestById(req, res){
 function getInterestsByUser(req, res){
     var userId = req.params.userId;
     console.log(["SERVER getInterestByUserId", userId]);
-    res.status([{name: "swimming"}, {name: "running"}]);
+    interestModel.findInterestsByUser(userId)
+        .then(function(interests){
+            res.send(interests);
+        })
 }
 function updateInterest(req, res){
     interestModel.updateInterest(req.body, req.params.interestId)
