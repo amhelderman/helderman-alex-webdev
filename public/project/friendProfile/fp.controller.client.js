@@ -5,7 +5,7 @@
         .module("WamApp")
         .controller("fpController", fpController)
 
-    function fpController($document, $routeParams, $window, $location,
+    function fpController($document, $scope, $routeParams, $window, $location,
                           profileService, userService, interestService){
         var model = this;
 
@@ -29,6 +29,8 @@
                         model.message = "Error - profile was not updated.";
                     }
                 });
+
+            model.generateInterests();
         };
 
         model.getUserLocation = function () {
@@ -104,7 +106,13 @@
                     if(model.message.firstName !== null){
                         model.message = "Welcome, "+model.profile.firstName+"!";
                     }
-                })
+                });
+
+
+            interestService.getInterestsByUser(userId)
+                .then(function(response){
+                    model.interests = response.data;
+                });
         }
         init();
 

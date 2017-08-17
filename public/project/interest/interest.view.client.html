@@ -1,18 +1,22 @@
-
-<div>
-    <input type="submit"
+<div class="amh-spacer">
+    <input type="button"
            class="amh-input btn btn-success"
            ng-click="model.generateInterests()"
            value="Generate Interests based on bio!">
 </div>
 
-<div>
-    Interests: {{model.interests}}.
+
+<div class="amh-spacer">
+    <input type="text" ng-model="model.interestAddition">
+    <input type="button"
+           class="amh-input btn btn-success"
+           ng-click="model.addInterest()"
+           value="Add specific interest!">
 </div>
-Click on an interest to remove:
-<div>
+<div class="amh-spacer">
     <ul>
-        <li ng-repeat="interest in model.interests">
+        <li class="amh-interest"
+            ng-repeat="interest in model.interests">
             <a class="amh-input btn btn-success"
                     ng-click="model.removeInterest()"
                value="Remove">
