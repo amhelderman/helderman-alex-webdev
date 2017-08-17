@@ -6,28 +6,25 @@ var interestModel = mongoose.model("interestInfoModel", interestSchema);
 
 
 module.exports = interestModel;
+// CRUD
 interestModel.createInterest = createInterest;
-interestModel.updateInterest = updateInterest;
 interestModel.findInterestById=findInterestById;
 interestModel.findInterestByUser = findInterestByUser;
+interestModel.updateInterest = updateInterest;
 interestModel.deleteInterest=deleteInterest;
 
 function createInterest(interest){
     return interestModel.create(interest);
 }
 function findInterestById(interestId){
-    return interestModel.find({_id: interestId});
+    return interestModel.findOne({_id: interestId});
 }
 function findInterestByUser(userId){
     return interestModel.find({userId: userId});
 }
 function updateInterest(interestId, interest){
-    console.log("updateinterest - interestId, then interest", interestId, interest);
     return interestModel.update({_id: interestId}, {$set: interest});
 }
 function deleteInterest(interestId){
-    return interestModel.findById(interestId).remove()
-        .then(function (status){
-            return status;
-        })
+    return interestModel.findById(interestId).remove();
 }

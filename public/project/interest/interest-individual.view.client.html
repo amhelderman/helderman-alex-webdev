@@ -1,0 +1,19 @@
+
+
+<div class="amh-spacer">
+    <h1>Detail for interest: {{model.interest}}</h1>
+</div>
+
+<div class="amh-spacer">
+    Users that also like this interest:
+    <ul>
+        <li class="amh-interest"
+            ng-repeat="profileWhoLikesInterest in model.profilesWhoLikeInterest">
+            {{profileWhoLikesInterest.firstName}} likes this interest.
+            <a class="amh-input btn btn-success"
+               ng-click="model.goToUser(profileWhoLikesInterest)">
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </a>
+        </li>
+    </ul>
+</div>

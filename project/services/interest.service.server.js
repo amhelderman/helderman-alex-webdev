@@ -1,4 +1,6 @@
 var app = require("../../express");
+var interestModel = require("../models/model/interest.model.server");
+
 
 // Auto-generation
 app.put("/ratemyfriend/api/interest/", submitInterestQuery);
