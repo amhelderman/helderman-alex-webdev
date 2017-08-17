@@ -3,15 +3,15 @@ var userModel = require("../models/model/user.model.server");
 var passport      = require('passport');
 var auth = authorized;
 
-// app.post  ('/ratemyfriend/api/login', login);
-// app.post  ('/ratemyfriend/api/logout',         logout);
-// app.post  ('/ratemyfriend/api/register',       register);
-// app.post  ('/ratemyfriend/api/user',     auth, createUser);
-// app.get   ('/ratemyfriend/api/loggedin',       loggedin);
-// app.get   ('/ratemyfriend/api/isadmin',       isAdmin);
-// app.get   ('/ratemyfriend/api/user',     auth, findAllUsers);
-// app.put   ('/ratemyfriend/api/user/:id', auth, updateUser);
-// app.delete('/ratemyfriend/api/user/:id', auth, deleteUser);
+app.post  ('/ratemyfriend/api/login', login);
+app.post  ('/ratemyfriend/api/logout',         logout);
+app.post  ('/ratemyfriend/api/register',       register);
+app.post  ('/ratemyfriend/api/user',     auth, createUser);
+app.get   ('/ratemyfriend/api/loggedin',       loggedin);
+app.get   ('/ratemyfriend/api/isadmin',       isAdmin);
+app.get   ('/ratemyfriend/api/user',     auth, findAllUsers);
+app.put   ('/ratemyfriend/api/user/:id', auth, updateUser);
+app.delete('/ratemyfriend/api/user/:id', auth, deleteUser);
 
 /********* Passport configuration *************/
 

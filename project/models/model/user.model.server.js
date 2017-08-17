@@ -38,7 +38,7 @@ function findUserById(userId){
     });
 }
 function findUserByCredentials(username, password) {
-    console.log("updateUser");
+    console.log(["finding user by credentials", username, password]);
     console.log([username, password]);
     return userModel.findOne({username: username, password: password});
 }

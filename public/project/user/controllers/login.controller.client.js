@@ -29,11 +29,9 @@
 
         model.login = function(){
             console.log("Log in");
-            var credentials = {username: model.user.username,
-                password: model.user.password};
-            userService.login(credentials).then(
+            userService.login(model.user).then(
                 function(response){
-                    console.log("got user");
+                    console.log(".........got user");
                     console.log(response);
                     model.user = response.data;
                     if(model.user === null){
