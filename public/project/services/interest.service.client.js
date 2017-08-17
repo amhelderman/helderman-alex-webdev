@@ -8,8 +8,10 @@
         this.submitInterest = submitInterest;
         this.removeInterest = removeInterest;
         this.getInterestsByUser = getInterestsByUser;
+        this.interestTest = interestTest;
 
-        function submitInterest(interest){
+        function submitInterest(i){
+            var interest =null;
             console.log(["interest service client submitInterest", interest]);
             return $http.post("/ratemyfriend/api/interest/", interest);
         }
@@ -20,6 +22,11 @@
         function removeInterest(interest){
             console.log(["interest service client removeInterest", interest]);
             return $http.delete("/ratemyfriend/api/interest/", interest);
+        }
+
+        function interestTest(){
+
+
         }
     }
 })();

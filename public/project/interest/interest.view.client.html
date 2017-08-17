@@ -21,10 +21,14 @@
 <div>
     The selected interest is {{model.interest}}.
 </div>
+
+<div>
+    Interests: {{model.interests}}.
+</div>
 <div>
     <ul>
-        <li ng-repeat="in in model.interests">
-            {{in}}
+        <li ng-repeat="interest in model.interests">
+            {{interest}}
         </li>
     </ul>
 </div>

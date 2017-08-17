@@ -5,7 +5,7 @@
         .module("WamApp")
         .controller("interestController", interestController)
 
-    function interestController($document, $routeParams, $window, $location,
+    function interestController($scope, $document, $routeParams, $window, $location,
                                 interestService, profileService, userService){
         var model = this;
 
@@ -13,17 +13,20 @@
 
         var userId = $routeParams['userId'];
         model.interest = "pizza";
-
+        model.interests = [{label: "pizza"}, {label: "pie"}];
         $window.model = model;
 
         function init(){
             console.log("interestController.")
             model.interest.users = [userId];
-            interestService.getInterestsByUser(userId)
-                .then(function (interests){
-                    console.log(["Received these interests:", intersests]);
-                    model.interests = interests;
-                })
+
+            interestService.interestTest();
+
+            // interestService.getInterestsByUser(userId)
+            //     .then(function (interests){
+            //         console.log(["Received these interests:", intersests]);
+            //         model.interests = interests;
+            //     })
         }
         init();
 
@@ -32,9 +35,48 @@
             //connect to API to get interests
             interestService.submitInterest(model.interest)
                 .then(function (response){
-                    console.log(["submitInterest...", response]);
+                    var interests = response.data["@graph"];
+                    console.log(["submitInterest...", interests]);
+
+                    model.interests = [];
+                    for (var i in interests){
+                        var currentInterest = interests[i];
+
+                        // The interest must be defined and not in list already.
+                        console.log(["Pushing ", currentInterest.label, (model.interests.indexOf(currentInterest.label) === -1)]);
+                        if((currentInterest.label) &&
+                            (model.interests.indexOf(currentInterest.label) === -1)){
+                            model.interests.push(currentInterest.label);
+                        }
+                    }
+
+                    console.log(model.interests)
                 })
-        }
+        };
+
+        model.interestTest = function(){
+
+            //connect to API to get interests
+            interestService.submitInterest(model.interest)
+                .then(function (response){
+                    var interests = response.data["@graph"];
+                    console.log(["submitInterest...", interests]);
+
+                    model.interests = [];
+                    for (var i in interests){
+                        var currentInterest = interests[i];
+
+                        // The interest must be defined and not in list already.
+                        console.log(["Pushing ", currentInterest.label, (model.interests.indexOf(currentInterest.label) === -1)]);
+                        if((currentInterest.label) &&
+                            (model.interests.indexOf(currentInterest.label) === -1)){
+                            model.interests.push(currentInterest.label);
+                        }
+                    }
+
+                    console.log(model.interests)
+                })
+        };
 
         model.removeInterest = function(){
 
@@ -43,7 +85,7 @@
                 .then(function (response){
                     console.log(["removeInterest...", response]);
                 })
-        }
+        };
 
     }
 
