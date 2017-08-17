@@ -7,6 +7,7 @@
     {
         // Auto generate interests
         this.generateInterests = generateInterests;
+        this.getInterestByLabel = getInterestByLabel;
 
         // Individual interests can still be CRUD edited.
         this.createInterest = createInterest;
@@ -21,6 +22,14 @@
             console.log(["interest service client submitInterest", interest]);
             return $http.post("/ratemyfriend/api/interest/", interest);
         }
+
+
+        // Get interest by label
+        function getInterestByLabel(label){
+            return $http.get("/ratemyfriend/api/interestDetail/"+label);
+        }
+
+
 
         // CRUD
         function createInterest(interest){

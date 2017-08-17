@@ -49,6 +49,12 @@
                     controller: "interestController",
                     controllerAs: "model"
                 })
+            .when("/interest-detail/:interestLabel",
+                {
+                    templateUrl: "interest/interest-detail.view.client.html",
+                    controller: "interestDetailController",
+                    controllerAs: "model"
+                })
             .otherwise({ redirectTo: '/'});
 
     }

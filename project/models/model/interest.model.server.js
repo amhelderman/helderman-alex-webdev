@@ -7,11 +7,17 @@ var interestModel = mongoose.model("interestInfoModel", interestSchema);
 
 module.exports = interestModel;
 // CRUD
+interestModel.getInterestByLabel = getInterestByLabel;
 interestModel.createInterest = createInterest;
 interestModel.findInterestById=findInterestById;
 interestModel.findInterestByUser = findInterestByUser;
 interestModel.updateInterest = updateInterest;
 interestModel.deleteInterest=deleteInterest;
+
+
+function getInterestByLabel(label){
+    return interestModel.findOne({label: label});
+}
 
 function createInterest(interest){
     return interestModel.create(interest);

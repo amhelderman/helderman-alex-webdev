@@ -5,6 +5,9 @@ var interestModel = require("../models/model/interest.model.server");
 // Auto-generation
 app.put("/ratemyfriend/api/interest/", submitInterestQuery);
 
+// getting interest by label
+app.get("/ratemyfriend/api/interestDetail/:label", getInterestByLabel);
+
 // CRUD
 app.post("/ratemyfriend/api/interest", createInterest);
 app.get("/ratemyfriend/api/interest/:interestId", findInterestById);
@@ -59,6 +62,27 @@ function submitInterestQuery(req, res){
         myRes.status(404);
     });
 }
+
+
+// Get interest by label
+function getInterestByLabel(req, res){
+    var label = req.params.label;
+    console.log(["server finding interest by label", label])
+    interestModel.getInterestByLabel(label)
+        .then(function (interest){
+            console.log(["server found interest by label", label, interest])
+            if(interest){
+                res.send(interest);
+            }
+            else{
+                res.send('0');
+            }
+        })
+        .catch(function (err){
+            res.status(0);
+        })
+}
+
 
 
 // CRUD commands
