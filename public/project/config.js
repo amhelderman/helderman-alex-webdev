@@ -17,10 +17,7 @@
                 {
                     templateUrl: "user/views/login.view.client.html",
                     controller: "loginController",
-                    controllerAs: "model",
-                    resolve:{
-                        loggedin: checkLoggedIn
-                    }
+                    controllerAs: "model"
                 })
             .when("/register",
                 {

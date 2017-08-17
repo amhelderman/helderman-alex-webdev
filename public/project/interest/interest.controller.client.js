@@ -8,13 +8,10 @@
     function interestController($scope, $document, $routeParams, $window, $location,
                                 interestService, profileService, userService){
         var model = this;
+        $window.model = model;
 
         model.message = "Enter an interest!";
-
         var userId = $routeParams['userId'];
-        // model.interest = {label: "pizza"};
-        // model.interests = [{label: "pizza"}, {label: "pie"}];
-        $window.model = model;
 
         function init(){
             console.log("interestController.")
@@ -36,7 +33,7 @@
                         var currentInterest = interests[i];
 
                         // The interest must be defined and not in list already.
-                        console.log(["Pushing ", currentInterest.label, (model.interests.indexOf(currentInterest.label) === -1)]);
+                        console.log(["Pushing ", currentInterest.label]);
                         if((currentInterest.label) &&
                             (model.interests.indexOf(currentInterest.label) === -1)){
                             model.interests.push(currentInterest.label);

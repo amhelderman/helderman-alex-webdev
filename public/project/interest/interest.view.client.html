@@ -1,22 +1,23 @@
-<h1 class="amh-header">User Interests</h1>
-<div ng-include="'navbar.html'"></div>
 
-
-<label for="interestQuery">
-    Please write your bio.
-</label>
-<input type="text"
-       class="amh-input "
-       ng-model="model.bio"
-    placeholder="pizza, dancing, swimming">
-<input type="submit"
-       class="amh-input btn btn-success"
-       ng-click="model.submitInterest()"
-       value="Submit">
-<input type="submit"
-       class="amh-input btn btn-success"
-       ng-click="model.removeInterest()"
-       value="Remove">
+<div>
+<label for="bio">Please write your bio.</label>
+</div>
+<div>
+    <textarea id="bio" rows="4" cols="50"
+               class="amh-input "
+               ng-model="model.bio"
+              placeholder="I'm a big fan of pizza, dancing, swimming..."></textarea>
+</div>
+<div>
+    <input type="submit"
+           class="amh-input btn btn-success"
+           ng-click="model.submitInterest()"
+           value="Submit">
+    <input type="submit"
+           class="amh-input btn btn-success"
+           ng-click="model.removeInterest()"
+           value="Remove">
+</div>
 
 <div>
     Interests: {{model.interests}}.

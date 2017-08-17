@@ -36,32 +36,32 @@
         }
 
         function createUser(user){
-            // /* Handle user check at client level */
-            // console.log("user service: createUser user "+user.username);
-            // var url = "/ratemyfriend/api/user/";
-            // return $http.post(url, user);
+            /* Handle user check at client level */
+            console.log("user service: createUser user "+user.username);
+            var url = "/ratemyfriend/api/user/";
+            return $http.post(url, user);
         }
 
         function getUser(userId){
-            // console.log("Project - User Service Client - getUser "+userId);
-            // var url = "/ratemyfriend/api/user/"+userId;
-            // return $http.get(url).then(function(response){
-            //     console.log("GET USER IN SERVICE: response");
-            //     console.log(response);
-            //     return response;
-            // })
+            console.log("Project - User Service Client - getUser "+userId);
+            var url = "/ratemyfriend/api/user/"+userId;
+            return $http.get(url).then(function(response){
+                console.log("GET USER IN SERVICE: response");
+                console.log(response);
+                return response;
+            })
         }
 
         function updateUser(userId, user){
-            // console.log("Project - User Service Client - updateUser "+userId);
-            // var url = "/ratemyfriend/api/user/"+userId;
-            // return $http.put(url, user);
+            console.log("Project - User Service Client - updateUser "+userId);
+            var url = "/ratemyfriend/api/user/"+userId;
+            return $http.put(url, user);
         }
 
         function deleteUser(userId){
-            // console.log("Project - User Service Client - deleteUser "+userId);
-            // var url = "/ratemyfriend/api/user/"+userId;
-            // return $http.delete(url);
+            console.log("Project - User Service Client - deleteUser "+userId);
+            var url = "/ratemyfriend/api/user/"+userId;
+            return $http.delete(url);
         }
 
 
