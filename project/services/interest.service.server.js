@@ -15,17 +15,26 @@ app.put("/ratemyfriend/api/interest/:interestId", updateInterest);
 app.delete("/ratemyfriend/api/interest/:interestId", deleteInterest);
 
 function createInterest(req, res){
+    console.log("CREATING INTEREST", req.body)
     interestModel.createInterest(req.body)
         .then(function(status){
             res.status(status);
         });
 }
+
+function _createInterest(interest){
+    console.log("CREATING INTEREST", interest)
+    interestModel.createInterest(interest);
+}
+
+
 function findInterestById(req, res){
     interestModel.findInterestById(req.params.interestId)
         .then(function(status){
             res.status(status);
         });
 }
+
 function getInterestsByUser(req, res){
     var userId = req.params.userId;
     console.log(["SERVER getInterestByUserId", userId]);
@@ -34,12 +43,14 @@ function getInterestsByUser(req, res){
             res.send(interests);
         })
 }
+
 function updateInterest(req, res){
     interestModel.updateInterest(req.body, req.params.interestId)
         .then(function(status){
             res.status(status);
         });
 }
+
 function deleteInterest(req, res){
     console.log(["SERVER deleteInterest", req.params.interest]);
     interestModel.deleteInterest(req.params.interest)
@@ -70,14 +81,11 @@ function getInterestByLabel(req, res){
 /******************************************************/
 // Auto-generation from user's bio.
 
-function generateInterests(req, res){
 
+function generateInterests(req, myResponse){
+    var bio = req.body;
     var https = require('https');
-    var myRes = res;
 
-    var interest = req.body;
-    console.log("server - generateInterests "
-        +interest.label+" from user "+interest.userId);
 
     // Make sure the environment is set up.
     if(!(process.env.PRIMAL_APP_ID && process.env.PRIMAL_APP_KEY)){
@@ -91,26 +99,29 @@ function generateInterests(req, res){
         host: 'api.primal.com',
         headers: {'Primal-App-ID': process.env.PRIMAL_APP_ID,
             'Primal-App-Key': process.env.PRIMAL_APP_KEY},
-        path: '/v2/recommendations?q='+encodeURIComponent(interest.label)+'&maxContentItems=5',
+        path: '/v2/recommendations?q='+encodeURIComponent(bio.label)+'&maxContentItems=5',
         method: 'GET'
     };
     function callback (res) {
-        // console.log('STATUS: ' + res.statusCode);
-        // console.log('HEADERS: ' + JSON.stringify(res.headers));
 
         var bodyChunks = [];
         res.on('data', function(chunk) {
             bodyChunks.push(chunk);
         }).on('end', function() {
+
+            // Give the interests back to caller
             var body = Buffer.concat(bodyChunks);
-            myRes.send(body);
+            myResponse.send(body);
+
         })
     }
     var primalReq = https.get(options, callback);
 
     primalReq.on('error', function(e) {
+
+        // tell the caller it didn't work.
         console.log('ERROR: ' + e.message);
-        myRes.status(404);
+        myResponse.send(401);
+
     });
 }
-

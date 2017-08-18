@@ -13,16 +13,17 @@
            ng-click="model.addInterest()"
            value="Add specific interest!">
 </div>
+
+
 <div class="amh-spacer">
     <ul>
-        <li class="amh-interest"
-            ng-repeat="interest in model.interests">
-            <a class="amh-input btn btn-success"
-                    ng-click="model.removeInterest()"
-               value="Remove">
-                {{interest}}
-                <span class="glyphicon glyphicon-remove"></span>
-            </a>
+        <li class="amh-interest" ng-repeat="interest in model.interests">
+                <a class="amh-input btn btn-success"
+                        ng-click="model.removeInterest()">
+                    {{interest.label}}
+                    <span class="glyphicon glyphicon-remove"></span>
+                </a>
         </li>
     </ul>
 </div>
+

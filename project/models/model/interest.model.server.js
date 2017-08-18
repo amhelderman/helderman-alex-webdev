@@ -20,6 +20,7 @@ function getInterestByLabel(label){
 }
 
 function createInterest(interest){
+    console.log("interest model, creating interest", interest.label)
     return interestModel.create(interest);
 }
 function findInterestById(interestId){

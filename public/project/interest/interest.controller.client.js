@@ -23,7 +23,7 @@
             model.interest = {label: model.bio,
                              userId: userId};
             //connect to API to get interests
-            interestService.submitInterest(model.interest)
+            interestService.generateInterests(model.interest)
                 .then(function (response){
                     var interests = response.data["@graph"];
                     console.log(["submitInterest...", interests]);

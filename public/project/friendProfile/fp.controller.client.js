@@ -59,7 +59,7 @@
             //connect to API to get interests
             interestService.generateInterests(model.interest)
                 .then(function (response){
-                    var interests = response.data["@graph"];
+                    var interests = response;
                     console.log(["updateBio...", interests]);
 
                     model.interests = [];
@@ -70,7 +70,7 @@
                         console.log(["Pushing ", currentInterest.label]);
                         if((currentInterest.label) &&
                             (model.interests.indexOf(currentInterest.label) === -1)){
-                            model.interests.push(currentInterest.label);
+                            model.interests.push(currentInterest);
                         }
                     }
 

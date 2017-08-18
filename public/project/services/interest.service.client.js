@@ -18,9 +18,28 @@
 
 
         // Auto Generate
-        function generateInterests(interest){
-            console.log(["interest service client submitInterest", interest]);
-            return $http.post("/ratemyfriend/api/interest/", interest);
+        function generateInterests(bio){
+            console.log(["interest service client generateInterests", bio]);
+            return $http.put("/ratemyfriend/api/interest/", bio).then(function(response){
+                console.log(response.data);
+                var data = response.data;
+                if(data){
+                    var inputInterests = data["@graph"].splice(0,5);
+
+                    for(var i in inputInterests) {
+                        var completedInterest = inputInterests[i];
+
+                        completedInterest.users = [];
+                        completedInterest.users.push(bio.userId);
+
+                        if(completedInterest){
+                            createInterest(completedInterest);
+                        }
+                    }
+                    return inputInterests;
+                }
+
+            })
         }
 
 
