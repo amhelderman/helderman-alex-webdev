@@ -12,7 +12,12 @@ userModel.updateUser = updateUser;
 userModel.findUserById = findUserById;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.deleteUser=deleteUser;
+userModel.findUserByGoogleId = findUserByGoogleId;
 
+
+function findUserByGoogleId(gID){
+    return userModel.findOne({googleId: gID});
+}
 
 function updateUser(userId, user){
     console.log("updateUser");
