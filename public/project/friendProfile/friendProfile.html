@@ -113,7 +113,7 @@
     <!-- Bio - used to generate user interests-->
     <div class="amh-spacer">
         <div>
-            <label for="bio">Please write your bio.</label>
+            <label for="bio">Bio:</label>
         </div>
         <div>
         <textarea id="bio" rows="4" cols="50"
@@ -122,36 +122,43 @@
               placeholder="I'm a big fan of pizza, dancing, swimming..."></textarea>
         </div>
     </div>
-...............
+
+
     <!--Show interests 'widget' -->
     <div class="amh-spacer">
         <div ng-include="'interest/interest.view.client.html'"></div>
     </div>
-...........................
+
     <!--FRIEND POINTS-->
-    <div class="amh-skill">
-        Reliable: {{model.profile.reliable}} points
+    <div class="amh-spacer">
+        <div class="amh-spacer">
+    <div class="amh-spacer">
+        <div class="amh-skill">
+            Reliable: {{model.profile.reliable}} points
 
-        <span ng-click="model.profile.reliable = model.profile.reliable + 1"
-              class="glyphicon glyphicon-plus"></span>
+            <span ng-click="model.profile.reliable = model.profile.reliable + 1"
+                  class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="amh-skill">
+            Cool: {{model.profile.cool}} points
+
+            <span ng-click="model.profile.cool = model.profile.cool + 1""
+                  class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="amh-skill">
+            Fun: {{model.profile.fun}} points
+
+            <span ng-click="model.profile.fun = model.profile.fun + 1""
+                  class="glyphicon glyphicon-plus"></span>
+        </div>
+        <div class="amh-skill">
+            Good-looking: {{model.profile.hot}} points
+
+            <span ng-click="model.profile.hot = model.profile.hot + 1""
+                  class="glyphicon glyphicon-plus"></span>
+        </div>
     </div>
-    <div class="amh-skill">
-        Cool: {{model.profile.cool}} points
-
-        <span ng-click="model.profile.cool = model.profile.cool + 1""
-              class="glyphicon glyphicon-plus"></span>
     </div>
-    <div class="amh-skill">
-        Fun: {{model.profile.fun}} points
-
-        <span ng-click="model.profile.fun = model.profile.fun + 1""
-              class="glyphicon glyphicon-plus"></span>
-    </div>
-    <div class="amh-skill">
-        Good-looking: {{model.profile.hot}} points
-
-        <span ng-click="model.profile.hot = model.profile.hot + 1""
-              class="glyphicon glyphicon-plus"></span>
     </div>
 
 

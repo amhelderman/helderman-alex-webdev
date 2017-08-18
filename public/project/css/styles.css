@@ -59,7 +59,7 @@ html, body {
 
 .amh-interest{
     float: left;
-    display: block;
+    display: inline-text;
 }
 
 

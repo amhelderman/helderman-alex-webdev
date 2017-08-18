@@ -3,7 +3,7 @@
         .module("WamApp")
         .service("interestService", interestService);
 
-    function interestService($http)
+    function interestService($http, profileService)
     {
         // Auto generate interests
         this.generateInterests = generateInterests;

@@ -86,6 +86,14 @@
         };
 
 
+        // Facebook Photos:
+        function getFacebookPhotos(){
+            fbService.loginFacebook()
+                .then(function(response){
+                    console.log(["getFacebookPhotos", response]);
+                })
+        }
+
         // Some things must be executed at page load.
         function init(){
             console.log("fpController.")
