@@ -67,6 +67,18 @@
                     controller: "interestDetailController",
                     controllerAs: "model"
                 })
+            .when("/experiment1",
+                {
+                    templateUrl: "friendMap/mapDemo2.html",
+                    controller: "mapController",
+                    controllerAs: "model"
+                })
+            .when("/experiment2/:interestLabel",
+                {
+                    templateUrl: "interest/interest-detail.view.client.html",
+                    controller: "interestDetailController",
+                    controllerAs: "model"
+                })
             .otherwise({ redirectTo: '/'});
 
     }
