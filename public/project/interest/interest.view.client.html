@@ -17,12 +17,15 @@
 
 <div class="amh-spacer">
     <ul>
-        <li class="amh-interest" ng-repeat="interest in model.interests">
-                <a class="amh-input btn btn-success"
-                        ng-click="model.removeInterest()">
-                    {{interest.label}}
-                    <span class="glyphicon glyphicon-remove"></span>
-                </a>
+        <li class="amh-interest  btn btn-success" ng-repeat="interest in model.interests">
+
+            <a class="amh-input" ng-click="model.goToInterest(interest)">
+                {{interest.label}}
+            </a>
+
+            <a class="amh-input" ng-click="model.removeInterest(interest._id)">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
         </li>
     </ul>
 </div>

@@ -17,10 +17,10 @@
     Users that also like this interest:
     <ul>
         <li class="amh-interest"
-            ng-repeat="profileWhoLikesInterest in model.profilesWhoLikeInterest">
-            {{profileWhoLikesInterest.firstName}} likes this interest.
+            ng-repeat="profile in model.interest.profiles">
+            {{profile.firstName}} likes this interest.
             <a class="amh-input btn btn-success"
-               ng-click="model.goToUser(profileWhoLikesInterest)">
+               ng-click="model.goToProfile(profile)">
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </a>
         </li>

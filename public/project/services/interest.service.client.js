@@ -27,14 +27,17 @@
                     var inputInterests = data["@graph"].splice(0,5);
 
                     for(var i in inputInterests) {
-                        var completedInterest = inputInterests[i];
 
-                        completedInterest.users = [];
-                        completedInterest.users.push(bio.userId);
+                        profileService.getProfileByUser(bio.userId)
+                            .then(function (profile){
 
-                        if(completedInterest){
-                            createInterest(completedInterest);
-                        }
+                                var completedInterest = inputInterests[i];
+                                completedInterest.profileIDs.push(bio.userId);
+
+                                if(completedInterest){
+                                    createInterest(completedInterest);
+                                }
+                            })
                     }
                     return inputInterests;
                 }

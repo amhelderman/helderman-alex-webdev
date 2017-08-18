@@ -52,6 +52,13 @@
         };
 
 
+        model.goToInterest = function(interest){
+            var encodedLabel = encodeURIComponent(interest.label);
+            var url = "/interest-detail/" + encodedLabel;
+            console.log(["going to url", url]);
+            $location.url(url);
+        };
+
         // Interests
         model.generateInterests = function(){
             model.interest = {label: model.profile.bio,

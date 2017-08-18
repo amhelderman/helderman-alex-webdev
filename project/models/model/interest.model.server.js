@@ -21,6 +21,11 @@ function getInterestByLabel(label){
 
 function createInterest(interest){
     console.log("interest model, creating interest", interest.label)
+
+    if(!interest.profileIDs){
+        throw error("HEY, this interest has no profile");
+    }
+
     return interestModel.create(interest);
 }
 function findInterestById(interestId){

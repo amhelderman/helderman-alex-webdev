@@ -22,19 +22,29 @@ function createInterest(req, res){
         });
 }
 
-function _createInterest(interest){
-    console.log("CREATING INTEREST", interest)
-    interestModel.createInterest(interest);
-}
-
-
 function findInterestById(req, res){
     interestModel.findInterestById(req.params.interestId)
         .then(function(status){
             res.status(status);
         });
 }
-
+function getInterestByLabel(req, res){
+    var label = req.params.label;
+    console.log(["server finding interest by label", label])
+    interestModel.getInterestByLabel(label)
+        .then(function (interest){
+            console.log(["server found interest by label", label, interest])
+            if(interest){
+                res.send(interest);
+            }
+            else{
+                res.send('0');
+            }
+        })
+        .catch(function (err){
+            res.status(0);
+        })
+}
 function getInterestsByUser(req, res){
     var userId = req.params.userId;
     console.log(["SERVER getInterestByUserId", userId]);
@@ -61,25 +71,10 @@ function deleteInterest(req, res){
 
 /******************************************************/
 // Get interest by label
-function getInterestByLabel(req, res){
-    var label = req.params.label;
-    console.log(["server finding interest by label", label])
-    interestModel.getInterestByLabel(label)
-        .then(function (interest){
-            console.log(["server found interest by label", label, interest])
-            if(interest){
-                res.send(interest);
-            }
-            else{
-                res.send('0');
-            }
-        })
-        .catch(function (err){
-            res.status(0);
-        })
-}
+
+
 /******************************************************/
-// Auto-generation from user's bio.
+// SERVICE TO PRIMAL API
 
 
 function generateInterests(req, myResponse){
