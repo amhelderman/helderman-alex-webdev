@@ -1,9 +1,17 @@
+
+/*                      Require
+ *
+ */
 var app = require("../../express");
 var userModel = require("../models/model/user.model.server");
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var auth = authorized;
 
+
+/*                      API
+ *
+ */
 app.post  ('/ratemyfriend/api/login', passport.authenticate('local'),  login);
 app.post  ('/ratemyfriend/api/logout',         logout);
 app.post  ('/ratemyfriend/api/register',       register);
@@ -18,9 +26,9 @@ app.delete('/ratemyfriend/api/user/:userId', auth, deleteUser);
 
 
 
-/********* Passport configuration *************/
-//Google
-var passport       = require('passport');
+/*                      Passport Config - Google
+ *
+ */
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var googleConfig = {
@@ -33,8 +41,8 @@ app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'e
 
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/#/profile',
-        failureRedirect: '/#/login'
+        successRedirect: '#!/profile',
+        failureRedirect: '#!/login'
     }));
 
 function gAuthorized (req, res, next) {
@@ -85,9 +93,10 @@ function googleStrategy(token, refreshToken, profile, done) {
         );
 }
 
-/*************************/
-// Local
 
+/*                      Passport Config - Local
+ *
+ */
 function authorized (req, res, next) {
     if (!req.isAuthenticated()) {
         res.send(401);
@@ -95,50 +104,49 @@ function authorized (req, res, next) {
         next();
     }
 }
-
-// Configure Local Strategy
-passport.use(new LocalStrategy(localStrategy));
-function localStrategy(username, password, done) {
-    userModel
-        .findUserByCredentials(username,password)
-        .then(
-            function(user) {
-                console.log("Local strategy has determined the user to be:");
-                console.log(user);
-                if (!user) {
-                    return done(null, false);
-                }
-                return done(null, user);
-            },
-            function(err) {
-                if (err) {
-                    return done(err);
-                }
-            });
-}
-
-
-// Serialization / deserialization
-
-passport.serializeUser(serializeUser);
-passport.deserializeUser(deserializeUser);
-
-function serializeUser(user, done) {
-    done(null, user);
-}
-
-function deserializeUser(user, done) {
-    userModel
-        .findUserById(user._id)
-        .then(
-            function(user){
-                done(null, user);
-            },
-            function(err){
-                done(err, null);
-            }
-        );
-}
+//
+// passport.use(new LocalStrategy(localStrategy));
+// function localStrategy(username, password, done) {
+//     userModel
+//         .findUserByCredentials(username,password)
+//         .then(
+//             function(user) {
+//                 console.log("Local strategy has determined the user to be:");
+//                 console.log(user);
+//                 if (!user) {
+//                     return done(null, false);
+//                 }
+//                 return done(null, user);
+//             },
+//             function(err) {
+//                 if (err) {
+//                     return done(err);
+//                 }
+//             });
+// }
+//
+//
+// // Serialization / deserialization
+//
+// passport.serializeUser(serializeUser);
+// passport.deserializeUser(deserializeUser);
+//
+// function serializeUser(user, done) {
+//     done(null, user);
+// }
+//
+// function deserializeUser(user, done) {
+//     userModel
+//         .findUserById(user._id)
+//         .then(
+//             function(user){
+//                 done(null, user);
+//             },
+//             function(err){
+//                 done(err, null);
+//             }
+//         );
+// }
 
 
 // Implementation
@@ -187,7 +195,9 @@ function isAdmin(req, res){
 }
 
 
-/***********************************************/
+/*                      Security-Related API Definition
+ *
+ */
 function findAllUsers(req, res){
     console.log("user server - findAllusers")
     userModel.find().then(function(response){ res.send(response)});
@@ -206,6 +216,9 @@ function register(req, res){
         })
 }
 
+/*                      CRUD Operations
+ *
+ */
 function createUser(req, res){
     var user = req.body;
     console.log("Creating user ");
@@ -234,28 +247,6 @@ function updateUser(req, res){
         }, function(err){
             res.sendStatus(404).send(err);
         });
-}
-
-function findUserByUsernameAndPassword(req, res){
-    var username = req.query.username;
-    var password = req.query.password;
-    console.log("111finding the user '"+username+"' with password '"+password+"'...");
-
-    if(username && password){
-        console.log("username and password are filled in, so...");
-        userModel.findUserByCredentials(username, password)
-            .then(function (user) {
-                console.log(user);
-                res.json(user);
-                return;
-            }, function (err) {
-                res.sendStatus(404).send(err);
-                return;
-            })
-    } else{
-        console.log("username and password arent defined!");
-        res.sendStatus(0);
-    }
 }
 
 function findUserById(req, res) {

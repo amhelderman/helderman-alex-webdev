@@ -25,150 +25,174 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
-
-
 <form>
 
+<div class="row">
 
-    <!--User Photo-->
-    <span class="glyphicon glyphicon-user" style="font-size: 10em;"></span>
+    <div class="col-xs-6">
+
+        <!--User Photo-->
+        <span class="glyphicon glyphicon-user" style="font-size: 10em;"></span>
 
 
-    <!--Photo Selection-->
-    <div class="amh-spacer">
-
-        <!--Photo Display-->
-
+        <!--Photo Selection-->
         <div class="amh-spacer">
+
+            <!--Photo Display-->
+
+            <div class="amh-spacer">
             <span ng-repeat="n in [1,2,3]"
                   class="glyphicon glyphicon-plus"
                   style="font-size: 5em;"></span>
+            </div>
+
+            <div ng-show="model.profile.photos">
+                You have {{model.profile.photos.length}} photos uploaded.
+            </div>
+            <div ng-repeat="photo in model.user.photos">
+                <img ng-src="{{photo.source}}" height="300" >
+            </div>
+
+            <!--Upload Button-->
+            <button ng-click="model.getFacebookPhotos()"
+                    class="btn btn-info">
+                <span class="glyphicon glyphicon-edit"></span>
+                Get Photos with Facebook.
+            </button>
         </div>
 
-        <div ng-show="model.profile.photos">
-            You have {{model.profile.photos.length}} photos uploaded.
+
+        <!--First Name-->
+        <div class="amh-spacer">
+            <label for="firstName">
+                First Name:
+            </label>
+            <input class="amh-input" type="text" ng-model="model.profile.firstName">
         </div>
-        <div ng-repeat="photo in model.user.photos">
-            <img ng-src="{{photo.source}}" height="300" >
+
+
+        <!--Last Name-->
+        <div class="amh-spacer">
+            <label for="lastName">
+                Last Name:
+            </label>
+            <input class="amh-input" type="text" ng-model="model.profile.lastName">
         </div>
 
-        <!--Upload Button-->
-        <button ng-click="model.getFacebookPhotos()"
-                class="btn btn-info">
-            <span class="glyphicon glyphicon-edit"></span>
-            Get Photos with Facebook.
-        </button>
-    </div>
+
+        <!--Birthday-->
+        <div class="amh-spacer">
+            <label for="birthday">
+                Birthday:
+            </label>
+            <input class="amh-input" type="date" ng-model="model.profile.birthday">
+        </div>
 
 
-    <!--First Name-->
-    <div class="amh-spacer">
-        <label for="firstName">
-            First Name:
-        </label>
-        <input class="amh-input" type="text" ng-model="model.profile.firstName">
-    </div>
-
-
-    <!--Last Name-->
-    <div class="amh-spacer">
-        <label for="lastName">
-            Last Name:
-        </label>
-        <input class="amh-input" type="text" ng-model="model.profile.lastName">
-    </div>
-
-
-    <!--Birthday-->
-    <div class="amh-spacer">
-        <label for="birthday">
-            Birthday:
-        </label>
-        <input class="amh-input" type="date" ng-model="model.profile.birthday">
-    </div>
-
-
-    <!--Location-->
-    <div class="amh-spacer">
+        <!--Location-->
         <label for="latitudeLongitude">
             Latitude/Longitude
         </label>
-        <input class="amh-input"
-               type="text"
-               id="latitude"
-               ng-model="model.profile.lat"
-               placeholder="Latitude">
-        <input class="amh-input"
-               type="text"
-               id="longitude"
-               ng-model="model.profile.lng"
-               placeholder="Longitude">
-        <button ng-click="model.getUserLocation()"
-                class="btn btn-default">
-            Use my current location.
-        </button>
-
-    </div>
-
-    <!-- Bio - used to generate user interests-->
-    <div class="amh-spacer">
-        <div>
-            <label for="bio">Bio:</label>
-        </div>
-        <div>
-        <textarea id="bio" rows="4" cols="50"
-              class="amh-input "
-              ng-model="model.profile.bio"
-              placeholder="I'm a big fan of pizza, dancing, swimming..."></textarea>
-        </div>
-    </div>
-
-
-    <!--Show interests 'widget' -->
-    <div class="amh-spacer">
-        <div ng-include="'interest/interest.view.client.html'"></div>
-    </div>
-
-    <!--FRIEND POINTS-->
-    <div class="amh-spacer">
         <div class="amh-spacer">
-    <div class="amh-spacer">
-        <div class="amh-skill">
-            Reliable: {{model.profile.reliable}} points
-
-            <span ng-click="model.profile.reliable = model.profile.reliable + 1"
-                  class="glyphicon glyphicon-plus"></span>
+            <input class="amh-input"
+                   type="text"
+                   id="latitude"
+                   ng-model="model.profile.lat"
+                   placeholder="Latitude">
         </div>
-        <div class="amh-skill">
-            Cool: {{model.profile.cool}} points
 
-            <span ng-click="model.profile.cool = model.profile.cool + 1""
-                  class="glyphicon glyphicon-plus"></span>
+        <div class="amh-spacer">
+            <input class="amh-input"
+                   type="text"
+                   id="longitude"
+                   ng-model="model.profile.lng"
+                   placeholder="Longitude">
         </div>
-        <div class="amh-skill">
-            Fun: {{model.profile.fun}} points
 
-            <span ng-click="model.profile.fun = model.profile.fun + 1""
-                  class="glyphicon glyphicon-plus"></span>
-        </div>
-        <div class="amh-skill">
-            Good-looking: {{model.profile.hot}} points
+        <div class="amh-spacer">
+            <button ng-click="model.getUserLocation()"
+                    class="btn btn-default">
+                Use my current location.
+            </button>
 
-            <span ng-click="model.profile.hot = model.profile.hot + 1""
-                  class="glyphicon glyphicon-plus"></span>
         </div>
-    </div>
-    </div>
+
+
     </div>
 
 
-    <!--Update Profile-->
-    <div class="amh-spacer">
-        <input type="button"
-               class="amh-input btn btn-success"
-               ng-click="model.updateProfile()"
-               value="Update Profile">
+    <div class="col-xs-6">
+
+        <!-- Bio - used to generate user interests-->
+        <div class="amh-spacer">
+            <div>
+                <label for="bio">Bio:</label>
+            </div>
+            <div>
+        <textarea id="bio" rows="4" cols="50"
+                  class="amh-input "
+                  ng-model="model.profile.bio"
+                  placeholder="I'm a big fan of pizza, dancing, swimming..."></textarea>
+            </div>
+        </div>
+
+
+        <!--Show interests 'widget' -->
+        <div class="amh-spacer">
+            <div ng-include="'interest/interest.view.client.html'"></div>
+        </div>
+
+        <!--FRIEND POINTS-->
+        <div class="amh-spacer">
+            <div class="amh-spacer">
+                <div class="amh-spacer">
+                    <div class="amh-skill">
+                        Reliable: {{model.profile.reliable}} points
+
+                        <span ng-click="model.profile.reliable = model.profile.reliable + 1"
+                              class="glyphicon glyphicon-plus"></span>
+                    </div>
+                    <div class="amh-skill">
+                        Cool: {{model.profile.cool}} points
+
+                        <span ng-click="model.profile.cool = model.profile.cool + 1""
+                        class="glyphicon glyphicon-plus"></span>
+                    </div>
+                    <div class="amh-skill">
+                        Fun: {{model.profile.fun}} points
+
+                        <span ng-click="model.profile.fun = model.profile.fun + 1""
+                        class="glyphicon glyphicon-plus"></span>
+                    </div>
+                    <div class="amh-skill">
+                        Good-looking: {{model.profile.hot}} points
+
+                        <span ng-click="model.profile.hot = model.profile.hot + 1""
+                        class="glyphicon glyphicon-plus"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Update Profile-->
+        <div class="amh-spacer">
+            <input type="button"
+                   class="amh-input btn btn-success"
+                   ng-click="model.followProfile()"
+                   value="Follow Profile">
+        </div>
+
+        <!--Update Profile-->
+        <div class="amh-spacer">
+            <input type="button"
+                   class="amh-input btn btn-success"
+                   ng-click="model.updateProfile()"
+                   value="Update Profile">
+        </div>
+
     </div>
+</div>
+
 
 
 </form>
