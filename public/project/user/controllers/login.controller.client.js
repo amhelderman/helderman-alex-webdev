@@ -44,16 +44,6 @@
         };
 
 
-        model.getPhotos = function(){
-            console.log("GETTING PHOTOS");
-            userService.getPhotos(model.user.id, getPhotosCallback);
-            function getPhotosCallback(photos){
-                console.log("ALEX, callback returned photos:");
-                console.log(photos);
-                model.user.photos = photos;
-            }
-        };
-
     }
 
 })();

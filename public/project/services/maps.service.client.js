@@ -104,7 +104,7 @@
                 fillOpacity: 0.35,
                 center: loc,
                 map: map,
-                radius: 200
+                radius: (profile.hot + profile.reliable + profile.cool + profile.fun)
             });
 
             marker = new google.maps.Marker({
