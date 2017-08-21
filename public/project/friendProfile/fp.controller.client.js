@@ -98,17 +98,22 @@
         function init(){
             console.log("fpController.")
 
-            userService.getUser(userId)
-                .then(function(response){
+            userService.checkLogin()
+                .then(function (response){
+                    console.log(["Account controller got user.", response.data]);
                     model.user = response.data;
-                    console.log(["Account controller checking login status", model.user]);
-                    if(model.user) {
-                        console.log(["Account Controller - getUser: ", model.user]);
-                        model.message = "Welcome, " + model.user.username + "!";
-                    }else{
-                        $location.url("/login");
-                    }
-                })
+                });
+            // userService.getUser(userId)
+            //     .then(function(response){
+            //         model.user = response.data;
+            //         console.log(["Account controller checking login status", model.user]);
+            //         if(model.user) {
+            //             console.log(["Account Controller - getUser: ", model.user]);
+            //             model.message = "Welcome, " + model.user.username + "!";
+            //         }else{
+            //             $location.url("/login");
+            //         }
+            //     })
 
             profileService.getProfileByUser(userId)
                 .then(function(response){
