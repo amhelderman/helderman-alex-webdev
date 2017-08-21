@@ -72,10 +72,8 @@ function googleStrategy(token, refreshToken, profile, done) {
                         firstName: profile.name.givenName,
                         lastName:  profile.name.familyName,
                         email:     email,
-                        google: {
-                            id:    profile.id,
-                            token: token
-                        }
+                        googleId: profile.id,
+                        googleToken: token
                     };
                     return userModel.createUser(newGoogleUser);
                 }

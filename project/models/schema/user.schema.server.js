@@ -8,7 +8,8 @@ var userSchema = mongoose.Schema({
     email: String,
     isAdmin: {type: Boolean, default: false},
     dateCreated: {type: Date, default: Date.now()},
-    googleId: Number
+    googleId: Number,
+    googleToken: String
 }, { collection: 'userinfo' });
 
 module.exports = userSchema;
