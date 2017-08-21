@@ -9,7 +9,8 @@ var userSchema = mongoose.Schema({
     isAdmin: {type: Boolean, default: false},
     dateCreated: {type: Date, default: Date.now()},
     googleId: Number,
-    googleToken: String
+    googleToken: String,
+    usersFollowing: []
 }, { collection: 'userinfo' });
 
 module.exports = userSchema;

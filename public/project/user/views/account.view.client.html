@@ -45,6 +45,20 @@
         </div>
 
 
+        <div class="amh-spacer">
+            Followed {{model.user.followedUser.length}} Users:
+             <ul>
+                 <li ng-repeat="followedUser in model.user.usersFollowing">
+                     <a ng-href="#!/profile/{{followedUser._id}}">
+                         Followed user: {{followedUser.firstName}}
+                     </a>
+                 </li>
+
+             </ul>
+
+        </div>
+
+
     </div>
 
 </div>

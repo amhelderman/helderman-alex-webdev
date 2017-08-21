@@ -12,6 +12,7 @@
         this.login = login;
         this.getUserLocations = getUserLocations;
         this.checkLogin = checkLogin;
+        this.followUser = followUser;
 
         function checkLogin(){
             console.log("12222111");
@@ -67,6 +68,15 @@
             // console.log("Project - User Service Client - deleteUser "+userId);
             var url = "/ratemyfriend/api/user/"+userId;
             return $http.delete(url);
+        }
+
+        function followUser(userId){
+            checkLogin().then(
+                function (currentUser){
+                    currentUser.usersFollowing.push(userId);
+                    updateUser(currentUser._id, currentUser);
+                }
+            )
         }
 
 

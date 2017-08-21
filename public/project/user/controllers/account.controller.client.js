@@ -46,6 +46,10 @@
         model.deleteUser = function(){
             userService.deleteUser(model.user._id);
         };
+
+        model.followUser = function(){
+            userService.followUser(userId);
+        }
     }
 
 })();
