@@ -16,7 +16,9 @@
             userService.checkLogin()
                 .then(function (response){
                     console.log(["Account controller got user.", response.data]);
-                    model.user = response.data;
+                    if(response.data !== "0"){
+                        model.user = response.data;
+                    }
                 })
         }
         init();
@@ -27,7 +29,7 @@
                 $location.url("/login");
             } else{
                 model.message = "Welcome to your profile, "+model.user.username;
-                var u = "/user/"+ model.user._id;
+                var u = "/user";
                 $location.url(u);
             }
         };
