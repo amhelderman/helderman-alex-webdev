@@ -44,7 +44,7 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '#!/profile',
+        successRedirect: '#!/user',
         failureRedirect: '#!/login'
     }));
 

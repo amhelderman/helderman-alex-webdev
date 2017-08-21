@@ -28,7 +28,7 @@
                         qweqweqwe: checkLoggedIn
                     }
                 })
-            .when("/user/:userId",
+            .when("/user/",
                 {
                     templateUrl: "user/views/account.view.client.html",
                     controller: "accountController",
@@ -37,7 +37,7 @@
                         qweqweqwe: checkLoggedIn
                     }
                 })
-            .when("/profile/:userId",
+            .when("/profile/",
                 {
                     templateUrl: "friendProfile/friendProfile.html",
                     controller: "fpController",
