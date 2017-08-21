@@ -44,7 +44,7 @@
         function createUser(user){
             /* Handle user check at client level */
             console.log("user service: createUser user "+user.username);
-            var url = "/ratemyfriend/api/user/";
+            var url = "/ratemyfriend/api/register";
             return $http.post(url, user);
         }
 
