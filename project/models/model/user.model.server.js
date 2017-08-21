@@ -31,6 +31,10 @@ function createUser(user){
             console.log(["the users id is ", response]);
             console.log(["lets create a profile too..."]);
             var blankProfile = {userId: response._id};
+            if(response.firstName && response.lastName){
+                blankProfile.firstName = response.firstName;
+                blankProfile.lastName = response.lastName;
+            }
             profileModel.createProfile(blankProfile);
             return response;
         });
