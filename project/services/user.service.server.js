@@ -44,8 +44,8 @@ app.get('/auth/google',
 
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '#!/user',
-        failureRedirect: '#!/login'
+        successRedirect: 'http://helderman-alex-webdev.herokuapp.com/project/#!/user',
+        failureRedirect: 'http://helderman-alex-webdev.herokuapp.com/project/#!/login'
     }));
 
 function gAuthorized (req, res, next) {
