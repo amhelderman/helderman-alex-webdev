@@ -15,7 +15,12 @@
 
         function checkLogin(){
             console.log("12222111");
-            return $http.get('/ratemyfriend/api/loggedin');
+
+            return $http.get('/ratemyfriend/api/loggedin')
+                .then(function(user){
+                    console.log(["CHECK LOGIN CLIENT: ", user]);
+                    return user;
+                })
         }
 
         function getUserLocations(){
