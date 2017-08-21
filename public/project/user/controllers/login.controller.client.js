@@ -44,7 +44,8 @@
                     } else{
                         console.log(["Login Success:", model.user]);
                         model.message = "Logged in as "+model.user.username+"!";
-                        $location.url("/user/"+model.user._id);
+
+                        $location.url("/user");
                     }
                 }
             )

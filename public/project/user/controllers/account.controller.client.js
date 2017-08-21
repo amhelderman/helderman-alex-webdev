@@ -5,7 +5,7 @@
         .module("WamApp")
         .controller("accountController", accountController)
 
-    function accountController($document, $routeParams, $window, $location, userService){
+    function accountController($document, $routeParams, $window, $location, userService) {
         var model = this;
 
         var userId = $routeParams['userId'];
@@ -15,41 +15,30 @@
         model.user.name = "User";
         model.message = "Welcome, user!";
 
-        function init(){
-            // console.log(["Account trying to get user using id ", userId]);
-            // userService.getUser(userId)
-            //     .then(function(response){
-            //         model.user = response.data;
-            //         console.log(["Account controller checking login status", model.user]);
-            //         if(model.user) {
-            //             console.log(["Account Controller - getUser: ", model.user]);
-            //             model.message = "Welcome, " + model.user.username + "!";
-            //         }else{
-            //             $location.url("/login");
-            //         }
-            //     })
+        function init() {
+
             userService.checkLogin()
-                .then(function (response){
+                .then(function (response) {
                     console.log(["Account controller got user.", response.data]);
                     model.user = response.data;
+
                 })
         }
+
         init();
 
-        model.goToProfile = function(){
-            $location.url("/profile/"+model.user._id);
+        model.goToProfile = function () {
+            $location.url("/profile/" + model.user._id);
         };
 
-        model.updateUser = function(){
+        model.updateUser = function () {
             userService.updateUser(model.user._id, model.user);
         };
-        model.deleteUser = function(){
+        model.deleteUser = function () {
             userService.deleteUser(model.user._id);
         };
 
-        model.followUser = function(){
-            userService.followUser(userId);
-        }
+
     }
 
 })();

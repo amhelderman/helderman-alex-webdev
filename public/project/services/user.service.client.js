@@ -72,7 +72,9 @@
 
         function followUser(userId){
             checkLogin().then(
-                function (currentUser){
+                function (response){
+                    var currentUser = response.data;
+                    console.log(["User service followUser ", currentUser])
                     currentUser.usersFollowing.push(userId);
                     updateUser(currentUser._id, currentUser);
                 }

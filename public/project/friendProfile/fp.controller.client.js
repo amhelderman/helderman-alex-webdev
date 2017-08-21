@@ -17,6 +17,11 @@
         model.profile = {};
         model.profile.photos = [];
 
+        model.followUser = function(){
+            console.log(["Following user", userId])
+            userService.followUser(userId);
+        }
+
         model.updateProfile = function(){
             console.log(["fpController updating profile ", model.profile._id, model.profile]);
             profileService.updateProfile(model.profile._id, model.profile)
