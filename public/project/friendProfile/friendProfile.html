@@ -49,12 +49,13 @@
             <div ng-show="model.profile.photos">
                 You have {{model.profile.photos.length}} photos uploaded.
             </div>
-            <div ng-repeat="photo in model.user.photos">
+            <div ng-repeat="photo in model.viewedUser.photos">
                 <img ng-src="{{photo.source}}" height="300" >
             </div>
 
             <!--Upload Button-->
-            <button ng-click="model.getFacebookPhotos()"
+            <button ng-show="model.profileIsUsers"
+                    ng-click="model.getFacebookPhotos()"
                     class="btn btn-info">
                 <span class="glyphicon glyphicon-edit"></span>
                 Get Photos with Facebook.
@@ -109,7 +110,7 @@
                    placeholder="Longitude">
         </div>
 
-        <div class="amh-spacer">
+        <div ng-show="model.profileIsUsers" class="amh-spacer">
             <button ng-click="model.getUserLocation()"
                     class="btn btn-default">
                 Use my current location.
@@ -139,7 +140,8 @@
 
         <!--Show interests 'widget' -->
         <div class="amh-spacer">
-            <div ng-include="'interest/interest.view.client.html'"></div>
+            <div ng-show="model.profileIsUsers"
+                 ng-include="'interest/interest.view.client.html'"></div>
         </div>
 
         <!--FRIEND POINTS-->
@@ -149,25 +151,33 @@
                     <div class="amh-skill">
                         Reliable: {{model.profile.reliable}} points
 
-                        <span ng-click="model.profile.reliable = model.profile.reliable + 1"
+                        <span
+                                ng-hide="model.profileIsUsers"
+                                ng-click="model.profile.reliable = model.profile.reliable + 1"
                               class="glyphicon glyphicon-plus"></span>
                     </div>
                     <div class="amh-skill">
                         Cool: {{model.profile.cool}} points
 
-                        <span ng-click="model.profile.cool = model.profile.cool + 1""
+                        <span
+                                ng-hide="model.profileIsUsers"
+                                ng-click="model.profile.cool = model.profile.cool + 1""
                         class="glyphicon glyphicon-plus"></span>
                     </div>
                     <div class="amh-skill">
                         Fun: {{model.profile.fun}} points
 
-                        <span ng-click="model.profile.fun = model.profile.fun + 1""
+                        <span
+                                ng-hide="model.profileIsUsers"
+                                ng-click="model.profile.fun = model.profile.fun + 1""
                         class="glyphicon glyphicon-plus"></span>
                     </div>
                     <div class="amh-skill">
                         Good-looking: {{model.profile.hot}} points
 
-                        <span ng-click="model.profile.hot = model.profile.hot + 1""
+                        <span
+                                ng-hide="model.profileIsUsers"
+                                ng-click="model.profile.hot = model.profile.hot + 1""
                         class="glyphicon glyphicon-plus"></span>
                     </div>
                 </div>
@@ -177,6 +187,7 @@
         <!--Update Profile-->
         <div class="amh-spacer">
             <input type="button"
+                   ng-hide="model.profileIsUsers"
                    class="amh-input btn btn-success"
                    ng-click="model.followProfile()"
                    value="Follow Profile">
@@ -185,6 +196,7 @@
         <!--Update Profile-->
         <div class="amh-spacer">
             <input type="button"
+                   ng-show="model.profileIsUsers"
                    class="amh-input btn btn-success"
                    ng-click="model.updateProfile()"
                    value="Update Profile">

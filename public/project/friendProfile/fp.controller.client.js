@@ -103,23 +103,25 @@
                     console.log(["Account controller got user.", response.data]);
                     model.user = response.data;
                 });
-            // userService.getUser(userId)
-            //     .then(function(response){
-            //         model.user = response.data;
-            //         console.log(["Account controller checking login status", model.user]);
-            //         if(model.user) {
-            //             console.log(["Account Controller - getUser: ", model.user]);
-            //             model.message = "Welcome, " + model.user.username + "!";
-            //         }else{
-            //             $location.url("/login");
-            //         }
-            //     })
+            userService.getUser(userId)
+                .then(function(response){
+                    model.viewedUser = response.data;
+                    console.log(["Account controller checking login status", model.user]);
+                    if(model.viewedUser) {
+                        console.log(["Account Controller - getUser: ", model.viewedUser]);
+                        model.message = "Welcome, " + model.viewedUser.username + "!";
+                    }else{
+                        $location.url("/login");
+                    }
+                })
 
             profileService.getProfileByUser(userId)
                 .then(function(response){
                     model.profile = response.data;
                     if(model.message.firstName !== null){
                         model.message = "Welcome, "+model.profile.firstName+"!";
+
+                        model.profileIsUsers = (model.user._id === model.profile.userId);
                     }
                 });
 
