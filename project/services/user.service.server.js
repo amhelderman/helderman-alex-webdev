@@ -6,6 +6,7 @@ var app = require("../../express");
 var userModel = require("../models/model/user.model.server");
 var passport      = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var auth = authorized;
 
 
@@ -29,7 +30,6 @@ app.delete('/ratemyfriend/api/user/:userId', auth, deleteUser);
 /*                      Passport Config - Google
  *
  */
-var GoogleStrategy = require('passport-google-oauth2').Strategy;
 
 var googleConfig = {
     clientID     : process.env.GOOGLE_CLIENT_ID,
@@ -37,7 +37,10 @@ var googleConfig = {
     callbackURL: "/auth/google/callback"
 };
 
-app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+app.get('/auth/google',
+    passport.authenticate('google',
+        { scope : ['profile', 'email']
+    }));
 
 app.get('/auth/google/callback',
     passport.authenticate('google', {
@@ -46,11 +49,8 @@ app.get('/auth/google/callback',
     }));
 
 function gAuthorized (req, res, next) {
-    if (!req.isAuthenticated()) {
-        res.send(401);
-    } else {
-        next();
-    }
+    if (req.isAuthenticated()) { return next(); }
+    res.redirect('/login');
 }
 
 
