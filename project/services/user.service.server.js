@@ -14,7 +14,7 @@ var auth = authorized;
  *
  */
 app.post  ('/ratemyfriend/api/login', passport.authenticate('local'),  login);
-app.post  ('/ratemyfriend/api/logout',         logout);
+app.get  ('/ratemyfriend/api/logout',         logout);
 app.post  ('/ratemyfriend/api/register',       register);
 app.post  ('/ratemyfriend/api/user',     auth, createUser);
 app.get   ('/ratemyfriend/api/loggedin',       loggedin);

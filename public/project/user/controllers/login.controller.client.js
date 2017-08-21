@@ -18,6 +18,7 @@
                     console.log(["Account controller got user.", response.data]);
                     if(response.data !== "0"){
                         model.user = response.data;
+                        $location.url("/user");
                     }
                 })
         }

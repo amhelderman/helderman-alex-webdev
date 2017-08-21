@@ -22,6 +22,10 @@
                     console.log(["Account controller got user.", response.data]);
                     model.user = response.data;
 
+                    if(model.user == "0"){
+                        $location.url("/login");
+                    }
+
 
                     for(var f in model.user.usersFollowing){
                         profileService.getProfileByUser(model.user.usersFollowing[f])
