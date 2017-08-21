@@ -20,7 +20,7 @@
                     console.log("got user");
                     console.log(response.data);
                     model.user = response.data;
-                    $location.url("/user/"+model.user._id);
+                    $location.url("/user");
                 }
             )
 
