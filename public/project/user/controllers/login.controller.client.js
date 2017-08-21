@@ -13,6 +13,11 @@
 
         function init(){
             console.log("loginController.");
+            userService.checkLogin()
+                .then(function (response){
+                    console.log(["Account controller got user.", response.data]);
+                    model.user = response.data;
+                })
         }
         init();
 
