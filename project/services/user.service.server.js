@@ -29,12 +29,12 @@ app.delete('/ratemyfriend/api/user/:userId', auth, deleteUser);
 /*                      Passport Config - Google
  *
  */
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GoogleStrategy = require('passport-google-oauth2').Strategy;
 
 var googleConfig = {
     clientID     : process.env.GOOGLE_CLIENT_ID,
     clientSecret : process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL  : encodeURIComponent(process.env.GOOGLE_CALLBACK_URL)
+    callbackURL: "/auth/google/callback"
 };
 
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
@@ -57,6 +57,7 @@ function gAuthorized (req, res, next) {
 passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 
 function googleStrategy(token, refreshToken, profile, done) {
+    console.log("GOOGLE STRATEGY IS RUNNING! HOORAY!");
     userModel
         .findUserByGoogleId(profile.id)
         .then(
@@ -104,49 +105,49 @@ function authorized (req, res, next) {
         next();
     }
 }
-//
-// passport.use(new LocalStrategy(localStrategy));
-// function localStrategy(username, password, done) {
-//     userModel
-//         .findUserByCredentials(username,password)
-//         .then(
-//             function(user) {
-//                 console.log("Local strategy has determined the user to be:");
-//                 console.log(user);
-//                 if (!user) {
-//                     return done(null, false);
-//                 }
-//                 return done(null, user);
-//             },
-//             function(err) {
-//                 if (err) {
-//                     return done(err);
-//                 }
-//             });
-// }
-//
-//
-// // Serialization / deserialization
-//
-// passport.serializeUser(serializeUser);
-// passport.deserializeUser(deserializeUser);
-//
-// function serializeUser(user, done) {
-//     done(null, user);
-// }
-//
-// function deserializeUser(user, done) {
-//     userModel
-//         .findUserById(user._id)
-//         .then(
-//             function(user){
-//                 done(null, user);
-//             },
-//             function(err){
-//                 done(err, null);
-//             }
-//         );
-// }
+
+passport.use(new LocalStrategy(localStrategy));
+function localStrategy(username, password, done) {
+    userModel
+        .findUserByCredentials(username,password)
+        .then(
+            function(user) {
+                console.log("Local strategy has determined the user to be:");
+                console.log(user);
+                if (!user) {
+                    return done(null, false);
+                }
+                return done(null, user);
+            },
+            function(err) {
+                if (err) {
+                    return done(err);
+                }
+            });
+}
+
+
+// Serialization / deserialization
+
+passport.serializeUser(serializeUser);
+passport.deserializeUser(deserializeUser);
+
+function serializeUser(user, done) {
+    done(null, user);
+}
+
+function deserializeUser(user, done) {
+    userModel
+        .findUserById(user._id)
+        .then(
+            function(user){
+                done(null, user);
+            },
+            function(err){
+                done(err, null);
+            }
+        );
+}
 
 
 // Implementation
