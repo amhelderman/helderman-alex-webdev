@@ -49,8 +49,9 @@
             Followed {{model.user.followedUser.length}} Users:
              <ul>
                  <li ng-repeat="followedUser in model.user.usersFollowing">
-                     <a ng-href="#!/profile/{{followedUser}}">
-                         Followed user: {{followedUser}}
+                     <a ng-href="#!/profile/{{followedUser.userId}}"
+                     class="btn btn-info">
+                         User {{followedUser.firstName}} {{followedUser.lastName}}
                      </a>
                  </li>
 

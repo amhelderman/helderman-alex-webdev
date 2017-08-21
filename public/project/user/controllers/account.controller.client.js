@@ -5,7 +5,7 @@
         .module("WamApp")
         .controller("accountController", accountController)
 
-    function accountController($document, $routeParams, $window, $location, userService) {
+    function accountController($document, $routeParams, $window, $location, userService,profileService) {
         var model = this;
 
         var userId = $routeParams['userId'];
@@ -22,6 +22,16 @@
                     console.log(["Account controller got user.", response.data]);
                     model.user = response.data;
 
+
+                    for(var f in model.user.usersFollowing){
+                        profileService.getProfileByUser(model.user.usersFollowing[f])
+                            .then(function(response){
+                                model.profile = response.data;
+                                if(model.message.firstName !== null){
+                                    model.user.usersFollowing[f] = model.profile;
+                                }
+                            });
+                    }
                 })
         }
 
