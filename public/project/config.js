@@ -37,7 +37,7 @@
                         qweqweqwe: checkLoggedIn
                     }
                 })
-            .when("/profile/",
+            .when("/profile/:userId",
                 {
                     templateUrl: "friendProfile/friendProfile.html",
                     controller: "fpController",
