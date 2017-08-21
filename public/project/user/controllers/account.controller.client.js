@@ -29,9 +29,9 @@
             //         }
             //     })
             userService.checkLogin()
-                .then(function (user){
-                    console.log(["Account controller got user.", user]);
-                    model.user = user;
+                .then(function (response){
+                    console.log(["Account controller got user.", response.data]);
+                    model.user = response.data;
                 })
         }
         init();
