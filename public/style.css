@@ -1,5 +1,9 @@
 
 /* Canvas for processing in background of page */
+body {
+	color: white;
+	font-color: white;
+}
 
 canvas {
 	position:absolute;
